@@ -1,0 +1,37 @@
+
+
+# springboot config
+server:
+  # 服务器的HTTP端口，默认为80
+  port: 9082
+  servlet:
+    # 应用的访问路径(指定访问前缀)
+    context-path: /demo
+
+# spring config:公共的spring配置
+spring:
+  # datasource config
+  datasource:
+    url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
+    username: CCB-WORK
+    password: 123456
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    type: com.alibaba.druid.pool.DruidDataSource
+  # devtools config
+  devtools:
+    restart:
+      enabled: true  # 设置开启热部署
+      additional-paths: src/main/java # 重启目录
+      exclude: WEB-INF/** # WEB-INF下的文件内容修改不重启
+  # servlet config (可在副配置文件中自定义)
+  servlet:
+    multipart:
+      max-file-size: 100MB # 文件上传大小限制
+      max-request-size: 100MB # 请求大小限制
+  # 静态资源文件映射(基本配置)
+  mvc:
+    static-path-pattern: /static/** # 静态资源拦截过滤
+  # 配置文件(配置文件激活版本限定)
+#  profiles:
+#        active: modProduct
+#    active: coreDev
