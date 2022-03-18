@@ -1,0 +1,22 @@
+
+server:
+  port: 8080
+
+logback:
+  logPath: /ureport/log
+  level: INFO
+
+
+spring:
+  type: com.alibaba.druid.pool.DruidDataSource
+  datasource:
+    url: jdbc:mysql://localhost:3306/ureport?useUnicode=true&characterEncoding=UTF8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  main:
+    allow-bean-definition-overriding: true
+
+  # 配置文件激活
+  profiles:
+    active: dev
