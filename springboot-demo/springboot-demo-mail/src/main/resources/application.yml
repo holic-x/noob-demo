@@ -1,0 +1,9 @@
+
+# mail邮件相关配置
+mailConfig:
+  host: smtp.qq.com # 服务器
+  port: 465 # 端口号
+  username: xxx@qq.com # 邮箱账号
+  password: xxxxxx # 邮箱授权码
+  timeout: 25000 # 时间延迟
+  from: xxx@qq.com # 发送人
