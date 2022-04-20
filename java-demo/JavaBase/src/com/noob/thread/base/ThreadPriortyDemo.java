@@ -3,7 +3,7 @@ package com.noob.thread.base;
 /**
  * @description:
  * @author：holic-x
- * @date: 2022/4/10
+ * @date: 2018/3/25
  * @Copyright： 无所事事是薄弱意志的避难所
  */
 public class ThreadPriortyDemo extends Thread{
