@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 /**
  * @description:
  * @author：holic-x
- * @date: 2022/4/20
+ * @date: 2018/4/20
  * @Copyright： 无所事事是薄弱意志的避难所
  */
 public class CyclicBarrierDemo {
