@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+	<head>
+		<title>5.2.表单相关的过滤选择器</title>
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+	</head>
+
+	<body>
+		<form method="post" action="">
+			请选择你的爱好！
+			<br/>
+			<input type="checkbox" id="checkAll_2" />全选/全不选<br/>
+			<input type="checkbox" name="items" value="足球" />足球
+			<input type="checkbox" name="items" value="篮球" />篮球
+			<input type="checkbox" name="items" value="游泳" />游泳
+			<input type="checkbox" name="items" value="唱歌" />唱歌
+			<br/>
+			<input type="button" id="checkAll" value="全选" />
+			<input type="button" id="checkNo" value="全不选" />
+			<input type="button" id="checkRev" value="反选" />
+			<input type="button" id="send" value="提交" />
+		</form>
+	</body>
+	<script type="text/javascript">
+		// <input type="button" id="checkAll" value="全选" />
+		$("#checkAll").click(function(){
+			$("input[name=items]").attr("checked","checked");
+		});
+		// <input type="button" id="checkNo" value="全不选" />
+		$("#checkNo").click(function(){
+			$("input[name=items]").attr("checked",null);
+		});
+		// <input type="button" id="checkRev" value="反选" />
+		$("#checkRev").click(function(){
+			$("input[name=items]").each(function(){
+				if(this.checked){
+					$(this).attr("checked",null);
+				}else{
+					$(this).attr("checked","checked");
+				}
+			});
+		});
+		// <input type="checkbox" id="checkAll_2" />全选/全不选<br/>
+		$("#checkAll_2").click(function(){
+			if(this.checked){
+				$("input[name=items]").attr("checked","checked");
+			}else{
+				$("input[name=items]").attr("checked",null);
+			}
+		})
+	</script>
+
+</html>

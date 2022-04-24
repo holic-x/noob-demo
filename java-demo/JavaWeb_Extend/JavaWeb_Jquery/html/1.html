@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+	<head>
+		<title>1.基本选择器</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+		<style type="text/css">
+			div,
+			span {
+				width: 140px;
+				height: 140px;
+				margin: 20px;
+				background: #9999cc;
+				border: #000 1px solid;
+				float: left;
+				font-size: 17px;
+				font-family: Roman;
+			}
+			
+			div.mini {
+				width: 30px;
+				height: 30px;
+				background: #cc66ff;
+				border: #000 1px solid;
+				font-size: 12px;
+				font-family: Roman;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<input type="button" value="保存" class="mini" name="ok" />
+		<input type="button" value="改变id 为  one 的背景颜色 " id="b1" />
+		<input type="button" value="改变元素名为div的所有元素的背景颜色为#12D3F2" id="b2" />
+		<input type="button" value="改变class为mini的所有属性的背景颜色为#FF0033" id="b3" />
+		<input type="button" value="改变所有元素的背景颜色#00FF33" id="b4" />
+		<input type="button" value="改变所有<span>元素和id为two的元素 的背景颜色为#3399ff" id="b5" />
+		<input type="text" value="zhangsan" id="tid" />
+
+		<h1> 天气冷了</h1>
+
+		<h2>天气 又冷了</h2>
+
+		<div id="one"> id 为one</div>
+		<div id="two" class="mini"> id为two class为mini
+			<div class="mini"> class 为mini</div>
+		</div>
+
+		<div class="one">
+			class为one
+			<div class="mini"> class是mini</div>
+			<div class="mini"> class是mini</div>
+
+		</div>
+
+		<div class="one1">
+			class为one1
+			<div class="mini1"> class是mini1</div>
+			<div class="mini"> class是mini</div>
+		</div>
+
+		<br/>
+
+		<div id="mover">
+			动画
+		</div>
+
+		<br/>
+
+		<span class="spanone"> span</span>
+		<span class="mini"> span</span>
+
+		<script type="text/javascript">
+			/**
+			 * $("#id"):获取id为指定id的标签元素（如果带有特殊字符需要进行转义）
+			 * $("tagName"):根据元素名称获取指定的标签元素
+			 * $(".class"):获取class为指定class的元素
+			 * $("*"):获取/匹配当前所有元素
+			 * $("tagName,#id,.class"):匹配多个选择器
+			 */
+			// <input type="button" value="改变id 为  one 的背景颜色 " id="b1" />
+			$("#b1").click(function(){
+				$("#one").css("background","aqua");
+			});
+			// <input type="button" value="改变元素名为div的所有元素的背景颜色为#12D3F2" id="b2" />
+			$("#b2").click(function(){
+				$("div").css("background","#12D3F2");
+			});
+			// <input type="button" value="改变class为mini的所有属性的背景颜色为#FF0033" id="b3" />
+			$("#b3").click(function(){
+				$(".mini").css("background","#FF0033");
+			});
+			// <input type="button" value="改变所有元素的背景颜色#00FF33" id="b4" />
+			$("#b4").click(function(){
+				$("*").css("background","#00FF33");
+			});
+			// <input type="button" value="改变所有<span>元素和id为two的元素 的背景颜色为#3399ff" id="b5" />
+			$("#b5").click(function(){
+				$("span,#two").css("background","#3399ff");
+			});
+		</script>
+	</body>
+</html>

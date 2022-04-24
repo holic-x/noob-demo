@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="JavaWeb_JSP:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaWeb_JSP_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JavaWeb_JSP" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="libs" />
+          <element id="file-copy" path="$PROJECT_DIR$/JavaWeb_JSP/WebContent/WEB-INF/lib/jstl-1.2.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="JavaWeb_JSP/web/Web" />
+    </root>
+  </artifact>
+</component>

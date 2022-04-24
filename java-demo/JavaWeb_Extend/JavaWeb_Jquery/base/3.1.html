@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>3.Jquery的语法格式：获取某个标签的内容</title>
+	</head>
+	<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+
+	<body>
+		<!--
+        	a.根据id获取某个标签的内容
+        -->
+		<div id="test">
+			hello test
+		</div>
+		<span id="test">
+        	hello test2
+        </span>
+
+	</body>
+	<script type="text/javascript">
+		/**
+		 * 1.普通方式获取
+		 * document.getElementById("id"); -- $("#id")
+		 * document.getElementsByTagName("input");
+		 * document.getElementsByName("name");
+		 */
+		$(document).ready(function() {
+			// .html()等价于js中的innerHTML，向网页中插入内容
+			$("#test").html("hello Jquery");
+			// 获取id为guigu的length
+			alert($("#test").length);
+			/**
+			 * 通过结果发现只有div中的内容发生变化，而且长度为1
+			 * 虽然获得的是一个对象，但是返回的是一个数组集合的形式
+			 * $("#guigu")是一个数组集合的形式返回，可以进行迭代
+			 */
+		})
+	</script>
+
+</html>

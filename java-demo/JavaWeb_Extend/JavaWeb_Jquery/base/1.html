@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>1.Jqery的基本使用</title>
+		<!--
+        	jquery是javascript的一个框架，在使用之前需要导入相应的jquery包
+        	此处导入的是压缩包：jquery-1.8.2.min.js
+        -->
+        <script type="text/javascript" src="../js/jquery-1.8.2.min.js" ></script>
+	</head>
+	<body>
+		<!--了解JQuery的核心：用更少的代码实现更多的功能-->
+		<p>1.点击我，我会消失！</p>
+		<p>2.点击我，我会消失！</p>
+		<p>3.点击我，我会消失！</p>
+		<p>4.点击我，我会消失！</p>
+		<p>5.点击我，我会消失！</p>
+	</body>
+	<script type="text/javascript">
+		/**
+		 * 在DOM加载完成时运行的代码
+		 * $(document).ready(function(){
+		 * 		content......;
+		 * });
+		 */
+		$(document).ready(function(){
+			$("p").click(function(){
+				$(this).hide();// 隐藏p标签的内容
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+	<head>
+		<title>7.事件：鼠标获取焦点、失去焦点事件</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+		<style type="text/css">
+			div,
+			span {
+				width: 140x;
+				height: 140px;
+				margin: 20px;
+				background: #9999cc;
+				border: #000 1px solid;
+				float: left;
+				font-size: 17px;
+				font-family: Roman;
+			}
+			
+			div.mini {
+				width: 30px;
+				height: 30px;
+				background: #CC66FF;
+				border: #000 1px solid;
+				font-size: 12px;
+				font-family: Roman;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="text" value="用户邮箱/手机号/用户名" id="b1" /><br/>
+		<input type="password" value="" id="b2" /><br/>
+		<input type="button" value="登陆" id="bt" /><br/>
+	</body>
+	<script type="text/javascript">
+		/**
+		 * .focus():鼠标获取焦点事件
+		 * .blur():鼠标失去焦点事件
+		 */
+		// 获取进行监听的文本框进行监听
+		$("#b1").focus(function(){
+			// 鼠标获取焦点事件：判断当前文本框的值是否与默认值相同
+			var curValue = $(this).val();
+			if(curValue==this.defaultValue){
+				// 如果相同说明用户没有输入数据，将文本框置空
+				$(this).val("");
+			}
+		});
+		$("#b1").blur(function(){
+			// 鼠标失去焦点事件，判断当前文本框的值是否为空（需要去除空格）
+			var curValue = $.trim($(this).val());
+			if(curValue==""){
+				// 如果输入内容为空则将文本框置为默认值
+				$(this).val(this.defaultValue);
+			}
+		});
+	</script>
+</html>

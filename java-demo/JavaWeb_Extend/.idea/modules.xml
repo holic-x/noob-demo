@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaWeb_Ajax/JavaWeb_Ajax.iml" filepath="$PROJECT_DIR$/JavaWeb_Ajax/JavaWeb_Ajax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaWeb_Filter/JavaWeb_Filter.iml" filepath="$PROJECT_DIR$/JavaWeb_Filter/JavaWeb_Filter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaWeb_JSP/JavaWeb_JSP.iml" filepath="$PROJECT_DIR$/JavaWeb_JSP/JavaWeb_JSP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaWeb_Jquery/JavaWeb_Jquery.iml" filepath="$PROJECT_DIR$/JavaWeb_Jquery/JavaWeb_Jquery.iml" />
+    </modules>
+  </component>
+</project>

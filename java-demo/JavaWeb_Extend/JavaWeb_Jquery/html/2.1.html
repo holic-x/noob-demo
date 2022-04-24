@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+	<head>
+		<title>2.过滤选择器</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+		<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+		<style type="text/css">
+			div,
+			span {
+				width: 140px;
+				height: 140px;
+				margin: 20px;
+				background: #9999cc;
+				border: #000 1px solid;
+				float: left;
+				font-size: 17px;
+				font-family: Roman;
+			}
+			
+			div.mini {
+				width: 30px;
+				height: 30px;
+				background: #cc66ff;
+				border: #000 1px solid;
+				font-size: 12px;
+				font-family: Roman;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="改变第一个 div 元素的背景色为 #12D3F2" id="b1" />
+		<input type="button" value="改变最后一个 div 元素的背景色为 #12D3F2" id="b2" />
+		<input type="button" value="改变class不为 one 的所有 div 元素的背景色为 #12D3F2" id="b3" />
+		<input type="button" value="改变索引值为偶数的 div 元素的背景色为 #12D3F2" id="b4" />
+		<input type="button" value="改变索引值为奇数的 div 元素的背景色为 #12D3F2" id="b5" />
+		<input type="button" value="改变索引值为大于 3 的 div 元素的背景色为 #12D3F2" id="b6" />
+		<input type="button" value="改变索引值为等于 3 的 div 元素的背景色为 #12D3F2" id="b7" />
+		<input type="button" value="改变索引值为小于 3 的 div 元素的背景色为 #12D3F2" id="b8" />
+		<input type="button" value="改变所有的标题元素的背景色为 #12D3F2" id="b9" />
+		<input type="button" value="改变当前正在执行动画的所有元素的背景色为 #12D3F2" id="b10" />
+
+		<h1> 天气冷了</h1>
+
+		<h2>天气 又冷了</h2>
+
+		<div id="one"> id 为one</div>
+		<div id="two" class="mini"> id为two class为mini
+			<div class="mini"> class 为mini</div>
+		</div>
+
+		<div class="one">
+			class为one
+			<div class="mini"> class是mini</div>
+			<div class="mini"> class是mini</div>
+
+		</div>
+
+		<div class="one1">
+			class为one1
+			<div class="mini1"> class是mini1</div>
+			<div class="mini"> class是mini</div>
+
+		</div>
+		<br/>
+
+		<div id="move">
+			动画
+		</div>
+
+		<br/>
+
+		<span class="spanone"> span</span>
+		<span class="mini"> span</span>
+	</body>
+	<script type="text/javascript">
+		/**
+		 * 过滤选择器：
+		 * $("tagName:first")：获取查找到的第一个元素
+		 * $("tagName:last"):获取查找到的最后一个元素
+		 * $("tagName:not(xxx)"):获取范围内不匹配的元素
+		 * $("tagName:even"):获取索引值为偶数的指定元素
+		 * $("tagName:odd"):获取索引值为奇数的指定元素
+		 * $("tagName:gt(n)"):获取索引值大于某个数的指定元素
+		 * $("tagName:lt(n)"):获取索引值小于某个数的指定元素
+		 * $("tagName:eq(n)"):获取索引值等于某个数的指定元素
+		 * $(":header"):获取所有的标题元素
+		 * $(":animated"):获取正在执行动画效果的指定元素
+		 */
+		// <input type="button" value="改变第一个 div 元素的背景色为 #12D3F2" id="b1" />
+		$("#b1").click(function(){
+			$("div:first").css("background","#12D3F2");
+		});
+		// <input type="button" value="改变最后一个 div 元素的背景色为 #12D3F2" id="b2" />
+		$("#b2").click(function(){
+			$("div:last").css("background","#12D3F2");
+		});
+		// <input type="button" value="改变class不为 one 的所有 div 元素的背景色为 #12D3F2" id="b3" />
+		$("#b3").click(function(){
+			$("div:not(.one)").css("background","#12D3F2");
+		});
+		// <input type="button" value="改变索引值为偶数的 div 元素的背景色为 #12D3F2" id="b4" />
+		$("#b4").click(function(){
+			$("div:even").css("background","#12D3F2");
+		});
+		// <input type="button" value="改变索引值为奇数的 div 元素的背景色为 #12D3F2" id="b5" />
+		$("#b5").click(function(){
+			$("div:odd").css("background","#12D3F2");
+		});
+		// <input type="button" value="改变索引值为大于 3 的 div 元素的背景色为 #12D3F2" id="b6" />
+		$("#b6").click(function(){
+			$("div:gt(3)").css("background","#12D3F2");
+		});
+		// <input type="button" value="改变索引值为等于 3 的 div 元素的背景色为 #12D3F2" id="b7" />
+		$("#b7").click(function(){
+			$("div:eq(3)").css("background","#12D3F2");
+		});
+		// <input type="button" value="改变索引值为小于 3 的 div 元素的背景色为 #12D3F2" id="b8" />
+		$("#b8").click(function(){
+			$("div:lt(3)").css("background","#12D3F2");
+		});
+		// <input type="button" value="改变所有的标题元素的背景色为 #12D3F2" id="b9" />
+		$("#b9").click(function(){
+			$(":header").css("background","#12D3F2");
+		});
+		// <input type="button" value="改变当前正在执行动画的所有元素的背景色为 #12D3F2" id="b10" />
+	 	function move(){
+  	 	$("#move").slideToggle("fast",move);
+ 	  }
+    move();
+ 	 	$("#b10").click(function(){
+ 		  $(":animated").css("background","red");
+ 	  });
+	</script>
+</html>

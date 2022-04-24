@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2.Jquery的语法格式:$(document).ready()</title>
+	</head>
+	<script type="text/javascript" src="../js/jquery-1.8.2.min.js" ></script>
+	<body>
+		<!--
+        	$(document):获取document，相当于获取整个文档
+        	$(document).ready():等价于document.onload事件（页面在访问的时候自动加载）
+        	两者的区别：$(document).ready()可以指定多次，而document.onload只能执行一次
+        -->
+	</body>
+	<script type="text/javascript">
+		// 而document.onload只能执行一个，如果有多个则会发生覆盖
+		window.onload = function(){
+			alert("hello js 1!");
+		};
+		window.onload = function(){
+			alert("hello js 2!");
+		};
+	</script>
+</html>
