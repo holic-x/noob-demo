@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.noob.mybatis.c_many_to_many.UserDetailMapper">
+ 	
+ 	<!-- 定义通过ResultMap实现多对多查询-->
+ 	<resultMap type="User" id="UserDetailResultMap">
+ 		<!-- 配置User基本属性 -->
+ 		<id column="user_id" property="id"/>
+ 		<result column="username" property="username"/>
+ 		<result column="sex" property="sex"/>
+ 		<result column="address" property="address"/>
+ 		<!-- 配置User对应订单信息 -->
+ 		<collection property="orders" ofType="Orders">
+ 			<id column="id" property="id"/>
+			<result column="user_id" property="user_id"/>
+			<result column="number" property="number"/>
+			<result column="createtime" property="createtime"/>
+			<result column="note" property="note"/>
+			<!-- 配置订单信息对应的订单明细 -->			
+ 			<collection property="orderdetails" ofType="OrderDetail">
+ 				<!-- 配置订单明细基本属性 -->
+				<id column="orderdetail_id" property="id"/>
+				<result column="orders_id" property="orders_id"/>
+				<result column="items_id" property="items_id"/>
+				<result column="items_num" property="items_num"/>
+ 				<!-- 配置订单明细对应的商品详情 -->
+ 				<association property="items" javaType="Items">
+ 					<!-- 配置商品详情 -->
+ 					<id column="items_id" property="id"/>
+ 					<result column="items_name" property="name"/>
+ 					<result column="items_price" property="price"/>
+ 					<result column="items_detail" property="detail"/>
+ 					<!-- 没有查询到的属性则不作定义 -->
+ 				</association>
+ 			</collection>
+ 		</collection>
+ 	</resultMap>
+ 	
+ 	<select id="findUserDetailByResultMap" resultMap="UserDetailResultMap">
+		select
+		  orders.*,
+		  user.username,
+		  user.sex,
+		  user.address,
+		  orderdetail.id orderdetail_id,
+		  orderdetail.items_id,
+		  orderdetail.items_num,
+		  orderdetail.orders_id,
+		  items.name items_name,
+		  items.detail items_detail,
+		  items.price items_price
+		from  
+		   orders,
+		   user,
+		   orderdetail,
+		   items
+		where orders.user_id=user.id 
+			and orderdetail.orders_id=orders.id 
+			and orderdetail.items_id=items.id
+ 	</select>
+ </mapper>

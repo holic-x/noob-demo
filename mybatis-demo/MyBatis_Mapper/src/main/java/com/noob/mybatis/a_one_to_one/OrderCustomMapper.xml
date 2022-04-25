@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.noob.mybatis.a_one_to_one.OrderCustomMapper">
+ 	<!-- a.定义通过ResultType实现一对一查询-->
+ 	<select id="findOrderCustomByResultType" resultType="OrderCustom">
+		select
+		  orders.*,
+		  user.username,
+		  user.sex,
+		  user.address
+		from  
+		   orders,
+		   user
+		where orders.user_id=user.id
+ 	</select>
+ 	
+ 	<!-- b.定义通过ResultMap实现一对一查询-->
+ 	<resultMap type="Orders" id="OrderCustomResultMap">
+ 		<!-- 配置基本属性 -->
+ 		<id column="id" property="id"/>
+ 		<result column="user_id" property="user_id"/>
+ 		<result column="number" property="number"/>
+ 		<result column="createtime" property="createtime"/>
+ 		<result column="note" property="note"/>
+ 		<!-- 配置对象属性(即配置映射的关联的用户信息) -->
+ 		<!-- 
+ 			一对一查询配置关联属性使用association标签
+ 			<association property="" javaType="">
+ 		 		<id column="" property=""></id>
+ 		 		<result column="" property=""/>
+ 		 	</association>
+ 		 	association：用于映射关系查询，查询单个对象的信息（一对一查询的映射）
+ 		 	property:此处是指要将关联查询的用户信息映射到Orders的哪个属性（即user）
+ 		 	javaType：要映射的对象的全名称（即com.noob.mybatis.model.User）
+ 		 	其余内容的定义则为对应对象的普通属性进行操作即可
+ 		 	（没有获取到的属性则不需要定义映射）
+ 		 -->
+ 		 <association property="user" javaType="com.noob.mybatis.model.User">
+ 		 	<!-- 此处的id是唯一标识“user”对象的属性 -->
+ 		 	<id column="user_id" property="id"/>
+ 		 	<result column="username" property="username"/>
+ 		 	<result column="sex" property="sex"/>
+ 		 	<result column="address" property="address"/>
+ 		 </association>
+ 	</resultMap>
+ 	<select id="findOrderCustomByResultMap" resultMap="OrderCustomResultMap">
+		select
+		  orders.*,
+		  user.username,
+		  user.sex,
+		  user.address
+		from  
+		   orders,
+		   user
+		where orders.user_id=user.id
+ 	</select>
+ </mapper>
