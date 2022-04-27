@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-Vue常用指令样例（v-bind）</title>
+	<style>
+        .custom{
+            border: 1px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="div">
+		<a v-bind:href="url">链接跳转</a>
+        <br>
+        <a :href="url">链接跳转</a>
+        <br>
+        <div :class="cls">自定义样式</div>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    // 脚本
+    let vm = new Vue({
+        el:"#div",
+        data:{
+            url:"https://www.baidu.com",
+            cls:"custom"
+        }
+    });
+</script>
+</html>

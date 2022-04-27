@@ -43,6 +43,7 @@
 		<package name="com.noob.mybatis.c_many_to_many"></package>
 		<package name="com.noob.mybatis.d_lazyloading"></package>
 		<package name="com.noob.mybatis.e_cache"></package>
+		<package name="com.noob.annotation.mapper"></package>
 	</mappers>
 	
 </configuration>

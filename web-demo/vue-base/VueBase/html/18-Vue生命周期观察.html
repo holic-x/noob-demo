@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18-Vue生命周期观察</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+				el: '#app',
+				data: {
+					msg: 'Vue的生命周期观察'
+				},
+				beforeCreate: function() {
+					console.group('------beforeCreate创建前状态------');
+					console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+					console.log("%c%s", "color:red", "data   : " + this.$data); //undefined 
+					console.log("%c%s", "color:red", "msg: " + this.msg);//undefined
+				},
+				created: function() {
+					console.group('------created创建完毕状态------');
+					console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+					console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化 
+					console.log("%c%s", "color:red", "msg: " + this.msg); //已被初始化
+				},
+				beforeMount: function() {
+					console.group('------beforeMount挂载前状态------');
+					console.log("%c%s", "color:red", "el     : " + (this.$el)); //已被初始化
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化  
+					console.log("%c%s", "color:red", "msg: " + this.msg); //已被初始化  
+				},
+				mounted: function() {
+					console.group('------mounted 挂载结束状态------');
+					console.log("%c%s", "color:red", "el     : " + this.$el); //已被初始化
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
+					console.log("%c%s", "color:red", "msg: " + this.msg); //已被初始化 
+				},
+				beforeUpdate: function() {
+					console.group('beforeUpdate 更新前状态===============》');
+					let dom = document.getElementById("app").innerHTML;
+					console.log(dom);
+					console.log("%c%s", "color:red", "el     : " + this.$el);
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data);
+					console.log("%c%s", "color:red", "msg: " + this.msg);
+				},
+				updated: function() {
+					console.group('updated 更新完成状态===============》');
+					let dom = document.getElementById("app").innerHTML;
+					console.log(dom);
+					console.log("%c%s", "color:red", "el     : " + this.$el);
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data);
+					console.log("%c%s", "color:red", "msg: " + this.msg);
+				},
+				beforeDestroy: function() {
+					console.group('beforeDestroy 销毁前状态===============》');
+					console.log("%c%s", "color:red", "el     : " + this.$el);
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data);
+					console.log("%c%s", "color:red", "msg: " + this.msg);
+				},
+				destroyed: function() {
+					console.group('destroyed 销毁完成状态===============》');
+					console.log("%c%s", "color:red", "el     : " + this.$el);
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data);
+					console.log("%c%s", "color:red", "msg: " + this.msg);
+				}
+			});
+			
+			// 设置data中msg数据值(验证beforedUpdate、updated)
+			// vm.msg = "good...";
+			
+			// 销毁Vue对象(验证beforedestory、destroyed)
+			vm.$destroy();
+			vm.msg = "test";	// 销毁后Vue实例会解绑所有内容
+			
+</script>
+</html>

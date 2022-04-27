@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-Vue核心内容样例</title>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="div">
+		<div>消息：{{msg}}</div>
+        <button onclick="say()">say hi</button>
+        <button onclick="update()">消息变更</button>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    // 脚本
+    let vm = new Vue({
+        el:"#div",
+        data:{
+            msg:"Hello Vue！" // 视图中的变量在此处进行初始化
+        },
+		methods:{
+			hi(){
+				alert(this.msg);
+			}
+		}
+    });
+	
+	// 方法定义
+	function say(){
+		// 可调用vue对象中定义的method
+		vm.hi();
+	}
+	
+	// 消息变更方法
+	function update(){
+		vm.msg = "滴滴滴......";
+	}
+</script>
+</html>

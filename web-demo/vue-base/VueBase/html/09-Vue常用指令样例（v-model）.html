@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-Vue常用指令样例（v-model）</title>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="div">
+        <ul>
+			<!-- 表单数据绑定 -->
+			<form autocomplete="off">
+				姓名：<input type="text" name="sname" v-model="stu.sname">
+            <br>
+				学号：<input type="number" name="sno" v-model="stu.sno">
+			</form>
+			<button onclick="submitData()">提交</button>
+        </ul>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    // 脚本
+    let vm = new Vue({
+        el:"#div",
+        data:{
+			stu:{
+				sname: "stu1001",
+				sno: "1001"
+			}
+        }
+    });
+	
+	
+	function submitData(){
+		alert("提交信息:"+vm.stu.sname+";"+vm.stu.sno);
+	}
+</script>
+</html>

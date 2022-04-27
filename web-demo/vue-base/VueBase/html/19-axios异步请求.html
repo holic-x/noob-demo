@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19-axios异步请求</title>
+	<!-- 引入vue和axios相关js -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios-0.18.0.js"></script>
+</head>
+<body>
+    <div id="div">
+        {{msg}}
+		<button @click="sendByGet()">模拟发起Get请求</button>
+		<button @click="sendByPost()">模拟发起Post请求</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#div",
+        data:{
+            msg:"hello vue"
+        },
+        methods:{
+            sendByGet(){
+                // GET方式请求
+                axios.get("vueServlet?msg=" + this.msg)
+                     .then(resp => {
+                         alert(resp.data);
+                     })
+                     .catch(error => {
+						// 异常处理
+                         alert(error);
+                     })
+            },
+			sendByPost(){
+                // POST方式请求
+                axios.post("vueServlet","msg="+this.msg)
+                    .then(resp => {
+                        alert(resp.data);
+                    })
+                    .catch(error => {
+						// 异常处理
+                        alert(error);
+                    })
+            }
+        }
+    });
+</script>
+</html>

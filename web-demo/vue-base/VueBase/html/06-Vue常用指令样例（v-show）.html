@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-Vue常用指令样例（v-show）</title>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="div">
+		<div v-show="option">hello vue</div>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    // 脚本
+    let vm = new Vue({
+        el:"#div",
+        data:{
+            option: true // 默认option指定
+        }
+    });
+</script>
+</html>

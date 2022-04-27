@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-自定义Vue组件</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="div">
+        <custom-button>按钮</custom-button>
+    </div>
+</body>
+<script>
+	// 自定义组件
+    Vue.component("custom-button",{
+        // 属性
+        props:["style"],
+        // 数据函数
+        data: function(){
+            return{
+                msg:"自定义按钮"
+            }
+        },
+        // 解析标签模板
+        template:"<button style='color:blue'>{{msg}}</button>"
+    });
+
+    new Vue({
+        el:"#div"
+    });
+</script>
+</html>

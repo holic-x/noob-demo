@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-Vue常用指令样例（v-if系列）</title>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="div">
+		<div v-if="option == 1">消息1</div>
+        <div v-else-if="option == 2">消息2</div>
+        <div v-else="option == 3">消息3</div>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    // 脚本
+    let vm = new Vue({
+        el:"#div",
+        data:{
+            option:"1" // 默认option指定
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.noob.maven</groupId>
+	<artifactId>Parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Parent</name>
+	<url>http://maven.apache.org</url>
+
+	<!-- 执行每个子程序：编辑、测试、打包、部署 -->
+	<modules>
+		<module>../Hello</module>
+		<module>../HelloFriend</module>
+		<module>../MakeFriend</module>
+	</modules>
+
+	<!-- 此处统一设置属性 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit-version>4.12</junit-version>
+		<log4j-version>1.2.17</log4j-version>
+		<maven-version>0.0.1-SNAPSHOT</maven-version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit-version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.noob.maven</groupId>
+				<artifactId>Hello</artifactId>
+				<version>${maven-version}</version>
+				<scope>compile</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.noob.maven</groupId>
+				<artifactId>HelloFriend</artifactId>
+				<version>${maven-version}</version>
+				<scope>compile</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

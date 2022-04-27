@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-Vue常用指令样例（v-html）</title>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="div">
+		<div>消息：{{msg}}</div>
+        <div v-html="msg"></div>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    // 脚本
+    let vm = new Vue({
+        el:"#div",
+        data:{
+            msg:"<h1>Hello Vue</h1>" // 视图中的变量在此处进行初始化
+        }
+    });
+</script>
+</html>
