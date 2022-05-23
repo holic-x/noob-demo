@@ -1,0 +1,2 @@
+C:\custom\develop\CONFIG\mingw\MinGW\bin\ar.exe qc ..\..\lib\libshelld.a  CMakeFiles/shell.dir/shell/shell.c.obj
+C:\custom\develop\CONFIG\mingw\MinGW\bin\ranlib.exe ..\..\lib\libshelld.a
