@@ -1,0 +1,61 @@
+# springboot config
+server:
+  # 服务器的HTTP端口，默认为80
+  port: 8090
+  servlet:
+    # 应用的访问路径(指定访问前缀)
+    context-path: /sbf-demo
+
+# spring config
+spring:
+  # datasource config
+  datasource:
+    # url: jdbc:mysql://localhost:3306/mip-local?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/demo?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  # devtools config
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/** # WEB-INF下的文件内容修改不重启
+  # 配置文件(副配置文件激活)
+  profiles:
+    active: oracle
+
+# mybatis config
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  type-aliases-package: com.sz.demo.**.model
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 2
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换 column-underline
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #序列接口实现类配置
+    #key-generator: com.baomidou.springboot.xxx
+    #逻辑删除配置（下面3个配置）
+    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+    logic-not-delete-value: 0
+    logic-delete-value: 1
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    # 打印sql执行语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  type-enums-package: com.sz.mip.framework.domain.enums
+
+
+# flowable相关
+flowable:
+  #关闭定时任务JOB
+  async-executor-activate: false

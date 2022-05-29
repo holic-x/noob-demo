@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="sbf-demo-test" name="sbf-demo-test" isExecutable="true">
+    <documentation>搭桥转卖（测试）</documentation>
+    <startEvent id="start" name="开始" flowable:formFieldValidation="true"></startEvent>
+    <userTask id="add_info" name="信息录入" flowable:assignee="${taskCustomManager}" flowable:formFieldValidation="true">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="pay_and_out" name="收款汇出" flowable:assignee="${taskCustomManager}" flowable:formFieldValidation="true">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <endEvent id="end" name="流程结束"></endEvent>
+    <sequenceFlow id="flow_commit" name="提交" sourceRef="add_info" targetRef="check_info"></sequenceFlow>
+    <sequenceFlow id="flow_start" sourceRef="start" targetRef="add_info"></sequenceFlow>
+    <userTask id="check_info" name="业务审核" flowable:assignee="${taskProductManager}" flowable:formFieldValidation="true">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow_check_reject" name="审核失败" sourceRef="check_info" targetRef="end">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${check_flag==0}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow_check_pass" name="审核通过" sourceRef="check_info" targetRef="pay_and_out">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${check_flag==1}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow_end" name="成功汇出" sourceRef="pay_and_out" targetRef="end">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${pay_flag==1}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_sbf-demo-test">
+    <bpmndi:BPMNPlane bpmnElement="sbf-demo-test" id="BPMNPlane_sbf-demo-test">
+      <bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.5" y="186.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="add_info" id="BPMNShape_add_info">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.5" y="161.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="pay_and_out" id="BPMNShape_pay_and_out">
+        <omgdc:Bounds height="80.0" width="100.0" x="570.0" y="161.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="end" id="BPMNShape_end">
+        <omgdc:Bounds height="28.0" width="28.0" x="471.5" y="285.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="check_info" id="BPMNShape_check_info">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.5" y="161.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow_start" id="BPMNEdge_flow_start">
+        <omgdi:waypoint x="130.4499984899576" y="201.0"></omgdi:waypoint>
+        <omgdi:waypoint x="175.5" y="201.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow_check_reject" id="BPMNEdge_flow_check_reject">
+        <omgdi:waypoint x="372.35093141405594" y="240.95000000000002"></omgdi:waypoint>
+        <omgdi:waypoint x="473.03224682819666" y="292.60802368734244"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow_check_pass" id="BPMNEdge_flow_check_pass">
+        <omgdi:waypoint x="420.449999999977" y="201.0"></omgdi:waypoint>
+        <omgdi:waypoint x="569.9999999999274" y="201.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow_end" id="BPMNEdge_flow_end">
+        <omgdi:waypoint x="570.0" y="237.39479553903348"></omgdi:waypoint>
+        <omgdi:waypoint x="496.7753970566822" y="290.7550232739087"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow_commit" id="BPMNEdge_flow_commit">
+        <omgdi:waypoint x="275.4499999999907" y="201.0"></omgdi:waypoint>
+        <omgdi:waypoint x="320.4999999999807" y="201.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
