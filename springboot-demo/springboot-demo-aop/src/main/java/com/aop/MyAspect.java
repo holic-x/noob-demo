@@ -28,5 +28,4 @@ public class MyAspect {
     public void doSth() {
         System.out.println("后置增强......执行操作后处理某些事物......");
     }
-
 }
