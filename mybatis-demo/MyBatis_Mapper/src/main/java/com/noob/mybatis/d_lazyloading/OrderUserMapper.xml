@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.noob.mybatis.d_lazyloading.OrderUserMapper">
+ 	<!-- 查询订单关联查询用户（用户信息延迟加载） -->
+ 	<select id="findOrderUserLazyLoading" resultMap="OrderUserLazyLoadingResultMap">
+		select * from orders
+ 	</select>
+ 	
+ 	<select id="fingUserById"  parameterType="int" resultType="User">
+ 		select * from user where id=#{value}
+ 	</select>
+ 	
+ 	<resultMap type="Orders" id="OrderUserLazyLoadingResultMap">
+ 		<!-- 配置基本属性 -->
+ 		<id column="id" property="id"/>
+ 		<result column="user_id" property="user_id"/>
+ 		<result column="number" property="number"/>
+ 		<result column="createtime" property="createtime"/>
+ 		<result column="note" property="note"/>
+ 	
+ 		 <association property="user" javaType="com.noob.mybatis.model.User"
+					  select="com.noob.mybatis.d_lazyloading.OrderUserMapper.fingUserById" column="user_id">
+ 		 	<!-- 
+ 		 		此处通过select实现用户信息的延迟加载 :加载指定用户信息
+ 		 		column为延迟加载过程中传递的参数：传递user_id参数
+			-->
+ 		 </association>
+ 	</resultMap>
+ </mapper>

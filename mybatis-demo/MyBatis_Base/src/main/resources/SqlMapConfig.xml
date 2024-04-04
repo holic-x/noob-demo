@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 1.通过properties加载配置文件 -->
+	<properties resource="db.properties">
+		<property name="username" value="wkaka"/>
+	</properties>
+	
+	<!-- 2.setting配置（一般使用默认） -->
+	<!-- <settings>
+		<setting name="cacheEnable" value="true"/>
+		<setting name="lazyLoadingEnabled" value="true"/>
+	</settings> -->
+	
+	<!-- 3.定义别名的两种方式 -->
+	<typeAliases>
+		<!-- 方式1：定义单个别名 -->
+		<!-- <typeAlias type="com.noob.mybatis.model.User" alias="user"/> -->
+		<!-- 方式2：批量定义别名 -->
+		<package name="com.noob.mybatis.model"/>
+		<!-- 批量定义别名：对应的别名即为类名或者类型首字母小写（eg：User、user） -->
+	</typeAliases>
+	
+	<!-- 这是数据源的配置 不需要记 和Spring整合之后 environment都将废弃 -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 加载映射文件的多种方式 -->
+	<mappers>
+		<!-- 
+			方式1：通过resource一次加载一个文件 
+			<mapper resource=""/>
+		-->
+		<mapper resource="sqlmap/user.xml"/>
+		<!-- 
+			方式2：遵循mapper定义规范
+			通过mapper接口加载单个配置文件
+			此种方式加载数据的前提是：映射文件与接口同名且必须在同一个包下
+			通过指定的包与接口名结合进行加载
+			<mapper class=""></mapper>
+		 -->
+		<!--  <mapper class="com.noob.mybatis.b_mapper.UserMapper"></mapper> -->
+		 <!-- 
+		 	方式3：通过package进行批量加载
+		 	<package name="指定包名"></package> 
+		 	从而实现批量加载hiding包下的所有映射文件
+		 -->
+		 <package name="com.noob.mybatis.b_mapper"></package>
+		 <package name="com.noob.mybatis.c_mapper"></package>
+	</mappers>
+	
+</configuration>

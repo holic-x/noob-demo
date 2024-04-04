@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网站名称</title>
+	</head>
+	<style type="text/css">
+		/*设置背景图片样式*/
+		body{
+			background-image: url(../img/bg.jpg);
+			background-repeat: no-repeat;
+		}
+		/*设置表格中插入的图片样式*/
+		#customer h1{
+			color: gray;
+			font-family: "新宋体";
+			font-size: 1.3em;
+			font-weight: bolder;
+		}
+		#customer td.img{
+			height: 250;
+		}
+		#customer table.backimg{
+			background-image: url(../img/bg1.png);
+			width: 725px;
+			height: 60%;
+		}
+		#customer table.text td{
+			font-family: "楷体";
+			font-size: 20px;
+			text-align: center;
+			padding: 3px 7px 2px 50px; /*设置边距（上右下左--顺时针） ;*/
+		}
+	</style>
+	<body>
+		<table id="customer">
+			<tr>
+				<td><img src="../img/2.png" height="50" width="250"/></td>
+				<td><img src="../img/hzgg.png" height="50" width="250"/></td>
+			</tr>
+			<tr height="600">
+				<td></td>
+				<td>
+					<table class="backimg">
+						<tr>
+							<td align="center"><img src="../img/java.png" width="275" height="275"/></td>
+							<td>
+								<table class="text">
+									
+									<tr>
+										<td><h1>= 用户登录 USER LOGIN</h1></td>
+									</tr>
+									
+									<tr>
+										<td>
+											<p><img src="../img/user.gif" width="25" height="25"/>用户名:<input type="text" name="username"/></p>
+										</td>
+									</tr>
+									
+									<tr>
+										<td>
+											<p><img src="../img/password.gif" width="25" height="25"/>密--码:<input type="password" name="pwd"/></p>
+										</td>
+									</tr>
+									
+									<tr>
+										<td rowspan="2">
+											<a href=""><img src="../img/login.jpg"/></a>
+											<a href=""><img src="../img/reset.jpg"/></a>
+										</td>
+									</tr>
+									<tr>
+									</tr>
+								</table>
+							</td>
+						</tr>						
+					</table>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>8.文本的收缩展开效果</title>
+	</head>
+
+	<script type="text/javascript" src="../js/jquery-1.8.2.min.js" ></script>
+	
+	<body>
+		<div class="box">
+			<h1> 收缩展开效果</h1>
+			<div id="menu1">
+				1<br/> 2
+				<br/> 3
+				<br/> 4
+				<br/> 5
+				<br/>
+			</div>
+		</div>
+		<br/>
+		<div id="menu2">
+			<h1> 收缩展开效果2</h1>
+			<div class="text">
+				1<br/> 2
+				<br/> 3
+				<br/>
+			</div>
+		</div>
+
+		<div id="menu3">
+			<h1> 收缩展开效果3</h1>
+			<div class="text">
+				1<br/> 2
+				<br/> 3
+				<br/>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$("h1").each(function(){
+			$(this).click(function(){
+				$(this).next().slideToggle(1000);
+			});
+		});
+	</script>
+</html>

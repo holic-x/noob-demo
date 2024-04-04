@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 
+  	mapper:配置映射文件 
+   	namespace:代表命名空间,此处mapper标识访问地址
+   -->
+ <mapper namespace="com.noob.mybatis.b_mapper.UserMapper">
+ 	<!-- 定义添加用户相关的信息 -->
+ 	<insert id="addUser" parameterType="com.noob.mybatis.model.User">
+ 		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+ 			select LAST_INSERT_ID()
+ 		</selectKey>
+		insert into user(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address}) 	
+ 	</insert>
+ 	
+ 	<!-- 定义根据id查找用户信息 -->
+ 	<select id="findUserById" parameterType="java.lang.Integer" resultType="User">
+ 		select * from user where id=#{id}
+ 	</select>
+ 	
+ </mapper>

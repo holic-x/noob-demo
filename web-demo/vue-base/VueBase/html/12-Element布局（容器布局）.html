@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-Element布局（容器布局）.html</title>
+	<!-- 引入Element、Vue核心文件 -->
+	<link rel="stylesheet" href="../plugins/element-ui/lib/theme-chalk/index.css">
+    <script src="../js/vue.js"></script>
+    <script src="../plugins/element-ui/lib/index.js"></script>
+    <style>
+        .el-header, .el-footer {
+            background-color: #d32e66;
+            color: #333;
+            text-align: center;
+            height: 100px;
+        }
+        .el-aside {
+            background-color: #55e658;
+            color: #333;
+            text-align: center;
+            height: 580px;
+        }
+        .el-main {
+            background-color: #5fb1f3;
+            color: #333;
+            text-align: center;
+            height: 520px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <el-container>
+            <el-header>header content</el-header>
+            <el-container>
+              <el-aside width="200px">sidebar content</el-aside>
+              <el-container>
+                <el-main>main content</el-main>
+                <el-footer>footer content</el-footer>
+              </el-container>
+            </el-container>
+          </el-container>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#div"
+    });
+</script>
+</html>

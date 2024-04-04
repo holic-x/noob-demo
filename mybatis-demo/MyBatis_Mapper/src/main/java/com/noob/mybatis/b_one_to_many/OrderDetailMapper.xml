@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.noob.mybatis.b_one_to_many.OrderDetailMapper">
+ 
+ 	<!-- 此处是参考上一个一对一查询的案例中配置的映射 -->
+ 	<resultMap type="Orders" id="OrderCustomResultMap">
+ 		<!-- 配置基本属性 -->
+ 		<id column="id" property="id"/>
+ 		<result column="user_id" property="user_id"/>
+ 		<result column="number" property="number"/>
+ 		<result column="createtime" property="createtime"/>
+ 		<result column="note" property="note"/>
+ 		<!-- 配置对象属性(即配置映射的关联的用户信息) -->
+ 		 <association property="user" javaType="com.noob.mybatis.model.User">
+ 		 	<!-- 此处的id是唯一标识“user”对象的属性 -->
+ 		 	<id column="user_id" property="id"/>
+ 		 	<result column="username" property="username"/>
+ 		 	<result column="sex" property="sex"/>
+ 		 	<result column="address" property="address"/>
+ 		 </association>
+ 	</resultMap>
+ 	
+ 	<!-- 定义通过ResultMap实现一对多查询-->
+ 	<resultMap type="Orders" id="OrderDetailResultMap" extends="OrderCustomResultMap">
+ 		<!-- 基本数据的配置(订单信息关联的顾客信息已有现成配置可参考，通过extends继承引用即可)-->
+ 		<!-- 对订单关联的订单明细进行配置 -->
+ 		<!-- 
+ 			<collection property="" ofType="">
+	 		 	<id column="" property=""/>
+	 		 	<result column="" property=""/>
+	 		 </collection>
+ 			collection:一对多查询使用collection进行映射（此处一条订单对应多个订单明细）
+ 			property:将关联查询到的多条记录映射到集合对象中（此处为Orders的orderDetail_list属性）
+ 			ofType:指定映射到list集合属性中的POJO类型
+ 		 -->
+ 		 <collection property="orderDetail_list" ofType="com.noob.mybatis.model.OrderDetail">
+ 		 	<!-- 此处id用以唯一标识当前订单明细的属性 -->
+ 		 	<id column="orderdetail_id" property="id"/>
+ 		 	<result column="items_id" property="orders_id"/>
+ 		 	<result column="items_num" property="items_id"/>
+ 		 	<result column="orders_id" property="items_num"/>
+ 		 </collection>
+ 	</resultMap>
+ 	<select id="findOrderDetailByResultMap" resultMap="OrderDetailResultMap">
+		select
+		  orders.*,
+		  user.username,
+		  user.sex,
+		  user.address,
+		  orderdetail.id orderdetail_id,
+		  orderdetail.items_id,
+		  orderdetail.items_num,
+		  orderdetail.orders_id
+		from  
+		   orders,
+		   user,
+		   orderdetail
+		where orders.user_id=user.id and orderdetail.orders_id=orders.id
+ 	</select>
+ </mapper>

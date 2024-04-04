@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-Vue常用指令样例（v-for）</title>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="div">
+        <ul>
+			<!-- 数组列表遍历 -->
+            <li v-for="name in msgList">
+                {{name}}
+            </li>
+			<!-- JSON数据列表遍历(对象数据属性遍历) -->
+            <li v-for="value in person">
+                {{value}}
+            </li>
+			
+			<!-- JSON数据列表遍历 -->
+            <li v-for="stu in stuList">
+                {{stu.sno}}-{{stu.sname}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    // 脚本
+    let vm = new Vue({
+        el:"#div",
+        data:{
+			msgList: ["消息1","消息2","消息3"],
+			person:{
+				name: "haha",
+				age: "18",
+				birthday: "1970-01-01"
+			},
+			stuList:[
+				{ sno: 1001,sname:"stu1001" },
+				{ sno: 1002,sname:"stu1002" },
+				{ sno: 1003,sname:"stu1003" }
+			]
+        }
+    });
+</script>
+</html>

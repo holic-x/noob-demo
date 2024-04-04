@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>HelloFriend</artifactId>
+	<packaging>jar</packaging>
+	<name>HelloFriend</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>com.noob.maven</groupId>
+		<artifactId>Parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../Parent/pom.xml</relativePath>
+	</parent>
+	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.noob.maven</groupId>
+			<artifactId>Hello</artifactId>
+		</dependency>
+	</dependencies>
+	
+</project>

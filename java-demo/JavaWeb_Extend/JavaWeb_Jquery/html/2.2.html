@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>2.过滤选择器小案例</title>
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+		<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+	</head>
+
+	<body>
+		<div id="test">
+			<input type="button" id="bt1" value="点击改变列表项奇数行的背景颜色" />
+			<ul>
+				<li>列表项1</li>
+				<li>列表项2</li>
+				<li>列表项3</li>
+				<li>列表项4</li>
+				<li>列表项5</li>
+			</ul>
+		</div>
+	</body>
+	<!--
+    	完成2个内容：
+    	1.改变列表项奇数行的背景颜色
+    	2.鼠标移动改变背景颜色
+    -->
+    <script type="text/javascript">
+    	// 改变列表项奇数行的背景颜色
+    	$("#bt1").click(function(){
+    		$("#test ul li:even").css("background","#9999CC");
+    	});
+    	// 鼠标移动改变背景颜色
+    	$("#test ul li").mouseover(setColor).mouseout(setRevColor);
+    	function setColor(){
+    		$(this).css("color","aqua");
+    	}
+    	function setRevColor(){
+    		$(this).css("color","darkkhaki");
+    	}
+    </script>
+</html>

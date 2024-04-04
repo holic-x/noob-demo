@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+	<head>
+		<title>6.JQuery操作CSS样式</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+		<style type="text/css">
+			.one {
+				width: 200px;
+				height: 140px;
+				margin: 40px;
+				background: red;
+				border: #000 1px solid;
+				float: left;
+				font-size: 17px;
+				font-family: Roman;
+			}
+			
+			div,
+			span {
+				width: 200px;
+				height: 140px;
+				margin: 40px;
+				background: #9999cc;
+				border: #000 1px solid;
+				font-size: 12px;
+				font-family: Roman;
+			}
+			
+			div.mini {
+				width: 30px;
+				height: 30px;
+				background: #CC66FF;
+				border: #000 1px solid;
+				font-size: 12px;
+				font-family: Roman;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="采用属性增加样式" id="b1" />
+		<input type="button" value="addclass" id="b2" />
+		<input type="button" value="remove class" id="b3" />
+		<input type="button" value="切换样式" id="b4" />
+		<input type="button" value="has class" id="b5" />
+		<h1> 天气冷了</h1>
+
+		<h2>天气 又冷了</h2>
+
+		<div id="one"> id 为one ***** </div>
+
+	</body>
+	<script type="text/javascript">
+		/**
+		 * 添加样式有两种方式实现，可以是以属性的形式添加，亦可直接addClass调用
+		 * .attr("class","className");// 以属性方式添加指定样式
+		 * .addClass("className");// 直接添加指定样式
+		 * .removeClass("className");// 移除指定样式
+		 * .toggleClass("className");// 切换样式
+		 * .hasClass("className");// 判断是否包含该样式
+		 */
+		// <input type="button" value="采用属性增加样式" id="b1" />
+		$("#b1").click(function() {
+			$("#one").attr("class", "mini");
+		});
+		// <input type="button" value="addclass" id="b2" />
+		$("#b2").click(function() {
+			$("#one").addClass("mini");
+		});
+		// <input type="button" value="remove class" id="b3" />
+		$("#b3").click(function() {
+			$("#one").removeClass("mini");
+		});
+		// <input type="button" value="切换样式" id="b4" />
+		$("#b4").click(function() {
+			$("#one").toggleClass("mini");
+		});
+		// <input type="button" value="has class" id="b5" />
+		$("#b5").click(function() {
+			alert($("#one").hasClass("mini"));
+		});
+	</script>
+
+</html>

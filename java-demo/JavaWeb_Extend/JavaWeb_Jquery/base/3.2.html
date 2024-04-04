@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>3.Jquery的语法格式：获取某个标签的内容</title>
+	</head>
+	<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+
+	<body>
+		<!--
+        	a.根据标签名称获取某个标签的内容
+        -->
+		<a href="#">百度</a>
+		<a href="#">阿里</a>
+		<a href="#">腾讯</a>
+
+	</body>
+	<script type="text/javascript">
+		/**
+		 * 1.普通方式获取
+		 * document.getElementById("id"); -- $("#id")
+		 * document.getElementsByTagName("input");
+		 * document.getElementsByName("name");
+		 */
+		$(document).ready(function() {
+			// .html()等价于js中的innerHTML，向网页中插入内容
+			$("a").html("小米米");
+			// 获取a标签的length
+			alert($("a").length);
+			/**
+			 * 此处通过结果发现，通过标签名称获取相应的内容：
+			 * 当前a标签的内容均发生改变，且得到的长度是3
+			 * $("tagName")会遍历获取的每个对象
+			 */
+		})
+	</script>
+
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<named-config name="c3p0connection">
+		<!-- 指定c3p0的属性信息 -->
+		<!-- 数据库的四个属性：用户名、密码、驱动、数据库连接url -->
+		<property name="user">hahabibu</property>
+		<property name="password">hahabibu</property>
+		<property name="jdbcUrl">jdbc:oracle:thin:@localhost:1521:ORCL</property>
+		<property name="driverClass">oracle.jdbc.driver.OracleDriver</property>
+
+		<!-- 下列的属性系统会有相应的默认值，如果没有指定的值，则会使用系统默认的值 -->
+		<!-- 如果数据库中连接数不足 每次向数据库服务器申请的新的连接的个数 -->
+		<property name="acquireIncrement">50</property>
+		<!-- 初始化连接池中 连接的数量 -->
+		<property name="initialPoolSize">100</property>
+		<!-- 数据连接池中最小的连接数 -->
+		<property name="minPoolSize">50</property>
+		<!-- 数据库连接池最大连接数 -->
+		<property name="maxPoolSize">1000</property>
+		<!-- 数据库连接池可维护的Statment数量 -->
+		<property name="maxStatements">20</property>
+		<!-- 每个连接数可以使用的最大的对象的个数 -->
+		<property name="maxStatementsPerConnection">5</property>
+	</named-config>
+</c3p0-config>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>4.JQuery对象与JS对象的相互转化</title>
+	</head>
+	<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+
+	<body>
+		<input type="text" value="张三" id="username" name="username" />
+	</body>
+	<script type="text/javascript">
+		/**
+		 * JQuery对象即通过JQuery包装DOM对象后产生的对象 
+		 * JQuery对象不能使用DOM对象的任何方法，反之，DOM对象
+		 * 也不能使用JQuery对象的任何方法，但两者之间可以相互进行转化		
+		 * var $variable = jquery对象
+		 * var variable = DOM对象
+		 */
+		// 1.DOM对象（JS对象）转换为JQuery对象
+		var usernameElement = document.getElementById("username"); // 通过js方法获取的js对象
+		alert(usernameElement.value+"js"); // 调用js方法显示数值
+
+		var $usernameElement = $(usernameElement); // 将JS对象转化为JQuery对象
+		alert($usernameElement.val()+"jquery"); // 调用jquery方法
+		
+		// 2.JQuery对象转换为DOM对象（JS对象）
+		// 此处通过get(index)获取相应的dom
+		var uname = $usernameElement.get(0);
+		alert(uname.value+"转换后的js");
+	</script>
+
+</html>

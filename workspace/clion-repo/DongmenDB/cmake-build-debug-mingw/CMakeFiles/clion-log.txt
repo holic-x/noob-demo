@@ -1,0 +1,4 @@
+"C:\custom\develop\IDEA\JetBrains\CLion 2017.3.2\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/custom/develop/CONFIG/mingw/MinGW/bin/mingw32-make.exe -DCMAKE_C_COMPILER=C:/custom/develop/CONFIG/mingw/MinGW/bin/gcc.exe -DCMAKE_CXX_COMPILER=C:/custom/develop/CONFIG/mingw/MinGW/bin/g++.exe -G "CodeBlocks - MinGW Makefiles" E:\workspace\work-repo\workspace\clion-repo\DongmenDB
+-- Configuring done
+-- Generating done
+-- Build files have been written to: E:/workspace/work-repo/workspace/clion-repo/DongmenDB/cmake-build-debug-mingw

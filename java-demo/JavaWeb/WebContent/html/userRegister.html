@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<!-- 导入自定义的js文件 -->
+ 	<script type="text/javascript" src="../js/userRegister.js" ></script>
+	<!-- 导入bootstrap提供的相关的css、js文件，设定指定的编码集 -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css" />
+	<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<body onload="loadData()">
+		<div class="container">
+			<form action="../RequestDemo2" method="post" name="form1">
+				<table class="table table-striped table-bordered table-hover">
+					<tr>
+						<th colspan="2">用户注册</th>
+					</tr>
+					
+					<tr>
+						<td>姓名</td>
+						<td><input type="text" name="username"/></td>
+					</tr>
+					
+					<tr>
+						<td>密码</td>
+						<td><input type="password" name="pwd"/></td>
+					</tr>
+					
+					<tr>
+						<td>性别</td>
+						<td>
+							<input type="radio" name="sex" value="male"checked="checked"/>男
+							<input type="radio" name="sex" value="female" />女
+						</td>
+					</tr>
+					
+					<tr>
+						<td>生日</td>
+						<td>
+							<select name="year" onchange="reloadDay()">
+								<option value="1900">1900</option>
+							</select>年
+							<select name="month" onchange="reloadDay()">
+								<option value="01">01</option>
+							</select>月
+							<select name="day">
+								<option value="01">01</option>
+							</select>日
+						</td>
+					</tr>
+					
+					<tr>
+						<td>兴趣爱好</td>
+						<td>
+							<input type="checkbox" name="likes" value="eat"/>吃饭
+							<input type="checkbox" name="likes" value="sleep"/>睡觉
+							<input type="checkbox" name="likes" value="game"/>打游戏
+							<input type="checkbox" name="likes" value="qdm"/>敲代码
+						</td>
+					</tr>
+					
+					<tr>
+						<td>学历</td>
+						<td>
+							<select name="eduction">
+								<option value="boshi">博士</option>
+								<option value="boshi">硕士</option>
+								<option value="boshi">本科</option>
+								<option value="boshi">专科</option>
+								<option value="boshi">博士</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2">
+							<input type="submit" value="注册"/>
+							<input type="reset" value="重置" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

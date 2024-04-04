@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 
+  	mapper:配置映射文件 
+   	namespace:代表命名空间,此处mapper标识访问地址
+   -->
+ <mapper namespace="com.noob.mybatis.c_mapper.UserCustomMapper">
+ 	<!-- a.定义sql片段 -->
+ 	<sql id="query_user_foreach">
+ 		<if test="ids!=null">
+ 			<!--  
+ 				说明：
+ 				foreach表示对collection数据进行迭代
+ 				collection：要迭代的集合属性
+ 				item：在迭代遍历的过程中生成的对象名称
+ 				open：开始遍历id是拼接的字符串
+ 				close：遍历结束后拼接的字符串
+ 				separator：每次遍历两个对象中间需要拼接的内容
+ 			-->
+ 			<!-- 方式1：and (id=1 or id=10 or id=16) -->
+ 			<!-- 
+	 			<foreach collection="ids" item="user_id" open="and (" close=")" separator="or"> 
+	 				id=#{user_id}
+	 			</foreach> 
+ 			-->
+ 			<!-- 方式2：id in (1,10,16) -->
+ 			<foreach collection="ids" item="user_id" open="id in (" close=")" separator=",">
+ 				#{user_id}
+ 			</foreach>
+ 		</if>
+ 	</sql>
+ 
+ 	<!-- b.通过指定的sql片段遍历用户id数据 -->
+ 	<select id="findUserListByIds" parameterType="UserQueryVO" resultType="UserCustom">
+ 		select * from user 
+ 		<where>
+			<include refid="query_user_foreach"></include> 			
+ 		</where>
+ 	</select>
+ 	
+ 
+ 
+ 
+ 
+ 	
+ 	<!-- 
+ 		定义sql片段抽取公共的代码，用id唯一标识当前的sql片段
+ 		<sql id="xxx">...公共代码...</sql>
+ 		可以在不同的位置使用sql片段
+ 		<include refid="sql片段id"></include> 	
+ 	-->
+ 	<!-- a.定义sql片段 -->
+ 	<sql id="query_user_where">
+ 		<if test="userCustom!=null">
+ 			<if test="userCustom.sex!=null">
+ 				and user.sex=#{userCustom.sex}
+ 			</if>
+ 			<if test="userCustom.username!=null">
+				and user.username like '%${userCustom.username}%'
+ 			</if>
+ 		</if>
+ 	</sql>
+ 	
+ 	<!-- b.在指定的位置引用sql片段 -->
+ 	<!-- 定义根据综合条件查找用户信息(动态sql完成拼接) -->
+ 	<select id="findUserByUnion" parameterType="UserQueryVO" resultType="UserCustom">
+ 		select * from user 
+ 		<where>
+			<include refid="query_user_where"></include> 			
+ 		</where>
+ 	</select>
+ 	
+ 	<!-- 查找满足指定条件的用户个数(动态sql完成拼接) -->
+ 	<select id="getUserCountByUnion" parameterType="UserQueryVO" resultType="int">
+ 		select count(*) from user
+ 		<where>
+ 			<include refid="query_user_where"></include>
+ 		</where>
+ 	</select>
+ 	
+ 	
+ 	
+ 	<!-- 定义根据综合条件查找用户信息 -->
+ 	<!-- <select id="findUserByUnion" parameterType="UserQueryVO" resultType="UserCustom">
+ 		select * from user where user.sex=#{userCustom.sex} and user.username like '%${userCustom.username}%'
+ 	</select> -->
+ 	<!-- 分析：#{userCustom.sex}是指获取UserQueryVO中的userCustom属性的sex属性值 -->
+ 	
+ 	<!-- 查找满足指定条件的用户个数 -->
+ 	<!-- <select id="getUserCountByUnion" parameterType="UserQueryVO" resultType="int">
+ 		select count(*) from user where user.sex=#{userCustom.sex} and user.username like '%${userCustom.username}%'
+ 	</select> -->
+ 	
+ 	<!-- 根据用户id查找用户信息 -->
+ 	<select id="findUserById" parameterType="int" resultType="User">
+ 		select * from user where id=#{id}
+ 	</select>
+ 	
+ 	<!-- 根据用户姓名关键字查找用户信息（返回的可能是一个列表） -->
+ 	<select id="findUserByName" parameterType="UserQueryVO" resultType="User">
+ 		select * from user where user.username like '%${userCustom.username}%'
+ 	</select>
+ 	
+ 	
+ 	<!-- 
+ 		定义指定映射 
+ 		<resultMap type="映射类型" id="映射id">
+ 			<id column="查询的主键列名" property="数据库对应的主键列名"/>
+ 			<result column="查询的普通列的列名" property="对应数据库的列名"/>
+ 		</resultMap>
+ 		说明：
+ 		resultMap元素中id用以唯一标识当前的resultMap对象
+ 		<id ...>表示查询结果中唯一的标识，相当于主键或者是唯一键
+ 		<result ...>对应的是普通列
+ 		column属性对应的是查询出的列名
+ 		property属性对应的是POJO对象对应属性的名称（与数据库中的对应列一一对应）
+ 	-->
+ 	<!-- 配置映射 -->
+ 	<resultMap type="user" id="userResultMap">
+ 		<id column="_id" property="id"/>
+ 		<result column="_username" property="username"/>
+ 		<result column="_birthday" property="birthday"/>
+ 		<result column="_sex" property="sex"/>
+ 		<result column="_address" property="address"/>
+ 	</resultMap>
+ 	
+ 	<!-- 通过resultMap映射查找指定条件的用户信息 -->
+ 	<select id="findUserListByResultMap" parameterType="UserQueryVO" resultMap="userResultMap">
+ 		select id _id,username _username,birthday _birthday,sex _sex,address _address
+ 		from user 
+ 		where user.username like '%${userCustom.username}%'
+ 	</select>
+ 	
+ 	
+ 	
+ </mapper>

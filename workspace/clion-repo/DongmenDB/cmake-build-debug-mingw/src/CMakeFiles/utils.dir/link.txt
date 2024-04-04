@@ -1,0 +1,2 @@
+C:\custom\develop\CONFIG\mingw\MinGW\bin\ar.exe qc ..\..\lib\libutilsd.a  CMakeFiles/utils.dir/utils/arraylist.c.obj CMakeFiles/utils.dir/utils/hashmap.c.obj CMakeFiles/utils.dir/utils/opstack.c.obj CMakeFiles/utils.dir/utils/utils.c.obj
+C:\custom\develop\CONFIG\mingw\MinGW\bin\ranlib.exe ..\..\lib\libutilsd.a

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 
+  	mapper:配置映射文件 
+   	namespace:代表命名空间,其作用就是对sql进行分类管理 ,可以理解为对sql进行隔离
+   	注意： 目前namespace没有什么含义 ,但是在mapper代理方法开发的过程中 namespace有着特殊的作用
+   -->
+ <mapper namespace="test">
+ 	<!-- 在映射文件中通常会配置很多sql内容 -->
+ 	
+ 	<!-- 1.测试案例1：通过id查询用户信息 -->
+ 	<!-- 
+ 		通过select语句查询数据库
+ 		id:标识符,用于标识当前的sql 
+ 		parameterType:是指输入参数的类型(此处根据id查找,id是int类型)
+ 		resultType:指定输出的映射的java对象的类型 (select 语句执行之后要封装的类型,此处返回为User类型)
+ 		#{}代表一个占位符
+ 		#{id} 其中id代表接受输入参数的类型   参数的名字是id      
+ 			     如果输入参数是简单类型  ${}可以是任意或者value都可以
+ 	 -->
+ 	<select id="findUserById" parameterType="int" resultType="com.noob.mybatis.model.User">
+ 		select * from user where id=#{id}
+ 	</select>
+ 	
+ 	<!-- 2.根据用户名查询用户信息   可能会返回多条数据 -->
+  	<!-- 
+ 		此处的resultType可能不只是一个对象，可能是一个集合
+     	${value}：接受参数输入内容     
+     	%${value}%：是模糊进行匹配
+    -->	
+ 	<select id="findUserByName" parameterType="java.lang.String" resultType="com.noob.mybatis.model.User">
+ 		select * from user where username like '%${value}%'
+ 	</select>
+ 	
+ 	<!-- 3.添加用户信息 -->
+ 	<!-- 
+ 	   insert 代表插入语句的片段
+ 	   #{} 中获取的是输入参数中的属性  也就是User中的属性
+ 	   #{username} 就是获取User对象中的username属性的值
+ 	 -->
+ 	<insert id="insertUser" parameterType="com.noob.mybatis.model.User">
+ 		<!-- 
+ 			selectKey 将插入数据库的主键返回到指定的对象中
+ 			keyProperty将查询到的主键设置到parameterType对象的哪个属性中 
+ 			order  执行insert语句之前还是之后
+ 			resultType :select LAST_INSERT_ID()这个的返回结果类型
+ 		 -->
+ 		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+ 			select LAST_INSERT_ID()
+ 		</selectKey>
+ 		insert into user (username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
+ 	</insert>
+ 	
+ 	<!-- 4.删除用户信息 -->
+ 	<delete id="deleteUser" parameterType="java.lang.Integer">
+ 		delete from user where id=#{id}
+ 	</delete>
+ 	
+ 	<!-- 5.更新用户信息 -->
+ 	<update id="updateUser" parameterType="com.noob.mybatis.model.User">
+ 		update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+ 	</update>
+ </mapper>

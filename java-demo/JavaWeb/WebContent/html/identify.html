@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>生成验证码</title>
+</head>
+	<script type="text/javascript">
+		function  reloadImage() {
+			document.getElementById('btn').disabled=true; //禁用掉按钮
+			document.getElementById('identity').src="../ResponseDemo3?ts="+new Date();//随机加上一个时间让服务器区别这是不同的请求
+		}
+	</script>
+	<body>
+		<!-- 此处需要注意引用的文件路径 -->
+		<img alt="" src="../ResponseDemo3" id="identity" onload="btn.disabled=false">
+		<input type="button" value="换个图片" onclick="reloadImage()" id="btn"/>
+	</body>
+</html>

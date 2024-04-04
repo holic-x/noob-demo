@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-Vue常用指令样例（v-on）</title>
+</head>
+<body>
+    <!-- 视图 -->
+    <div id="div">
+        <ul>
+			<div>{{name}}</div>
+        <button v-on:click="change()">点击时改变</button>
+        <button v-on:dblclick="change()">双击时改变</button>
+        <button @click="change()">改变div的内容</button>
+        </ul>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    // 脚本
+    let vm = new Vue({
+        el:"#div",
+        data:{
+            name:"init"
+        },
+        methods:{
+            change(){
+                this.name = "hello vue"
+            }
+        }
+    });
+</script>
+</html>
