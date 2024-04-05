@@ -26,3 +26,10 @@ spring:
     url: jdbc:mysql://localhost:3306/springboot_mybatis?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+
+# MyBatis配置
+mybatis:
+  # 映射文件所在路径
+  mapper-locations: classpath:mappers/*.xml
+  # pojo类所在包路径
+  type-aliases-package: com.cx.user.model
