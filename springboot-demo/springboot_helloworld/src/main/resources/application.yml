@@ -2,13 +2,6 @@
 server:
   port: 8080
 
-# spring相关配置
-spring:
-  profiles:
-    active: dev
-
-
-
 # 日志格式设定
 logging:
   level:
@@ -20,3 +13,16 @@ logging:
   file:
     name: hello.log
 #    path: E:/myLog
+
+# spring相关配置
+spring:
+  profiles:
+    active: dev
+
+# 数据源信息配置
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/springboot_mybatis?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
