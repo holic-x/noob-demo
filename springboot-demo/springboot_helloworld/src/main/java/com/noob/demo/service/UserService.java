@@ -19,9 +19,6 @@ public class UserService {
 
     /**
      * 根据id查询用户
-     *
-     * @param id
-     * @return
      */
     public User getUserById(Integer id) {
         return users.get(id);
@@ -30,8 +27,6 @@ public class UserService {
 
     /**
      * 查询所有用户
-     *
-     * @return
      */
     public List<User> getAllUser() {
         return new ArrayList(users.values());
@@ -39,9 +34,6 @@ public class UserService {
 
     /**
      * 更新
-     *
-     * @param user
-     * @return
      */
     public void update(User user) {
         users.replace(user.getId(), user);
@@ -50,9 +42,6 @@ public class UserService {
 
     /**
      * 新增
-     *
-     * @param user
-     * @return
      */
     public void add(User user) {
         Integer newId = users.size() + 1;
@@ -62,12 +51,9 @@ public class UserService {
 
     /**
      * 删除
-     *
-     * @return
      */
     public void delete(Integer id) {
         users.keySet().removeIf(key -> key == id);
     }
-
 
 }

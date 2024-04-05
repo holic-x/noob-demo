@@ -8,7 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 /**
  * 自定义项目启动类
  */
-@SpringBootApplication
+//@SpringBootApplication
 public class CustomSpringApplication extends SpringApplication {
 
     public CustomSpringApplication() {
