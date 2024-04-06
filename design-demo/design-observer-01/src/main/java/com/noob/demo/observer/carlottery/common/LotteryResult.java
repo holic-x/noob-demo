@@ -1,4 +1,4 @@
-package com.noob.demo.observer.common;
+package com.noob.demo.observer.carlottery.common;
 
 import java.util.Date;
 

@@ -1,7 +1,7 @@
-package com.noob.demo.observer.design.event.service;
+package com.noob.demo.observer.carlottery.design.event.service;
 
-import com.noob.demo.observer.common.LotteryResult;
-import com.noob.demo.observer.common.MinibusTargetService;
+import com.noob.demo.observer.carlottery.common.LotteryResult;
+import com.noob.demo.observer.carlottery.common.MinibusTargetService;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
-package com.noob.demo.observer.design.event.listener;
+package com.noob.demo.observer.carlottery.design.event.listener;
 
-import com.noob.demo.observer.common.LotteryResult;
+import com.noob.demo.observer.carlottery.common.LotteryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

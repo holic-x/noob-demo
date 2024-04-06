@@ -1,4 +1,4 @@
-package com.noob.demo.observer.common;
+package com.noob.demo.observer.carlottery.common;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

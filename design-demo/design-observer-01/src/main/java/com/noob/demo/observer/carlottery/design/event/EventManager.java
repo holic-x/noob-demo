@@ -1,8 +1,8 @@
-package com.noob.demo.observer.design.event;
+package com.noob.demo.observer.carlottery.design.event;
 
 
-import com.noob.demo.observer.common.LotteryResult;
-import com.noob.demo.observer.design.event.listener.EventListener;
+import com.noob.demo.observer.carlottery.common.LotteryResult;
+import com.noob.demo.observer.carlottery.design.event.listener.EventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;

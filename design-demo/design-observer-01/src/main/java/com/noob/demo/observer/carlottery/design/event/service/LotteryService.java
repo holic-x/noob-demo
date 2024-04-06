@@ -1,9 +1,9 @@
-package com.noob.demo.observer.design.event.service;
+package com.noob.demo.observer.carlottery.design.event.service;
 
-import com.noob.demo.observer.common.LotteryResult;
-import com.noob.demo.observer.design.event.listener.MQEventListener;
-import com.noob.demo.observer.design.event.EventManager;
-import com.noob.demo.observer.design.event.listener.MessageEventListener;
+import com.noob.demo.observer.carlottery.common.LotteryResult;
+import com.noob.demo.observer.carlottery.design.event.listener.MQEventListener;
+import com.noob.demo.observer.carlottery.design.event.EventManager;
+import com.noob.demo.observer.carlottery.design.event.listener.MessageEventListener;
 
 public abstract class LotteryService {
 

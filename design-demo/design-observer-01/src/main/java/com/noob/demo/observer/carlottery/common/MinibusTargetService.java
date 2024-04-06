@@ -1,4 +1,4 @@
-package com.noob.demo.observer.common;
+package com.noob.demo.observer.carlottery.common;
 
 /**
  * 小汽车摇号接口定义
