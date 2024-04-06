@@ -100,3 +100,6 @@
 /design-demo/design-observer-01/target
 /springboot-demo/springboot-demo-redis/.idea
 /springboot-demo/springboot-demo-redis/target
+/springboot-demo/springboot-demo-redisson/.idea
+/springboot-demo/springboot-demo-redisson/target
+/springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml

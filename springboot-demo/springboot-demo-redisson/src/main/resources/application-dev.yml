@@ -1,0 +1,10 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+
+# spring相关
+spring:
+  redis:
+    host: 43.138.185.20
+    port: 6379
+    password: 123456
