@@ -103,3 +103,4 @@
 /springboot-demo/springboot-demo-redisson/.idea
 /springboot-demo/springboot-demo-redisson/target
 /springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml
+/springboot-demo/springboot-demo-alipay/src/main/resources/application-dev.yml

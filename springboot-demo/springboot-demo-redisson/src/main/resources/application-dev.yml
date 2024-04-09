@@ -8,3 +8,4 @@ spring:
     host: 43.138.185.20
     port: 6379
     password: 123456
+
