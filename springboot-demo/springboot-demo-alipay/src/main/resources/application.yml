@@ -1,0 +1,17 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8081
+
+# spring相关配置
+spring:
+  profiles:
+    active: dev
+
+# 支付宝相关配置
+alipay:
+  appId:
+  appPrivateKey:
+  alipayPublicKey:
+  notifyUrl:
+  returnUrl:
+
