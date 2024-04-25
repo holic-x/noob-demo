@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.noob.mapper.EmpMapper">
+  <resultMap id="BaseResultMap" type="cn.noob.pojo.Emp">
+    <id column="empid" jdbcType="INTEGER" property="empid" />
+    <result column="empno" jdbcType="VARCHAR" property="empno" />
+    <result column="ename" jdbcType="VARCHAR" property="ename" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from emp
+    where empid = #{empid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.noob.pojo.Emp">
+    insert into emp (empid, empno, ename
+      )
+    values (#{empid,jdbcType=INTEGER}, #{empno,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.noob.pojo.Emp">
+    update emp
+    set empno = #{empno,jdbcType=VARCHAR},
+      ename = #{ename,jdbcType=VARCHAR}
+    where empid = #{empid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select empid, empno, ename
+    from emp
+    where empid = #{empid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select empid, empno, ename
+    from emp
+  </select>
+  <resultMap id="BaseResultMap" type="cn.noob.pojo.Emp">
+    <id column="empid" jdbcType="INTEGER" property="empid" />
+    <result column="empno" jdbcType="VARCHAR" property="empno" />
+    <result column="ename" jdbcType="VARCHAR" property="ename" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from emp
+    where empid = #{empid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.noob.pojo.Emp">
+    insert into emp (empid, empno, ename
+      )
+    values (#{empid,jdbcType=INTEGER}, #{empno,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.noob.pojo.Emp">
+    update emp
+    set empno = #{empno,jdbcType=VARCHAR},
+      ename = #{ename,jdbcType=VARCHAR}
+    where empid = #{empid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select empid, empno, ename
+    from emp
+    where empid = #{empid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select empid, empno, ename
+    from emp
+  </select>
+</mapper>

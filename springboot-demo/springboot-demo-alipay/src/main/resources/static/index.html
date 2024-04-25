@@ -1,0 +1,16 @@
+<html>
+<body>
+<h1>hello word!!!</h1>
+<p>this is a html page</p>
+</body>
+
+    <button onclick="handlePay()">to alipay</button>
+</html>
+
+<script type="text/javascript">
+    function handlePay(){
+        alert('mod alipay');
+        window.open("http://127.0.0.1:8081/alipay/pay?subject="+"xxx先生，"+"缴纳费用"+"&traceNo="+Math.floor(Math.random() * 900000) + 100000+"&totalAmount="+100,'_self')
+    }
+
+</script>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noob.student.mapper.StudentMapper">
+
+    <resultMap id="BaseResultMap" type="com.noob.student.domain.Student">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="sn" column="sn" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="sex" column="sex" jdbcType="VARCHAR"/>
+            <result property="height" column="height" jdbcType="DOUBLE"/>
+            <result property="cid" column="cid" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,sn,name,
+        sex,height,cid
+    </sql>
+</mapper>
