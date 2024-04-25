@@ -88,6 +88,18 @@
 /java-demo/JavaArithmetic/target
 /simple-demo/DailyDemo/.idea
 /simple-demo/DailyDemo/target
+/java-demo/HelloWorld/.idea
+/java-demo/HelloWorld/Module01/Module01.iml
+/java-demo/HelloWorld/HelloWorld.iml
+/java-demo/SpringCloudBase/.idea
+/java-demo/SpringCloudBase/target
+/java-demo/JavaVersionBase/.idea
+/java-demo/JavaVersionBase/target
+/maven-demo/maven-nexus-01/.idea
+/maven-demo/maven-nexus-01/target
+/maven-demo/maven-module-A/.idea
+/maven-demo/maven-module-parent/.idea
+/maven-demo/maven-import/.idea
 /spring-demo/SpringIOC/target
 /spring-demo/SpringIOC/SpringIOC.iml
 /spring-demo/SpringIOC/.idea
@@ -104,3 +116,4 @@
 /springboot-demo/springboot-demo-redisson/target
 /springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml
 /springboot-demo/springboot-demo-alipay/src/main/resources/application-dev.yml
+

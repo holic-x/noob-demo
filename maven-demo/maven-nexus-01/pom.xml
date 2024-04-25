@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.noob.base</groupId>
+    <artifactId>maven-nexus-01</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.62</version>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>release-nexus</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+            <name>nexus私服中宿主仓库->存放/下载稳定版本的构件</name>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot-nexus</id>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+            <name>nexus私服中宿主仓库->存放/下载快照版本的构件</name>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

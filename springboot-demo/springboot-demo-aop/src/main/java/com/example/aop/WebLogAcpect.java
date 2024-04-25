@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 /**
- * Created by lmb on 2018/9/5.
+ * WebLogAcpect
  */
 @Aspect
 @Component
