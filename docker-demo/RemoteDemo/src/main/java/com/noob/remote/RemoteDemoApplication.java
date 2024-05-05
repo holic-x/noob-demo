@@ -1,15 +1,13 @@
-package com.noob.demo.alipay;
+package com.noob.remote;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootDemoAlipayApplication {
+public class RemoteDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootDemoAlipayApplication.class, args);
-
-
+        SpringApplication.run(RemoteDemoApplication.class, args);
     }
 
 }
