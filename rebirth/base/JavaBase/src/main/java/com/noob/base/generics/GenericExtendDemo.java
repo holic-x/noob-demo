@@ -27,7 +27,7 @@ class GenericExtendDemo2{
     interface B { /* ... */ }
     interface C { /* ... */ }
     static class D1 <T extends A & B & C> { /* ... */ }
-    static class D2 <T extends B & A & C> { /* ... */ } // 编译报错
+//    static class D2 <T extends B & A & C> { /* ... */ } // 编译报错
     static class E extends A implements B, C { /* ... */ }
 
     public static void main(String[] args) {
