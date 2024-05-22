@@ -12,7 +12,7 @@ class Person implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name = null;
     private Integer age = null;
-    private Sex sex;
+    private transient Sex sex;
 
     public Person() { }
 
