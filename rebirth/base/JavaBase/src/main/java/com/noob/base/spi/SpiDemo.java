@@ -1,6 +1,7 @@
 package com.noob.base.spi;
 
 import com.noob.base.spi.impl.MysqlStorage;
+import com.noob.base.spi.impl.OracleStorage;
 import com.noob.base.spi.impl.RedisStorage;
 
 import java.util.Iterator;
@@ -17,6 +18,9 @@ public class SpiDemo {
         mysqlStorage.search("hello");
         RedisStorage redisStorage = new RedisStorage();
         redisStorage.search("hello");
+        // 引入新的接口实现
+        OracleStorage oracleStorage = new OracleStorage();
+        oracleStorage.search("hello");
 
         // SPI机制下动态加载服务接口(从业务代码中解耦，实现动态插拔)
         System.out.println("2.SPI机制下动态加载服务接口(从业务代码中解耦，实现动态插拔)");

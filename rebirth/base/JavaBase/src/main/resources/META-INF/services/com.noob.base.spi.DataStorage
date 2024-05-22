@@ -1,2 +1,3 @@
 com.noob.base.spi.impl.MysqlStorage
-com.noob.base.spi.impl.RedisStorage
+# com.noob.base.spi.impl.RedisStorage
+com.noob.base.spi.impl.OracleStorage
