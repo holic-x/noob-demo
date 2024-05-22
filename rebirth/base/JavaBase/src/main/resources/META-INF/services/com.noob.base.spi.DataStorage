@@ -1,0 +1,2 @@
+com.noob.base.spi.impl.MysqlStorage
+com.noob.base.spi.impl.RedisStorage
