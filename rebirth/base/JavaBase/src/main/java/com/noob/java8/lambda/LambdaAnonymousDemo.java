@@ -1,4 +1,4 @@
-package com.noob.java8;
+package com.noob.java8.lambda;
 
 // 接口定义
 interface MyEventConsumer{

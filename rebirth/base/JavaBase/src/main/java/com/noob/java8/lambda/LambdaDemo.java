@@ -1,4 +1,4 @@
-package com.noob.java8;
+package com.noob.java8.lambda;
 
 interface MyInterface{
     // 抽象方法
