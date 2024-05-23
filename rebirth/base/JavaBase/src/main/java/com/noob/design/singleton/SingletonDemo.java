@@ -41,15 +41,14 @@ public class SingletonDemo {
         // 1.饿汉式
         Singleton01 singleton011 = Singleton01.getInstance();
         Singleton01 singleton012 = Singleton01.getInstance();
-        System.out.println(singleton011);
-        System.out.println(singleton012);
+        System.out.println(singleton011==singleton012);
 
 
-        // 2.饱汉式
+        // 2.饱汉式（懒汉式）
         Singleton02 singleton021 = Singleton02.getInstance();
         Singleton02 singleton022 = Singleton02.getInstance();
-        System.out.println(singleton021);
-        System.out.println(singleton022);
+        System.out.println(singleton021==singleton022);
+
     }
 
 }
