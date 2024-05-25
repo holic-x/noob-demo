@@ -38,6 +38,5 @@ public class LRUCacheDemo {
         System.out.println(cache);
         cache.put(7, "REDIS");
         System.out.println(cache);
-        LinkedHashSet
     }
 }
