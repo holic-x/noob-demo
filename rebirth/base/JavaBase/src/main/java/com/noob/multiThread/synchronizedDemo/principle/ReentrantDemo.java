@@ -1,4 +1,4 @@
-package com.noob.multiThread.synchnoized.principle;
+package com.noob.multiThread.synchronizedDemo.principle;
 
 // 2.可重入的实现原理
 public class ReentrantDemo {

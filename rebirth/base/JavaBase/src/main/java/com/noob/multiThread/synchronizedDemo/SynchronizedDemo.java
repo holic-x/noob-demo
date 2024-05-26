@@ -1,4 +1,4 @@
-package com.noob.multiThread.synchnoized;
+package com.noob.multiThread.synchronizedDemo;
 
 // 1.对于普通同步方法
 class SynchronizedMethod implements Runnable {

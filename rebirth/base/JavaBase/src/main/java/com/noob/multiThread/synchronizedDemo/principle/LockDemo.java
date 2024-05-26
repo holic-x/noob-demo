@@ -1,4 +1,4 @@
-package com.noob.multiThread.synchnoized.principle;
+package com.noob.multiThread.synchronizedDemo.principle;
 
 // 1.加锁和释放锁的原理
 public class LockDemo implements Runnable{

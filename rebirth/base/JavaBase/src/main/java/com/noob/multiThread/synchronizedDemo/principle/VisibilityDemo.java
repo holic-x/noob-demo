@@ -1,4 +1,4 @@
-package com.noob.multiThread.synchnoized.principle;
+package com.noob.multiThread.synchronizedDemo.principle;
 
 // 3.保证可见性的原理-锁的内存语义
 public class VisibilityDemo {
