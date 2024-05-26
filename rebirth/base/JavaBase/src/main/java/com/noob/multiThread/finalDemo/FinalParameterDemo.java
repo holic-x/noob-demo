@@ -9,7 +9,7 @@ public class FinalParameterDemo {
     interface Printer{
         void print();
     }
-    
+
     // 定义信息打印方法
     public static void printMessage(final String message){
         Printer printer = new Printer() {
