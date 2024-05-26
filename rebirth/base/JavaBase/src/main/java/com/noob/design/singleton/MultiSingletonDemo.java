@@ -39,7 +39,7 @@ public class MultiSingletonDemo {
             System.out.println("线程 " + threadName + "\t => " + instance.hashCode());
         };
         // 模拟多线程环境下使用 Singleton 类获得对象
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 500; i++) {
             new Thread(task, "" + i).start();
         }
     }
