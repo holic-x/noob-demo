@@ -53,6 +53,5 @@ public class CacheThreadDemo {
             // 解锁
             writeLock.unlock();
         }
-        AbstractQueuedSynchronizer
     }
 }
