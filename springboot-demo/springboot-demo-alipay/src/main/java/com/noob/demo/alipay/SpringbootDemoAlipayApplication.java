@@ -8,6 +8,8 @@ public class SpringbootDemoAlipayApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootDemoAlipayApplication.class, args);
+
+
     }
 
 }

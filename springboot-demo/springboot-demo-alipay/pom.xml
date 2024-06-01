@@ -36,7 +36,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!--引入支付宝支付 -->
+        <!--引入支付宝支付相关依赖 -->
         <dependency>
             <groupId>com.alipay.sdk</groupId>
             <artifactId>alipay-easysdk</artifactId>
