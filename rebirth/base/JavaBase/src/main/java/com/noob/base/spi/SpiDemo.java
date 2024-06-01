@@ -3,6 +3,7 @@ package com.noob.base.spi;
 import com.noob.base.spi.impl.MysqlStorage;
 import com.noob.base.spi.impl.OracleStorage;
 import com.noob.base.spi.impl.RedisStorage;
+import sun.misc.Launcher;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;
@@ -33,5 +34,7 @@ public class SpiDemo {
             // 指定对应实现类指定的操作
             storage.search("keep");
         }
+
+        Launcher
     }
 }
