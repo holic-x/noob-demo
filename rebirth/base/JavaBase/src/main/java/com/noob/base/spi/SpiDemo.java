@@ -34,7 +34,5 @@ public class SpiDemo {
             // 指定对应实现类指定的操作
             storage.search("keep");
         }
-
-        Launcher
     }
 }
