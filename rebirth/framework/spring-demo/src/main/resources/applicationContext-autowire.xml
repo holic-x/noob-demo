@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 注册StudentDao -->
+    <bean id="studentDao" class="com.noob.framework.di.autowire.StudentDaoImpl"></bean>
+    <bean id="studentDao1" class="com.noob.framework.di.autowire.StudentDaoImpl"></bean>
+    <bean id="studentDao3" class="com.noob.framework.di.autowire.StudentDaoExtendImpl"></bean>
+
+    <!-- 注册userService -->
+    <bean id="studentService" class="com.noob.framework.di.autowire.StudentServiceImpl" autowire="byType"></bean>
+
+</beans>
