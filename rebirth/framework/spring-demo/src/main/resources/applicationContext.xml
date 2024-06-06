@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 实例化UserDaoImpl -->
+    <bean id="userDao" name="userDao" class="com.noob.framework.di.UserDaoImpl" >
+        <!-- id:文件的唯一标识符(不能重复,驼峰命名法) name:别名 class:要实例化的Bean的全限定类名-->
+    </bean>
+
+    <!-- 还可设定别名标签：可通过IOC容器获取:applicationContext.getBean("user"); -->
+    <alias name="userDao" alias="user"></alias>
+
+    <!-- 实例化UserServiceImpl -->
+    <bean id="userService" name="userService" class="com.noob.framework.di.UserServiceImpl">
+        <!-- 将UserDao的实例对象(userDao)注入到UserService中 -->
+        <property name="userDao" ref="userDao">
+            <!-- name:对应UserServiceImpl类中声明的属性(对应变量名,或者注解指定的name属性) ref:对应bean的id或name -->
+        </property>
+    </bean>
+</beans>
