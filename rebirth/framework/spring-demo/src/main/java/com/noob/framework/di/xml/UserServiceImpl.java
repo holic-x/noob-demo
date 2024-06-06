@@ -1,12 +1,12 @@
-package com.noob.framework.di;
+package com.noob.framework.di.xml;
 
 public class UserServiceImpl implements UserService{
 
     // 1.接口声明
     private UserDao userDao;
 
-    // 2.提供setter方法（DI）
-    public void setUserDao(UserDao userDao) {
+    // 2.构造器注入（DI）
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 

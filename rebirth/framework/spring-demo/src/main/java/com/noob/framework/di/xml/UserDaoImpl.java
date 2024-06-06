@@ -1,4 +1,4 @@
-package com.noob.framework.di;
+package com.noob.framework.di.xml;
 
 public class UserDaoImpl implements UserDao{
     public boolean save(String userName){

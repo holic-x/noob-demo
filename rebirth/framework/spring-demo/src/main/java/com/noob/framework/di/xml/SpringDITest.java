@@ -1,4 +1,4 @@
-package com.noob.framework.di;
+package com.noob.framework.di.xml;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
