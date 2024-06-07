@@ -46,7 +46,22 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!-- 其他需要的模块... -->
+        <!-- Spring AOP相关依赖引入 -->
+        <!-- Spring AOP依赖 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- AspectJ依赖 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.8</version>
+        </dependency>
+
+
     </dependencies>
 
 
