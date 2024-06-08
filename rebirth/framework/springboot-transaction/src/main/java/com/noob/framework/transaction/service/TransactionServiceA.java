@@ -20,11 +20,6 @@ public class TransactionServiceA {
     @Transactional
     public void methodA(){
         tableMapper.insertTableA(new TableEntity(UUID.randomUUID().toString().replaceAll("-","")));
-        // 父事务捕获异常
-        try{
-            transactionServiceB.methodB();
-        }catch (Exception e){
-            System.out.println("异常捕获处理....");
-        }
+        transactionServiceB.methodB();
     }
 }

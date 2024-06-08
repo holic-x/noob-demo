@@ -15,7 +15,7 @@ public class TransactionServiceB {
     @Autowired
     private TableMapper tableMapper;
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.NESTED)
     public void methodB(){
         tableMapper.insertTableB(new TableEntity(UUID.randomUUID().toString().replaceAll("-","")));
         // 模拟业务处理异常
