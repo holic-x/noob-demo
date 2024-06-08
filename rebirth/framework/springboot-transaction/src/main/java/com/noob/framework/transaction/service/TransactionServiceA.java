@@ -19,8 +19,12 @@ public class TransactionServiceA {
 
     @Transactional
     public void methodA(){
-        System.out.println("methodA 执行 插入数据");
         tableMapper.insertTableA(new TableEntity(UUID.randomUUID().toString().replaceAll("-","")));
-        transactionServiceB.methodB();
+        // 父事务捕获异常
+        try{
+            transactionServiceB.methodB();
+        }catch (Exception e){
+            System.out.println("异常捕获处理....");
+        }
     }
 }
