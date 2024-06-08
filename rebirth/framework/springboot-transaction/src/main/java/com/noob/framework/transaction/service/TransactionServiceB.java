@@ -4,6 +4,7 @@ import com.noob.framework.transaction.entity.TableEntity;
 import com.noob.framework.transaction.mapper.TableMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -13,6 +14,7 @@ public class TransactionServiceB {
     @Autowired
     private TableMapper tableMapper;
 
+    @Transactional
     public void methodB(){
         System.out.println("methodB 执行 插入数据");
         tableMapper.insertTableB(new TableEntity(UUID.randomUUID().toString().replaceAll("-","")));
