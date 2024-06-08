@@ -17,7 +17,6 @@ public class SpringTransactionFailController {
 
     @RequestMapping("/spring-transaction/fail")
     public String testTransaction() {
-        // 调用serviceA执行方法
         transactionServiceC.methodC();
         return "SUCCESS";
     }
