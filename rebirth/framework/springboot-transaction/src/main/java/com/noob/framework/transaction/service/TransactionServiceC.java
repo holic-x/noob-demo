@@ -16,14 +16,22 @@ public class TransactionServiceC {
     @Autowired
     private TableMapper tableMapper;
 
+    /*
     @Lazy
     @Autowired
     private TransactionServiceC transactionServiceC;
+     */
+
+    @Lazy
+    @Autowired
+    private MyService myService;
 
     // 内部方法
     public void methodC(){
         tableMapper.insertTableA(new TableEntity(UUID.randomUUID().toString().replaceAll("-","")));
-        transactionServiceC.add();
+        myService.add();
+        // add();
+        // transactionServiceC.add();
         // ((TransactionServiceC) AopContext.currentProxy()).add();
     }
 
@@ -32,4 +40,14 @@ public class TransactionServiceC {
         tableMapper.insertTableB(new TableEntity(UUID.randomUUID().toString().replaceAll("-","")));
         throw new RuntimeException();
     }
+
+    @Service
+    public class MyService {
+        @Transactional(rollbackFor=Exception.class)
+        public void add(){
+            tableMapper.insertTableB(new TableEntity(UUID.randomUUID().toString().replaceAll("-","")));
+            throw new RuntimeException();
+        }
+    }
+
 }
