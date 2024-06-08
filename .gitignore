@@ -134,5 +134,7 @@
 /rebirth/framework/springboot-transaction/.idea
 /rebirth/framework/springboot-mybatis-multiDatasource/target
 /rebirth/framework/springboot-mybatis-multiDatasource/.idea
+/rebirth/framework/springboot-retry-demo/target
+/rebirth/framework/springboot-retry-demo/.idea
 
 rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml
