@@ -1,4 +1,4 @@
-package com.noob.framework.design;
+package com.noob.framework.design.singleton;
 
 import com.noob.framework.di.staticFactory.Staff;
 import org.springframework.context.ApplicationContext;
