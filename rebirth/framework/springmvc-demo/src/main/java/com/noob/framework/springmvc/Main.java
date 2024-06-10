@@ -1,4 +1,4 @@
-package com.noob.framework;
+package com.noob.framework.springmvc;
 
 public class Main {
     public static void main(String[] args) {
