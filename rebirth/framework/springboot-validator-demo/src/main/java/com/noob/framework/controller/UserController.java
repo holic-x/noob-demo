@@ -34,7 +34,7 @@ public class UserController {
         userService.saveByValidator(userAddDTO);
         return "success";
     }
-    
+
     @GetMapping("/test")
     public ResponseEntity<RspDTO> test(){
 //        int i = 10/0;

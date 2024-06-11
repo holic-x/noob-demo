@@ -2,6 +2,7 @@ package com.noob.framework.model;
 
 
 
+import com.noob.framework.validator.IdentityCardNumber;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -43,5 +44,9 @@ public class UserAddDTO implements Serializable {
     @NotNull(message = "创建时间不能为空")
     @Future(message = "时间必须是将来时间")
     private Date createTime;
+
+    @NotNull(message = "idCard不能为空")
+    @IdentityCardNumber(message = "idCard校验失败")
+    private String idCard;
 
 }
