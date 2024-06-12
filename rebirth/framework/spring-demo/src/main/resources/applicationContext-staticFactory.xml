@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- factory-method：告诉Spring容器调用工厂类中的指定方法获取Bean的实例 -->
+    <bean id="myBeanFactory" class="com.noob.framework.di.staticFactory.MyBeanFactory" factory-method="createBean"></bean>
+
+</beans>

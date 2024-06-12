@@ -1,0 +1,27 @@
+# 项目启动窗口
+server:
+  port: 8080
+
+# 项目名称
+spring:
+  profiles:
+    active: dev
+  application:
+    name: springboot-mybatis-multiDatasource
+  datasource:
+    # 主数据库
+    master:
+      # 注意，整合多数据源时如果使用springboot默认的数据库连接池Hikari，指定连接数据使用的是jdbc-url而不是url属性
+      jdbc-url: jdbc:mysql://localhost:3306/db_noob_demo?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: db_noob_demo
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    # 副数据库
+    slave:
+      # 注意，整合多数据源时如果使用springboot默认的数据库连接池Hikari，指定连接数据使用的是jdbc-url而不是url属性
+      jdbc-url: jdbc:mysql://localhost:3306/db_noob_demo_bak?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: db_noob_demo_bak
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+

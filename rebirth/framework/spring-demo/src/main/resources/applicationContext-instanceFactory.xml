@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 步骤1：配置实例工厂 -->
+    <bean id="instanceBeanFactory" class="com.noob.framework.di.instanceFactory.InstanceBeanFactory"></bean>
+
+    <!-- factory-bean：指定一个实例工厂; factory-method 指定实例工厂的指定方法 -->
+    <bean id="boss" factory-bean="instanceBeanFactory" factory-method="createBean"></bean>
+
+</beans>
