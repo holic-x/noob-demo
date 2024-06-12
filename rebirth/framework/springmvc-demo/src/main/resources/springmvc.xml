@@ -45,6 +45,14 @@
             <!-- 指定拦截器 -->
             <bean class="com.noob.framework.springmvc.interceptor.MyWebRequestInterceptor"></bean>
         </mvc:interceptor>
+
+        <!-- 配置登录拦截器 -->
+        <mvc:interceptor>
+            <!-- 配置拦截路径 -->
+            <mvc:mapping path="/index/toIndex"/>
+            <!-- 指定拦截器 -->
+            <bean class="com.noob.framework.springmvc.interceptor.LoginHandlerInterceptor"></bean>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 
