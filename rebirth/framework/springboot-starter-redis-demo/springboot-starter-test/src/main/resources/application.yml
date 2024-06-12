@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+# 配置自定义starter参数
+custom:
+  noob:
+    demo:
+      name: haha
+      version: V1.0.0
