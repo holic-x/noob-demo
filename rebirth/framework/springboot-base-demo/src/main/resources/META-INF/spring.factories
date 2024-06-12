@@ -1,0 +1,5 @@
+#org.springframework.context.ApplicationContextInitializer=\
+#com.noob.framework.application.MyApplicationContextInitializer
+
+org.springframework.boot.SpringBootExceptionReporter=\
+com.noob.framework.application.MyExceptionReporter
