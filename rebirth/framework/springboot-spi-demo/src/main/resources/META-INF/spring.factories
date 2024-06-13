@@ -1,0 +1,2 @@
+com.noob.framework.spi.springboot.DataBase=\
+  com.noob.framework.spi.springboot.MySQLDataBase,com.noob.framework.spi.springboot.OracleDataBase
