@@ -149,10 +149,12 @@
 /rebirth/framework/springboot-starter-demo/springboot-starter-test/.idea
 
 
-/rebirth/framework/springboot-starter-redis-demoo/redis-spring-boot-autoconfigure/target
-/rebirth/framework/springboot-starter-redis-demo/sredis-spring-boot-autoconfigure/.idea
+/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-autoconfigure/target
+/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-autoconfigure/.idea
+
 /rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-starter/target
-/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-startert/.idea
+/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-starter/.idea
+
 /rebirth/framework/springboot-starter-redis-demo/springboot-starter-test/target
 /rebirth/framework/springboot-starter-redis-demo/springboot-starter-test/.idea
 

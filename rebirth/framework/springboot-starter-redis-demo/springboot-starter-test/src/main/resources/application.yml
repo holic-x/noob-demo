@@ -3,7 +3,8 @@ server:
 
 # 配置自定义starter参数
 custom:
-  noob:
-    demo:
-      name: haha
-      version: V1.0.0
+  redis:
+    host: 43.138.185.20
+#    host: localhost
+    port: 6379
+    password: 123456
