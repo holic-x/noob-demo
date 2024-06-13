@@ -39,6 +39,14 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!-- 引入mybatis-starter -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+
+
     </dependencies>
     <dependencyManagement>
         <dependencies>

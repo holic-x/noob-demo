@@ -5,5 +5,5 @@ server:
 custom:
   noob:
     demo:
-      name: haha
+      name:
       version: V1.0.0

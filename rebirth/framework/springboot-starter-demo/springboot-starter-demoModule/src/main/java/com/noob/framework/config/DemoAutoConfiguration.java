@@ -16,4 +16,12 @@ public class DemoAutoConfiguration {
         demoModule.setVersion(properties.getVersion());
         return demoModule;
     }
+
+    @Bean(name = "demoModuleByParam")
+    public DemoModule demoModuleByParam(DemoProperties properties){
+        System.out.println("demoModuleByParam执行 初始化DemoModule");
+        DemoModule demoModule = new DemoModule(properties.getName(), properties.getVersion());
+        return demoModule;
+    }
+
 }
