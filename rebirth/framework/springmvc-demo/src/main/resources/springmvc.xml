@@ -27,4 +27,34 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- 拦截器配置 -->
+    <mvc:interceptors>
+        <!-- 可配置多个拦截器 -->
+        <mvc:interceptor>
+            <!-- 配置拦截路径：/**表示拦截所有的URL，包括URL的子路径 -->
+            <mvc:mapping path="/**"/>
+            <!-- 配置不需要拦截器路径 -->
+            <mvc:exclude-mapping path="/interceptor/login"/>
+            <!-- 指定拦截器 -->
+            <bean class="com.noob.framework.springmvc.interceptor.MyHandlerInterceptor"></bean>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <!-- 配置拦截路径 -->
+            <mvc:mapping path="/interceptor/index"/>
+            <!-- 指定拦截器 -->
+            <bean class="com.noob.framework.springmvc.interceptor.MyWebRequestInterceptor"></bean>
+        </mvc:interceptor>
+
+        <!-- 配置登录拦截器 -->
+        <mvc:interceptor>
+            <!-- 配置拦截路径 -->
+            <mvc:mapping path="/index/toIndex"/>
+            <!-- 指定拦截器 -->
+            <bean class="com.noob.framework.springmvc.interceptor.LoginHandlerInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+
 </beans>

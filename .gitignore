@@ -140,6 +140,27 @@
 /rebirth/framework/springboot-exception-demo/.idea
 /rebirth/framework/springboot-validator-demo/target
 /rebirth/framework/springboot-validator-demo/.idea
+/rebirth/framework/springboot-base-demo/target
+/rebirth/framework/springboot-base-demo/.idea
+
+/rebirth/framework/springboot-starter-demo/springboot-starter-demoModule/target
+/rebirth/framework/springboot-starter-demo/springboot-starter-demoModule/.idea
+/rebirth/framework/springboot-starter-demo/springboot-starter-test/target
+/rebirth/framework/springboot-starter-demo/springboot-starter-test/.idea
+
+
+/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-autoconfigure/target
+/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-autoconfigure/.idea
+
+/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-starter/target
+/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-starter/.idea
+
+/rebirth/framework/springboot-starter-redis-demo/springboot-starter-test/target
+/rebirth/framework/springboot-starter-redis-demo/springboot-starter-test/.idea
+
+
+/rebirth/framework/springboot-spi-demo/target
+/rebirth/framework/springboot-spi-demo/.idea
 
 
 

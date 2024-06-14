@@ -9,6 +9,8 @@
 
     <title>Index</title>
 
+    <c:if test="${requestScope.username!=null}">${requestScope.username} <a href="${pageContext.request.contextPath }/index/logout">退出登录</a> </c:if>
+
 </head>
 <body>
 <div class="container">
