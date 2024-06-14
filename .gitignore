@@ -167,4 +167,9 @@
 /rebirth/framework/springmvc-demo/target
 /rebirth/framework/springmvc-demo/.idea
 
+
+/rebirth/framework/spring-mybatis-demo/target
+/rebirth/framework/spring-mybatis-demo/.idea
+
+
 rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml
