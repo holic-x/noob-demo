@@ -1,0 +1,4 @@
+# server配置
+server:
+  port: 8080
+
