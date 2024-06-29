@@ -116,10 +116,11 @@
 /springboot-demo/springboot-demo-redisson/target
 /springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml
 /springboot-demo/springboot-demo-alipay/src/main/resources/application-dev.yml
-
-
 /springboot-demo/springboot-demo-watermark/.idea
 /springboot-demo/springboot-demo-watermark/target
+
+/springboot-demo/springboot-ureport/.idea
+/springboot-demo/springboot-ureport/target
 
 
 /java-demo/JavaBaseDemo/.idea
