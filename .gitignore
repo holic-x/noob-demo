@@ -29,9 +29,9 @@
 /gui-demo/VoteManagerSystem/out
 /gui-demo/VoteManagerSystem/VoteManagerSystem.iml
 /gui-demo/VoteManagerSystem/.idea
-/simple-demo/SimpleDemo/out
-/simple-demo/SimpleDemo/SimpleDemo.iml
-/simple-demo/SimpleDemo/.idea
+/java-demo/SimpleDemo/out
+/java-demo/SimpleDemo/SimpleDemo.iml
+/java-demo/SimpleDemo/.idea
 /springboot-demo/springboot-demo-mail/mvnw
 /springboot-demo/springboot-demo-mail/mvnw.cmd
 /springboot-demo/springboot-demo-mail/springboot-demo-mail.iml
@@ -86,8 +86,8 @@
 /java-demo/JavaReflection/target
 /java-demo/JavaArithmetic/.idea
 /java-demo/JavaArithmetic/target
-/simple-demo/DailyDemo/.idea
-/simple-demo/DailyDemo/target
+/java-demo/DailyDemo/.idea
+/java-demo/DailyDemo/target
 /java-demo/HelloWorld/.idea
 /java-demo/HelloWorld/Module01/Module01.iml
 /java-demo/HelloWorld/HelloWorld.iml
