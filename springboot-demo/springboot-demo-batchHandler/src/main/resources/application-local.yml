@@ -1,0 +1,8 @@
+# 公共配置文件
+spring:
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_mysql_base
+    username: root
+    password: 123456

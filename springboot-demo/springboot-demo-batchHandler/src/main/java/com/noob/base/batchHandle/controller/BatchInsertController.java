@@ -14,19 +14,24 @@
  * limitations under the License.
  */
 
-package com.noob.base.springbootdemobatchhandler.demos.web;
+package com.noob.base.batchHandle.controller;
 
+import com.noob.base.batchHandle.entity.model.TLimit;
+import com.noob.base.batchHandle.service.TLimitService;
+import com.noob.base.batchHandle.util.RandomGenEntityUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
- */
+import java.util.List;
+
 @Controller
-public class BasicController {
+public class BatchInsertController {
+
+    @Autowired
+    private TLimitService tLimitService;
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")
@@ -35,33 +40,31 @@ public class BasicController {
         return "Hello " + name;
     }
 
-    // http://127.0.0.1:8080/user
-    @RequestMapping("/user")
+    @RequestMapping("/batchInsertTLimit")
     @ResponseBody
-    public User user() {
-        User user = new User();
-        user.setName("theonefx");
-        user.setAge(666);
-        return user;
+    public String batchInsertUser() {
+
+        int num = 100000;
+
+
+
+        // 分批插入数据
+//        List<TLimit> limits = RandomGenEntityUtil.genTLimit();
+
+
+
+//        tLimitService.batchInsert(limits);
+        return "success";
     }
 
-    // http://127.0.0.1:8080/save_user?name=newName&age=11
-    @RequestMapping("/save_user")
+    @RequestMapping("/batchInsertTLimitOld")
     @ResponseBody
-    public String saveUser(User u) {
-        return "user will save: name=" + u.getName() + ", age=" + u.getAge();
+    public String batchInsertTLimitOld() {
+        // java.lang.StackOverflowError: null
+        List<TLimit> limits = RandomGenEntityUtil.genTLimit(100000);
+        tLimitService.batchInsert(limits);
+        return "success";
     }
 
-    // http://127.0.0.1:8080/html
-    @RequestMapping("/html")
-    public String html() {
-        return "index.html";
-    }
 
-    @ModelAttribute
-    public void parseUser(@RequestParam(name = "name", defaultValue = "unknown user") String name
-            , @RequestParam(name = "age", defaultValue = "12") Integer age, User user) {
-        user.setName("zhangsan");
-        user.setAge(18);
-    }
 }
