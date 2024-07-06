@@ -57,14 +57,18 @@ public class BatchInsertController {
         return "success";
     }
 
-    @RequestMapping("/batchInsertTLimitOld")
+    /**
+     * 模拟批量插入操作方式1
+     * @return
+     */
+    @RequestMapping("/batchInsertTLimit1")
     @ResponseBody
-    public String batchInsertTLimitOld() {
-        // java.lang.StackOverflowError: null
+    public String batchInsertTLimit1() {
         List<TLimit> limits = RandomGenEntityUtil.genTLimit(100000);
-        tLimitService.batchInsert(limits);
+        tLimitService.saveBatch(limits);
         return "success";
     }
+
 
 
 }

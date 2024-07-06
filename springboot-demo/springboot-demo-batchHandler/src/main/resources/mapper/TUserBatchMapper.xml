@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noob.base.batchHandle.mapper.TUserBatchMapper">
+
+    <resultMap id="BaseResultMap" type="com.noob.base.batchHandle.entity.model.TUserBatch">
+            <id property="uid" column="uid" jdbcType="INTEGER"/>
+            <result property="account" column="account" jdbcType="VARCHAR"/>
+            <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+            <result property="add_time" column="add_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        uid,account,mobile,
+        add_time
+    </sql>
+</mapper>

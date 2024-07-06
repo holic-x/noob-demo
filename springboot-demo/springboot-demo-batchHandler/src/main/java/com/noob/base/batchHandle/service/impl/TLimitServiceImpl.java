@@ -19,7 +19,7 @@ public class TLimitServiceImpl extends ServiceImpl<TLimitMapper, TLimit>
 
     @Override
     public boolean batchInsert(List<TLimit> limits) {
-        // java.lang.StackOverflowError: null    this.batchInsert(limits)  嵌套太深，因为用错方法，误认为这是mybatis 的批量操作
+        // java.lang.StackOverflowError: null   错用 this.batchInsert(limits)  嵌套太深，因为用错方法，误认为这是mybatis 的批量操作
         return this.saveBatch(limits);
     }
 }
