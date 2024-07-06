@@ -17,6 +17,7 @@
 package com.noob.base.batchHandle.controller;
 
 import com.noob.base.batchHandle.entity.model.TLimit;
+import com.noob.base.batchHandle.entity.model.TUserBatch;
 import com.noob.base.batchHandle.service.TLimitService;
 import com.noob.base.batchHandle.util.RandomGenEntityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,23 +41,6 @@ public class BatchInsertController {
         return "Hello " + name;
     }
 
-    @RequestMapping("/batchInsertTLimit")
-    @ResponseBody
-    public String batchInsertUser() {
-
-        int num = 100000;
-
-
-
-        // 分批插入数据
-//        List<TLimit> limits = RandomGenEntityUtil.genTLimit();
-
-
-
-//        tLimitService.batchInsert(limits);
-        return "success";
-    }
-
     /**
      * 模拟批量插入操作方式1
      * @return
@@ -64,11 +48,31 @@ public class BatchInsertController {
     @RequestMapping("/batchInsertTLimit1")
     @ResponseBody
     public String batchInsertTLimit1() {
-        List<TLimit> limits = RandomGenEntityUtil.genTLimit(100000);
-        tLimitService.saveBatch(limits);
+        long start = System.currentTimeMillis();
+        List<TLimit> limits = RandomGenEntityUtil.genTLimit(1000000);
+        // 批量插入（默认单次批量提交1000条数据）
+        // tLimitService.saveBatch(limits);
+        // 批量插入（指定batchSize为10000）
+        tLimitService.saveBatch(limits,50000);
+        long end = System.currentTimeMillis();
+        System.out.println("数据批量插入耗时：" + (end - start) / 1000 + "s");
         return "success";
     }
 
-
+    /**
+     * 模拟批量插入操作方式1
+     * @return
+     */
+    @RequestMapping("/exportInsertTLimitSQL")
+    @ResponseBody
+    public String exportInsertTLimitSQL() throws Exception {
+        long start = System.currentTimeMillis();
+        List<TLimit> limits = RandomGenEntityUtil.genTLimit(1000000);
+        String filePath = "D:\\Desktop\\tmp\\insertTLimit.sql";
+        tLimitService.exportInsertSQL(limits,filePath);
+        long end = System.currentTimeMillis();
+        System.out.println("数据导出耗时：" + (end - start) / 1000 + "s");
+        return "success";
+    }
 
 }

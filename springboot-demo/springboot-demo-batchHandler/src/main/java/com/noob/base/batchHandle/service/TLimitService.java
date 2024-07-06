@@ -14,4 +14,6 @@ public interface TLimitService extends IService<TLimit> {
 
     public boolean batchInsert(List<TLimit> limits);
 
+    public boolean exportInsertSQL(List<TLimit> limits,String filePath) throws Exception;
+
 }
