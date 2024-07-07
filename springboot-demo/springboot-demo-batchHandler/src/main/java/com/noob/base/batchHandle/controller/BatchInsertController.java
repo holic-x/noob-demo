@@ -51,9 +51,9 @@ public class BatchInsertController {
         long start = System.currentTimeMillis();
         List<TLimit> limits = RandomGenEntityUtil.genTLimit(1000000);
         // 批量插入（默认单次批量提交1000条数据）
-        // tLimitService.saveBatch(limits);
+//         tLimitService.saveBatch(limits);
         // 批量插入（指定batchSize为10000）
-        tLimitService.saveBatch(limits,50000);
+         tLimitService.saveBatch(limits,50000);
         long end = System.currentTimeMillis();
         System.out.println("数据批量插入耗时：" + (end - start) / 1000 + "s");
         return "success";
