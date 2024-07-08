@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class BatchInsertController {
@@ -71,17 +72,18 @@ public class BatchInsertController {
      */
     @RequestMapping("/exportInsertTLimitSQL")
     @ResponseBody
-    public String exportInsertTLimitSQL(@RequestParam int startNum,@RequestParam int size,@RequestParam String fileName) throws Exception {
+    public String exportInsertTLimitSQL(@RequestParam int pageNum,@RequestParam int pageSize) throws Exception {
         long start = System.currentTimeMillis();
         // 从第1条数据开始生成，生成100w条数据
         // List<TLimit> limits = RandomGenEntityUtil.genTLimit(1,1000000);
-        // 从第1000001条数据开始生成，生成100w条数据
+        // 从第1000001条数据开始生成，生成100w条数据（这种形式调用不够灵活，尽量简化调用）
         // List<TLimit> limits = RandomGenEntityUtil.genTLimit(1000001,1000000);
 
-        // 自定义指定开始编号和生成记录条数
-        List<TLimit> limits = RandomGenEntityUtil.genTLimit(startNum,size);
+        // 采用分页思路进行构建，自定义指定文件编号和单个文件记录条数
+        List<TLimit> limits = RandomGenEntityUtil.genTLimit(pageNum,pageSize);
         // 自定义生成文件名称(例如t_limit001)
-        String filePath = TARGET_PATH + fileName + ".sql";
+        String prefix = UUID.randomUUID().toString().substring(0,6) + "-t_limit_";
+        String filePath = TARGET_PATH + prefix +  pageNum + ".sql";
         // 导出文件
         tLimitService.exportInsertSQL(limits,filePath);
         long end = System.currentTimeMillis();
