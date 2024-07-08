@@ -29,9 +29,9 @@
 /gui-demo/VoteManagerSystem/out
 /gui-demo/VoteManagerSystem/VoteManagerSystem.iml
 /gui-demo/VoteManagerSystem/.idea
-/simple-demo/SimpleDemo/out
-/simple-demo/SimpleDemo/SimpleDemo.iml
-/simple-demo/SimpleDemo/.idea
+/java-demo/SimpleDemo/out
+/java-demo/SimpleDemo/SimpleDemo.iml
+/java-demo/SimpleDemo/.idea
 /springboot-demo/springboot-demo-mail/mvnw
 /springboot-demo/springboot-demo-mail/mvnw.cmd
 /springboot-demo/springboot-demo-mail/springboot-demo-mail.iml
@@ -86,8 +86,8 @@
 /java-demo/JavaReflection/target
 /java-demo/JavaArithmetic/.idea
 /java-demo/JavaArithmetic/target
-/simple-demo/DailyDemo/.idea
-/simple-demo/DailyDemo/target
+/java-demo/DailyDemo/.idea
+/java-demo/DailyDemo/target
 /java-demo/HelloWorld/.idea
 /java-demo/HelloWorld/Module01/Module01.iml
 /java-demo/HelloWorld/HelloWorld.iml
@@ -116,11 +116,14 @@
 /springboot-demo/springboot-demo-redisson/target
 /springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml
 /springboot-demo/springboot-demo-alipay/src/main/resources/application-dev.yml
-
-
 /springboot-demo/springboot-demo-watermark/.idea
 /springboot-demo/springboot-demo-watermark/target
 
+/springboot-demo/springboot-ureport/.idea
+/springboot-demo/springboot-ureport/target
+
+/springboot-demo/springboot-demo-batchHandler/.idea
+/springboot-demo/springboot-demo-batchHandler/target
 
 /java-demo/JavaBaseDemo/.idea
 /java-demo/JavaBaseDemo/target
@@ -139,17 +142,22 @@
 /rebirth/framework/springboot-transaction/.idea
 /rebirth/framework/springboot-mybatis-multiDatasource/target
 /rebirth/framework/springboot-mybatis-multiDatasource/.idea
+
 /rebirth/framework/springboot-retry-demo/target
 /rebirth/framework/springboot-retry-demo/.idea
+
 /rebirth/framework/springboot-exception-demo/target
 /rebirth/framework/springboot-exception-demo/.idea
+
 /rebirth/framework/springboot-validator-demo/target
 /rebirth/framework/springboot-validator-demo/.idea
+
 /rebirth/framework/springboot-base-demo/target
 /rebirth/framework/springboot-base-demo/.idea
 
 /rebirth/framework/springboot-starter-demo/springboot-starter-demoModule/target
 /rebirth/framework/springboot-starter-demo/springboot-starter-demoModule/.idea
+
 /rebirth/framework/springboot-starter-demo/springboot-starter-test/target
 /rebirth/framework/springboot-starter-demo/springboot-starter-test/.idea
 
@@ -178,3 +186,4 @@
 
 
 rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml
+springboot-demo/springboot-demo-batchHandler/src/main/resources/application-remote.yml
