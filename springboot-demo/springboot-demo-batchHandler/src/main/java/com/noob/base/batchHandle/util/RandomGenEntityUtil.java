@@ -23,10 +23,10 @@ public class RandomGenEntityUtil {
         return tables;
     }
 
-    public static List<TLimit> genTLimit(int num){
+    public static List<TLimit> genTLimit(int startNum,int size){
         // 分批进行处理（例如每次插入1w条数据）
         List<TLimit> list = new ArrayList<>();
-        for (int i = 1; i <= num; i++) {
+        for (int i = startNum; i <= startNum + size -1 ; i++) {
             TLimit tLimit = new TLimit();                       
             tLimit.setKey1(RandomGenUtil.genUuid(6));
              tLimit.setKey2(i);

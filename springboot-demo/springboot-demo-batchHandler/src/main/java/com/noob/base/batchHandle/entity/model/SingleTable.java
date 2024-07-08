@@ -3,7 +3,7 @@ package com.noob.base.batchHandle.entity.model;
 import lombok.Data;
 
 /**
- * 单表（s1、s2）
+ * 单表（s1、s2）- 用于大数据量模拟测试
  */
 @Data
 public class SingleTable {

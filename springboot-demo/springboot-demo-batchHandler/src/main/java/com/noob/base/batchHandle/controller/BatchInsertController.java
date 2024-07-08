@@ -17,7 +17,6 @@
 package com.noob.base.batchHandle.controller;
 
 import com.noob.base.batchHandle.entity.model.TLimit;
-import com.noob.base.batchHandle.entity.model.TUserBatch;
 import com.noob.base.batchHandle.service.TLimitService;
 import com.noob.base.batchHandle.util.RandomGenEntityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +33,10 @@ public class BatchInsertController {
     @Autowired
     private TLimitService tLimitService;
 
+    // 文件目标生成路径
+    // private String TARGET_PATH  = "D:\\Desktop\\tmp\\";
+    private String TARGET_PATH  = "/Users/holic-x/tmp/";
+
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")
     @ResponseBody
@@ -42,33 +45,44 @@ public class BatchInsertController {
     }
 
     /**
-     * 模拟批量插入操作方式1
+     * 模拟批量插入操作方式（通过MyBatis-Plus的批量导入功能）：指定分批条件进行测试
      * @return
      */
-    @RequestMapping("/batchInsertTLimit1")
+    @RequestMapping("/batchInsertTLimitByMB")
     @ResponseBody
-    public String batchInsertTLimit1() {
+    public String batchInsertTLimitByMB() {
         long start = System.currentTimeMillis();
-        List<TLimit> limits = RandomGenEntityUtil.genTLimit(1000000);
+        List<TLimit> limits = RandomGenEntityUtil.genTLimit(1,1000000);
         // 批量插入（默认单次批量提交1000条数据）
-//         tLimitService.saveBatch(limits);
-        // 批量插入（指定batchSize为10000）
+        // tLimitService.saveBatch(limits);
+
+        // 批量插入（指定单次的batchSize为10000）
          tLimitService.saveBatch(limits,50000);
+
         long end = System.currentTimeMillis();
         System.out.println("数据批量插入耗时：" + (end - start) / 1000 + "s");
         return "success";
     }
 
     /**
-     * 模拟批量插入操作方式1
+     * 模拟批量数据导出
+     * 生成数据格式为insert类型的SQL语句
      * @return
      */
     @RequestMapping("/exportInsertTLimitSQL")
     @ResponseBody
-    public String exportInsertTLimitSQL() throws Exception {
+    public String exportInsertTLimitSQL(@RequestParam int startNum,@RequestParam int size,@RequestParam String fileName) throws Exception {
         long start = System.currentTimeMillis();
-        List<TLimit> limits = RandomGenEntityUtil.genTLimit(1000000);
-        String filePath = "D:\\Desktop\\tmp\\insertTLimit.sql";
+        // 从第1条数据开始生成，生成100w条数据
+        // List<TLimit> limits = RandomGenEntityUtil.genTLimit(1,1000000);
+        // 从第1000001条数据开始生成，生成100w条数据
+        // List<TLimit> limits = RandomGenEntityUtil.genTLimit(1000001,1000000);
+
+        // 自定义指定开始编号和生成记录条数
+        List<TLimit> limits = RandomGenEntityUtil.genTLimit(startNum,size);
+        // 自定义生成文件名称(例如t_limit001)
+        String filePath = TARGET_PATH + fileName + ".sql";
+        // 导出文件
         tLimitService.exportInsertSQL(limits,filePath);
         long end = System.currentTimeMillis();
         System.out.println("数据导出耗时：" + (end - start) / 1000 + "s");

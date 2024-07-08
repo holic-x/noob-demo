@@ -39,6 +39,7 @@ public class TLimitServiceImpl extends ServiceImpl<TLimitMapper, TLimit>
             // 拼接SQL语句
             StringBuffer insertSql = new StringBuffer();
             // 主键自增
+            /*
             insertSql.append("insert into t_limit (key1,key2,key3,key_part1,key_part2,key_part3,common_field) values( ")
                     .append("'" + entity.getKey1() + "',")
                     .append(entity.getKey2() + ",")
@@ -47,6 +48,14 @@ public class TLimitServiceImpl extends ServiceImpl<TLimitMapper, TLimit>
                     .append("'" + entity.getKeyPart2() + "',")
                     .append("'" + entity.getKeyPart3() + "',")
                     .append("'" + entity.getCommonField() + "');");
+             */
+            insertSql.append("'" + entity.getKey1() + "',")
+                    .append("'" + entity.getKey2() + "',")
+                    .append("'" + entity.getKey3() + "',")
+                    .append("'" + entity.getKeyPart1() + "',")
+                    .append("'" + entity.getKeyPart2() + "',")
+                    .append("'" + entity.getKeyPart3() + "',")
+                    .append("'" + entity.getCommonField() + "'");
             insertList.add(insertSql.toString());
         });
 

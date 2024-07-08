@@ -8,56 +8,56 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 
+ * T_LIMIT 数据表
  * @TableName t_limit
  */
 @TableName(value ="t_limit")
 @Data
 public class TLimit implements Serializable {
     /**
-     * 
+     * id
      */
     @TableId(type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 
+     * key1
      */
     @TableField(value = "key1")
     private String key1;
 
     /**
-     * 
+     * key2
      */
     @TableField(value = "key2")
     private Integer key2;
 
     /**
-     * 
+     * key3
      */
     @TableField(value = "key3")
     private String key3;
 
     /**
-     * 
+     * keyPart1
      */
     @TableField(value = "key_part1")
     private String keyPart1;
 
     /**
-     * 
+     * keyPart2
      */
     @TableField(value = "key_part2")
     private String keyPart2;
 
     /**
-     * 
+     * keyPart3
      */
     @TableField(value = "key_part3")
     private String keyPart3;
 
     /**
-     * 
+     * commonField
      */
     @TableField(value = "common_field")
     private String commonField;
