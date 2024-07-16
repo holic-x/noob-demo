@@ -1,4 +1,11 @@
 # server配置
 server:
   port: 8080
+spring:
+  profiles:
+    active: local
+
+# 不分库，水平分表配置
+
+
 
