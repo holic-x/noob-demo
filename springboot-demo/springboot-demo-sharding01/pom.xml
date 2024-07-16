@@ -41,16 +41,27 @@
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
-            <version>5.2.1</version>
+<!--            <version>5.2.1</version>-->
+            <version>5.0.0</version>
         </dependency>
+
+        <!-- 引入数据库连接相关 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mysql-spring-boot-starter</artifactId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.2.0</version>
+        </dependency>
+
+        <!-- tocheck 为什么要引入自身项目依赖？ -->
+        <dependency>
+            <groupId>com.noob.base</groupId>
+            <artifactId>springboot-demo-sharding01</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>
