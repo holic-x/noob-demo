@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.noob.base</groupId>
-    <artifactId>springboot-demo-watermark</artifactId>
+    <artifactId>springboot-demo-sharding01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-demo-watermark</name>
-    <description>springboot-demo-watermark</description>
+    <name>springboot-demo-sharding01</name>
+    <description>springboot-demo-sharding01</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
