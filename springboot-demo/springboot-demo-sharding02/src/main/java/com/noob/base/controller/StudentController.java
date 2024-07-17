@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/camps")
+@RequestMapping("/camps/student")
 public class StudentController {
 
     @Autowired
