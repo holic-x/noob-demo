@@ -57,12 +57,14 @@
         </dependency>
 
         <!-- tocheck 为什么要引入自身项目依赖？ -->
-        <dependency>
-            <groupId>com.noob.base</groupId>
-            <artifactId>springboot-demo-sharding01</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+<!--        -->
+<!--        <dependency>-->
+<!--            <groupId>com.noob.base</groupId>-->
+<!--            <artifactId>springboot-demo-sharding01</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+
 
     </dependencies>
     <dependencyManagement>
