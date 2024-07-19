@@ -3,7 +3,7 @@ package com.noob.redis.demo;
 import redis.clients.jedis.Jedis;
 
 /**
- * Redis Lua 原子性Demo
+ * Redis Lua 原子性Demo （ call()命令调用 ）
  */
 public class RedisLuaCallDemo {
 
@@ -17,7 +17,7 @@ public class RedisLuaCallDemo {
         jedis.select(1);
         String luaScript =
                 "redis.call('SET', 'ckey1', 'value1')" +
-                        "redis.call('INCRBY', 'ckey2', 1/0)" +
+                        "redis.call('INCRBY', 'ckey2', 1/0)" + // 设置错误指令
                         "redis.call('SET', 'ckey3', 'value3')" +
                         "return 'OK'";
         Object result = jedis.eval(luaScript,0);
