@@ -112,6 +112,8 @@
 /design-demo/design-observer-01/target
 /springboot-demo/springboot-demo-redis/.idea
 /springboot-demo/springboot-demo-redis/target
+/springboot-demo/springboot-demo-redis-base/.idea
+/springboot-demo/springboot-demo-redis-base/target
 /springboot-demo/springboot-demo-redisson/.idea
 /springboot-demo/springboot-demo-redisson/target
 /springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml
@@ -196,3 +198,4 @@
 
 rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml
 springboot-demo/springboot-demo-batchHandler/src/main/resources/application-remote.yml
+springboot-demo/springboot-demo-redis-base/src/main/resources/application-dev.yml
