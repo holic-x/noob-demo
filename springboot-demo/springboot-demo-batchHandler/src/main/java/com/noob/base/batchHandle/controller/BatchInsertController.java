@@ -35,8 +35,8 @@ public class BatchInsertController {
     private TLimitService tLimitService;
 
     // 文件目标生成路径
-     private String TARGET_PATH  = "D:\\Desktop\\tmp\\";
-//    private String TARGET_PATH  = "/Users/holic-x/tmp/";
+//     private String TARGET_PATH  = "D:\\Desktop\\tmp\\";
+    private String TARGET_PATH  = "/Users/holic-x/tmp/";
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")

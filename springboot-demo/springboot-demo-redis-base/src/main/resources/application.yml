@@ -1,0 +1,11 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+
+# spring相关配置
+spring:
+  profiles:
+    active: dev
+  redis:
+    host: localhost
+    port: 6379
