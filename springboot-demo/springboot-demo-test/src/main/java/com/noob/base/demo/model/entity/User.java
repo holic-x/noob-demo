@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.util.Date;
 
 /**
  * User 实体类
@@ -23,8 +22,7 @@ public class User {
     private Integer age;
 
     public User(){}
-    public User(Integer id,String name,Integer age){
-        this.id = id;
+    public User(String name,Integer age){
         this.name = name;
         this.age = age;
     }

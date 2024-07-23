@@ -16,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/add")
-    public String add(User user) {
+    public String add(@RequestBody User user) {
         boolean res = userService.save(user);
         if(res){
             return "success";
@@ -25,7 +25,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String delete(@RequestParam Integer id) {
         boolean res = userService.removeById(id);
         if(res){
@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public String update(User user) {
+    public String update(@RequestBody User user) {
         boolean res = userService.updateById(user);
         if(res){
             return "success";
@@ -45,16 +45,16 @@ public class UserController {
         }
     }
 
-    @PostMapping("/get")
+    @GetMapping("/get")
     public User get(@RequestParam Integer id) {
         User findUser = userService.getById(id);
         return findUser;
     }
 
-    @PostMapping("/getByCond")
-    public List<User> getByCond(@RequestParam String name) {
+    @GetMapping("/getByCond")
+    public List<User> getByCond(@RequestParam String searchKey) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like("name",name);
+        queryWrapper.like("name",searchKey);
         List<User> userList = userService.list(queryWrapper);
         return userList;
     }

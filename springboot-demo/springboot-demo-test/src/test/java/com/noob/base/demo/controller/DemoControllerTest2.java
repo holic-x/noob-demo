@@ -75,12 +75,12 @@ class DemoControllerTest2 {
 
     @SneakyThrows
     @Test
-    void showNameWithHeader() {
+    void showName() {
         // 方式1：@PathVariable 参数构建，配置访问路径(参数装配在URL中)
         String requestUrl = baseUrl + "/showName/" + "哈哈哈" ;
 
         // 方式2
-        String url = baseUrl + "/showNameWithHeader/{name}" ;
+        String url = baseUrl + "/showName/{name}" ;
         // 构建请求参数
         String name = "哈哈哈";
         // Mock构建请求
