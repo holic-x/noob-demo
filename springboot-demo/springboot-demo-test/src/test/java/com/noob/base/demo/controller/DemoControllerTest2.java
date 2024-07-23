@@ -4,17 +4,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.noob.base.demo.constant.HeaderConstants;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -50,6 +47,7 @@ class DemoControllerTest2 {
     @BeforeEach
     public void init() {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+        // 配置请求头信息
         MultiValueMap<String, String> headerMap = new LinkedMultiValueMap<>();
         headerMap.add(HeaderConstants.COUNTRY,"CN");
         headerMap.add(HeaderConstants.APP_LANG,"Chinese");
@@ -60,7 +58,8 @@ class DemoControllerTest2 {
         // 权限限定(获取到权限配置，进行鉴权)，模拟拥有权限访问某个资源
     }
 
-    @SneakyThrows
+    @DisplayName("获取名称信息") // @DisplayName 给测试方法自定义显示名称
+    @SneakyThrows // 用于在方法上自动抛出异常，便于开发使用
     @Test
     void getName() {
         String url = baseUrl + "/getName";
