@@ -8,30 +8,32 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
 
 /**
- * MockService 测试 todo
+ * MockServiceIntegrationTest todo
  */
-// 指定测试的web环境：WebEnvironment.MOCK（默认值，使用 MockMvc）或 WebEnvironment.RANDOM_PORT（随机端口，真正启动嵌入式容器）
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//@SpringBootTest
-class MockServiceDemoTest3 {
+class MockServiceIntegrationTest {
 
     // 要测试目标
-    @Autowired
     private ServiceA serviceA;
 
     // mock目标（可以是一个实体或service）
-    @MockBean
+    @Mock
     private ServiceB serviceB;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+        // serviceA = new ServiceA(serviceB);
+        serviceA = new ServiceAImpl();
+
+        // 配置mock行为(此处因为ServiceA调用了ServiceB，因此ServiceB是需要mock的目标，而ServiceA为测试目标)
+        Mockito.when(serviceB.methodB()).thenReturn(888);
+    }
 
     @Test
     void testServiceA() {
-        // 配置mock行为(此处因为ServiceA调用了ServiceB，因此ServiceB是需要mock的目标，而ServiceA为测试目标)
-        Mockito.when(serviceB.methodB()).thenReturn(888);
         // 调用实际的服务方法
         String res1 = serviceA.methodA();
         // 验证结果是否符合预期
