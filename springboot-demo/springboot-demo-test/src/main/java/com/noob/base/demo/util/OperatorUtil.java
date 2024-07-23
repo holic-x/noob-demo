@@ -1,6 +1,7 @@
 package com.noob.base.demo.util;
 
 public class OperatorUtil {
+
     public static int add(int a, int b) {
         return a + b;
     }
