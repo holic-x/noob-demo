@@ -1,5 +1,6 @@
 package com.noob.base.mock;
 
+import com.noob.base.mock.service.OperatorService;
 import com.noob.base.mock.service.ServiceA;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -9,13 +10,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class MockServiceTest {
 
-//    @Mock // 不会真正执行方法（模拟调用自定义响应值，便于开发调试，实际不会调用方法，无法调整覆盖率）
     @Autowired
     private ServiceA serviceA;
 
+    @Autowired
+    private OperatorService operatorService;
+
     @Test
-    void contextLoads() {
+    void testServiceA() {
         serviceA.methodA();
+    }
+
+    @Test
+    void testAutowire(){
+        System.out.println(operatorService.add(1,2));
+        System.out.println(operatorService.mul(5,10));
     }
 
 }

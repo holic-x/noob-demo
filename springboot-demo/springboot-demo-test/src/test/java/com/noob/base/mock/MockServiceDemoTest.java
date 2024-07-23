@@ -23,7 +23,7 @@ class MockServiceDemoTest {
 
     @Test
     void contextLoads() {
-        // 配置mock行为
+        // 配置mock行为(此处因为ServiceA调用了ServiceB，因此ServiceB是需要mock的目标，而ServiceA为测试目标)
         Mockito.when(serviceB.methodB()).thenReturn(888);
         // 调用实际的服务方法
         String res1 = serviceA.methodA();

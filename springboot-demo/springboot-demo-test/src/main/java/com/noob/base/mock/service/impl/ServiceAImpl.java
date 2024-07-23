@@ -11,7 +11,6 @@ public class ServiceAImpl implements ServiceA {
     @Autowired
     private ServiceB serviceB;
 
-
     @Override
     public String methodA() {
         System.out.println("methodA");
