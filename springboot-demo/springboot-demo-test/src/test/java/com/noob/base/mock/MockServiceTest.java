@@ -7,6 +7,9 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * 普通Service测试
+ */
 @SpringBootTest
 class MockServiceTest {
 

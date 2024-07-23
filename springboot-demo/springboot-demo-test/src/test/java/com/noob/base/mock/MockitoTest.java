@@ -6,6 +6,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * Mockito 普通测试
+ */
 @SpringBootTest
 class MockitoTest {
 

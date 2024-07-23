@@ -10,6 +10,9 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * MockService 测试
+ */
 @SpringBootTest
 class MockServiceDemoTest {
 
@@ -22,7 +25,7 @@ class MockServiceDemoTest {
     private ServiceB serviceB;
 
     @Test
-    void contextLoads() {
+    void testServiceA() {
         // 配置mock行为(此处因为ServiceA调用了ServiceB，因此ServiceB是需要mock的目标，而ServiceA为测试目标)
         Mockito.when(serviceB.methodB()).thenReturn(888);
         // 调用实际的服务方法
