@@ -46,7 +46,7 @@ class DemoControllerTest1 {
         MultiValueMap<String, String> headerMap = new LinkedMultiValueMap<>();
         headerMap.add(HeaderConstants.COUNTRY,"CN");
         headerMap.add(HeaderConstants.APP_LANG,"Chinese");
-        headerMap.add(HeaderConstants.USERNAME,"holic-x");
+        headerMap.add(HeaderConstants.USER_TOKEN,"holic-x");
         headerMap.add(HeaderConstants.TIMESTAMP,String.valueOf(new Date().getTime()));
         headers = new HttpHeaders();
         headers.addAll(headerMap);

@@ -13,6 +13,12 @@ public class DemoController {
         return "hello";
     }
 
+    // 带单个参数
+    @GetMapping("/showName/{name}")
+    public String showName(@PathVariable String name) {
+        return name;
+    }
+
     // 带多个参数
     @GetMapping("/showInfo")
     public String showInfo(@RequestParam String name,@RequestParam int age) {
@@ -25,9 +31,10 @@ public class DemoController {
         return jsonObject.toJSONString();
     }
 
-    // 带单个参数
-    @GetMapping("/showNameWithHeader/{name}")
-    public String showNameWithHeader(@PathVariable String name) {
-        return name;
+    // 带header校验
+    @GetMapping("/getToken")
+    public String showNameWithHeader(@RequestHeader(name = "userToken") String userToken) {
+        return "userToken: " + userToken;
     }
+
 }

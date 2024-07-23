@@ -51,7 +51,7 @@ class DemoControllerTest2 {
         MultiValueMap<String, String> headerMap = new LinkedMultiValueMap<>();
         headerMap.add(HeaderConstants.COUNTRY,"CN");
         headerMap.add(HeaderConstants.APP_LANG,"Chinese");
-        headerMap.add(HeaderConstants.USERNAME,"holic-x");
+        headerMap.add(HeaderConstants.USER_TOKEN,"holic-x");
         headerMap.add(HeaderConstants.TIMESTAMP,String.valueOf(new Date().getTime()));
         headers = new HttpHeaders();
         headers.addAll(headerMap);
@@ -66,6 +66,29 @@ class DemoControllerTest2 {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url) // 接口访问路径
                 .headers(headers) // header配置
                 .contextPath("/api") // MvcMock测试运行独立于配置的servlet上下文路径
+                ).andExpect(MockMvcResultMatchers.status().isOk()) // 预期结果
+                .andReturn();
+        // 查看响应结果
+        String res = mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8);
+        log.info(res);
+    }
+
+    @SneakyThrows
+    @Test
+    void showNameWithHeader() {
+        // 方式1：@PathVariable 参数构建，配置访问路径(参数装配在URL中)
+        String requestUrl = baseUrl + "/showName/" + "哈哈哈" ;
+
+        // 方式2
+        String url = baseUrl + "/showNameWithHeader/{name}" ;
+        // 构建请求参数
+        String name = "哈哈哈";
+        // Mock构建请求
+//         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(requestUrl) // 接口访问路径
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url,name) // 接口访问路径
+                        .headers(headers) // header配置
+                        .contextPath("/api") // MvcMock测试运行独立于配置的servlet上下文路径
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE) // content-type 配置
                 ).andExpect(MockMvcResultMatchers.status().isOk()) // 预期结果
                 .andReturn();
         // 查看响应结果
@@ -118,24 +141,16 @@ class DemoControllerTest2 {
 
     @SneakyThrows
     @Test
-    void showNameWithHeader() {
-        // 方式1：@PathVariable 参数构建，配置访问路径(参数装配在URL中)
-        String requestUrl = baseUrl + "/showNameWithHeader/" + "哈哈哈" ;
-
-        // 方式2
-        String url = baseUrl + "/showNameWithHeader/{name}" ;
-        // 构建请求参数
-        String name = "哈哈哈";
-        // Mock构建请求
-//         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(requestUrl) // 接口访问路径
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url,name) // 接口访问路径
+    void getToken() {
+        String url = baseUrl + "/getToken";
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url) // 接口访问路径
                         .headers(headers) // header配置
                         .contextPath("/api") // MvcMock测试运行独立于配置的servlet上下文路径
-                        .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE) // content-type 配置
                 ).andExpect(MockMvcResultMatchers.status().isOk()) // 预期结果
                 .andReturn();
         // 查看响应结果
         String res = mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8);
         log.info(res);
     }
+
 }
