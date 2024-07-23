@@ -1,4 +1,4 @@
-package com.noob.redis.demo;
+package com.noob.base.demo.util;
 
 public class OperatorUtil {
     public static int add(int a, int b) {

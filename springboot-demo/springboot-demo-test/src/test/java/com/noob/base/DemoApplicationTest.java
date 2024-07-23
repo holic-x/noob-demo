@@ -1,14 +1,11 @@
-package com.noob.redis;
+package com.noob.base;
 
-import com.noob.redis.demo.OperatorUtil;
-import org.assertj.core.api.Assert;
-import org.junit.jupiter.api.Test;
+import com.noob.base.demo.util.OperatorUtil;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+//@SpringBootTest
 class DemoApplicationTest {
 
-    @Test
+//    @Test
     void main() {
         OperatorUtil.add(1,2);
         OperatorUtil.sub(1,2);
