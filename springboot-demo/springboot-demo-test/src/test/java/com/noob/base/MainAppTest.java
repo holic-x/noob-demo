@@ -11,6 +11,9 @@ import java.util.List;
 
 class MainAppTest {
 
+    /**
+     * 部分情况无法完全覆盖
+     */
     @Test
     void main() {
         try {
@@ -30,6 +33,9 @@ class MainAppTest {
         }
     }
 
+    /**
+     * 存在不足（Lombok构建的实体无法覆盖）
+     */
     @SneakyThrows
     @Test
     void testEntityVoTestUtil(){
