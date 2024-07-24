@@ -1,5 +1,6 @@
 package com.noob.base.utils;
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -26,5 +27,12 @@ class MainAppTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @SneakyThrows
+    @Test
+    void testEntityVoTestUtil(){
+        List<Class<?>> classes = ClassUtil.getClasses("com.noob.base.demo.model.entity");
+        EntityVoTestUtil.justRun(classes);
     }
 }
