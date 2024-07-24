@@ -1,19 +1,20 @@
-package com.noob.base.utils;
+package com.noob.base;
 
+import com.noob.base.utils.ClassUtil;
+import com.noob.base.utils.EntityVoTestUtil;
+import com.noob.base.utils.TestUtil;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MainAppTest {
 
     @Test
     void main() {
         try {
-            List<Class<?>> classes = ClassUtil.getClasses("com.noob.base.demo.model.entity");
+            List<Class<?>> classes = ClassUtil.getClasses("com.noob.base.model.entity");
             classes.forEach(cls->{
                 try {
                     TestUtil.TestPojo(cls);
@@ -32,7 +33,7 @@ class MainAppTest {
     @SneakyThrows
     @Test
     void testEntityVoTestUtil(){
-        List<Class<?>> classes = ClassUtil.getClasses("com.noob.base.demo.model.entity");
+        List<Class<?>> classes = ClassUtil.getClasses("com.noob.base.model.entity");
         EntityVoTestUtil.justRun(classes);
     }
 }
