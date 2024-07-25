@@ -13,10 +13,10 @@ import java.util.Map;
  */
 public class EntityVoTestUtil {
 
-    //实体化数据
+    // 实体化数据
     private static final Map<String, Object> STATIC_MAP = new HashMap<String, Object>();
 
-    //忽略的函数方法method
+    // 忽略的函数方法method
     private static final String NO_NOTICE = "getClass,notify,notifyAll,wait,equals,hashCode,clone";
 
 //    private static final List<Class> CLASS_LIST = new ArrayList<Class>();
@@ -48,24 +48,29 @@ public class EntityVoTestUtil {
             throws IllegalAccessException, InvocationTargetException, InstantiationException {
         for (Class temp : CLASS_LIST) {
             Object tempInstance = new Object();
-            //执行构造函数
+            // 执行构造函数
             Constructor[] constructors = temp.getConstructors();
             for (Constructor constructor : constructors) {
                 final Class<?>[] parameterTypes = constructor.getParameterTypes();
+                // 无参构造函数处理
                 if (parameterTypes.length == 0) {
+                    // 创建实例
                     tempInstance = constructor.newInstance();
                 } else {
+                    // 带参构造函数处理
                     Object[] objects = new Object[parameterTypes.length];
                     for (int i = 0; i < parameterTypes.length; i++) {
                         objects[i] = STATIC_MAP.get(parameterTypes[i].getName());
                     }
+                    // 创建实例
                     tempInstance = constructor.newInstance(objects);
                 }
             }
 
-            //执行函数方法
+            // 执行函数方法
             Method[] methods = temp.getMethods();
             for (final Method method : methods) {
+                // 针对忽略的函数列表则跳过调用
                 if (NO_NOTICE.contains(method.getName())) {
                     break;
                 }
@@ -77,7 +82,8 @@ public class EntityVoTestUtil {
                     }
                     method.invoke(tempInstance, objects);
                 } else {
-                    method.invoke(tempInstance);
+                    // todo 兼容性不足：如果普通实体类定义了显式构造器后执行到此处报错，其他场景可正常执行
+                     method.invoke(tempInstance);
                 }
             }
             // 输出执行完的类名

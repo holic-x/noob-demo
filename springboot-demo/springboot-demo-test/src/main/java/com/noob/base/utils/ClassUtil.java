@@ -7,7 +7,17 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+/**
+ * Class 工具类
+ */
 public class ClassUtil {
+    /**
+     * 根据包名获取其下的类信息
+     * @param packageName
+     * @return
+     * @throws ClassNotFoundException
+     * @throws IOException
+     */
     public static List<Class<?>> getClasses(String packageName)
             throws ClassNotFoundException, IOException {
 
@@ -24,6 +34,13 @@ public class ClassUtil {
         return classes;
     }
 
+    /**
+     * 根据directory、packageName获取其下的类信息
+     * @param directory
+     * @param packageName
+     * @return
+     * @throws ClassNotFoundException
+     */
     private static List<Class<?>> findClasses(File directory, String packageName)
             throws ClassNotFoundException {
         ArrayList<Class<?>> classes = new ArrayList<Class<?>>();

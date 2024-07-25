@@ -10,7 +10,7 @@ public class MainApp {
             List<Class<?>> classes = ClassUtil.getClasses("com.noob.base.demo.model.entity");
             classes.forEach(cls->{
                 try {
-                    TestUtil.TestPojo(cls);
+                    ModelTestUtil.TestPojo(cls);
                 } catch (IllegalAccessException e) {
                 } catch (InstantiationException e) {
                 }

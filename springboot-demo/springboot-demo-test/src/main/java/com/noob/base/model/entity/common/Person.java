@@ -1,4 +1,4 @@
-package com.noob.base.model.entity;
+package com.noob.base.model.entity.common;
 
 public class Person {
     private int id;

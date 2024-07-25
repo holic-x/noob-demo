@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
-public class TestUtil {
+public class ModelTestUtil {
 
     private static Map<String, Object> baseMap = new HashMap<String, Object>();
 
