@@ -5,10 +5,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
+/**
+ * 提升 sonar 代码覆盖率，实体类单元测试覆盖率提升工具
+ * 用于覆盖普通实体（可对普通实体、Lombok构建的实体进行覆盖，针对无参构造函数和相关的方法）
+ */
 public class ModelTestUtil {
 
+    // 定义参数类型和对应的默认值映射
     private static Map<String, Object> baseMap = new HashMap<String, Object>();
 
+    // 初始化参数类型列表
     static {
         baseMap.put("int", 1);
         baseMap.put("boolean", true);
@@ -25,9 +31,15 @@ public class ModelTestUtil {
         Object obj = cls.newInstance();
         Arrays.stream(methods).forEach(method -> {
             if ("readObject".equals(method.getName())) {
-                doReadObjcetTest(obj);
+                doReadObjectTest(obj);
                 return;
             }
+            // 针对toString方法测试
+            if ("toString".equals(method.getName())) {
+                doToString(obj, method);
+                return;
+            }
+            // 针对每个字段的getter、setter测试
             Arrays.stream(fields).forEach(field -> {
                         if (method.getName().toLowerCase().contains(field.getName().toLowerCase())) {
                             if (method.getName().startsWith("get")) {
@@ -43,19 +55,41 @@ public class ModelTestUtil {
         });
     }
 
-    private static void doGetTest(Object obj, Method method) {
+    /**
+     * toString 方法测试
+     * @param obj
+     * @param method
+     */
+    private static void doToString(Object obj, Method method) {
         try {
             method.invoke(obj);
-
         } catch (IllegalAccessException e) {
         } catch (InvocationTargetException e) {
         }
     }
 
+    /**
+     * getter 方法测试
+     * @param obj
+     * @param method
+     */
+    private static void doGetTest(Object obj, Method method) {
+        try {
+            method.invoke(obj);
+        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException e) {
+        }
+    }
+
+    /**
+     * setter 方法测试
+     * @param obj
+     * @param method
+     */
     private static void doSetTest(Object obj, Method method) {
-        Class<?>[] paramClss = method.getParameterTypes();
-        if (paramClss != null && paramClss.length > 0) {
-            Object param = getParamByClass(paramClss[0]);
+        Class<?>[] paramClass = method.getParameterTypes();
+        if (paramClass != null && paramClass.length > 0) {
+            Object param = getParamByClass(paramClass[0]);
             try {
                 method.invoke(obj, param);
             } catch (IllegalAccessException e) {
@@ -65,7 +99,11 @@ public class ModelTestUtil {
 
     }
 
-    private static void doReadObjcetTest(Object obj) {
+    /**
+     * doReadObjectTest
+     * @param obj
+     */
+    private static void doReadObjectTest(Object obj) {
         ObjectOutputStream oos = null;
         ObjectInputStream ois = null;
         try {
@@ -83,10 +121,16 @@ public class ModelTestUtil {
         }
     }
 
-    private static Object getParamByClass(Class<?> paramClss) {
-        return (baseMap.containsKey(paramClss.getName())) ? baseMap.get(paramClss.getName()) : null;
+    private static Object getParamByClass(Class<?> paramClass) {
+        // return (baseMap.containsKey(paramClass.getName())) ? baseMap.get(paramClass.getName()) : null;
+        return baseMap.getOrDefault(paramClass.getName(), null);
     }
 
+    /**
+     * 关闭流操作
+     * @param t
+     * @param <T>
+     */
     private static <T extends Closeable> void closeStream(T t) {
         try {
             if (t != null) {

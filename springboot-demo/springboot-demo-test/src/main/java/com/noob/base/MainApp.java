@@ -1,4 +1,7 @@
-package com.noob.base.utils;
+package com.noob.base;
+
+import com.noob.base.utils.ClassUtil;
+import com.noob.base.utils.ModelTestUtil;
 
 import java.io.IOException;
 import java.util.List;

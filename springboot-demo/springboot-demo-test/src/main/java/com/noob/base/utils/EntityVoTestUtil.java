@@ -10,6 +10,7 @@ import java.util.Map;
 
 /**
  * 提升 sonar 代码覆盖率，实体类单元测试覆盖率提升工具
+ * 主要针对普通实体（无参构造函数、getter、setter等方法，可指定忽略的函数方法）
  */
 public class EntityVoTestUtil {
 
