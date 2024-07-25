@@ -39,6 +39,7 @@ public class ModelTestUtil {
                 doToString(obj, method);
                 return;
             }
+
             // 针对每个字段的getter、setter测试
             Arrays.stream(fields).forEach(field -> {
                         if (method.getName().toLowerCase().contains(field.getName().toLowerCase())) {
@@ -96,7 +97,6 @@ public class ModelTestUtil {
             } catch (InvocationTargetException e) {
             }
         }
-
     }
 
     /**
