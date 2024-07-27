@@ -206,3 +206,4 @@ rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/applicat
 springboot-demo/springboot-demo-batchHandler/src/main/resources/application-remote.yml
 springboot-demo/springboot-demo-redis-base/src/main/resources/application-dev.yml
 springboot-demo/springboot-demo-test/src/main/resources/application-dev.yml
+redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local.yml
