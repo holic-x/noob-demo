@@ -94,7 +94,7 @@ public class RedisLock {
      */
     private boolean tryLock() {
         try {
-            // todo 指令确认
+            // todo 指令版本确认
             String result = getJedis().set(redisLockKey, redisLockValue, "NX", "PX", lockParam.getHoldLockTime()); // jedis 2.9.3 版本
             if ("OK".equals(result)) {
                 return true;
