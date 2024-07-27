@@ -2,13 +2,12 @@ package com.noob.redis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-public class SpringbootDemoRedisApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootDemoRedisApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
 }

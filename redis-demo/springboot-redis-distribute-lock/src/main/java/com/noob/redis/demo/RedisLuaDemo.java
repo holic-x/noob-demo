@@ -3,9 +3,9 @@ package com.noob.redis.demo;
 import redis.clients.jedis.Jedis;
 
 /**
- * Redis Lua 原子性Demo （ call()命令调用 ）
+ * Redis Lua 原子性Demo
  */
-public class RedisLuaCallDemo {
+public class RedisLuaDemo {
 
     /**
      * Lua对Redis原子性的支持：
@@ -16,12 +16,15 @@ public class RedisLuaCallDemo {
         jedis.auth("123456");
         jedis.select(1);
         String luaScript =
-                "redis.call('SET', 'ckey1', 'value1')" +
-                        "redis.call('INCRBY', 'ckey2', 1/0)" + // 设置错误指令
-                        "redis.call('SET', 'ckey3', 'value3')" +
+                "redis.pcall('SET',KEYS[1],ARGV[1])" +
+                        "redis.pcall('SET',KEYS[2],ARGV[2])" +
+                        "redis.pcall('SET',KEYS[3],ARGV[3])" +
                         "return 'OK'";
-        Object result = jedis.eval(luaScript,0);
+        Object result = jedis.eval(luaScript,3,"key1","key2","key3","value1","value2","value3");
         System.out.println("Result: " + result);
+        System.out.println("key1: " + jedis.keys("key1"));
+        System.out.println("key2: " + jedis.keys("key2"));
+        System.out.println("key3: " + jedis.keys("key3"));
         // 关闭客户端连接
         jedis.close();
     }

@@ -114,6 +114,12 @@
 /springboot-demo/springboot-demo-redis/target
 /springboot-demo/springboot-demo-redis-base/.idea
 /springboot-demo/springboot-demo-redis-base/target
+
+
+/springboot-demo/springboot-demo-template-simple/.idea
+/springboot-demo/springboot-demo-template-simple/target
+
+
 /springboot-demo/springboot-demo-redisson/.idea
 /springboot-demo/springboot-demo-redisson/target
 /springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml
@@ -139,7 +145,8 @@
 /java-demo/JavaBaseDemo/.idea
 /java-demo/JavaBaseDemo/target
 
-
+/redis-demo/springboot-redis-distribute-lock/.idea
+/redis-demo/springboot-redis-distribute-lock/target
 
 /rebirth/base/JavaBase/.idea
 /rebirth/base/JavaBase/target
@@ -196,6 +203,12 @@
 /rebirth/framework/spring-mybatis-demo/.idea
 
 
+/springboot-demo/springboot-demo-test/.idea
+/springboot-demo/springboot-demo-test/target
+
+
 rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml
 springboot-demo/springboot-demo-batchHandler/src/main/resources/application-remote.yml
 springboot-demo/springboot-demo-redis-base/src/main/resources/application-dev.yml
+springboot-demo/springboot-demo-test/src/main/resources/application-dev.yml
+redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local.yml
