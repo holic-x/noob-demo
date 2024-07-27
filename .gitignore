@@ -115,6 +115,11 @@
 /springboot-demo/springboot-demo-redis-base/.idea
 /springboot-demo/springboot-demo-redis-base/target
 
+
+/springboot-demo/springboot-demo-template-simple/.idea
+/springboot-demo/springboot-demo-template-simple/target
+
+
 /springboot-demo/springboot-demo-redisson/.idea
 /springboot-demo/springboot-demo-redisson/target
 /springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml
