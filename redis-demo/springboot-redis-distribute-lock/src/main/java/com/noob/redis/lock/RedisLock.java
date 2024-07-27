@@ -1,5 +1,6 @@
 package com.noob.redis.lock;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.Jedis;
 
@@ -9,6 +10,7 @@ import java.util.UUID;
 /**
  * redis分布式锁
  */
+@Data
 @Slf4j
 public class RedisLock {
 
