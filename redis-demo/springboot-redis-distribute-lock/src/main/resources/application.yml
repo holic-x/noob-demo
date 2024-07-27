@@ -1,7 +1,8 @@
 # 应用服务 WEB 访问端口
 server:
   port: 8080
-
+  servlet:
+    context-path: /api
 # spring相关配置
 spring:
   profiles:
