@@ -18,5 +18,22 @@ spring:
     url: jdbc:mysql://localhost:3306/db_mysql_base
     username: root
     password: 123456
+    # druid 数据库连接池配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      min-idle: 1                                          # 最小连接数
+      max-active: 8                                        # 最大连接数(默认8)
+      max-wait: 1000                                       # 获取连接时的最大等待时间
+      min-evictable-idle-time-millis: 300000               # 一个连接在池中最小生存的时间，单位是毫秒
+      time-between-eviction-runs-millis: 60000             # 多久才进行一次检测需要关闭的空闲连接，单位是毫秒
 
-# 数据库相关配置
+# mybatis-plus 配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值（默认为 1）
+      logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）

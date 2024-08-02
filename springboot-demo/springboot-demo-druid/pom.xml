@@ -79,15 +79,12 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- 引入 mockito -->
-<!--        -->
-<!--        <dependency>-->
-<!--            <groupId>org.mockito</groupId>-->
-<!--            <artifactId>mockito-core</artifactId>-->
-<!--            <version>5.12.0</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-<!--        -->
+        <!-- 引入druid相关依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.15</version>
+        </dependency>
 
     </dependencies>
     <dependencyManagement>
