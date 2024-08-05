@@ -6,8 +6,8 @@ server:
 
 # spring相关配置
 spring:
-  profiles:
-    active: dev
+#  profiles:
+#    active: test
   redis:
     host: localhost
     port: 6379
@@ -22,8 +22,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       min-idle: 1                                          # 最小连接数
-      max-active: 8                                        # 最大连接数(默认8)
-      max-wait: 1000                                       # 获取连接时的最大等待时间
+      max-active: 2000                                     # 最大连接数(默认8)
+      max-wait: 1000                                      # 获取连接时的最大等待时间
       min-evictable-idle-time-millis: 300000               # 一个连接在池中最小生存的时间，单位是毫秒
       time-between-eviction-runs-millis: 60000             # 多久才进行一次检测需要关闭的空闲连接，单位是毫秒
 

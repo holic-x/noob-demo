@@ -28,8 +28,10 @@ public class TaskController {
         boolean res = taskService.save(task);
         if(res){
             return "ok";
+        }else{
+            throw new RuntimeException("保存失败");
         }
-        return "fail";
+//        return "fail";
     }
 
     // 检索所有task
