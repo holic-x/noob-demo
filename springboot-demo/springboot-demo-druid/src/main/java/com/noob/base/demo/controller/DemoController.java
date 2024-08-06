@@ -1,40 +1,34 @@
 package com.noob.base.demo.controller;
-
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/demo")
 public class DemoController {
 
-    // 普通接口
+    // 普通GET请求
     @GetMapping("/getName")
-    public String getName() {
-        return "hello";
-    }
-
-    // 带单个参数
-    @GetMapping("/showName/{name}")
-    public String showName(@PathVariable String name) {
+    public String getName(@RequestParam String name) {
+        System.out.println(name);
         return name;
     }
 
-    // 带多个参数
-    @GetMapping("/showInfo")
-    public String showInfo(@RequestParam String name,@RequestParam int age) {
-        return "name : " + name + " age : " + age;
+    // 普通POST请求
+    @PostMapping("/showInfo")
+    public String showInfo(@RequestHeader HttpHeaders headers,@RequestParam String name,@RequestParam int age) {
+        System.out.println(headers.get("USER_TOKEN"));
+        System.out.println(headers.get("Host"));
+        System.out.println("name:"+name+",age:"+age);
+        return name;
     }
 
-    // 请求参数为实体类型
+    // POST请求(JSON数据)
     @PostMapping("/showJson")
-    public String showJson(@RequestBody JSONObject jsonObject) {
-        return jsonObject.toJSONString();
-    }
-
-    // 带header校验
-    @GetMapping("/getToken")
-    public String showNameWithHeader(@RequestHeader(name = "userToken") String userToken) {
-        return "userToken: " + userToken;
+    public String showJson(@RequestHeader(name = "USER_TOKEN") String userToken,@RequestHeader(name = "Host") String host,@RequestBody JSONObject jsonObject) {
+        String res = jsonObject.toJSONString();
+        System.out.println("userToken:"+userToken+",host:"+host+",res:"+res);
+        return res;
     }
 
 }
