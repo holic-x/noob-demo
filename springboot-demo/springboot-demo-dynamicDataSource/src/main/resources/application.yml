@@ -1,0 +1,52 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  #数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver # MySQL连接驱动配置
+    druid:   # druid 相关配置
+      statViewServlet:
+        enabled: true
+        # 设置白名单，不填则允许所有访问
+        allow:
+        url-pattern: /druid/*
+        # 控制台管理用户名和密码
+        login-username: helloworld
+        login-password: 123456
+    dynamic:
+      druid:
+        initial-size: 10  # 连接池初始大小
+        max-active: 100   # 连接池最大连接数
+        min-idle: 10      # 连接池最小空闲连接数
+        max-wait: 60000   # 获取连接的最大等待时间，单位为毫秒
+        pool-prepared-statements: true  # 是否缓存PreparedStatement，默认为true
+        max-pool-prepared-statement-per-connection-size: 20  # 每个连接缓存Statement的最大数目
+        time-between-eviction-runs-millis: 60000  # 连接回收器运行的时间间隔，单位为毫秒
+        min-evictable-idle-time-millis: 300000  # 连接在池中最小空闲的时间，达到此值后将被移除，单位为毫秒
+        test-while-idle: true   # 空闲连接检测是否可用，默认为true
+        test-on-borrow: false   # 取连接时检测连接是否可用，默认为false
+        test-on-return: false   # 还连接时检测连接是否可用，默认为false
+        validationQuery: "select 1"  # 验证连接的SQL语句
+        filters: stat,wall    # 连接过滤器，用于统计和防火墙功能
+        stat:
+          log-slow-sql: true     # 是否打印慢SQL日志
+          slow-sql-millis: 1000  # 慢SQL的阈值时间，单位为毫秒
+          merge-sql: false   # 是否合并SQL，默认为false
+        wall:
+          multi-statement-allow: true  # 是否允许一次执行多条语句，默认为true
+      primary: test1 # 主数据源，在代码中不指定数据源时默认为该主数据源（取决于datasource的配置）
+      datasource:
+        test1: # 数据源配置 此处test1对应为db_test_01(test1可自定义名称，和对应的数据源配置关联绑定即可)
+          url: jdbc:mysql://localhost:3306/db_test_01
+          username: root
+          password: 123456
+        test2: # 数据源 (对应为db_test_02)
+          url: jdbc:mysql://localhost:3306/db_test_02
+          username: root
+          password: 123456
+
