@@ -217,3 +217,7 @@ redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local
 
 /springboot-demo/springboot-demo-dynamicDatasource/target
 /springboot-demo/springboot-demo-dynamicDatasource/.idea
+
+
+/data-structure/algorithm-demo/.idea
+/data-structure/algorithm-demo/algorithm-demo.iml
