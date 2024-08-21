@@ -1,6 +1,6 @@
 # 应用服务 WEB 访问端口
 server:
-  port: 8080
+  port: 8081
   servlet:
     context-path: /api
 
@@ -12,11 +12,6 @@ spring:
     host: localhost
     port: 6379
 
-  # 数据库配置
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db_mysql_base
-    username: root
-    password: 123456
-
-# 数据库相关配置
+  # kafka 相关配置
+  kafka:
+    bootstrap-servers: localhost:9092  # 配置kafka连接信息（服务器地址、端口号等）
