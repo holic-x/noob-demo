@@ -2,6 +2,9 @@ package com.noob.algorithm.leetcode;
 
 import java.util.*;
 
+/**
+ * 49.字母异位词分组统计
+ */
 public class Solution49 {
     public List<List<String>> groupAnagrams(String[] strs) {
         // 定义结果集（存储排序后的字母异位词，和对应的分组）

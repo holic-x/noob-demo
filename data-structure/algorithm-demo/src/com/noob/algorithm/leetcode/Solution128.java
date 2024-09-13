@@ -2,6 +2,9 @@ package com.noob.algorithm.leetcode;
 
 import java.util.*;
 
+/**
+ * 128.最长连续序列
+ */
 public class Solution128 {
     public int longestConsecutive(int[] nums) {
         // 判断nums是否为空
