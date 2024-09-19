@@ -10,7 +10,7 @@ public class Solution1 {
 
     // 锁思路：对象锁+全局标识
     static Object lock = new Object();
-    static AtomicInteger count = new AtomicInteger(1);
+    static AtomicInteger count = new AtomicInteger(1); // 定义计数器
     static int mark = 1; // 定义等待标记（为1线程A打印，为2线程B打印；为3线程C打印）
 
     public static void main(String[] args) {
