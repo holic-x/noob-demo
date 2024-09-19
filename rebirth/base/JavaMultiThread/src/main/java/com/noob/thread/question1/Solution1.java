@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 双线程轮流打印1-100
+ * 解决思路1：对象锁+全局标识
  */
 public class Solution1 {
 
