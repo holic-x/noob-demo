@@ -1,5 +1,8 @@
 package com.noob.algorithm.leetcode;
 
+/**
+ * 1.两数之和
+ */
 public class Solution1 {
     public static void main(String[] args) {
 

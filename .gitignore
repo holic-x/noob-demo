@@ -228,3 +228,5 @@ redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local
 /springboot-demo/springboot-demo-scheduleTask/target
 /springboot-demo/springboot-demo-scheduleTask/.idea
 
+/rebirth/base/JavaMultiThread/.idea
+/rebirth/base/JavaMultiThread/target
