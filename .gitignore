@@ -232,3 +232,5 @@ redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local
 /rebirth/base/JavaMultiThread/target
 /design-demo/design-decorator-01/.idea
 /design-demo/design-decorator-01/target
+/design-demo/design-register-01/.idea
+/design-demo/design-register-01/target
