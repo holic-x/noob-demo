@@ -1,4 +1,4 @@
-package com.noob.design.adapter.mq;
+package com.noob.design.rebate.old.mq;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,14 +17,4 @@ public class CreateCountMq {
     private String address;// 开户地址
     private Date accountDate;// 开户时间
     private String desc;// 开户描述
-
-    @Override
-    public String toString() {
-        return "CreateCountMq{" +
-                "number='" + number + '\'' +
-                ", address='" + address + '\'' +
-                ", accountDate=" + accountDate +
-                ", desc='" + desc + '\'' +
-                '}';
-    }
 }

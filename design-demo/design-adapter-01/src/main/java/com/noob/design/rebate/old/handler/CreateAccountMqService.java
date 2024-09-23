@@ -1,7 +1,7 @@
-package com.noob.design.adapter.handler;
+package com.noob.design.rebate.old.handler;
 
 import com.alibaba.fastjson2.JSON;
-import com.noob.design.adapter.mq.CreateCountMq;
+import com.noob.design.rebate.old.mq.CreateCountMq;
 
 /**
  * MQ 消息处理服务类：CreateAccount
