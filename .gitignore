@@ -240,3 +240,5 @@ redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local
 /design-demo/design-bridge-01/target
 /design-demo/design-proxy-01/.idea
 /design-demo/design-proxy-01/target
+/design-demo/design-strategy-01/.idea
+/design-demo/design-strategy-01/target
