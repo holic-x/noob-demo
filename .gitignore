@@ -234,3 +234,5 @@ redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local
 /design-demo/design-decorator-01/target
 /design-demo/design-register-01/.idea
 /design-demo/design-register-01/target
+/design-demo/design-adapter-01/.idea
+/design-demo/design-adapter-01/target
