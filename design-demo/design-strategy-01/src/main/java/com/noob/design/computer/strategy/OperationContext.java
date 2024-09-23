@@ -1,4 +1,4 @@
-package com.noob.design.strategy.computer;
+package com.noob.design.computer.strategy;
 
 /**
  * 环境（context）：用于维护一个策略对象引用，将Client请求委派到对应的策略对象进行调度

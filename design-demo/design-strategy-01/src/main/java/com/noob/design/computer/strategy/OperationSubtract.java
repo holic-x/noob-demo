@@ -1,4 +1,4 @@
-package com.noob.design.strategy.computer;
+package com.noob.design.computer.strategy;
 
 /**
  * 具体策略：相减操作

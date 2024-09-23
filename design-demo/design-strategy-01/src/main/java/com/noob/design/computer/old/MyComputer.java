@@ -1,4 +1,4 @@
-package com.noob.design.strategy.computer;
+package com.noob.design.computer.old;
 
 public class MyComputer {
     public static void main(String[] args) {
