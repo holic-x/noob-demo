@@ -1,4 +1,4 @@
-package com.noob.design.discount.strategy;
+package com.noob.design.discount.strategy.v1;
 
 /**
  * 具体策略：满减策略

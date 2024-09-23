@@ -1,4 +1,4 @@
-package com.noob.design.discount.strategy;
+package com.noob.design.discount.strategy.v1;
 
 /**
  * 环境：维护一个策略引用，用于将客户端请求委派到具体策略对象进行执行
