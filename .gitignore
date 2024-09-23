@@ -242,3 +242,5 @@ redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local
 /design-demo/design-proxy-01/target
 /design-demo/design-strategy-01/.idea
 /design-demo/design-strategy-01/target
+/design-demo/design-template-01/.idea
+/design-demo/design-template-01/target
