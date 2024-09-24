@@ -1,9 +1,9 @@
-package com.noob.algorithm.leetcode;
+package com.noob.algorithm.leetcode.q1;
 
 /**
  * 1.两数之和
  */
-public class Solution1 {
+public class Solution {
     public static void main(String[] args) {
 
     }

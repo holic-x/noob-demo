@@ -1,4 +1,4 @@
-package com.noob.algorithm.leetcode;
+package com.noob.algorithm.leetcode.q15;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.List;
  * 三数之和
  * 核心：找出符合条件的三元组
  */
-public class Solution15 {
+public class Solution {
 
     public List<List<Integer>> threeSum(int[] nums) {
         // 定义结果集
@@ -47,7 +47,7 @@ public class Solution15 {
 
     public static void main(String[] args) {
         int[] nums = {-1, 0, 1, 2, -1, -4};
-        Solution15 solution = new Solution15();
+        Solution solution = new Solution();
         System.out.println(solution.threeSum(nums));
     }
 

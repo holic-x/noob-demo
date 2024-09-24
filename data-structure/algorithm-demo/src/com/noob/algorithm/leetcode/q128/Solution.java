@@ -1,11 +1,11 @@
-package com.noob.algorithm.leetcode;
+package com.noob.algorithm.leetcode.q128;
 
 import java.util.*;
 
 /**
  * 128.最长连续序列
  */
-public class Solution128 {
+public class Solution {
     public int longestConsecutive(int[] nums) {
         // 判断nums是否为空
         if(nums==null || nums.length==0){
@@ -40,7 +40,7 @@ public class Solution128 {
 
         // [9,1,4,7,3,-1,0,5,8,-1,6]
         int[] nums = {9,1,4,7,3,-1,0,5,8,-1,6};
-        System.out.println(new Solution128().longestConsecutive(nums));
+        System.out.println(new Solution().longestConsecutive(nums));
     }
 
 }
