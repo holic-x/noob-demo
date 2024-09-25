@@ -2,8 +2,9 @@ package com.noob.algorithm.leetcode.q53;
 
 /**
  * 53.最大子数组和
+ * 暴力遍历
  */
-public class Solution {
+public class Solution1 {
 
     /**
      * 暴力双层循环：外层敲定起点、内层敲定终点
@@ -29,7 +30,7 @@ public class Solution {
     public static void main(String[] args) {
         // 可能存在问题：初始化了res为0，忽略了可能存在负数的情况，导致一些边界没有覆盖到
         int[] nums = {-1};
-        Solution solution = new Solution();
+        Solution1 solution = new Solution1();
         System.out.println(solution.maxSubArray(nums)); // 理论返回-1，但是如果没有处理res就会返回0
     }
 
