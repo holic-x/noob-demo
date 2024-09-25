@@ -6,28 +6,31 @@ package com.noob.algorithm.leetcode.q238;
  */
 public class Solution2 {
     public int[] productExceptSelf(int[] nums) {
+        // 定义变量存放数组长度
+        int n = nums.length;
+
         // 定义结果
-        int[] res = new int[nums.length];
+        int[] res = new int[n];
 
         // 分别定义数据用于存放当前i位置的左侧累乘、右侧累乘结果
-        int[] left = new int[nums.length];
-        int[] right = new int[nums.length];
+        int[] left = new int[n];
+        int[] right = new int[n];
 
         // 左侧累乘操作
         left[0] = 1;
-        for (int i = 1; i < nums.length; i++) {
+        for (int i = 1; i < n; i++) {
             left[i] = left[i - 1] * nums[i - 1];
             System.out.println(res[i]);
         }
 
         // 右侧累乘操作(从尾部开始)
-        right[nums.length - 1] = 1;
-        for (int i = nums.length - 2; i >= 0; i--) {
+        right[n - 1] = 1;
+        for (int i = n - 2; i >= 0; i--) {
             right[i] = right[i + 1] * nums[i + 1];
         }
 
         // 左右乘积相乘得到结果
-        for (int i = 0; i < res.length; i++) {
+        for (int i = 0; i < n; i++) {
             res[i] = left[i] * right[i];
         }
 
