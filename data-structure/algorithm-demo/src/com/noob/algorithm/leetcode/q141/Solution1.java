@@ -6,7 +6,7 @@ import java.util.HashSet;
  * 141-环形链表
  * 思路：哈希表  迭代、标记，校验next是否已被标记
  */
-public class Solution {
+public class Solution1 {
 
     public boolean hasCycle(ListNode head) {
 
