@@ -1,9 +1,9 @@
-package com.noob.algorithm.leetcode;
+package com.noob.algorithm.leetcode.q11;
 
 /**
  * 11.盛最多水的容器（双指针）
  */
-public class Solution11 {
+public class Solution {
 
     public int maxArea(int[] height) {
         // 双指针：定义左侧指针、右侧指针、盛水面积
@@ -19,7 +19,7 @@ public class Solution11 {
     }
 
     public static void main(String[] args) {
-        Solution11 s = new Solution11();
+        Solution s = new Solution();
         int[] height = {1,8,6,2,5,4,8,3,7};
         System.out.println(s.maxArea(height));
     }

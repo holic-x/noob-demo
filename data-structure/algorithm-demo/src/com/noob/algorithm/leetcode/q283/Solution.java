@@ -1,13 +1,11 @@
-package com.noob.algorithm.leetcode;
+package com.noob.algorithm.leetcode.q283;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 283.移动零
  */
-public class Solution283 {
+public class Solution {
     public void moveZeroes(int[] nums) {
         // 循环遍历，依次进行覆盖（指针记录当前覆盖的位置，指针后面的用0补齐）
         int current = 0;
@@ -27,7 +25,7 @@ public class Solution283 {
 
     public static void main(String[] args) {
         int[] nums = {0,1,0,3,12};
-        new Solution283().moveZeroes(nums);
+        new Solution().moveZeroes(nums);
         System.out.println(Arrays.toString(nums));
     }
 }
