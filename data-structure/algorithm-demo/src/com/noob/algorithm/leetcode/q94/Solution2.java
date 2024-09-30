@@ -4,7 +4,7 @@ package com.noob.algorithm.leetcode.q94;
 import java.util.*;
 
 /**
- * 二叉树的中序遍历(迭代法)
+ * 94.二叉树的中序遍历(迭代法)
  */
 public class Solution2
 {
