@@ -1,4 +1,4 @@
-package com.noob.algorithm.leetcode.q1;
+package com.noob.algorithm.leetcode.q01;
 
 /**
  * 1.两数之和
