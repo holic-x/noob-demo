@@ -224,6 +224,7 @@ class AVLTreeNode {
     AVLTreeNode left;
     // 定义右节点
     AVLTreeNode right;
+
     // 构造函数
     public AVLTreeNode(int val) {
         this.val = val;
@@ -289,16 +290,16 @@ class AVLTreeNode {
 
 
     // 旋转操作（执行旋转操作，使子树恢复平衡）
-    AVLTreeNode rotate(AVLTreeNode node){
+    AVLTreeNode rotate(AVLTreeNode node) {
         // 根据节点的平衡因子进行判断（判断node节点和其对应的子节点的平衡因子，采取相应的旋转方案）
 
         // 左偏树
-        if(balanceFactor(node)>1){
+        if (balanceFactor(node) > 1) {
             // 判断左节点的平衡因子
-            if(balanceFactor(node.left)>=0){
+            if (balanceFactor(node.left) >= 0) {
                 // 执行右旋
                 return rightRotate(node);
-            }else{
+            } else {
                 // 先左旋后右旋(先对子节点左旋，后对node右旋)
                 node.left = leftRotate(node.left);
                 return rightRotate(node);
@@ -306,12 +307,12 @@ class AVLTreeNode {
         }
 
         // 右偏树
-        if(balanceFactor(node)<-1){
+        if (balanceFactor(node) < -1) {
             // 判断右节点的平衡因子
-            if(balanceFactor(node.right)<=0){
+            if (balanceFactor(node.right) <= 0) {
                 // 执行左旋
                 return leftRotate(node);
-            }else{
+            } else {
                 // 先右旋后左旋(先对子节点右旋，后对node节点左旋)
                 node.right = rightRotate(node.right);
                 return leftRotate(node);
@@ -322,5 +323,73 @@ class AVLTreeNode {
         // 平衡树（无需旋转，直接返回）
         return node;
     }
+
+    /* 插入节点 */
+    /*
+    void insert(int val) {
+        root = insertHelper(root, val);
+    }
+     */
+
+    /* 递归插入节点（辅助方法） */
+    AVLTreeNode insertHelper(AVLTreeNode node, int val) {
+        if (node == null)
+            return new AVLTreeNode(val);
+        /* 1. 查找插入位置并插入节点 */
+        if (val < node.val)
+            node.left = insertHelper(node.left, val);
+        else if (val > node.val)
+            node.right = insertHelper(node.right, val);
+        else
+            return node; // 重复节点不插入，直接返回
+        updateHeight(node); // 更新节点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
+
+    /* 删除节点 */
+    /*
+    void remove(int val) {
+        root = removeHelper(root, val);
+    }
+     */
+
+    /* 递归删除节点（辅助方法） */
+    AVLTreeNode removeHelper(AVLTreeNode node, int val) {
+        if (node == null)
+            return null;
+        /* 1. 查找节点并删除 */
+        if (val < node.val)
+            node.left = removeHelper(node.left, val);
+        else if (val > node.val)
+            node.right = removeHelper(node.right, val);
+        else {
+            if (node.left == null || node.right == null) {
+                AVLTreeNode child = node.left != null ? node.left : node.right;
+                // 子节点数量 = 0 ，直接删除 node 并返回
+                if (child == null)
+                    return null;
+                    // 子节点数量 = 1 ，直接删除 node
+                else
+                    node = child;
+            } else {
+                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                AVLTreeNode temp = node.right;
+                while (temp.left != null) {
+                    temp = temp.left;
+                }
+                node.right = removeHelper(node.right, temp.val);
+                node.val = temp.val;
+            }
+        }
+        updateHeight(node); // 更新节点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
+
 
 }
