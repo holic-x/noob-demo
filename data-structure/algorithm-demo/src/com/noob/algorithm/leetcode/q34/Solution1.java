@@ -1,9 +1,6 @@
 package com.noob.algorithm.leetcode.q34;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * 34.在排序数组中查找元素的第一个和最后一个位置
