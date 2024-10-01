@@ -1,7 +1,7 @@
 package com.noob.algorithm.leetcode.q437;
 
 
-import com.noob.algorithm.leetcode.TreeNode;
+import com.noob.algorithm.leetcode.structure.TreeNode;
 
 /**
  * 437.路径总和III

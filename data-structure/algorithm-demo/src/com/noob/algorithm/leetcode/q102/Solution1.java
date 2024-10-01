@@ -1,8 +1,7 @@
 package com.noob.algorithm.leetcode.q102;
 
 
-import com.noob.algorithm.leetcode.TreeNode;
-import sun.reflect.generics.tree.Tree;
+import com.noob.algorithm.leetcode.structure.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Deque;

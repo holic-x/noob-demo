@@ -1,5 +1,6 @@
-package com.noob.algorithm.leetcode;
+package com.noob.algorithm.leetcode.structure;
 
+// 数据结构定义
 /* 二叉树节点类 */
 public class TreeNode {
     public int val;         // 节点值

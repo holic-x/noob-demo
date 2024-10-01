@@ -1,10 +1,7 @@
 package com.noob.algorithm.leetcode.q543;
 
 
-import com.noob.algorithm.leetcode.TreeNode;
-
-import java.util.Deque;
-import java.util.LinkedList;
+import com.noob.algorithm.leetcode.structure.TreeNode;
 
 /**
  * 543.二叉树直径

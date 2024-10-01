@@ -1,12 +1,7 @@
 package com.noob.algorithm.leetcode.q114;
 
 
-import com.noob.algorithm.leetcode.TreeNode;
-
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import com.noob.algorithm.leetcode.structure.TreeNode;
 
 /**
  * 114.二叉树展开为链表

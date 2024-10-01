@@ -1,7 +1,7 @@
 package com.noob.algorithm.leetcode.q236;
 
 
-import com.noob.algorithm.leetcode.TreeNode;
+import com.noob.algorithm.leetcode.structure.TreeNode;
 
 /**
  * 236.最小公共路径

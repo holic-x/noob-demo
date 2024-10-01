@@ -1,12 +1,10 @@
 package com.noob.algorithm.leetcode.q104;
 
 
-import com.noob.algorithm.leetcode.TreeNode;
+import com.noob.algorithm.leetcode.structure.TreeNode;
 
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * 104.二叉树的最大深度
