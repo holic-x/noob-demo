@@ -1,6 +1,7 @@
 package com.noob.algorithm.leetcode.q102;
 
 
+import com.noob.algorithm.leetcode.TreeNode;
 import sun.reflect.generics.tree.Tree;
 
 import java.util.ArrayList;
@@ -49,23 +50,5 @@ public class Solution1 {
         return res;
     }
 
-
-}
-
-/* 二叉树节点类 */
-class TreeNode {
-    int val;         // 节点值
-    TreeNode left;   // 左子节点引用
-    TreeNode right;  // 右子节点引用
-
-    TreeNode(int x) {
-        val = x;
-    }
-
-    public TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
 }
 

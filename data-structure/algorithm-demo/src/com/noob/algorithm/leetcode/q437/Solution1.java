@@ -1,12 +1,13 @@
 package com.noob.algorithm.leetcode.q437;
 
 
+import com.noob.algorithm.leetcode.TreeNode;
+
 /**
  * 437.路径总和III
  * 思路：双递归思路
  */
 public class Solution1 {
-
 
     public int pathSum(TreeNode root, int targetSum) {
         // 1.穷举法概念：将当前节点的可能路径拆分为三部分进行计算：当前节点的路径穷举+左子树的路径穷举+右子树的路径穷举
@@ -42,22 +43,5 @@ public class Solution1 {
     }
 
 
-}
-
-/* 二叉树节点类 */
-class TreeNode {
-    int val;         // 节点值
-    TreeNode left;   // 左子节点引用
-    TreeNode right;  // 右子节点引用
-
-    TreeNode(int x) {
-        val = x;
-    }
-
-    public TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
 }
 
