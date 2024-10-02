@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 347.前K个高频元素
  */
-public class Solution {
+public class Solution1 {
 
     // 思路：计算元素出现频次、排序（前K高频概念采用小顶堆：自定义排序规则、遍历小顶堆）
     public int[] topKFrequent(int[] nums, int k) {
@@ -58,7 +58,7 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] nums = {1,1,1,2,2,3};
-        Solution solution = new Solution();
+        Solution1 solution = new Solution1();
         int[] res = solution.topKFrequent(nums, 2);
         System.out.println(Arrays.toString(res));
     }
