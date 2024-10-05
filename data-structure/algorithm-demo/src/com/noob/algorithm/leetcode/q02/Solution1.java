@@ -1,6 +1,4 @@
-package com.noob.algorithm.leetcode.q2;
-
-import java.util.HashSet;
+package com.noob.algorithm.leetcode.q02;
 
 /**
  * 2-两数相加

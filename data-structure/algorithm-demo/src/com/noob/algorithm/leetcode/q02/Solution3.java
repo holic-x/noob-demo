@@ -1,4 +1,4 @@
-package com.noob.algorithm.leetcode.q2;
+package com.noob.algorithm.leetcode.q02;
 
 /**
  * 2-两数相加
