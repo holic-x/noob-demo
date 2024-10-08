@@ -1,11 +1,10 @@
-package com.noob.algorithm.leetcode.q123;
+package com.noob.algorithm.leetcode.q118;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * 123.杨辉三角
+ * 118.杨辉三角
  */
 public class Solution {
 
