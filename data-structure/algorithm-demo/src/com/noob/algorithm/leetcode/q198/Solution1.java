@@ -3,7 +3,7 @@ package com.noob.algorithm.leetcode.q198;
 /**
  * 198.打家劫舍（获取偷取的最大总金额，相邻两个房间不能连着偷）
  */
-public class Solution {
+public class Solution1 {
     public int rob(int[] nums) {
         // 定义数组存储每到一个房间可能偷到的最大金额
         int[] dp = new int[nums.length];
