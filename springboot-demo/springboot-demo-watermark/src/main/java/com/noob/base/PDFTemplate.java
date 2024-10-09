@@ -31,7 +31,7 @@ public class PDFTemplate {
         Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD,15);
 
         // 3.添加文本内容
-//        Paragraph paragraph = new Paragraph("这是一段黑体字体的文本。", font); // 对于中文字体需要选择使用匹配的字体文件，否则中文无法正常渲染
+//        Paragraph paragraph = new Paragraph("这是一段黑体字体的文本。", font); // 对于中文字体需要选择使用匹配的字体文件(需创建一个支持中文的字体)，否则中文无法正常渲染
         Paragraph paragraph = new Paragraph("hello world。", font);
         document.add(paragraph);
 
