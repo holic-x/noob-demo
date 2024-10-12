@@ -6,7 +6,7 @@ package com.noob.design.proxy;
 public class ProxyDemo1 {
     public static void main(String[] args) {
         Proxy proxy = new Proxy();
-        proxy.doProxy(new Target());
+        proxy.doProxy();
     }
 }
 
@@ -19,7 +19,8 @@ class Target{
 
 // 定义代理类
 class Proxy{
-    public void doProxy(Target target){
+    public void doProxy(){
+        Target target = new Target();
         System.out.println("i am proxy");
         target.doSth();
         System.out.println("proxy end.....");
