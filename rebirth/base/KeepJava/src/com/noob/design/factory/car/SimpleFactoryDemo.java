@@ -1,4 +1,4 @@
-package com.noob.design.factory;
+package com.noob.design.factory.car;
 
 /**
  * 简单工厂方法模式：
