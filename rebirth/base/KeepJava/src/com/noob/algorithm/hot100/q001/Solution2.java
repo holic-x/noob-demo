@@ -10,7 +10,7 @@ public class Solution2 {
     public int[] twoSum(int[] nums, int target) {
         // 哈希法
         HashMap<Integer, Integer> map = new HashMap<>();
-        // 一次遍历，看是否满足条件
+        // 一次遍历，看是否满足条件（先判断是否有满足x+y=target的组合，如果存在直接返回。再将数组元素加入当前表hash中，避免元素和自身匹配的同时，也避免相同的数组元素值冲掉了原有的下标（例如3+3=6））
         for (int i = 0; i < nums.length; i++) {
             // 在遍历的过程中判断是否存在满足的target
             if (map.containsKey(target - nums[i])) {
