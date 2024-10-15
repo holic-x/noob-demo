@@ -7,43 +7,39 @@ public class Solution1 {
 
     /**
      * 思路:将接雨水转化为计算各个"桶"装的雨水之和
-     * 即每个桶能装多少水是由其对应后缀最大值-前缀最大值-高度得到的？？？？
+     * 思考每个桶的接水量如何计算：
+     * l_max 表示当前桶的最大前缀（从前往后比较，包括其本身） 可以通过一次正序遍历获取
+     * r_max 表示当前桶的最大后缀（从后往前比较，包括其本身） 可以通过一次倒序遍历获取
+     * 当前桶的接水量为min(l_max[i],r_max[i])-height[i] 再次遍历计算结果
      */
     public int trap(int[] height) {
-        // 定义结果
+        // 定义返回结果
         int res = 0;
 
-        // 1.计算数组元素的最大前缀（正序）
-        int[] prev = new int[height.length];
-        prev[0] = height[0]; // 初始化第一个元素
-        for (int i = 1; i < height.length; i++) {
-            prev[i] = Math.max(prev[i - 1], height[i]);
-        }
-        print(prev);
+        // 存储数组长度值
+        int len = height.length;
 
-        // 2.计算数组元素的最大后缀（逆序）
-        int[] suffix = new int[height.length];
-        suffix[height.length - 1] = height[height.length - 1]; // 初始化第一个元素
-        for (int i = height.length - 2; i >= 0; i--) {
-            suffix[i] = Math.max(suffix[i + 1], height[i]);
+        // 1.正序遍历：计算每个桶的最大前缀（包括其本身）
+        int[] l_max = new int[len];
+        l_max[0] = height[0]; // 初始化第一个元素
+        for (int i = 1; i < len; i++) {
+            l_max[i] = Math.max(height[i], l_max[i - 1]); // 最大前缀：前一个元素存储了前[i-1]位置元素的最大前缀，此处将其和自身进行比较即可
         }
-        print(suffix);
 
-        // 3.计算每个桶接的雨水
-        for (int i = 0; i < height.length; i++) {
-            res += Math.min(suffix[i], prev[i]) - height[i];
+        // 2.倒序遍历：计算每个桶的最大后缀（包括其本身）
+        int[] r_max = new int[len];
+        r_max[len - 1] = height[len - 1]; // 从后往前初始化元素
+        for (int i = len - 2; i >= 0; i--) {
+            r_max[i] = Math.max(height[i], r_max[i + 1]);
+        }
+
+        // 3.遍历数组：计算每个桶的接水量进行累加
+        for (int i = 0; i < len; i++) {
+            res += Math.min(l_max[i], r_max[i]) - height[i];
         }
 
         // 返回结果
         return res;
-    }
-
-    // 打印数组
-    public static void print(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i] + " ");
-        }
-        System.out.println();
     }
 
     public static void main(String[] args) {
