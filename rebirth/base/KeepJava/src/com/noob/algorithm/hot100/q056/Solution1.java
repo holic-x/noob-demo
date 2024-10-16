@@ -36,33 +36,41 @@ public class Solution1 {
         // 3.依次判断区间合并(如果区间重叠组需要进行合并，并更新)
         for (int i = 1; i < intervals.length; i++) {
             /**
-             * 边界分析：因为本身根据每个区间的左区间进行排序了，所以此处只需要关注右区间的判断
+             * 边界分析：
+             * 1.因为本身根据每个区间的左区间进行排序了，所以此处只需要关注右区间的判断
+             * 2.遍历过程中如果涉及到区间合并则更新区间指针，如果不涉及合并要先将不能合并的区间先加入结果集，遍历结束后再将最终的指针区间加入结果集（避免重复添加）
+             *
              * 如果right>=curLeft  指针区间 覆盖了curLeft ，说明可合并（则进一步确定合并范围）
              *  - 继续判断右边界
-             *    如果right>curRight 无操作（当前指针区间可以覆盖cur）,直接加入结果集
-             *    如果right<curRight 需进行合并操作，right更新为curRight，并加入结果集
+             *    如果right>curRight 无操作（当前指针区间可以覆盖cur）
+             *    如果right<curRight 需进行合并操作，right更新为curRight
              *
              * 如果right<curLeft  （如果可以保证curLeft始终小于curRight 则不需要后面的判断）
              * 说明当前指针区间和cur区间无重复范围，直接将cur加入结果集，并将left、right指向cur
+             *
+             * 遍历结束，将最终的指针区间加入结果集（这个区间是一个大的合并区间）
              */
             int curLeft = intervals[i][0];
             int curRight = intervals[i][1];
 
             if (right >= curLeft) {
                 if (right > curRight) {
-                    list.add(new int[]{left, right});
+                     // list.add(new int[]{left, right});
                 }
                 if (right < curRight) {
                     right = curRight;
-                    list.add(new int[]{left, right});
+                    // list.add(new int[]{left, right});
                 }
             } else if (right < curLeft) {
-                list.add(new int[]{curLeft, curRight});
+                list.add(new int[]{left, right});
                 // 更新比较的区间
                 left = curLeft;
                 right = curRight;
             }
         }
+
+        list.add(new int[]{left, right});
+
         // 返回结果
         return list.toArray(new int[list.size()][]);
     }
