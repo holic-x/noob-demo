@@ -6,6 +6,7 @@ import java.util.Stack;
 
 /**
  * 019 删除链表的倒数第N个节点
+ * ❌❌❌❌❌❌❌❌❌❌❌❌
  */
 public class Solution1 {
 
@@ -14,6 +15,7 @@ public class Solution1 {
      * 链表长度未知无法通过倒序来索引删除，因此参考反转链表的思路，将链表放在栈中，取出栈顶第N个节点
      * 此处对应删除操作，只需要找到对应要删除的那个节点的前一个节点，然后将prv.next = prv.next.next 即可完成删除操作
      * 不需要又构建一遍链表重新遍历一遍
+     * （此处是倒序遍历一遍删除第N个元素，对比之下多余了创建新链表的操作，必要性不大）
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
 
