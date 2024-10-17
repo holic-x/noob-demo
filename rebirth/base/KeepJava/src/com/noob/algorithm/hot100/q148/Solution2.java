@@ -2,8 +2,6 @@ package com.noob.algorithm.hot100.q148;
 
 import com.noob.algorithm.hot100.q160.ListNode;
 
-import static com.sun.deploy.net.MessageHeader.merge;
-
 /**
  * 148 链表排序
  */
