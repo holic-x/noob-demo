@@ -6,7 +6,7 @@ package com.noob.algorithm.common150.q55;
 public class Solution2 {
     // 思路：动态规划
     public boolean canJump(int[] nums) {
-        // 1.dp[i] 表示到达i节点之前能到达的最远位置
+        // 1.dp[i] 表示到达`i`位置时能到达的最远距离
         int[] dp = new int[nums.length];
 
         // 2.确认dp公式 dp[i] = max{dp[i-1],i+nums[i]} 即max{第i-1个节点能到达的最远位置 , 已走距离+当前可支持跳跃距离}
