@@ -1,4 +1,4 @@
-package com.noob.algorithm.common150.q45;
+package com.noob.algorithm.common150.q045;
 
 /**
  * 45 跳跃游戏II

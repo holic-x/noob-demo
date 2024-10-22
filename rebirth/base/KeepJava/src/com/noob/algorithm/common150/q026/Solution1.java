@@ -1,4 +1,4 @@
-package com.noob.algorithm.common150.q26;
+package com.noob.algorithm.common150.q026;
 
 import java.util.*;
 

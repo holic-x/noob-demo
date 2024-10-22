@@ -1,4 +1,4 @@
-package com.noob.algorithm.common150.q27;
+package com.noob.algorithm.common150.q027;
 
 /**
  * 27 删除

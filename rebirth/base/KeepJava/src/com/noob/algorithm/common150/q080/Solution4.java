@@ -1,4 +1,4 @@
-package com.noob.algorithm.common150.q80;
+package com.noob.algorithm.common150.q080;
 
 public class Solution4 {
 

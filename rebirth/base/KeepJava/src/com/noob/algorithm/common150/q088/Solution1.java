@@ -1,4 +1,4 @@
-package com.noob.algorithm.common150.q88;
+package com.noob.algorithm.common150.q088;
 
 /**
  * 88 合并两个有序数组
