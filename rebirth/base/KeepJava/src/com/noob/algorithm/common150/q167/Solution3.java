@@ -11,6 +11,7 @@ public class Solution3 {
      * 哈希表 todo
      */
     public int[] twoSum(int[] numbers, int target) {
+        return null;
     }
 
 
