@@ -15,6 +15,7 @@ public class Solution1 {
         int maxArea = Integer.MIN_VALUE;
 
         // 定义双指针
+
         int left = 0, right = height.length - 1;
 
         // 遍历数组，计算maxArea，指针相遇遍历结束
