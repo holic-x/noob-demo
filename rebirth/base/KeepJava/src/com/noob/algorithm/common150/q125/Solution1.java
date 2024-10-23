@@ -1,6 +1,5 @@
 package com.noob.algorithm.common150.q125;
 
-import com.sun.deploy.util.StringUtils;
 
 /**
  * 125 验证回文串
