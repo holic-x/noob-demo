@@ -1,7 +1,5 @@
 package com.noob.algorithm.common150.q209;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 209 长度最小的子数组
