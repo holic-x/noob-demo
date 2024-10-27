@@ -1,9 +1,10 @@
+
 package com.noob.algorithm.common150.q036;
 
 /**
  * 036 有效的数独
  */
-public class Solution1 {
+public class Solution2 {
     /**
      * 标记法：3个二维数组用于判断对应位置是否已经出现过该数字
      * 1.数独是9*9表格，因此在遍历的过程中可以将数独的数字和对应矩阵的下标进行对照
@@ -32,25 +33,21 @@ public class Solution1 {
                 // 将数字与对应的哈希表存储位置对照
                 if (rowFlag[i][curNumber]) { // 校验规则1：判断行
                     return false; // 表示第i行的当前数字已经出现过，直接返回false
-                } else {
-                    rowFlag[i][curNumber] = true; // 未出现过，则进行标记
                 }
-
                 if (colFlag[j][curNumber]) { // 校验规则2：判断列
                     return false; // 表示第j列的当前数字已经出现过，直接返回false
-                } else {
-                    colFlag[j][curNumber] = true; // 未出现过，则进行标记
                 }
-
                 if (boxFlag[j / 3 + (i / 3) * 3][curNumber]) {
                     return false; // 表示对应box的当前数字已经出现过，直接返回false
-                } else {
-                    boxFlag[j / 3 + (i / 3) * 3][curNumber] = true; // 未出现过，则进行标记
                 }
+
+                // 统一标记
+                rowFlag[i][curNumber] = true; // 未出现过，则进行标记
+                colFlag[j][curNumber] = true; // 未出现过，则进行标记
+                boxFlag[j / 3 + (i / 3) * 3][curNumber] = true; // 未出现过，则进行标记
             }
         }
         return true;
     }
-
 
 }
