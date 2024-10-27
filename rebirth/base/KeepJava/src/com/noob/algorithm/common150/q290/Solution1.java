@@ -5,7 +5,6 @@ import java.util.Map;
 
 /**
  * 290 单词规律
- * todo 测试用例待解决
  */
 public class Solution1 {
 
@@ -25,6 +24,11 @@ public class Solution1 {
 
         // 对字符串元素进行切割
         String[] strs = s.split("\\s+");
+
+        // 如果长度不匹配则无需进一步校验
+        if(pattern.length()!=strs.length){
+            return false;
+        }
 
         // 遍历pattern每个字符，校验是否满足双向连接匹配规则
         for(int i=0;i<pattern.length();i++){
@@ -46,6 +50,13 @@ public class Solution1 {
         }
 
         return true;
+    }
+
+    public static void main(String[] args) {
+        String pattern = "aaa";
+        String s = "aa aa aa aa";
+        Solution1 solution1 = new Solution1();
+        System.out.println(solution1.wordPattern(pattern,s));
     }
 
 }
