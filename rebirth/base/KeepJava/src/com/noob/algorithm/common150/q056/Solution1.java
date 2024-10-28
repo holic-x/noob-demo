@@ -1,6 +1,5 @@
 package com.noob.algorithm.common150.q056;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -33,7 +32,7 @@ public class Solution1 {
         /**
          * 遍历区间（校验合并）: 左侧区间有序，此处则以右边界为基础进行判断
          * right : [cur[0]，cur[1]]
-         * right < cur[0] 没有可合并的空间，直接将cur加入结果集，并将比较的point指向cur
+         * right < cur[0] 没有可合并的空间，直接将{left,right}加入结果集，并将比较的point指向cur
          * right >= cur[0] 存在合并空间，进一步判断cur[1]
          *   - right <= cur[1] , 合并后为[left,cur[1]]
          *   - right > cur[1] , 合并后为[left,right] 其作为一个新的区间进入下一个区间比较
