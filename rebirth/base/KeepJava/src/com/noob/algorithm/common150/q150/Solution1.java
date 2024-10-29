@@ -1,35 +1,56 @@
 package com.noob.algorithm.common150.q150;
 
+import java.util.Stack;
+
 /**
- * 150 加油站
+ * 150 逆波兰表达式求值
  */
 public class Solution1 {
-    /**
-     *  确认是否可以绕一圈
-     * @param gas 当前加油站可提供油量
-     * @param cost 从当前加油站到下一个加油站需要消耗的油量
-     */
-    public int canCompleteCircuit(int[] gas, int[] cost) {
-        /**
-         * 思路：循环遍历每个加油站，确认其是否可到达下一个加油站
-         * 需要记录当前总油量、出发起点的加油站索引、从指定索引开始出发至今油量
-         */
-        int totalGas = 0;
-        int startIdx = 0; // 起点加油站索引
-        int curGas = 0;
 
-        // 遍历每个加油站，确认是否可到达下一个加油站，如果出现不可到达的情况，则从下一个位置开始重新出发
-        for(int i = 0; i < gas.length; i++) {
-            // 更新最大油量和当前可剩油量
-            totalGas  = totalGas + (gas[i] - cost[i]);
-            curGas = curGas + (gas[i] - cost[i]);
-            // 判断当前能否走到下一个加油站（如果出现不可达，则应从下一个加油站重新出发进行计算）
-            if(curGas < 0) { // (当前剩余油量+可加油量) 小于 到达下一站所需油量，说明此站不可达下一个站，则需切换起点
-                startIdx = i + 1; // 切换下一个起点进行计算
-                curGas = 0 ; // 重新切换后，当前剩余油量需重置为0
+    /**
+     * 遍历数组元素，借助栈辅助操作
+     * 1.如果是数字则入栈
+     * 2.如果是操作符，则需从栈中取出两个元素进行运算，随后将得到的结果入栈
+     */
+    public int evalRPN(String[] tokens) {
+        // 定义栈用作操作辅助
+        Stack<Integer> stack = new Stack<>();
+        // 遍历表达式
+        for (String token : tokens) {
+            // 如果是操作数
+            if ("+".equals(token) || "-".equals(token) || "*".equals(token) || "/".equals(token)) {
+                // 取出栈元素
+                int right = stack.pop();
+                int left = stack.pop();
+                int res;
+                switch (token) {
+                    case "+": {
+                        res = left + right;
+                        stack.push(Integer.valueOf(res));
+                        break;
+                    }
+                    case "-": {
+                        res = left - right;
+                        stack.push(Integer.valueOf(res));
+                        break;
+                    }
+                    case "*": {
+                        res = left * right;
+                        stack.push(Integer.valueOf(res));
+                        break;
+                    }
+                    case "/": {
+                        res = left / right;
+                        stack.push(Integer.valueOf(res));
+                        break;
+                    }
+                }
+            } else {
+                // 其他内容，数字处理直接压栈
+                stack.push(Integer.valueOf(token));
             }
         }
-        // 最终判断totalGas是否大于等于0（表示足够或者刚好能够到达）
-        return totalGas>=0?startIdx:-1;
+        // 遍历完成，最终得到的栈中只有一个元素
+        return stack.peek();
     }
 }
