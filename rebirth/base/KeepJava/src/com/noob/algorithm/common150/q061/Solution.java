@@ -1,5 +1,7 @@
 package com.noob.algorithm.common150.q061;
 
+import com.noob.algorithm.common150.base.ListNode;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -62,8 +64,3 @@ class Solution {
         return pre;
     }
 }
-
-作者：少年啊
-链接：https://leetcode.cn/problems/rotate-list/solutions/1/duo-ci-fan-zhuan-lian-biao-0msjie-jue-by-9wmg/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
