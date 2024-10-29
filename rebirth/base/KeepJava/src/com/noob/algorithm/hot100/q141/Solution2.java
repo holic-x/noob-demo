@@ -1,6 +1,6 @@
 package com.noob.algorithm.hot100.q141;
 
-import com.noob.algorithm.hot100.q160.ListNode;
+import com.noob.algorithm.hot100.base.ListNode;
 
 /**
  * 141 环形链表

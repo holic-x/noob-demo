@@ -1,4 +1,4 @@
-package com.noob.algorithm.hot100.q160;
+package com.noob.algorithm.hot100.base;
 
 /**
  * 链表节点定义

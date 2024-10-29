@@ -1,6 +1,6 @@
 package com.noob.algorithm.hot100.q021;
 
-import com.noob.algorithm.hot100.q160.ListNode;
+import com.noob.algorithm.hot100.base.ListNode;
 
 /**
  * 021 合并两个有序链表

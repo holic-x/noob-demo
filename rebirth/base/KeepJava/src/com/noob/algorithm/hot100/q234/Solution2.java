@@ -1,8 +1,6 @@
 package com.noob.algorithm.hot100.q234;
 
-import com.noob.algorithm.hot100.q160.ListNode;
-
-import java.util.Stack;
+import com.noob.algorithm.hot100.base.ListNode;
 
 /**
  * 回文链表
