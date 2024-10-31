@@ -1,8 +1,6 @@
 package com.noob.algorithm.hot100.q019;
 
-import com.noob.algorithm.hot100.q160.ListNode;
-
-import java.util.Stack;
+import com.noob.algorithm.hot100.base.ListNode;
 
 /**
  * 019 删除链表的倒数第N个节点

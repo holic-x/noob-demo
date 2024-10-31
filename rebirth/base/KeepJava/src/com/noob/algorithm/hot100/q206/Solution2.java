@@ -1,10 +1,6 @@
 package com.noob.algorithm.hot100.q206;
 
 
-import com.noob.algorithm.hot100.q160.ListNode;
-
-import java.util.Stack;
-
 /**
  * 反转链表
  * 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表

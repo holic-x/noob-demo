@@ -1,8 +1,6 @@
 package com.noob.algorithm.hot100.q148;
 
-import com.noob.algorithm.hot100.q160.ListNode;
-
-import java.util.List;
+import com.noob.algorithm.hot100.base.ListNode;
 
 /**
  * 148 链表排序

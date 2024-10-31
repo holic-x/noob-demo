@@ -1,6 +1,6 @@
 package com.noob.algorithm.hot100.q024;
 
-import com.noob.algorithm.hot100.q160.ListNode;
+import com.noob.algorithm.hot100.base.ListNode;
 
 /**
  * 24 两两交换链表的节点

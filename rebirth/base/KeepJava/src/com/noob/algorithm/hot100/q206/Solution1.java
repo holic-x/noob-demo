@@ -1,6 +1,6 @@
 package com.noob.algorithm.hot100.q206;
 
-import com.noob.algorithm.hot100.q160.ListNode;
+import com.noob.algorithm.hot100.base.ListNode;
 
 import java.util.Stack;
 

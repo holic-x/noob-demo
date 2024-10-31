@@ -1,5 +1,7 @@
 package com.noob.algorithm.hot100.q160;
 
+import com.noob.algorithm.hot100.base.ListNode;
+
 /**
  * 160 相交链表
  */
