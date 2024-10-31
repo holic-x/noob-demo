@@ -3,7 +3,7 @@ package com.noob.algorithm.common150.q009;
 /**
  * 009 回文数
  */
-public class Solution2 {
+public class Solution3 {
     /**
      * 在不使用字符串或者数组的情况下进行判断
      */
