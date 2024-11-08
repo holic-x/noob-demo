@@ -38,7 +38,7 @@ public class Solution2 {
 
 
 /*
-class Solution {
+class Solution1 {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         list = showRight(root,list);
