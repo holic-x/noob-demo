@@ -12,7 +12,7 @@ public class MedianFinder1 {
     // 维护数组或集合元素
     List<Integer> numList;
 
-    public MedianFinder() {
+    public MedianFinder1() {
         numList = new ArrayList<>();
     }
 
