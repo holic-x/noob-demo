@@ -9,6 +9,7 @@ import java.util.List;
  * 094 二叉树的中序遍历
  */
 public class Solution1 {
+    // 递归法
     public List<Integer> inorderTraversal(TreeNode root){
         // 定义遍历结果集
         List<Integer> res = new ArrayList<>();

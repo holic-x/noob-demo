@@ -9,6 +9,7 @@ import java.util.List;
  * 144 二叉树的前序遍历
  */
 public class Solution1 {
+    // 递归法
     public List<Integer> preorderTraversal(TreeNode root) {
         // 初始化递归结果集
         List<Integer> res = new ArrayList<>();
