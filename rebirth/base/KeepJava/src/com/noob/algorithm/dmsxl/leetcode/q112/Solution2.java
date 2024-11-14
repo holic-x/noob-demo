@@ -12,26 +12,23 @@ public class Solution2 {
 
     // 递归法
     public boolean hasPathSum(TreeNode root, int targetSum) {
-
+        return dfs(root, targetSum);
     }
 
-    public int dfs(TreeNode node, int curPathSum, int targetSum) {
+    public boolean dfs(TreeNode node, int targetSum) {
         if (node == null) {
-            return 0;
+            return false;
         }
 
-        // 遇到叶子节点，判断curPathSum
-        if(node.left==null&&node.right==null){
-            if(curPathSum==targetSum){
-                return ;
+        // 遇到叶子节点（如果路径和匹配targetSum，则递归最终到叶子节点剩余值应该和当前遍历节点值一致才满足）
+        if (node.left == null && node.right == null) {
+            if (node.val == targetSum) {
+                return true;
             }
         }
 
-        int mid = curPathSum + node.val;
-        int left = dfs(node.left, curPathSum,targetSum);
-        int right = dfs(node.right, curPathSum,targetSum);
-        return mid + left + right;
+        // 左、右节点存在满足条件的即可
+        return dfs(node.left, targetSum - node.val) || dfs(node.right, targetSum - node.val);
     }
-
 
 }
