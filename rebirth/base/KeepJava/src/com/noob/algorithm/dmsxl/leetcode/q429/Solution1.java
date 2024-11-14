@@ -39,6 +39,8 @@ public class Solution1 {
 
                 // 如果子节点不为空则入队
                 List<NTreeNode> children = cur.children;
+                queue.addAll(children); // 子节点添加可以用工具方法替代，无需额外手动遍历
+                /*
                 if(!children.isEmpty()){
                     for (NTreeNode child : children){
                         if(child!=null){
@@ -46,6 +48,7 @@ public class Solution1 {
                         }
                     }
                 }
+                */
             }
             // 当层遍历完成，封装结果集
             res.add(curList);
