@@ -35,11 +35,18 @@ public class Solution1 {
         }
 
         // 回溯过程
-        // for (int i = cur; i <= n; i++) { // 起始从1开始：[1,n]
-        for (int i = startIndex; i <= n - (k - curPath.size()) + 1; i++) { // 剪枝优化：只要确保startIdx的位置要满足可以构成k个元素的组合
+         for (int i = startIndex; i <= n; i++) { // 起始从1开始：[1,n]
+//        for (int i = startIndex; i <= n - (k - curPath.size()) + 1; i++) { // 剪枝优化：只要确保startIdx的位置要满足可以构成k个元素的组合
             curPath.add(i);
             backTrack(n, k, i + 1); // 递归
             curPath.remove(curPath.size() - 1); // 复原现场
         }
+    }
+
+
+    public static void main(String[] args) {
+        Solution1 solution1 = new  Solution1();
+        solution1.combine(9,2);
+        System.out.println(solution1.res);
     }
 }

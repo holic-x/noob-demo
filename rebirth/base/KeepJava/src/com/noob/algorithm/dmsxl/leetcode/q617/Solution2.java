@@ -1,10 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q617;
 
 import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
-import com.sun.source.tree.Tree;
-
-import java.util.Deque;
-import java.util.LinkedList;
 
 /**
  * 617 合并二叉树
