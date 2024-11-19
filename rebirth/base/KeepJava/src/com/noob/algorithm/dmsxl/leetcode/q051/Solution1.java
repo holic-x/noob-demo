@@ -56,7 +56,7 @@ public class Solution1 {
             chessBoard[row][col] = 'Q';
             // 递归
             backTrack(n, row + 1, chessBoard); // 递归的是行（用于递归选定某一行的列，row+1表示递归选择下一行）
-            // 回溯（恢复算法）
+            // 回溯（恢复现场）
             chessBoard[row][col] = '.';
         }
 
