@@ -3,7 +3,7 @@ package com.noob.algorithm.dmsxl.leetcode.q053;
 /**
  * 053 最大连续子数组和
  */
-public class Solution1 {
+public class Solution3 {
 
     public int maxSubArray(int[] nums) {
         // 特例分析
