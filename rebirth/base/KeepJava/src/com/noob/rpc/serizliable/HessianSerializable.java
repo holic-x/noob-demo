@@ -13,7 +13,7 @@ public class HessianSerializable {
     public static void serialize()throws Exception{
         // 1.定义对象
         Person person = new Person("001","小红");
-        
+
         // 2.借助ObjectOutputStream输出为二进制流
         FileOutputStream fos = new FileOutputStream(new File("D:\\Desktop\\test\\rpc-person.dat"));
         ObjectOutputStream oos = new ObjectOutputStream(fos);
