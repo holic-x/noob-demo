@@ -35,13 +35,15 @@ public class Solution2 {
         for (int i = 1; i < n; i++) { // 外层物品
             for (int j = bagSize; j >= nums[i]; j--) { // 内层背包（逆序遍历：确保同一个物品只有一个放入，避免重复覆盖）
                 dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
+                /*
                 // 判断是否出现了dp[i][j]==sum/2,出现则说明满足
                 if (dp[j] == bagSize) {
                     return true;
                 }
+                 */
             }
         }
-        return false;
+        return dp[bagSize] == bagSize;
     }
 
 }
