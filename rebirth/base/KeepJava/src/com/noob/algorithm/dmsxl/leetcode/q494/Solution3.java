@@ -3,22 +3,22 @@ package com.noob.algorithm.dmsxl.leetcode.q494;
 /**
  * 494 目标和
  */
-public class Solution1 {
+public class Solution3 {
 
     public int cnt = 0; // 满足目标和条件的计数器（结果统计）
-    public int curPathSum = 0; // 当前路径和
 
     // 回溯法
     public int findTargetSumWays(int[] nums, int target) {
-        backTrack(nums, target, 0);
+        backTrack(nums, 0, target);
         return cnt;
 
     }
 
-    public void backTrack(int[] nums, int target, int idx) {
+
+    public void backTrack(int[] nums, int startIdx, int rest) {
         // 递归出口
-        if (idx == nums.length) {
-            if (curPathSum == target) {
+        if (startIdx == nums.length) {
+            if (rest == 0) {
                 // 记录结果
                 cnt++;
             }
@@ -26,18 +26,18 @@ public class Solution1 {
         }
 
         // 处理
-        curPathSum += nums[idx];
+        rest += nums[startIdx];
         // 递归
-        backTrack(nums, target, idx + 1);
+        backTrack(nums,startIdx+1,rest);
         // 回溯
-        curPathSum -= nums[idx];
+        rest -= nums[startIdx];
 
         // 处理
-        curPathSum -= nums[idx];
+        rest -= nums[startIdx];
         // 递归
-        backTrack(nums, target, idx + 1);
+        backTrack(nums,startIdx+1,rest);
         // 回溯
-        curPathSum += nums[idx];
+        rest += nums[startIdx];
     }
 
 }
