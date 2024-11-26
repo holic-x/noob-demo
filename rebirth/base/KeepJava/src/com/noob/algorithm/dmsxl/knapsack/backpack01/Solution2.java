@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.knapsack;
+package com.noob.algorithm.dmsxl.knapsack.backpack01;
 
 
 /**
