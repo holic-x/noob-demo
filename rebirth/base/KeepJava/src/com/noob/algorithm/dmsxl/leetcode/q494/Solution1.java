@@ -25,14 +25,14 @@ public class Solution1 {
             return;
         }
 
-        // 处理
+        // 处理：选择+
         curPathSum += nums[idx];
         // 递归
         backTrack(nums, target, idx + 1);
         // 回溯
         curPathSum -= nums[idx];
 
-        // 处理
+        // 处理：选择-
         curPathSum -= nums[idx];
         // 递归
         backTrack(nums, target, idx + 1);
