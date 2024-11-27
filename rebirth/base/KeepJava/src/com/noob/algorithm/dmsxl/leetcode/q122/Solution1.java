@@ -6,7 +6,7 @@ package com.noob.algorithm.dmsxl.leetcode.q122;
 public class Solution1 {
 
     /**
-     *  每日可操作股票，但最多只能持有一股
+     * 每日可操作股票，但最多只能持有一股
      */
     public int maxProfit(int[] prices) {
         /**
@@ -17,9 +17,9 @@ public class Solution1 {
         int maxProfit = 0; // 初始化最大利润
 
         // 计算每日做T利润，如果存在正利润就累加，不存在正利润就继续持有
-        for(int i=1;i<prices.length;i++){ // 第1天没有利润
-            int curProfit = prices[i]-prices[i-1];
-            if(curProfit>0){
+        for (int i = 1; i < prices.length; i++) { // 第1天没有利润
+            int curProfit = prices[i] - prices[i - 1];
+            if (curProfit > 0) {
                 maxProfit += curProfit; // 累加正利润（做T）
             }
         }
