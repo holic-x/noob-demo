@@ -49,7 +49,8 @@ public class Solution2 {
 
 
     public static void main(String[] args) {
-        int[] price = new int[]{7, 1, 5, 3, 6, 4};
+//        int[] price = new int[]{7, 1, 5, 3, 6, 4};
+        int[] price = new int[]{1,2,3,4,5};
         Solution2 solution2 = new Solution2();
         solution2.maxProfit(price);
     }
