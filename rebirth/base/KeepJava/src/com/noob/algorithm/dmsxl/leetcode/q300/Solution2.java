@@ -1,9 +1,13 @@
 package com.noob.algorithm.dmsxl.leetcode.q300;
 
+import com.noob.algorithm.dmsxl.util.PrintDPUtil;
+
+import java.util.Arrays;
+
 /**
  * 300 最长递增子序列
  */
-public class Solution1 {
+public class Solution2 {
     // 最长递增子序列
     public int lengthOfLIS(int[] nums) {
         int n = nums.length;
@@ -18,27 +22,32 @@ public class Solution1 {
          */
 
         // 3.dp初始化
-        dp[0] = 1; // 元素自身为一个递增子序列
+        Arrays.fill(dp, 1); // 初始化：元素自身为一个递增子序列
 
         // 4.dp构建
+        int maxLen = 0;
         for (int i = 1; i < n; i++) { // 外层确定i
-            int curMax = 1; // 初始化为【元素为自身的情况】
             for (int j = 0; j < i; j++) { // 内层从[0,i]中择选可以构成最大连续递增子序列的元素，选择最长的那个
                 // 只有nums[i]>nums[j]才能构建连续递增
                 if (nums[i] > nums[j]) {
                     // 选择最大的长度
-                    curMax = Math.max(curMax, dp[j] + 1);
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
-            // 更新dp[i]
-            dp[i] = curMax;
+            // 遍历过程中同步更新最大长度
+            maxLen = Math.max(maxLen, dp[i]);
+            // 打印数组状态变化
+            System.out.print("i=" + i + ":");
+            PrintDPUtil.print(dp);
         }
 
         // 结果处理
-        int maxLen = 0;
-        for (int i = 0; i < dp.length; i++) {
-            maxLen = Math.max(maxLen, dp[i]);
-        }
         return maxLen;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{0, 1, 0, 3, 2};
+        Solution2 solution2 = new Solution2();
+        solution2.lengthOfLIS(nums);
     }
 }
