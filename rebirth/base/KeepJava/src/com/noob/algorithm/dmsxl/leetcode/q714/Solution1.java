@@ -28,11 +28,11 @@ public class Solution1 {
         // 4.dp构建
         for (int i = 1; i < m; i++) {
             dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] - prices[i]);
-            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] + prices[i] - fee);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] + prices[i] - fee); // 卖出时处理手续费
         }
 
         // 返回结果
-        return dp[m - 1][1];
+        return dp[m - 1][1]; // 卖出时处理手续费，最大利润为最后一天的不持有状态
     }
 
 }
