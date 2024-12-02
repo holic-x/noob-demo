@@ -19,21 +19,15 @@ public class Solution2 {
         for (int i = 0; i < len1; i++) {
             // 先找到nums1[i]==nums2[j]的位置
             int j = 0;
-            while(nums1[i]!=nums2[j] && j<len2){
+            while (nums1[i] != nums2[j] && j < len2) {
                 j++;
             }
-            
 
-
-
-            for (int j = 0; j < len2; j++) {
-                if (nums1[i] == nums2[j]) { // 因为题中给出数组中不存在重复元素，所以可以确保找到一个唯一的内容
-                    for (int k = j + 1; k < len2; k++) {
-                        if (nums1[i] < nums2[k]) {
-                            res[i] = nums2[k]; // 记录下一个更大的元素
-                            break; // 已经寻找到第一个大的元素，跳出内层循环，继续下一个i位置遍历
-                        }
-                    }
+            // 从j+1位置开始遍历，寻找第一个比nums1[i](nums2[j])大的元素
+            for (int k = j + 1; k < len2; k++) {
+                if (nums1[i] < nums2[k]) {
+                    res[i] = nums2[k]; // 记录下一个更大的元素
+                    break; // 已经寻找到第一个大的元素，跳出内层循环，继续下一个i位置遍历
                 }
             }
         }
