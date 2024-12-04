@@ -1,5 +1,6 @@
 package com.noob.algorithm.dmsxl.kmw.q100;
 
+import com.noob.algorithm.dmsxl.graph.GraphInputUtil;
 import com.noob.algorithm.dmsxl.graph.Pair;
 
 import java.util.LinkedList;
@@ -28,6 +29,7 @@ public class Solution3 {
         Queue<Pair> queue = new LinkedList<>();
         queue.add(new Pair(x, y)); // 初始化队列
         visited[x][y] = true; // 只要加入队列就立刻进行标记（避免重复遍历标记的情况）
+        area++; // 岛屿面积+1
 
         // 队列不为空时进行遍历
         while (!queue.isEmpty()) {
@@ -35,7 +37,6 @@ public class Solution3 {
             Pair curPair = queue.poll();
             int curX = curPair.x;
             int curY = curPair.y;
-            area++; // 岛屿面积+1
 
             // 往四个方向进行遍历
             for (int i = 0; i < 4; i++) {
@@ -49,34 +50,16 @@ public class Solution3 {
                 if (!visited[nextX][nextY] && graph[nextX][nextY] == 1) {
                     queue.offer(new Pair(nextX, nextY));
                     visited[nextX][nextY] = true; // 只要加入队列就立刻进行标记（避免重复遍历标记的情况）
+                    area++; // 岛屿面积+1
                 }
             }
         }
     }
 
-    // 输入控制，封装邻接矩阵
-    public static int[][] getGraph() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("输入整数N（矩阵行）、M（矩阵列）");
-        String[] nm = sc.nextLine().trim().split("\\s+");
-        int n = Integer.valueOf(nm[0]), m = Integer.valueOf(nm[1]);
-        // 定义邻接矩阵
-        int[][] graph = new int[n][m];
-
-        System.out.println("输入N行，每行包含M个数字（数字为1或0）");
-        for (int i = 0; i < n; i++) {
-            String[] input = sc.nextLine().trim().split("\\s+");
-            for (int j = 0; j < input.length; j++) {
-                graph[i][j] = Integer.valueOf(input[j]);
-            }
-        }
-        return graph;
-    }
-
     public static void main(String[] args) {
 
         // 1.输入控制（邻接矩阵处理）
-        int[][] graph = getGraph();
+        int[][] graph = GraphInputUtil.getMatrixGraph(0);
         int n = graph.length, m = graph[0].length;
 
         // 定义visited数组，记录已遍历的节点

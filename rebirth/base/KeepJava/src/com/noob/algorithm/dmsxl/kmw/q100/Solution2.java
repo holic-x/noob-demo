@@ -28,7 +28,7 @@ public class Solution2 {
 
         // 遍历当前节点
         visited[x][y] = true;
-        area ++; // 岛屿面积+1
+        area++; // 岛屿面积+1
 
         // 递归处理（往4个方向进行检索，此处选择列表为4个方向，遇到边界可跳过）
         for (int i = 0; i < 4; i++) {
