@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q516;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 516 最长回文子序列
@@ -22,7 +22,7 @@ public class Solution1 {
             dp[i][i] = 1;//i==j时元素自身为一个回文子序列
         }
         System.out.println("初始化：");
-        PrintDPUtil.printMatrix(dp);
+        PrintUtil.printMatrix(dp);
 
         // 4.dp 构建（从下往上，从左往右）
         for (int i = len - 1; i >= 0; i--) {
@@ -35,7 +35,7 @@ public class Solution1 {
             }
         }
         System.out.println("构建后：");
-        PrintDPUtil.printMatrix(dp);
+        PrintUtil.printMatrix(dp);
 
         // 返回结果(遍历顺序是从下往上，从左往右，因此第一行的最后一个元素为结果)
         return dp[0][len - 1];

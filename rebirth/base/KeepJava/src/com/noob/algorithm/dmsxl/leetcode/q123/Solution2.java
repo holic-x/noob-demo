@@ -1,11 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q123;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 123 买卖股票的最佳时机III
@@ -54,7 +49,7 @@ public class Solution2 {
             dp[i][4] = Math.max(dp[i - 1][3] + prices[i], dp[i - 1][4]);
         }
 
-        PrintDPUtil.printMatrix(dp); // 打印dp数组信息
+        PrintUtil.printMatrix(dp); // 打印dp数组信息
 
         // 结果返回（最后一日不持有股票的状态下现金最多）
         return dp[m - 1][4];

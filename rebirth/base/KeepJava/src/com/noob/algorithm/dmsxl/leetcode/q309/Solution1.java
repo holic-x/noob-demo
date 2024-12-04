@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q309;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 309 股票交易的最佳时机含冷冻期
@@ -47,7 +47,7 @@ public class Solution1 {
             dp[i][3] = dp[i - 1][2];
         }
 
-        PrintDPUtil.printMatrix(dp); // 打印dp数组
+        PrintUtil.printMatrix(dp); // 打印dp数组
 
         // 返回结果(从3种卖出状态中选择最大)
         return Math.max(dp[m - 1][3], Math.max(dp[m - 1][1], dp[m - 1][2]));

@@ -1,6 +1,7 @@
 package com.noob.algorithm.dmsxl.leetcode.q122;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
+
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 122 买卖股票的最佳时机II
@@ -41,7 +42,7 @@ public class Solution2 {
         }
 
         // 打印矩阵
-        PrintDPUtil.printMatrix(dp);
+        PrintUtil.printMatrix(dp);
 
         // 返回结果
         return dp[m - 1][1]; // 不持有股票的状态所得金钱一定更多，因此最后一天的不持有股票时所得现金一定是最多的

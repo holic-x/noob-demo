@@ -1,7 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q072;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
-import com.noob.algorithm.hot100.q015.Solution;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 072 编辑距离
@@ -33,7 +32,7 @@ public class Solution1 {
             dp[0][j] = j;
         }
         System.out.println("初始化：");
-        PrintDPUtil.printMatrix(dp);
+        PrintUtil.printMatrix(dp);
 
         // 4.dp构建
         for (int i = 1; i <= len1; i++) {
@@ -46,7 +45,7 @@ public class Solution1 {
             }
         }
         System.out.println("构建后：");
-        PrintDPUtil.printMatrix(dp);
+        PrintUtil.printMatrix(dp);
 
         // 返回结果
         return dp[len1][len2];

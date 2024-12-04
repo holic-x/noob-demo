@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q121;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 121 买卖股票的最佳时机
@@ -30,7 +30,7 @@ public class Solution3 {
         // 3.dp 初始化（dp[0]、dp[0] : 初始化第0天持有、不持有股票所能获得的最大现金）
         dp[0] = 0 - prices[0]; // 第0天持有股票，则只能是当日买入（前面没有可推导的基础）
         dp[1] = 0; // 第0天不持有股票，现金为初始状态
-        PrintDPUtil.print(dp); // 打印状态变化
+        PrintUtil.print(dp); // 打印状态变化
 
         // 4.构建dp
         for (int i = 1; i < m; i++) {
@@ -41,7 +41,7 @@ public class Solution3 {
             dp[1] = Math.max(dp[1], dp[0] + prices[i]);
 
             // 打印状态变化
-            PrintDPUtil.print(dp);
+            PrintUtil.print(dp);
         }
 
         // 返回结果

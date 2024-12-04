@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q042;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 042 接雨水
@@ -17,7 +17,7 @@ public class Solution1 {
             leftMax[i] = Math.max(leftMax[i - 1], height[i]);
         }
         System.out.println("leftMax[]:");
-        PrintDPUtil.print(leftMax);
+        PrintUtil.print(leftMax);
 
         // 2.求数组元素的最大后缀
         int[] rightMax = new int[len];
@@ -26,7 +26,7 @@ public class Solution1 {
             rightMax[j] = Math.max(rightMax[j + 1], height[j]);
         }
         System.out.println("rightMax[]:");
-        PrintDPUtil.print(rightMax);
+        PrintUtil.print(rightMax);
 
         // 3.求雨水总量
         int res = 0;

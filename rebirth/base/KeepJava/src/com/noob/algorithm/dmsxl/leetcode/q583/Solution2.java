@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q583;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 583 两个字符串的删除操作
@@ -45,7 +45,7 @@ public class Solution2 {
             }
         }
 
-        PrintDPUtil.printMatrix(dp);
+        PrintUtil.printMatrix(dp);
 
         // 返回结果
         return len1 + len2 - 2 * dp[len1][len2];

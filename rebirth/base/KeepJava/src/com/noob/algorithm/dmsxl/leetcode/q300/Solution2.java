@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q300;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 import java.util.Arrays;
 
@@ -38,7 +38,7 @@ public class Solution2 {
             maxLen = Math.max(maxLen, dp[i]);
             // 打印数组状态变化
             System.out.print("i=" + i + ":");
-            PrintDPUtil.print(dp);
+            PrintUtil.print(dp);
         }
 
         // 结果处理
