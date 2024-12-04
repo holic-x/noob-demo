@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.kmw.q099;
+package com.noob.algorithm.dmsxl.kmw.q100;
 
 import com.noob.algorithm.dmsxl.graph.Pair;
 
@@ -7,11 +7,13 @@ import java.util.Queue;
 import java.util.Scanner;
 
 /**
- * 099 岛屿数量
+ * 100 岛屿的最大面积
  */
 public class Solution3 {
 
     static int[][] dir = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}; // 定义遍历的4个方向加成（往4个方向进行检索）右、下、左、上
+
+    static int area = 0; // 当前遍历岛屿面积
 
     /**
      * BFS
@@ -33,6 +35,7 @@ public class Solution3 {
             Pair curPair = queue.poll();
             int curX = curPair.x;
             int curY = curPair.y;
+            area++; // 岛屿面积+1
 
             // 往四个方向进行遍历
             for (int i = 0; i < 4; i++) {
@@ -80,17 +83,19 @@ public class Solution3 {
         boolean[][] visited = new boolean[n][m]; // 初始化默认为false
 
         // 2.调用方法获取岛屿数量（遍历每一个可能的起点）
-        int cnt = 0; // 岛屿数量
+        int maxArea = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
+                area = 0; // 对于每一个可能的岛屿起点遍历，初始化area
                 if (!visited[i][j] && graph[i][j] == 1) { // 当前节点没有被遍历过且为陆地，则以该点为起点进行dfs
-                    cnt++;
                     bfs(graph, visited, i, j); // 广度检索：将与其连接的陆地都标记上true
                 }
+                // 更新岛屿的最大面积
+                maxArea = Math.max(maxArea, area); // 可以输出area确认取值情况
             }
         }
 
         // 返回结果
-        System.out.println("岛屿数量：" + cnt);
+        System.out.println("最大岛屿面积：" + maxArea);
     }
 }
