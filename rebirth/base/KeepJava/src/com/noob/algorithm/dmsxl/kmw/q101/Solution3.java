@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 101 孤岛总面积
+ * 101 孤岛总面积（标记处理 BFS）
  */
 public class Solution3 {
 

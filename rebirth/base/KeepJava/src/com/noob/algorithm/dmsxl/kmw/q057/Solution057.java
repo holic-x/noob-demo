@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.kmw;
+package com.noob.algorithm.dmsxl.kmw.q057;
 
 /**
  * kmw 057-爬楼梯升级版

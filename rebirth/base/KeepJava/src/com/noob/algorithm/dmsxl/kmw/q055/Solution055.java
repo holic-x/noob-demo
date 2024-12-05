@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.kmw;
+package com.noob.algorithm.dmsxl.kmw.q055;
 
 /**
  * 055 右旋字符串

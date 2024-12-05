@@ -4,7 +4,7 @@ import com.noob.algorithm.dmsxl.graph.GraphInputUtil;
 
 
 /**
- * 101 孤岛总面积
+ * 101 孤岛总面积（标记处理 DFS）
  */
 public class Solution1 {
 

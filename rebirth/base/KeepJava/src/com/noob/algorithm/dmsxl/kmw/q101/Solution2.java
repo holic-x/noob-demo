@@ -5,7 +5,7 @@ import com.noob.algorithm.dmsxl.graph.GraphInputUtil;
 import java.util.Scanner;
 
 /**
- * 100 岛屿的最大面积
+ * 100 岛屿的最大面积（标记处理 DFS）
  */
 public class Solution2 {
 
