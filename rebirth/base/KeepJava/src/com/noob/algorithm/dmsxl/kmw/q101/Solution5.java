@@ -58,8 +58,8 @@ public class Solution5 {
             if (graph[i][0] == 1) {
                 dfs(graph, i, 0);
             }
-            if (graph[i][n - 1] == 1) {
-                dfs(graph, i, n - 1);
+            if (graph[i][m - 1] == 1) {
+                dfs(graph, i, m - 1);
             }
         }
 
