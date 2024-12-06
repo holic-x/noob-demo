@@ -1,5 +1,6 @@
 package com.noob.algorithm.dmsxl.util;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,10 +48,12 @@ public class PrintUtil {
     public static void printGraphTable(List<List<Integer>> graph) {
         for (int i = 0; i < graph.size(); i++) {
             StringBuffer sb = new StringBuffer();
-            for (int j = 0; j < graph.get(i).size() - 1; j++) {
-                sb.append(graph.get(i).get(j)).append(" "); // 行内以空格进行间隔
+            if(!graph.get(i).isEmpty()){
+                for (int j = 0; j < graph.get(i).size() - 1; j++) {
+                    sb.append(graph.get(i).get(j)).append(" "); // 行内以空格进行间隔
+                }
+                sb.append(graph.get(i).get(graph.get(i).size() - 1)); // 补上最后一位
             }
-            sb.append(graph.get(i).get(graph.get(i).size() - 1)); // 补上最后一位
             System.out.println("【" + i + "】" + sb);
         }
     }
