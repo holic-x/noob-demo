@@ -43,23 +43,22 @@ public class GraphInputUtil {
         return graph;
     }
 
-    // 输入控制，封装邻接表
+    // 输入控制，封装邻接表（节点编号范围为[1,n]）
     public static List<List<Integer>> getTableGraph(int choose) {
         Scanner sc = new Scanner(System.in);
         // System.out.println("请选择是否需要手动构建（1），如果非手动则返回默认测试用例");
         // int choose = sc.nextInt();
 
         if (choose != 1) {
-            // n=4 m=5
             List<List<Integer>> graph = new ArrayList<>();
             graph.add(new ArrayList<>());
             graph.add(Arrays.asList(new Integer[]{2, 3}));
             graph.add(Arrays.asList(new Integer[]{1, 4}));
             graph.add(new ArrayList<>());
+            graph.add(new ArrayList<>());
 
             return graph;
         }
-
 
         System.out.println("输入整数N（节点个数）、K（输入边数）");
         String[] nk = sc.nextLine().trim().split("\\s+");
@@ -67,7 +66,7 @@ public class GraphInputUtil {
 
         // 定义邻接矩阵表
         List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i <= n; i++) {
             graph.add(new ArrayList<>());
         }
         System.out.println("输入k行，每行包含2个数字（表示A->B的边）");
@@ -81,7 +80,8 @@ public class GraphInputUtil {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> graph = GraphInputUtil.getTableGraph(0);
+//        List<List<Integer>> graph = GraphInputUtil.getTableGraph(0);
+        List<List<Integer>> graph = GraphInputUtil.getTableGraph(1);
         PrintUtil.printGraphTable(graph);
     }
 
