@@ -33,7 +33,7 @@ public class Solution2 {
     }
 
     //    public static void main(String[] args) {
-//        Solution1 solution1 = new Solution1();
+//        Solution704 solution1 = new Solution704();
 //        solution1.isHappy(19);
 //    }
 
