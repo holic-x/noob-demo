@@ -6,14 +6,14 @@ import java.util.Scanner;
 /**
  * 并查集模板
  */
-class DisJoint{
+class DisJoint {
 
     static int[] father;
 
     // 1.init
     static void init(int n) {
-        father = new int[n + 1]; // 编号有效范围为[1,n]
-        for (int i = 1; i <= n; i++) {
+        father = new int[n];
+        for (int i = 0; i < n; i++) {
             father[i] = i;
         }
     }
@@ -52,7 +52,9 @@ class DisJoint{
     }
 }
 
-
+/**
+ * KMW107 寻找存在的路径
+ */
 public class Solution1 {
 
     public static void main(String[] args) {
@@ -64,7 +66,7 @@ public class Solution1 {
 
         // 初始化并查集
         DisJoint disJoint = new DisJoint();
-        disJoint.init(n);
+        disJoint.init(n + 1); // 编号有效范围为[1,n]，此处加一位
 
         System.out.println("2.输入m条边（x y）以空格间隔数字");
         sc.nextLine();
