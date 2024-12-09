@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.kmw.q108;
 
-import com.noob.algorithm.dmsxl.graph.DisJoint;
+import com.noob.algorithm.dmsxl.graph.disJointSet.DisJoint;
 
 import java.util.Scanner;
 
