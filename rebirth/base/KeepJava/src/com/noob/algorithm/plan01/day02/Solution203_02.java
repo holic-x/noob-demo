@@ -3,7 +3,8 @@ package com.noob.algorithm.plan01.day02;
 import com.noob.algorithm.dmsxl.baseStructure.ListNode;
 
 /**
- * 203 移除链表元素
+ * 🟢 203 移除链表元素
+ * https://leetcode.cn/problems/remove-linked-list-elements/submissions/578999672/
  */
 public class Solution203_02 {
 
