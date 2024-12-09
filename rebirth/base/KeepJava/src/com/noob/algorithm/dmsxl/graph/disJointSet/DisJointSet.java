@@ -4,7 +4,7 @@ package com.noob.algorithm.dmsxl.graph.disJointSet;
 /**
  * 并查集模板
  */
-public class DisJoint {
+public class DisJointSet {
 
     public static int[] father;
 

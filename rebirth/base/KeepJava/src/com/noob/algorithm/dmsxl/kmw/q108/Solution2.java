@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.kmw.q108;
 
-import com.noob.algorithm.dmsxl.graph.disJointSet.DisJoint;
+import com.noob.algorithm.dmsxl.graph.disJointSet.DisJointSet;
 
 import java.util.Scanner;
 
@@ -20,7 +20,7 @@ public class Solution2 {
         int m = sc.nextInt();
 
         // 初始化并查集
-        DisJoint disJoint = new DisJoint();
+        DisJointSet disJoint = new DisJointSet();
         disJoint.init(n+1); // 节点有效编号范围[1,n]
 
         System.out.println("2.输入边：");

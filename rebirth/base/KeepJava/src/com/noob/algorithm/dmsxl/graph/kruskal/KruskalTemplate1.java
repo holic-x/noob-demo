@@ -1,9 +1,11 @@
+package com.noob.algorithm.dmsxl.graph.kruskal;
+
 import java.util.*;
 
 /**
- * KMW053-寻宝（最小生成树基础题型）
+ * 最小生成树：Kruskal算法模板
  */
-public class Solution2 {
+public class KruskalTemplate1 {
     /**
      * Kruskal 算法
      *
@@ -62,7 +64,7 @@ public class Solution2 {
         }
 
         // 调用kruskal算法获取最小连通图的路径总和
-        Solution2.kruskal(v, edges);
+        KruskalTemplate1.kruskal(v, edges);
     }
 }
 
