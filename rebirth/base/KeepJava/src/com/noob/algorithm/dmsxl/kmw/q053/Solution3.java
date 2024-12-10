@@ -78,6 +78,12 @@ class Edge {
     public Edge() {
     }
 
+    public Edge(int u, int v) {
+        this.u = u;
+        this.v = v;
+        this.val = 0;
+    }
+
     public Edge(int u, int v, int val) {
         this.u = u;
         this.v = v;

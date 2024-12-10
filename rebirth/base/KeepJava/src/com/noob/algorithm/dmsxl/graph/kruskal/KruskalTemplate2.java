@@ -1,5 +1,6 @@
 package com.noob.algorithm.dmsxl.graph.kruskal;
 
+import com.noob.algorithm.dmsxl.graph.Edge;
 import com.noob.algorithm.dmsxl.graph.disJointSet.DisJointSet;
 
 import java.util.ArrayList;
@@ -70,17 +71,3 @@ public class KruskalTemplate2 {
     }
 }
 
-class Edge {
-    int u; // 边的端点1
-    int v; // 边的端点2
-    int val; // 边的权值
-
-    public Edge() {
-    }
-
-    public Edge(int u, int v, int val) {
-        this.u = u;
-        this.v = v;
-        this.val = val;
-    }
-}
