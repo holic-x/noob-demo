@@ -1,11 +1,26 @@
 package com.noob.algorithm.dmsxl.graph.minShortPath.dijkstra;
 
 import com.noob.algorithm.dmsxl.graph.Edge;
+import com.noob.algorithm.dmsxl.graph.Pair;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
+/**
+ * 自定义类维护节点及关联属性
+ */
+class Node {
+    public int nodeIdx; // 节点值
+    public int sourceToMinDist; // 源点到当前节点的最短距离
+
+    Node() {
+    }
+
+    Node(int nodeIdx, int sourceToMinDist) {
+        this.nodeIdx = nodeIdx;
+        this.sourceToMinDist = sourceToMinDist;
+    }
+}
+
 
 /**
  * dijkstra 迪杰斯特拉算法（邻接表处理方式,堆优化版本）
@@ -35,26 +50,31 @@ public class DijkstraTemplate5 {
         boolean[] selected = new boolean[n + 1]; // 节点有效范围选择[1,n]
         Arrays.fill(selected, false); // 初始化设置为未被遍历过（未被选择）
 
-        // 主循环（dijkstra算法核心：dijkstra三部曲）
-        for (int cnt = 1; cnt <= n; cnt++) {
-            // 1.选择距离源点的最近节点
-            int cur = -1; // 定义选择指针
-            int minVal = maxValue; // 如果minDist全初始化为maxValue，则此处取maxValue + 1确保循环正常进入处理
-            for (int i = 1; i <= n; i++) {
-                if (!selected[i] && minDist[i] < minVal) { // 从未遍历节点中选择
-                    cur = i;
-                    minVal = minDist[i];
+        // 定义小顶堆，维护`minDist[]`的有序性
+        PriorityQueue<Node> pq = new PriorityQueue<>(
+                new Comparator<Node>() {
+                    @Override
+                    public int compare(Node o1, Node o2) {
+                        return o1.sourceToMinDist - o2.sourceToMinDist; // 根据【源点到当前节点的最短距离】从小到大进行排序
+                    }
                 }
-            }
+        );
+        pq.offer(new Node(startIdx, 0)); // 初始化队列：开始节点为源点（startIdx，源点距源点最短距离为0）
+
+        // 主循环（dijkstra算法核心：dijkstra三部曲）
+        while (!pq.isEmpty()) {
+            // 1.选择距离源点的最近节点(从小顶堆中获取)
+            Node cur = pq.poll();
 
             // 2.将这个最近节点标记为已被选择（遍历）
-            selected[cur] = true;
+            selected[cur.nodeIdx] = true;
 
             // 3.更新经由当前选择节点扩展的新路径（cur可到达的其他节点）
-            List<Edge> relateEdges = graph.get(cur);
+            List<Edge> relateEdges = graph.get(cur.nodeIdx);
             for (Edge edge : relateEdges) {
                 if (!selected[edge.v]) {
-                    minDist[edge.v] = Math.min(minDist[edge.v], minDist[cur] + edge.val);
+                    minDist[edge.v] = Math.min(minDist[edge.v], minDist[cur.nodeIdx] + edge.val);
+                    pq.offer(new Node(edge.v, edge.v)); // 更新midDist的同时同步更新优先队列
                 }
             }
         }
