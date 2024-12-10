@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.graph.kruskal;
+package com.noob.algorithm.dmsxl.graph.minWeightTree.kruskal;
 
 import java.util.*;
 

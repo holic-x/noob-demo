@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.graph.kruskal;
+package com.noob.algorithm.dmsxl.graph.minWeightTree.kruskal;
 
 import com.noob.algorithm.dmsxl.graph.Edge;
 import com.noob.algorithm.dmsxl.graph.disJointSet.DisJointSet;

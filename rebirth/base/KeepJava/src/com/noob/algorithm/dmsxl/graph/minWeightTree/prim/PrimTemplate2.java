@@ -1,20 +1,22 @@
-package com.noob.algorithm.dmsxl.graph.prim;
+package com.noob.algorithm.dmsxl.graph.minWeightTree.prim;
 
 import java.util.*;
 
 /**
- * 最小生成树算法模板1（核心模板思路）
+ * 最小生成树算法模板2（基于邻接矩阵）
  */
-public class PrimTemplate1 {
+public class PrimTemplate2 {
 
     /**
      * prim 算法：最小生成树
      */
-    public static int prim(int n, Map<String, Integer> edges) {
+    public static int prim(int n, int[][] graph) {
         int maxVal = 10001; // Integer.MAX_VALUE
         // 定义minDist[] 存储非生成树节点距离生成树的最小距离
         int[] minDist = new int[n + 1]; // 节点有效范围取值为[1,n]
         Arrays.fill(minDist, maxVal); // 初始化：初始化最近距离为最大（或者结合题目设定max：10001）
+
+        String[] minDistEdge = new String[n + 1]; // 当前最小距离对应的边关系(例如`(a,b)`)
 
         // 构建minDist
         List<Integer> tree = new ArrayList<>(); // 存储最小生成树节点
@@ -28,14 +30,6 @@ public class PrimTemplate1 {
          */
         for (int cnt = 1; cnt <= n; cnt++) {
             // 1.选出要加入最小生成树的节点
-            /*
-            int cur = 1; // 初始化
-            for (int i = 1; i <= n; i++) {
-                if (!tree.contains(i) && minDist[i] < minDist[cur]) {
-                    cur = i;
-                }
-            }
-             */
             int cur = -1, curMin = maxVal + 1; // 推荐写法：初始化当前最近距离(处理初始minDist中的值都为maxVal的设定，确保可以选择一个节点)
             // int cur = 1, curMin = minDist[cur]; // 初始化当前最近距离(也可以默认为1，在后面的循环中会更新cue的值)
             for (int i = 1; i <= n; i++) {
@@ -51,70 +45,52 @@ public class PrimTemplate1 {
             // 3.更新非生成树节点与choose的节点的最近距离
             for (int i = 1; i <= n; i++) {
                 // 更新minDist（更新非生成树节点到choose节点的最近距离）
-                if (!tree.contains(i)) {
-                    // 更新非生成树节点到最小生成树的最近距离
-                    int edgeVal = edges.getOrDefault(cur + "," + i, Integer.MAX_VALUE);
-                    minDist[i] = Math.min(minDist[i], edgeVal);
+                if (!tree.contains(i) && graph[cur][i] != 0 && graph[cur][i] < minDist[i]) { // 需注意此处需限定graph[cur][i]!=0表示只校验两个节点有直接路径的情况（无直接路径表示这两个节点不可达）
+                    // 更新非生成树节点到最小生成树的最近距离 并 记录这个边关系
+                    minDist[i] = graph[cur][i];
+                    minDistEdge[i] = cur + "->" + i;
                 }
             }
         }
 
-        // 当所有的节点都选出，构成一条完整路径，此时minDist存储的为最小生成树的最近距离，累加总和得到最小生成树路径和
+        // 当所有的节点都选出，构成一条完整路径，此时minDist存储的为最小生成树的最近距离、minDistEdge存储对应的边关系，累加总和得到最小生成树路径和
         int sum = 0;
         for (int i = 2; i <= n; i++) { // 从第2个节点开始计算路径
             sum += minDist[i];
+            System.out.println(minDistEdge[i]);
         }
         return sum;
     }
 
-
     public static void main(String[] args) {
         // 输入控制
+        /*
         Scanner sc = new Scanner(System.in);
         System.out.println("输入N个节点、M条边及其权值关系");
         int n = sc.nextInt();
         int m = sc.nextInt();
-        // Map<int[], Integer> edges = new HashMap<>(m); // (a,b) 权值v:Map<(a,b),val>
-        Map<String, Integer> edges = new HashMap<>(m); // (a,b) 权值v:Map<(a,b),val>
+
+        // 构建邻接矩阵，元素值存储边的权值
+        int[][] graph = new int[n + 1][n + 1]; // 节点有效范围取值[1,n]
+
         while (m-- > 0) {
             int edge1 = sc.nextInt();
             int edge2 = sc.nextInt();
             int val = sc.nextInt();
             // 构建无向图(双边)
-            edges.put(edge1 + "," + edge2, val);
-            edges.put(edge2 + "," + edge1, val);
+            graph[edge1][edge2] = val;
+            graph[edge2][edge1] = val;
         }
-
-        /*
-        int n = 7;
-        Map<String, Integer> edges = new HashMap<>();
-        edges.put("1,2", 1);
-        edges.put("1,3", 1);
-        edges.put("1,5", 2);
-        edges.put("2,6", 1);
-        edges.put("2,4", 2);
-        edges.put("2,3", 2);
-        edges.put("3,4", 1);
-        edges.put("4,5", 1);
-        edges.put("5,6", 2);
-        edges.put("5,7", 1);
-        edges.put("6,7", 1);
-
-        edges.put("2,1", 1);
-        edges.put("3,1", 1);
-        edges.put("5,1", 2);
-        edges.put("6,2", 1);
-        edges.put("4,2", 2);
-        edges.put("3,2", 2);
-        edges.put("4,3", 1);
-        edges.put("5,4", 1);
-        edges.put("6,5", 2);
-        edges.put("7,5", 1);
-        edges.put("7,6", 1);
          */
+        int n = 7;
+        int[][] graph = new int[][]{
+                {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 1, 1, 0, 2, 0, 0}, {0, 1, 0, 2, 2, 0, 1, 0},
+                {0, 1, 2, 0, 1, 0, 0, 0}, {0, 0, 2, 1, 0, 1, 0, 0}, {0, 2, 0, 0, 1, 0, 2, 1},
+                {0, 0, 1, 0, 0, 2, 0, 1}, {0, 0, 0, 0, 0, 1, 1, 0}
+        };
 
         // 调用prim算法
-        int res = PrimTemplate1.prim(n, edges);
+        int res = PrimTemplate2.prim(n, graph);
         System.out.println("最小生成树路径和：" + res);
     }
 
