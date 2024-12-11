@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.kmw.q95;
+package com.noob.algorithm.dmsxl.kmw.q095;
 
 import com.noob.algorithm.dmsxl.graph.Edge;
 
