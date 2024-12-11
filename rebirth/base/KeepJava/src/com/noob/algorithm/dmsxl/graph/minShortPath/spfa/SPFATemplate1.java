@@ -47,8 +47,6 @@ public class SPFATemplate1 {
             }
         }
 
-        // PrintUtil.print(minDist); // 打印数组
-
         // 返回minDist
         return minDist;
     }
