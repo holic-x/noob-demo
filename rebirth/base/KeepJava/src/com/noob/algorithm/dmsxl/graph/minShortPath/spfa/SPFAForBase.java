@@ -1,21 +1,23 @@
 package com.noob.algorithm.dmsxl.graph.minShortPath.spfa;
 
 import com.noob.algorithm.dmsxl.graph.Edge;
-import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 import java.util.*;
 
-// SPFA算法(处理带负权值的有向图的最短路径：起点到终点) bellman_ford 的队列优化算法版本
-public class SPFATemplate1 {
+/**
+ * SPFA算法（版本1）：针对不含【负权回路】的有向图的最短距离问题
+ * (处理带负权值的有向图的最短路径：起点到终点) bellman_ford（版本1） 的队列优化算法版本
+ */
+public class SPFAForBase {
 
     /**
-     * SPFA算法(处理带负权值的有向图的最短路径：起点到终点) bellman_ford 的队列优化算法版本
+     * SPFA算法
      *
      * @param n        节点个数[1,n]
      * @param graph    邻接表
      * @param startIdx 开始节点（源点）
      */
-    public static int[] bellmanFord(int n, List<List<Edge>> graph, int startIdx) {
+    public static int[] spfa(int n, List<List<Edge>> graph, int startIdx) {
         // 定义最大范围
         int maxVal = Integer.MAX_VALUE;
         // minDist[i] 源点到节点i的最短距离
@@ -40,7 +42,7 @@ public class SPFATemplate1 {
                 if (minDist[u] + weight < minDist[v]) {
                     minDist[v] = minDist[u] + weight; // 更新
                     // 队列同步更新（此处有一个针对队列的优化:就是如果已经存在于队列的元素不需要重复添加）
-                    if(!queue.contains(v)){
+                    if (!queue.contains(v)) {
                         queue.offer(v); // 与minDist[i]同步更新，将本次更新的节点加入队列，用做下一个松弛的参考基础
                     }
                 }
@@ -70,8 +72,8 @@ public class SPFATemplate1 {
             graph.get(u).add(new Edge(u, v, weight));
         }
 
-        // 调用bellman算法
-        int[] minDist = SPFATemplate1.bellmanFord(n, graph, 1);
+        // 调用算法
+        int[] minDist = SPFAForBase.spfa(n, graph, 1);
         // 校验起点1->终点n
         if (minDist[n] == Integer.MAX_VALUE) {
             System.out.println("[起点1]到[终点n]不可达");

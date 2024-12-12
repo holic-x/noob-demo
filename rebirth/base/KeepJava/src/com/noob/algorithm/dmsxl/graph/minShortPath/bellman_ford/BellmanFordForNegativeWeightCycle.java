@@ -9,13 +9,14 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * bellmanFord算法（版本2：处理含【负权回路】的有向图的最短路径问题）（判断是否存在负权回路）
  * bellmanFord算法(处理带负权值的有向图的最短路径：起点到终点)
  * - 针对带有【负权回路】的处理
  */
 public class BellmanFordForNegativeWeightCycle {
 
     /**
-     * bellmanFord算法(处理带负权值的有向图的最短路径：起点到终点)
+     * bellmanFord算法
      *
      * @param n        节点个数[1,n]
      * @param edges    边列表集合

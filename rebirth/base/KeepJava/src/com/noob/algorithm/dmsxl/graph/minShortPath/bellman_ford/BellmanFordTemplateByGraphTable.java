@@ -10,7 +10,7 @@ import java.util.Scanner;
  * bellmanFord算法(处理带负权值的有向图的最短路径：起点到终点)
  * 邻接表处理方式
  */
-public class BellmanFordTemplate1 {
+public class BellmanFordTemplateByGraphTable {
 
     // bellmanFord算法(处理带负权值的有向图的最短路径：起点到终点)
     public static void bellmanFord(int n, List<List<Edge>> graph, int startIdx) {
@@ -69,6 +69,6 @@ public class BellmanFordTemplate1 {
         }
 
         // 调用bellman算法
-        BellmanFordTemplate1.bellmanFord(n, graph, 1);
+        BellmanFordTemplateByGraphTable.bellmanFord(n, graph, 1);
     }
 }

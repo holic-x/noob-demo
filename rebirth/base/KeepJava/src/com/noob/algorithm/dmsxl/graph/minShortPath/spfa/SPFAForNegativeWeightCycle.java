@@ -5,7 +5,8 @@ import com.noob.algorithm.dmsxl.graph.Edge;
 import java.util.*;
 
 /**
- * SPFA算法(处理带负权值的有向图的最短路径：起点到终点) bellman_ford 的队列优化算法版本
+ * SPFA算法（版本2）：处理含【负权回路】的有向图的最短路径问题
+ * (处理带负权值的有向图的最短路径：起点到终点) bellman_ford（版本2） 的队列优化算法版本
  * - 针对带有【负权回路】的处理
  */
 
@@ -18,7 +19,7 @@ public class SPFAForNegativeWeightCycle {
      * @param graph    邻接表
      * @param startIdx 开始节点（源点）
      */
-    public static int[] bellmanFord(int n, List<List<Edge>> graph, int startIdx) {
+    public static int[] spfa(int n, List<List<Edge>> graph, int startIdx) {
         // 定义最大范围
         int maxVal = Integer.MAX_VALUE;
         // minDist[i] 源点到节点i的最短距离
@@ -97,7 +98,7 @@ public class SPFAForNegativeWeightCycle {
             graph.get(u).add(new Edge(u, v, weight));
         }
 
-        // 调用bellman算法
-        SPFAForNegativeWeightCycle.bellmanFord(n, graph, 1);
+        // 调用算法
+        SPFAForNegativeWeightCycle.spfa(n, graph, 1);
     }
 }
