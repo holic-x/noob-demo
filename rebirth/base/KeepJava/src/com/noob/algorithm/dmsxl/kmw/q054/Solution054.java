@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.kmw;
+package com.noob.algorithm.dmsxl.kmw.q054;
 
 import java.util.Arrays;
 

@@ -1,7 +1,5 @@
 package com.noob.algorithm.dmsxl.leetcode.q718;
-
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
-import com.noob.algorithm.hot100.q015.Solution;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 718 最长重复子数组
@@ -37,7 +35,7 @@ public class Solution2 {
 
                 // 打印dp
                 System.out.println("---------------start---------------");
-                PrintDPUtil.printMatrix(dp);
+                PrintUtil.printMatrix(dp);
                 System.out.println("---------------end---------------" + "\n");
             }
         }

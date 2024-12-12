@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q123;
 
-import com.noob.algorithm.dmsxl.util.PrintDPUtil;
+import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 123 买卖股票的最佳时机III
@@ -39,7 +39,7 @@ public class Solution3 {
         dp[2] = 0; // 第1次不持有，日内执行了买入卖出操作，一正一负抵消
         dp[3] = 0 - prices[0]; // 第2次持有，日内执行了第1次买入卖出操作，然后又进行了第2次买入操作
         dp[4] = 0; // 第2次不持有，日内分别执行了两次买入卖出操作，一正一负抵消
-        PrintDPUtil.print(dp);
+        PrintUtil.print(dp);
 
         // 4.dp构建（根据dp推导公式填充dp）
         for (int i = 1; i < m; i++) {
@@ -48,7 +48,7 @@ public class Solution3 {
             dp[2] = Math.max(dp[1] + prices[i], dp[2]);
             dp[3] = Math.max(dp[2] - prices[i], dp[3]);
             dp[4] = Math.max(dp[3] + prices[i], dp[4]);
-            PrintDPUtil.print(dp); // 打印dp
+            PrintUtil.print(dp); // 打印dp
         }
 
         // 结果返回（最后一日不持有股票的状态下现金最多）
