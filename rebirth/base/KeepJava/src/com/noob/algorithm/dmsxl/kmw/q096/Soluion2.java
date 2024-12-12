@@ -6,6 +6,7 @@ import com.noob.algorithm.dmsxl.util.PrintUtil;
 import java.util.*;
 
 /**
+ * KMW 096 城市间的货物运输III
  * SPFA算法 单源有限最短路径
  */
 public class Soluion2 {
