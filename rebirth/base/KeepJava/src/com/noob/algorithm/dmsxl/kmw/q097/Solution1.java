@@ -1,12 +1,12 @@
-package com.noob.algorithm.dmsxl.graph.minShortPath.floyd;
+package com.noob.algorithm.dmsxl.kmw.q097;
 
 
 import java.util.Scanner;
 
 /**
- * Floyd 算法（简化代码版本）
+ * KMW097-小明逛公园
  */
-public class FloydBase {
+public class Solution1 {
 
     // public static int MAX_VAL = Integer.MAX_VALUE;
     public static int MAX_VAL = 10005; // 边的最大距离是10^4(不选用Integer.MAX_VALUE是为了避免相加导致数值溢出)
