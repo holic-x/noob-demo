@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q203;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 203 移除链表元素

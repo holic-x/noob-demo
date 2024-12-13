@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.twoPointers;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 142 环形链表II（判断是否存在环，判断环入口）

@@ -1,9 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q104;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
-
-import java.util.Deque;
-import java.util.LinkedList;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 104 二叉树的最大深度

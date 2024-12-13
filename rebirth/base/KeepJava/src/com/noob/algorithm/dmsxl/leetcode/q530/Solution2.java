@@ -1,9 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q530;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 530 二叉搜索树的最小绝对差

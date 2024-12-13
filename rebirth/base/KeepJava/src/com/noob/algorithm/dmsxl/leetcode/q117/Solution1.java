@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q117;
 
-import com.noob.algorithm.dmsxl.baseStructure.Node;
+import com.noob.algorithm.dmsxl.baseStructure.tree.Node;
 
 import java.util.Deque;
 import java.util.LinkedList;

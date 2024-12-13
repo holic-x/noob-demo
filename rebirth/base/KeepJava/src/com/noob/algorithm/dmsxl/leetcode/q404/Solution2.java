@@ -1,9 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q404;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
-
-import java.util.Deque;
-import java.util.LinkedList;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 404 左叶子之和

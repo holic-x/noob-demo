@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q024;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 024 两两交换链表的节点

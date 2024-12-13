@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.twoPointers;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 206 反转单链表

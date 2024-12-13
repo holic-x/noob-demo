@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan01.day02;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 🟡 707 设计链表（自定义链表）

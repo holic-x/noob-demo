@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q116;
 
-import com.noob.algorithm.dmsxl.baseStructure.Node;
+import com.noob.algorithm.dmsxl.baseStructure.tree.Node;
 
 /**
  * 116 填充每个节点的下一个右侧节点指针

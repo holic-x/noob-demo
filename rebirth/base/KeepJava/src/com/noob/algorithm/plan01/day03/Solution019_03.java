@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan01.day03;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 🟡019 删除链表的倒数第N个节点

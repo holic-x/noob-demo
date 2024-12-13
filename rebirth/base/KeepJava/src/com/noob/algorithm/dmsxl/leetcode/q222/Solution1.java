@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q222;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 完全二叉树的节点个数（222）
