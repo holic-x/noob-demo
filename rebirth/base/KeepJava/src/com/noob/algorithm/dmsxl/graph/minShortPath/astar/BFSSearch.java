@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.kmw.q127;
+package com.noob.algorithm.dmsxl.graph.minShortPath.astar;
 
 import com.noob.algorithm.dmsxl.graph.Pair;
 import com.noob.algorithm.dmsxl.util.PrintUtil;
@@ -7,29 +7,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-/*
-// 节点坐标定义
-class Pair {
-    public int x;
-    public int y;
-
-    public Pair() {
-
-    }
-
-    public Pair(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
- */
-
 /**
+ * BFS 算法参考
  * KMW127-骑士的攻击
  */
-public class Solution1 {
+public class BFSSearch {
 
-     public static int limit = 10; // max限定为10001
+    public static int limit = 10; // max限定为10001
 
     /**
      * @param startX,startY 起始坐标
@@ -59,7 +43,7 @@ public class Solution1 {
                 break;
             }
 
-            // 往四个方向搜索
+            // 往不同行进方向搜索
             for (int i = 0; i < 8; i++) {
                 // 计算下一个位置
                 int nextX = cur.x + dir[i][0];
@@ -94,7 +78,7 @@ public class Solution1 {
             int a2 = sc.nextInt();
             int b1 = sc.nextInt();
             int b2 = sc.nextInt();
-            int[][] moved = Solution1.bfs(a1, a2, b1, b2);
+            int[][] moved = BFSSearch.bfs(a1, a2, b1, b2);
             System.out.println(moved[b1][b2]);
         }
     }
