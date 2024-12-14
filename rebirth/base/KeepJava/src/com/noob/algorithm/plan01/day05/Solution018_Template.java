@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class Solution {
+class Solution018_Template {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         Arrays.sort(nums);
         List<List<Integer>> ans = new ArrayList<>();
@@ -38,7 +38,7 @@ class Solution {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1,-2,-5,-4,-3,3,3,5};
-        Solution s = new Solution();
+        Solution018_Template s = new Solution018_Template();
         List<List<Integer>> ans = s.fourSum(nums,-11);
         System.out.println();
     }

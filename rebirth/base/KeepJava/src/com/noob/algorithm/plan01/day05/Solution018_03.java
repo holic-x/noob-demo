@@ -23,12 +23,7 @@ public class Solution018_03 {
 
         // 固定 x
         for (int x = 0; x < len - 3; x++) {
-            // 剪枝①：如果nums[x]>target则跳过
-            if (nums[x] > target) {
-                continue;
-            }
-
-            // 剪枝②：如果出现连续重复的x则跳过
+            // 去重处理：如果出现连续重复的x则跳过
             if (x > 0 && nums[x - 1] == nums[x]) {
                 continue;
             }
@@ -54,10 +49,7 @@ public class Solution018_03 {
         Arrays.sort(nums);
         // ② 遍历检索三元组（外层固定i，内层从剩余序列的头尾出发，定位三元组）
         for (int i = 0; i < nums.length - 2; i++) { // 三元组，所以i取值范围为[0,n-2）
-            if (nums[i] > target) {
-                continue;
-            }
-
+            // 去重处理
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue; // 例如[-1,-1,0,0]: 第一个元素为-1的满足三元组的情况已经在前面就确定了，如果发现相邻相同的话则跳过
             }
@@ -101,6 +93,5 @@ public class Solution018_03 {
         int[] nums = new int[]{1, 0, -1, 0, -2, 2};
         Solution018_03 s = new Solution018_03();
         s.fourSum(nums, 0);
-
     }
 }
