@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q105;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 105 从前序和中序遍历构造二叉树

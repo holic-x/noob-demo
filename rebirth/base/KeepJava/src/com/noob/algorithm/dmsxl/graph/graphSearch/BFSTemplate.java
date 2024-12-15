@@ -1,9 +1,12 @@
-package com.noob.algorithm.dmsxl.graph;
+package com.noob.algorithm.dmsxl.graph.graphSearch;
+
+import com.noob.algorithm.dmsxl.graph.Pair;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ * 图 遍历
  * 图论：广度优先遍历代码模板
  */
 public class BFSTemplate {

@@ -1,4 +1,4 @@
-package com.noob.algorithm.dmsxl.baseStructure;
+package com.noob.algorithm.dmsxl.baseStructure.tree;
 
 /**
  * 双向链表节点定义
