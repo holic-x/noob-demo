@@ -26,7 +26,7 @@ class Solution018_Template {
                     if (s > target) d--;
                     else if (s < target) c++;
                     else { // s == target
-                        ans.add(List.of((int) x, (int) y, nums[c], nums[d]));
+                      //  ans.add(List.of((int) x, (int) y, nums[c], nums[d])); // todo
                         for (c++; c < d && nums[c] == nums[c - 1]; c++) ; // 跳过重复数字
                         for (d--; d > c && nums[d] == nums[d + 1]; d--) ; // 跳过重复数字
                     }

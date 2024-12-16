@@ -3,7 +3,7 @@ package com.noob.algorithm.plan01.day07;
 /**
  * 🟢 028 找出字符串第一个匹配项的下标
  */
-public class Solution028 {
+public class Solution028_01 {
     /**
      * 在haystack找到第一个匹配needle的字符串的索引位置
      */
