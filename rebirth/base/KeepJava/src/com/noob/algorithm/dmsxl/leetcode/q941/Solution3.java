@@ -12,16 +12,22 @@ public class Solution3 {
             return false; // 元素个数小于3无法构成山脉
         }
 
-        
+        // 构建双指针分别从首尾遍历(注意数组越界问题处理，确认指针遍历范围)
+        int left = 0, right = len - 1;
+        while (left < len - 1 && arr[left] < arr[left + 1]) {
+            left++;
+        }
 
+        while (right > 0 && arr[right] < arr[right - 1]) {
+            right--;
+        }
 
-        // 满足条件
-        return true;
+        // 校验left、right是否指向同一个位置，且非指向首、尾位置
+        if (left == right && left != 0 && right != len - 1) {
+            return true;
+        }
+
+        return false;
     }
 
-    public static void main(String[] args) {
-        int[] nums = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        Solution3 s = new Solution3();
-        s.validMountainArray(nums);
-    }
 }
