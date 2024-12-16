@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.twoPointers;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 019 删除链表的倒数第N个节点

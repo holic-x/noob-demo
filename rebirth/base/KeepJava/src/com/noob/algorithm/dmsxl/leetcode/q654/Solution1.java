@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q654;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 654 最大二叉树

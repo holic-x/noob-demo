@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q700;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 700 二叉搜索树中的搜索

@@ -36,7 +36,10 @@ public class Solution018_01 {
                         temp.add(nums[y]);
                         temp.add(nums[u]);
                         temp.add(nums[v]);
-                        res.add(temp); // 去重处理
+                        // 去重处理
+                        if (!res.contains(temp)) {
+                            res.add(temp);
+                        }
                         // 当次处理完成，指针后移
                         u++;
                         v--;

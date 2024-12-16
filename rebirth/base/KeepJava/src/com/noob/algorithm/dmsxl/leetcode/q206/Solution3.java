@@ -1,9 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q206;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
-
-import java.util.Deque;
-import java.util.LinkedList;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 206 反转链表

@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q098;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 098 验证二叉搜索树

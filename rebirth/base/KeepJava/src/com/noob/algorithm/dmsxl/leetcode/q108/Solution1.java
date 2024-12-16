@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q108;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 public class Solution1 {
     // 递归构建

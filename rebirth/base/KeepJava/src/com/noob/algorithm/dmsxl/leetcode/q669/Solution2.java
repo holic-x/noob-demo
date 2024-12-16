@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q669;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 669 修剪二叉搜索树

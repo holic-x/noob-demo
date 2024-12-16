@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 🟡 018 四数之和（剪枝优化版本）
+ * 🟡 018 四数之和（剪枝优化版本） todo 转化为三数之和
  */
 public class Solution018_03 {
 
@@ -23,17 +23,17 @@ public class Solution018_03 {
 
         // 固定 x
         for (int x = 0; x < len - 3; x++) {
-            // 剪枝①：如果nums[x]>target则跳过
-            if (nums[x] > target) {
+            // 去重处理：如果出现连续重复的x则跳过
+            if (x > 0 && nums[x - 1] == nums[x]) {
                 continue;
             }
 
             // 求满足[y,u,v](y+u+v=target-x的三元组)
             int curTarget = target - nums[x];
             List<List<Integer>> threeSumList = threeSum(Arrays.copyOfRange(nums, x + 1, len), curTarget);
-            for (List<Integer> temp : threeSumList) {
-                temp.add(nums[x]);
-                res.add(temp);
+            for (int i = 0; i < threeSumList.size(); i++) {
+                threeSumList.get(i).add(nums[x]);
+                res.add(threeSumList.get(i));
             }
         }
 
@@ -49,10 +49,7 @@ public class Solution018_03 {
         Arrays.sort(nums);
         // ② 遍历检索三元组（外层固定i，内层从剩余序列的头尾出发，定位三元组）
         for (int i = 0; i < nums.length - 2; i++) { // 三元组，所以i取值范围为[0,n-2）
-            if (nums[i] > target) {
-                continue;
-            }
-
+            // 去重处理
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue; // 例如[-1,-1,0,0]: 第一个元素为-1的满足三元组的情况已经在前面就确定了，如果发现相邻相同的话则跳过
             }
@@ -62,9 +59,13 @@ public class Solution018_03 {
             while (left < right) {
                 int curSum = nums[i] + nums[left] + nums[right];
                 // 校验是否满足三元组条件
-                if (curSum == 0) {
+                if (curSum == target) {
                     // res 的去重校验（contains）通过剪枝来处理，此处可以直接加入
-                    res.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    List<Integer> temp = new ArrayList<>();
+                    temp.add(nums[i]);
+                    temp.add(nums[left]);
+                    temp.add(nums[right]);
+                    res.add(temp); // Arrays.asList(nums[i], nums[left], nums[right])
 
                     // 本次处理完成，指针移动，继续下一个三元组遍历
                     left++;
@@ -76,10 +77,10 @@ public class Solution018_03 {
                     while (left < right && nums[right] == nums[right + 1]) { // 右指针控制：z重复则跳过
                         right--;
                     }
-                } else if (curSum < 0) {
-                    left++; // curSum<0，要让其变大才可能接近target
-                } else if (curSum > 0) {
-                    right--;  // curSum>0，要让其变小才可能接近target
+                } else if (curSum < target) {
+                    left++; // 要让其变大才可能接近target
+                } else if (curSum > target) {
+                    right--;  // 要让其变小才可能接近target
                 }
             }
         }
@@ -89,9 +90,8 @@ public class Solution018_03 {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,0,-1,0,-2,2};
+        int[] nums = new int[]{1, 0, -1, 0, -2, 2};
         Solution018_03 s = new Solution018_03();
-        s.fourSum(nums,0);
-
+        s.fourSum(nums, 0);
     }
 }

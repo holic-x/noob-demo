@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q142;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 142 环形链表II

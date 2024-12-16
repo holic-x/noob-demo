@@ -1,10 +1,8 @@
 package com.noob.algorithm.plan01.day03;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**

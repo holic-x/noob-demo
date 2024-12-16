@@ -1,9 +1,6 @@
 package com.noob.algorithm.plan01.day03;
 
-import com.noob.algorithm.dmsxl.baseStructure.ListNode;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.noob.algorithm.dmsxl.baseStructure.tree.ListNode;
 
 /**
  * 🟢 160 链表相交

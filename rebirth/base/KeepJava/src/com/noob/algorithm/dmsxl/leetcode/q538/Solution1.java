@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q538;
 
-import com.noob.algorithm.dmsxl.baseStructure.TreeNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.TreeNode;
 
 /**
  * 538 把二叉搜索树转换为累加树

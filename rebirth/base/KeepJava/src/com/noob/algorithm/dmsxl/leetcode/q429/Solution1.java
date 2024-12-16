@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q429;
 
-import com.noob.algorithm.dmsxl.baseStructure.NTreeNode;
+import com.noob.algorithm.dmsxl.baseStructure.tree.NTreeNode;
 
 import java.util.ArrayList;
 import java.util.Deque;
