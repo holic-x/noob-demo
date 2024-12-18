@@ -13,7 +13,8 @@ public class Solution1 {
                 sBuffer.append(cur);
             } else {
                 // 遇到空格，需移除最近加入的元素
-                if(!sBuffer.isEmpty()){ // 有的删才执行
+                // if(!sBuffer.isEmpty()){ // 有的删才执行
+                if (sBuffer.length() > 0) {
                     sBuffer.deleteCharAt(sBuffer.length() - 1);
                 }
             }
@@ -26,7 +27,8 @@ public class Solution1 {
                 tBuffer.append(cur);
             } else {
                 // 遇到空格，需移除最近加入的元素
-                if(!tBuffer.isEmpty()){
+                // if(!tBuffer.isEmpty()){
+                if (sBuffer.length() > 0) {
                     tBuffer.deleteCharAt(tBuffer.length() - 1);
                 }
             }
