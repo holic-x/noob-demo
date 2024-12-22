@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * 101 相同的树
+ * 🟢100 相同的树
  */
 public class Solution1 {
 
