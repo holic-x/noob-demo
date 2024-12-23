@@ -10,7 +10,7 @@ import java.util.List;
 public class Solution1 {
 
     /**
-     * 多重背包：每个物品最多有mi件可用
+     * 多重背包：每个物品最多有m件可用
      *
      * @param weight  物品重量
      * @param value   物品价值
