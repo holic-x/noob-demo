@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 /**
  * 🟡 146 LRU 缓存机制  todo (另一种解法思路O（1）)
  */
-public class Solution146_01 {
+public class Solution146_02 {
 
 
 }
