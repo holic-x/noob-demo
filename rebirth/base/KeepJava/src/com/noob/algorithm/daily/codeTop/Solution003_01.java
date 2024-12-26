@@ -1,11 +1,11 @@
-package com.noob.algorithm.daily.common.day01;
+package com.noob.algorithm.daily.codeTop;
 
 import java.util.HashSet;
 
 /**
  * 🟡003 无重复的最长子串
  */
-public class Solution1 {
+public class Solution003_01 {
 
     /**
      * 滑动窗口：定义滑动窗口存储不含重复字符的最长子串
@@ -46,7 +46,7 @@ public class Solution1 {
     }
 
     public static void main(String[] args) {
-        Solution1 s = new Solution1();
+        Solution003_01 s = new Solution003_01();
         System.out.println(s.lengthOfLongestSubstring("pwwkew"));
     }
 }

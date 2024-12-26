@@ -1,4 +1,4 @@
-package com.noob.algorithm.random.q876;
+package com.noob.algorithm.dmsxl.leetcode.q876;
 
 import com.noob.algorithm.hot100.base.ListNode;
 

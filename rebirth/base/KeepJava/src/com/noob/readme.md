@@ -1,0 +1,6 @@
+- algorithm：算法相关
+- common：基础题
+- design：设计模式相关
+- rpc：rpc基础
+- scene：场景题
+- thread：线程题
