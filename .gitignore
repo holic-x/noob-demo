@@ -251,3 +251,8 @@ redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local
 /rebirth/base/KeepJava/out
 /rebirth/base/KeepJava/.idea
 /rebirth/base/KeepJava/KeepJava.iml
+
+
+/dubbo-demo/zookeeper-curator-demo/.idea
+/dubbo-demo/zookeeper-curator-demo/target
+
