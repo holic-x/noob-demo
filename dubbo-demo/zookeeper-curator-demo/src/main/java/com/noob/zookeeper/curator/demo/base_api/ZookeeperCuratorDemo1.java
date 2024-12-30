@@ -1,4 +1,4 @@
-package com.noob.zookeeper.curator.demo;
+package com.noob.zookeeper.curator.demo.base_api;
 
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
