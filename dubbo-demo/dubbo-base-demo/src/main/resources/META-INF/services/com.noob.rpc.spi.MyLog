@@ -1,0 +1,2 @@
+com.noob.rpc.spi.impl.ConsoleLog
+com.noob.rpc.spi.impl.WebLog
