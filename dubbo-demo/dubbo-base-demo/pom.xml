@@ -35,6 +35,15 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- 引入CGLib依赖 -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -65,7 +74,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.noob.dubbobasedemo.DubboBaseDemoApplication</mainClass>
+                    <mainClass>com.noob.DubboBaseDemoApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>
