@@ -7,9 +7,7 @@ import com.noob.rpc.simple.registry.ZookeeperRegistry;
 import com.noob.rpc.simple.transport.RpcServer;
 import org.apache.curator.x.discovery.ServiceInstance;
 
-import java.util.List;
-
-public class Provider {
+public class TestDemo {
     public static void main(String[] args) throws Exception {
         // 创建DemoServiceImpl，并注册到BeanManager中
         BeanManager.registerBean("demoService", new DemoServiceImpl());
@@ -25,7 +23,19 @@ public class Provider {
         RpcServer rpcServer = new RpcServer(20880);
         rpcServer.start();
 
-        // 保持服务状态，让程序不要执行完就立刻退出
-        Thread.sleep(100000000L);
+        // 测试服务发现
+        while (true){
+            Thread.sleep(3000);
+
+            // 创建代理对象，通过代理调用远端Server
+            DemoService demoService = RpcProxy.newInstance(DemoService.class, discovery);
+
+            // 调用sayHello()方法，并输出结果
+            String result = demoService.sayHello("hello");
+            System.out.println(result);
+        }
+
+        // Thread.sleep(1000000000000000L);
+
     }
 }

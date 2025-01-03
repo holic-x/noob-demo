@@ -50,7 +50,8 @@
         <dependency>
             <groupId>com.caucho</groupId>
             <artifactId>hessian</artifactId>
-            <version>4.0.38</version>
+<!--            <version>4.0.38</version>-->
+            <version>3.1.5</version>
         </dependency>
 
         <!-- 压缩算法（snappy） -->

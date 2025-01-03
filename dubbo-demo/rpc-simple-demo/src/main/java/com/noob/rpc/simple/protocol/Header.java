@@ -27,5 +27,55 @@ public class Header {
         this.messageId = messageId;
         this.size = size;
     }
+
+    /*
+    public short getMagic() {
+        return magic;
+    }
+
+    public void setMagic(short magic) {
+        this.magic = magic;
+    }
+
+    public byte getVersion() {
+        return version;
+    }
+
+    public void setVersion(byte version) {
+        this.version = version;
+    }
+
+    public byte getExtraInfo() {
+        return extraInfo;
+    }
+
+    public void setExtraInfo(byte extraInfo) {
+        this.extraInfo = extraInfo;
+    }
+
+    public Long getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(Long messageId) {
+        this.messageId = messageId;
+    }
+
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public void setSerialization(byte serialization) {
+        this.extraInfo |= serialization;
+    }
+
+    public void setCompressor(byte compressor) {
+        this.extraInfo |= compressor;
+    }
+     */
 }
 

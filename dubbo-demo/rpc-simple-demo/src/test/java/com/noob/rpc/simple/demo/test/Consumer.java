@@ -19,7 +19,6 @@ public class Consumer {
         System.out.println(result);
 
         /*
-
         // 服务发现测试
         ZookeeperRegistry<ServerInfo> zcd = new ZookeeperRegistry<>();
         zcd.start();

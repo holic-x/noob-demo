@@ -14,4 +14,22 @@ public class Message<T> {
         this.header = header;
     }
 
+    /*
+    public Header getHeader() {
+        return header;
+    }
+
+    public void setHeader(Header header) {
+        this.header = header;
+    }
+
+    public T getContent() {
+        return content;
+    }
+
+    public void setContent(T content) {
+        this.content = content;
+    }
+     */
+
 }
