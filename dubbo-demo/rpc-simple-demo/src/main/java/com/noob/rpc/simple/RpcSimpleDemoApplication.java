@@ -1,4 +1,4 @@
-package com.noob.rpcsimpledemo;
+package com.noob.rpc.simple;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
