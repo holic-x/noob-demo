@@ -41,19 +41,14 @@ public class RpcProxy implements InvocationHandler {
 
     public static <T> T newInstance(Class<T> clazz, Registry<ServerInfo> registry) throws Exception {
         // 创建代理对象
-        return (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
-                new Class[]{clazz},
-                new RpcProxy("demoService", registry));
+        return (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{clazz}, new RpcProxy("demoService", registry));
     }
-
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         // 从Zookeeper缓存中获取可用的Server地址,并随机从中选择一个
-        List<ServiceInstance<ServerInfo>> serviceInstances =
-                registry.queryForInstances(serviceName);
-        ServiceInstance<ServerInfo> serviceInstance =
-                serviceInstances.get(ThreadLocalRandom.current().nextInt(serviceInstances.size()));
+        List<ServiceInstance<ServerInfo>> serviceInstances = registry.queryForInstances(serviceName);
+        ServiceInstance<ServerInfo> serviceInstance = serviceInstances.get(ThreadLocalRandom.current().nextInt(serviceInstances.size()));
         // 创建请求消息，然后调用remoteCall()方法请求上面选定的Server端
         String methodName = method.getName();
         Header header = headerCache.computeIfAbsent(method, h -> new Header(MAGIC, VERSION_1));

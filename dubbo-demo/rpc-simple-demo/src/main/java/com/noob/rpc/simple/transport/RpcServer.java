@@ -60,7 +60,6 @@ public class RpcServer {
         }
     }
 
-
     public void shutdown() throws InterruptedException {
         channel.close().sync();
         if (bossGroup != null)
