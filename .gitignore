@@ -257,4 +257,6 @@ redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local
 /dubbo-demo/zookeeper-curator-demo/target
 /dubbo-demo/dubbo-base-demo/.idea
 /dubbo-demo/dubbo-base-demo/target
+/dubbo-demo/rpc-simple-demo/.idea
+/dubbo-demo/rpc-simple-demo/target
 
