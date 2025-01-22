@@ -266,5 +266,6 @@ redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local
 /system-design-demo/MyLimiter/target
 /system-design-demo/TokenCheck/.idea
 /system-design-demo/TokenCheck/target
+/system-design-demo/TokenCheck/src/main/resources/application-dev.yml
 
 

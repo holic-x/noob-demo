@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: "token-check"
+
+  # 激活配置
+  profiles:
+    active: dev
+
+  # redis 配置
+  redis:
+    # 数据库
+    database: 0
+    # 主机
+    host: localhost # 127.0.0.1
+    # 端口
+    port: 6379
+    # 密码
+    password: 123456
+    # 读超时
+    timeout: 5s
+    # 连接超时
+
