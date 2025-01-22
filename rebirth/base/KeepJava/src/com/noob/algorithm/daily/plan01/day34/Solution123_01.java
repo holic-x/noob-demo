@@ -6,18 +6,19 @@ package com.noob.algorithm.daily.plan01.day34;
 public class Solution123_01 {
     /**
      * 动态规划：设定每日的操作状态，基于前置状态进行推导
+     * `dp`定义：`dp[i][j]` 表示第`i`天不同状态下的剩余的最大现金
      * dp[i][0] 无操作
-     * dp[i][1] 第1次持有 状态下的最大利润
-     * dp[i][2] 第1次不持有 状态下的最大利润
-     * dp[i][3] 第2次持有 状态下的最大利润
-     * dp[i][4] 第2次不持有 状态下的最大利润
+     * dp[i][1] 第1次持有
+     * dp[i][2] 第1次不持有
+     * dp[i][3] 第2次持有
+     * dp[i][4] 第2次不持有
      */
     public int maxProfit(int[] prices) {
         // 1.dp 构建
         int[][] dp = new int[prices.length][5];
 
         /**
-         * 2.dp 推导
+         * 2.dp 推导（根据昨日持有股票的状态进行推导，已持有或未持有）
          * dp[i][0]: 无操作
          * dp[i][1]：继续持有 或 第1次买入 max{dp[i-1][1],0-prices[i]}
          * dp[i][2]：继承状态 或 基于第1次买入进行卖出 max{dp[i-1][2],dp[i-1][1]+prices[i]}
