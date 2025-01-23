@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day32;
+package com.noob.algorithm.daily.plan01.archive.day32;
 
 /**
  * 🟡 279-完全平方数 - https://leetcode.cn/problems/perfect-squares/

@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day33;
+package com.noob.algorithm.daily.plan01.archive.day33;
 
 /**
  * 🟡 198 打家劫舍 - https://leetcode.cn/problems/house-robber/description/

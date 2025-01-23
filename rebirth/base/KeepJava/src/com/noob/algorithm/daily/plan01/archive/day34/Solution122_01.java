@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day34;
+package com.noob.algorithm.daily.plan01.archive.day34;
 
 /**
  * 🟡 122 买卖股票的最佳时机II - https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/description/

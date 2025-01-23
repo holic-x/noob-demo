@@ -1,6 +1,4 @@
-package com.noob.algorithm.daily.plan01.day31;
-
-import com.noob.algorithm.dmsxl.graph.Pair;
+package com.noob.algorithm.daily.plan01.archive.day31;
 
 /**
  * 🟡 322 零钱兑换 - https://leetcode.cn/problems/coin-change/description/
