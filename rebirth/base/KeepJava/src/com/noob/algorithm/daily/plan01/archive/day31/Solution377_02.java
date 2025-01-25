@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day31;
+package com.noob.algorithm.daily.plan01.archive.day31;
 
 import java.util.Arrays;
 

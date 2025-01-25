@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day31;
+package com.noob.algorithm.daily.plan01.archive.day31;
 
 /**
  * 🟡 518 零钱兑换 - https://leetcode.cn/problems/coin-change-ii/
