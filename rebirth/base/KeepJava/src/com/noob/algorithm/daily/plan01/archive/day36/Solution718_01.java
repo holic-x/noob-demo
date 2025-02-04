@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day36;
+package com.noob.algorithm.daily.plan01.archive.day36;
 
 /**
  * 🟡 718 最长重复子数组 - https://leetcode.cn/problems/maximum-length-of-repeated-subarray/description/

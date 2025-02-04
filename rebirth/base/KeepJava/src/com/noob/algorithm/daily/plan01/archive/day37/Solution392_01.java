@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day37;
+package com.noob.algorithm.daily.plan01.archive.day37;
 
 /**
  * 🟢 392 判断子序列 - https://leetcode.cn/problems/is-subsequence/description/
