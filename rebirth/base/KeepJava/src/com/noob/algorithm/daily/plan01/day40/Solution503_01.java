@@ -15,6 +15,7 @@ public class Solution503_01 {
         int n = nums.length;
         // ① 平展数组
         int[] dn = new int[2 * n];
+        // 数组复制算法：System.arraycopy(nums, 0, newNums, 0, len); // 数组复制 System.arraycopy(nums, 0, newNums, len, len); // 数组复制
         for (int i = 0; i < n; i++) {
             dn[i] = nums[i];
             dn[n + i] = nums[i];
