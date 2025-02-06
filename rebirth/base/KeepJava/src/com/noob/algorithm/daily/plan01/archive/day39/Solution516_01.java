@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day39;
+package com.noob.algorithm.daily.plan01.archive.day39;
 
 /**
  * 🟡 516 最长回文子序列 - https://leetcode.cn/problems/longest-palindromic-subsequence/description/

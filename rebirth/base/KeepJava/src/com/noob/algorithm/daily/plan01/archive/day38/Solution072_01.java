@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day38;
+package com.noob.algorithm.daily.plan01.archive.day38;
 
 /**
  * 🟡 072 编辑距离 - https://leetcode.cn/problems/edit-distance/description/

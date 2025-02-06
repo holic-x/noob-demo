@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day39;
+package com.noob.algorithm.daily.plan01.archive.day39;
 
 /**
  * 🟡 647 回文子串 - https://leetcode.cn/problems/palindromic-substrings/description/
