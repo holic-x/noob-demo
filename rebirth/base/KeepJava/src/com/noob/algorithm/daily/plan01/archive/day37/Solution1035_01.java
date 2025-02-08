@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day37;
+package com.noob.algorithm.daily.plan01.archive.day37;
 
 /**
  * 🟡 1035 不相交的线 - https://leetcode.cn/problems/uncrossed-lines/description/

@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.day36;
+package com.noob.algorithm.daily.plan01.archive.day36;
 
 /**
  * 🟡 1143 最长公共子序列 - https://leetcode.cn/problems/longest-common-subsequence/description/
