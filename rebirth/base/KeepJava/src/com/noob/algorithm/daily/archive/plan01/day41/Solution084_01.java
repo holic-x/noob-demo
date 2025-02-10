@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan01.archive.day41;
+package com.noob.algorithm.daily.archive.plan01.day41;
 
 import java.util.Stack;
 
