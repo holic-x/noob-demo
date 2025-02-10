@@ -1,24 +1,21 @@
 package com.noob.algorithm.common150.q146;
 
-import lombok.val;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 /**
  * 146 LRU缓存 todo
  */
 class LRUCache {
     // 定义哈希表存储元素
-    HashMap<Integer,DLinkedNode> cache = new HashMap<>();
+    HashMap<Integer, DLinkedNode> cache = new HashMap<>();
     // 维护cache大小和指定容量
-    int size,capacity;
+    int size, capacity;
     // 维护队列的头尾指针
-    DLinkedNode head,tail;
+    DLinkedNode head, tail;
 
     // 构造函数
-    LRUCache(int capacity){
+    LRUCache(int capacity) {
         this.size = 0;
         this.capacity = capacity;
         // 使用虚拟的头尾节点
@@ -30,10 +27,10 @@ class LRUCache {
     }
 
     // get 方法
-    public int get(int key){
+    public int get(int key) {
         // 判断元素是否存在，如果不存在则返回-1，如果存在则需更新访问顺序
         DLinkedNode findNode = cache.get(key);
-        if(findNode == null){
+        if (findNode == null) {
             return -1;
         }
 
@@ -67,25 +64,25 @@ class LRUCache {
 
 
     // put 方法
-    public void put(int key,int val){
+    public void put(int key, int val) {
         // 判断元素是否存在
         DLinkedNode findNode = cache.get(key);
-        if(findNode==null){
+        if (findNode == null) {
             // 说明元素不存在，直接将元素插入到cache中,更新队列访问顺序(判断是否超出阈值，超出阈值则需剔除最近未使用的元素)
-            DLinkedNode newNode = new DLinkedNode(key,val);
-            cache.put(key,newNode);
+            DLinkedNode newNode = new DLinkedNode(key, val);
+            cache.put(key, newNode);
             addToHead(newNode); // 将元素补充到队头,并加入哈希表
 
             // 判断是否超出阈值，超出则剔除元素
-            if(cache.size()>capacity){
+            if (cache.size() > capacity) {
                 // 超出阈值，需剔除一个队尾元素，并删除对应哈希表中的项
                 DLinkedNode target = removeTail();
                 cache.remove(target.key);
             }
-        }else{
+        } else {
             // 元素存在，更新访问顺序(先删后加)
             removeNode(findNode);
-            addToHead(new DLinkedNode(key,val));
+            addToHead(new DLinkedNode(key, val));
         }
     }
 
@@ -94,14 +91,17 @@ class LRUCache {
 /**
  * 定义双向链表节点
  */
-class DLinkedNode{
+class DLinkedNode {
     // 元素键、值
-    int key,val;
+    int key, val;
     // 前、后指针
-    DLinkedNode prev,next;
+    DLinkedNode prev, next;
+
     // 构造函数
-    DLinkedNode(){}
-    DLinkedNode(int key,int val){
+    DLinkedNode() {
+    }
+
+    DLinkedNode(int key, int val) {
         this.key = key;
         this.val = val;
     }
