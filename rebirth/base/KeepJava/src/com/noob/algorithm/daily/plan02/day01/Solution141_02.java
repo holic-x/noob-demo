@@ -1,10 +1,7 @@
 
-package com.noob.algorithm.daily.plan02.day02;
+package com.noob.algorithm.daily.plan02.day01;
 
 import com.noob.algorithm.daily.base.ListNode;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 🟢 141 环形链表I - https://leetcode.cn/problems/linked-list-cycle/description/

@@ -1,10 +1,7 @@
 
-package com.noob.algorithm.daily.plan02.day02;
+package com.noob.algorithm.daily.plan02.day01;
 
 import com.noob.algorithm.daily.base.ListNode;
-import com.noob.algorithm.hot100.q015.Solution;
-
-import java.util.Stack;
 
 /**
  * 🟡 019 删除链表的倒数第N个节点 - https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/

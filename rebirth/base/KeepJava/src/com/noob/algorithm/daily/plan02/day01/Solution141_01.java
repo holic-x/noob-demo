@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day02;
+package com.noob.algorithm.daily.plan02.day01;
 
 import com.noob.algorithm.daily.base.ListNode;
 
