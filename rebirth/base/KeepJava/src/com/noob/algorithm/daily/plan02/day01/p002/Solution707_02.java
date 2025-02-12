@@ -1,8 +1,7 @@
 
-package com.noob.algorithm.daily.plan02.day01;
+package com.noob.algorithm.daily.plan02.day01.p002;
 
 import com.noob.algorithm.daily.base.ListNode;
-import com.noob.algorithm.dmsxl.util.PrintUtil;
 
 /**
  * 🟡 707 设计链表 - https://leetcode.cn/problems/design-linked-list/description/

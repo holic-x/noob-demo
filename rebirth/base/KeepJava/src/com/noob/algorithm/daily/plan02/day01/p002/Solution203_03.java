@@ -1,6 +1,6 @@
 
 
-package com.noob.algorithm.daily.plan02.day01;
+package com.noob.algorithm.daily.plan02.day01.p002;
 
 import com.noob.algorithm.daily.base.ListNode;
 

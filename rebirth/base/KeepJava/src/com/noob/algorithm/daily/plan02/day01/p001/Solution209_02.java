@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day01;
+package com.noob.algorithm.daily.plan02.day01.p001;
 
 /**
  * 🟡 209 长度最小的子数组 - https://leetcode.cn/problems/minimum-size-subarray-sum/

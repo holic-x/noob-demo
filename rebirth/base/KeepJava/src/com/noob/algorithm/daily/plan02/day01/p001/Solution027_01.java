@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day01;
+package com.noob.algorithm.daily.plan02.day01.p001;
 
 /**
  * 🟢 027 移除元素 - https://leetcode.cn/problems/remove-element/description/
