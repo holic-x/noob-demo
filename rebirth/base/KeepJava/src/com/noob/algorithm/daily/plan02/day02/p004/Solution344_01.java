@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day02;
+package com.noob.algorithm.daily.plan02.day02.p004;
 
 /**
  * 🟢 344 反转字符串 - https://leetcode.cn/problems/reverse-string/description/

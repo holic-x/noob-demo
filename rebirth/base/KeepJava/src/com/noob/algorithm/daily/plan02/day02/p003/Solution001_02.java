@@ -1,7 +1,4 @@
-package com.noob.algorithm.daily.plan02.day02;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.noob.algorithm.daily.plan02.day02.p003;
 
 /**
  * 🟢 001 两数之和 - https://leetcode.cn/problems/happy-number/submissions/598388261/

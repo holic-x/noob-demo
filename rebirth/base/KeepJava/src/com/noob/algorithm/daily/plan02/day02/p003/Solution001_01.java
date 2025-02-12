@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day02;
+package com.noob.algorithm.daily.plan02.day02.p003;
 
 import java.util.HashMap;
 import java.util.Map;

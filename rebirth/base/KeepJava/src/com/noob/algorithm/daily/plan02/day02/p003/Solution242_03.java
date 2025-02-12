@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day02;
+package com.noob.algorithm.daily.plan02.day02.p003;
 
 /**
  * 🟢 242 有效的字母异位词 - https://leetcode.cn/problems/valid-anagram/description/

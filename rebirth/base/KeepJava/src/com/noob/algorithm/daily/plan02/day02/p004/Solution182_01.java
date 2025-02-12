@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day02;
+package com.noob.algorithm.daily.plan02.day02.p004;
 
 /**
  * LCR 182 动态口令 - https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/description/

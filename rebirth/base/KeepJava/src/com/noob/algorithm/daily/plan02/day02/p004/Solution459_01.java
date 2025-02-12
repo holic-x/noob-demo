@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day02;
+package com.noob.algorithm.daily.plan02.day02.p004;
 
 /**
  * 🟢 459 重复的子字符串 - https://leetcode.cn/problems/repeated-substring-pattern/description/
