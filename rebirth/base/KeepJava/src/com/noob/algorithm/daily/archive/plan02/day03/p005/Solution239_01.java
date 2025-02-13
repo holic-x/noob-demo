@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day03.p005;
+package com.noob.algorithm.daily.archive.plan02.day03.p005;
 
 /**
  * 🔴 239 滑动窗口最大值 - https://leetcode.cn/problems/sliding-window-maximum/submissions/598655671/

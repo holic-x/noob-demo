@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day03.p006;
+package com.noob.algorithm.daily.archive.plan02.day03.p006;
 
 import com.noob.algorithm.daily.base.TreeNode;
 
@@ -10,7 +10,7 @@ import java.util.List;
  * 🟢 111 二叉树的最小深度 - https://leetcode.cn/problems/minimum-depth-of-binary-tree/description/
  */
 public class Solution111_03 {
-    
+
     // 最小深度
     int minDepth = Integer.MAX_VALUE;
     // 定义路径

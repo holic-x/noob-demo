@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day03.p005;
+package com.noob.algorithm.daily.archive.plan02.day03.p005;
 
 import javax.swing.*;
 import java.util.*;
