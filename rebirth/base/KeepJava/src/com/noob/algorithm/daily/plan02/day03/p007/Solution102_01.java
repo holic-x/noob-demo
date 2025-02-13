@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day03.p006;
+package com.noob.algorithm.daily.plan02.day03.p007;
 
 import com.noob.algorithm.common150.base.TreeNode;
 
