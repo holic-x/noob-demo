@@ -5,7 +5,7 @@ import com.noob.algorithm.daily.base.TreeNode;
 import java.util.*;
 
 /**
- * 🟢 二叉搜索树中的众数 - https://leetcode.cn/problems/find-mode-in-binary-search-tree/description/
+ * 🟢 501 二叉搜索树中的众数 - https://leetcode.cn/problems/find-mode-in-binary-search-tree/description/
  */
 public class Solution501_01 {
 
