@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day06.p018;
+package com.noob.algorithm.daily.archive.plan02.day06.p018;
 
 /**
  * 🔴 037 解数独 - https://leetcode.cn/problems/sudoku-solver/description/
