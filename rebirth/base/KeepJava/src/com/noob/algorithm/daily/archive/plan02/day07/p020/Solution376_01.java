@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day07.p020;
+package com.noob.algorithm.daily.archive.plan02.day07.p020;
 
 /**
  * 🟡 376 摆动序列 - https://leetcode.cn/problems/wiggle-subsequence/description/

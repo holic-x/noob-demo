@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day07.p022;
+package com.noob.algorithm.daily.archive.plan02.day07.p022;
 
 /**
  * 🟡 045 - 跳跃游戏II - https://leetcode.cn/problems/jump-game-ii/description/

@@ -1,11 +1,11 @@
-package com.noob.algorithm.daily.plan02.day07.p019;
+package com.noob.algorithm.daily.archive.plan02.day07.p019;
 
 import java.util.Arrays;
 
 /**
  * 🟢 1005 K次取反后最大化的数组和 - https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations/description/
  */
-public class Solution1005_01 {
+public class Solution1005_03 {
 
     /**
      * 思路分析：选择某个位置进行取反，需执行k次取反操作，可以多次选择同一个下标i，基于此操作返回数据可能的最大和
@@ -17,6 +17,7 @@ public class Solution1005_01 {
         Arrays.sort(nums);
         // ② 处理k次取反
         int sum = 0;
+        int curMin = Integer.MAX_VALUE; // 维护最小值
         for (int i = 0; i < nums.length; i++) {
             // 如果为负数且k有剩余则执行取反
             if (nums[i] < 0 && k > 0) {
@@ -25,6 +26,8 @@ public class Solution1005_01 {
             } else {
                 // break; // 所有负数处理完成或者k不足了，则跳出处理
             }
+            // 维护目前数组的最小值
+            curMin = Math.min(curMin, nums[i]);
             // 遍历过程累加和
             sum += nums[i];
         }
@@ -33,10 +36,8 @@ public class Solution1005_01 {
             if (k % 2 == 0) {
                 return sum; // 剩余k为偶数，无论选择什么元素都是一正一负抵消，因此返回结果即为上述操作处理结果
             } else {
-                // 对数组重新进行排序
-                Arrays.sort(nums);
-                // 选择重新排序后的最小正数取反
-                return sum - 2 * nums[0];
+                // 选择目前数组的最小数取反
+                return sum - 2 * curMin;
             }
         }
         // 返回结果

@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day07.p023;
+package com.noob.algorithm.daily.archive.plan02.day07.p023;
 
 /**
  * 🔴 135 分发糖果 - https://leetcode.cn/problems/candy/description/
