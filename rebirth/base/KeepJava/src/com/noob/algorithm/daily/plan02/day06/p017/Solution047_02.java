@@ -3,7 +3,7 @@ package com.noob.algorithm.daily.plan02.day06.p017;
 import java.util.*;
 
 /**
- * 047 全排列
+ * 047 全排列 - https://leetcode.cn/problems/permutations-ii/description/
  */
 public class Solution047_02 {
 
