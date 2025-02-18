@@ -10,16 +10,16 @@ public class Solution070_02 {
      * - 版本优化：空间优化版本
      */
     public int climbStairs(int n) {
-        if(n==0 || n==1){
+        if (n == 0 || n == 1) {
             return 1;
         }
-        int p = 1,q=1,r=0;
+        int p = 1, q = 1, r = 0;
         // 基于滚动变量优化
-        for(int i=2;i<=n;i++){
-            r = p+q;
+        for (int i = 2; i <= n; i++) {
+            r = p + q;
             // 滚动变量
             p = q;
-            q=r;
+            q = r;
         }
 
         // 返回爬到第n阶的方案

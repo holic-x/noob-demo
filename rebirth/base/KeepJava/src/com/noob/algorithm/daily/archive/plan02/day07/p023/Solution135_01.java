@@ -15,11 +15,11 @@ public class Solution135_01 {
         int[] left = new int[n];
         left[0] = 1; // 每个孩子至少分配到1个糖果
         // 从左到右遍历
-        for(int i=1;i<n;i++){
+        for (int i = 1; i < n; i++) {
             // 如果当前小朋友评分更高则可以获取更多的糖果，至少比其左侧的小朋友多1个
-            if(ratings[i]>ratings[i-1]){
-                left[i] = left[i-1]+1;
-            }else{
+            if (ratings[i] > ratings[i - 1]) {
+                left[i] = left[i - 1] + 1;
+            } else {
                 // 其余情况下只给他发1个就能在最少糖果的限制下还能满足要求
                 left[i] = 1;
             }
@@ -27,20 +27,20 @@ public class Solution135_01 {
 
         // 同理，基于右侧孩子的影响，定义满足条件的情况下每个孩子分得的最少糖果数量
         int[] right = new int[n];
-        right[n-1] = 1; // 每个孩子至少分配到1个糖果
-        for(int i=n-2;i>=0;i--){
+        right[n - 1] = 1; // 每个孩子至少分配到1个糖果
+        for (int i = n - 2; i >= 0; i--) {
             // 如果当前小朋友比起右侧小朋友的评分高则多派1个糖果，否则只发1个
-            if(ratings[i] > ratings[i+1]){
-                right[i] = right[i+1]+1;
-            }else{
+            if (ratings[i] > ratings[i + 1]) {
+                right[i] = right[i + 1] + 1;
+            } else {
                 right[i] = 1;
             }
         }
 
         // 同时遍历两个数组，校验同时满足两个条件的情况下的最少糖果数
         int cnt = 0;
-        for(int i=0;i<n;i++){
-            cnt += Math.max(left[i],right[i]); // 同时满足两个条件，取max
+        for (int i = 0; i < n; i++) {
+            cnt += Math.max(left[i], right[i]); // 同时满足两个条件，取max
         }
 
         // 返回结果
