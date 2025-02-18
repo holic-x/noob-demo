@@ -1,10 +1,7 @@
 package com.noob.algorithm.common150.q173;
 
 import com.noob.algorithm.common150.base.TreeNode;
-import lombok.val;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 /**

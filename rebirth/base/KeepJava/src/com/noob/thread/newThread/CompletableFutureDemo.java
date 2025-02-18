@@ -1,7 +1,5 @@
 package com.noob.thread.newThread;
 
-import lombok.SneakyThrows;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

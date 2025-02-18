@@ -1,19 +1,18 @@
 package com.noob.rpc.serizliable;
 
 import com.noob.rpc.serizliable.model.Person;
-import lombok.SneakyThrows;
 
 import java.io.*;
 
 /**
  * 原生JDK序列化方式
  */
-public class JDKSerializable{
+public class JDKSerializable {
 
     // 序列化
-    public static void serialize()throws Exception{
+    public static void serialize() throws Exception {
         // 1.定义对象
-        Person person = new Person("001","小红");
+        Person person = new Person("001", "小红");
 
         // 2.借助ObjectOutputStream输出为二进制流
         FileOutputStream fos = new FileOutputStream(new File("D:\\Desktop\\test\\rpc-person.dat"));
@@ -27,7 +26,7 @@ public class JDKSerializable{
     }
 
     // 反序列化
-    public static void unserialize()throws Exception{
+    public static void unserialize() throws Exception {
 
         // 1.读取二进制流文件
         FileInputStream fis = new FileInputStream(new File("D:\\Desktop\\test\\rpc-person.dat"));
