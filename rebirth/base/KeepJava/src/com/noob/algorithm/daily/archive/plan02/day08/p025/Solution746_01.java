@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day08.p025;
+package com.noob.algorithm.daily.archive.plan02.day08.p025;
 
 /**
  * 🟢 746 使用最小花费爬楼梯 - https://leetcode.cn/problems/min-cost-climbing-stairs/description/

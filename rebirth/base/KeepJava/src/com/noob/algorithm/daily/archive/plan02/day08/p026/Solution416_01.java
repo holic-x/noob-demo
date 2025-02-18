@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day08.p026;
+package com.noob.algorithm.daily.archive.plan02.day08.p026;
 
 /**
  * 🟡 416 分割等和子集 - https://leetcode.cn/problems/partition-equal-subset-sum/description/

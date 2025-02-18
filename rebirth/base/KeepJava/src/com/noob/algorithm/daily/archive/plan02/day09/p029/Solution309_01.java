@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day09.p029;
+package com.noob.algorithm.daily.archive.plan02.day09.p029;
 
 /**
  * 🟡 309 买卖股票的最佳时机含冷冻期 - https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/

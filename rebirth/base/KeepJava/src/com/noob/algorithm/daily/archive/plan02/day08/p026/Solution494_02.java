@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day08.p026;
+package com.noob.algorithm.daily.archive.plan02.day08.p026;
 
 /**
  * 🟡 494 目标和 - https://leetcode.cn/problems/target-sum/description/

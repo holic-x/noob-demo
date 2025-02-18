@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day09.p028;
+package com.noob.algorithm.daily.archive.plan02.day09.p028;
 
 /**
  * 🟡 213 打家劫舍II - https://leetcode.cn/problems/house-robber-ii/description/

@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day08.p025;
+package com.noob.algorithm.daily.archive.plan02.day08.p025;
 
 /**
  * 🟢 070 爬楼梯 - https://leetcode.cn/problems/climbing-stairs/

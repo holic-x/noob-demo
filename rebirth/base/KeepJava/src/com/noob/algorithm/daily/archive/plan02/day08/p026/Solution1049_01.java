@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day08.p026;
+package com.noob.algorithm.daily.archive.plan02.day08.p026;
 
 /**
  * 🟡 1049 - 最后一块石头的重量II - https://leetcode.cn/problems/last-stone-weight-ii/
