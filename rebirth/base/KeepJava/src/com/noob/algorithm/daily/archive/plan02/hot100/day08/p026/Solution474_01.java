@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day08.p026;
+package com.noob.algorithm.daily.archive.plan02.hot100.day08.p026;
 
 /**
  * 🟡 474 一和零 - https://leetcode.cn/problems/ones-and-zeroes/description/

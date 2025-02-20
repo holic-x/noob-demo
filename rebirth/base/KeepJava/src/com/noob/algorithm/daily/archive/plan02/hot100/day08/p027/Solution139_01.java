@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day08.p027;
+package com.noob.algorithm.daily.archive.plan02.hot100.day08.p027;
 
 import java.util.*;
 

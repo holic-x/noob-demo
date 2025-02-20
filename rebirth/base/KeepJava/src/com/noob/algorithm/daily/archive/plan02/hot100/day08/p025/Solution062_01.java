@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day08.p025;
+package com.noob.algorithm.daily.archive.plan02.hot100.day08.p025;
 
 /**
  * 🟡 062 不同路径 - https://leetcode.cn/problems/unique-paths/submissions/600329706/
