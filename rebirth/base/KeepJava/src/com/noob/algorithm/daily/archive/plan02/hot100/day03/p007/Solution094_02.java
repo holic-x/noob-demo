@@ -1,6 +1,6 @@
 package com.noob.algorithm.daily.archive.plan02.hot100.day03.p007;
 
-import com.noob.algorithm.common150.base.TreeNode;
+import com.noob.algorithm.leetcode.common150.base.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
