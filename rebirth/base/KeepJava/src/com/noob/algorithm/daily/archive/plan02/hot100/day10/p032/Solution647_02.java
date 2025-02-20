@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day10.p032;
+package com.noob.algorithm.daily.archive.plan02.hot100.day10.p032;
 
 /**
  * 🟡 647 回文字串（统计回文字串的数目）

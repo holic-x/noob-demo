@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day10.p030;
+package com.noob.algorithm.daily.archive.plan02.hot100.day10.p030;
 
 /**
  * 🟡 718 最长重复子数组（连续）

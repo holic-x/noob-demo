@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day10.p031;
+package com.noob.algorithm.daily.archive.plan02.hot100.day10.p031;
 
 /**
  * 🔴 115 不同的子序列 - https://leetcode.cn/problems/distinct-subsequences/description/
