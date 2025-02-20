@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day23;
 
-import com.noob.algorithm.daily.base.ListNode;
+import com.noob.algorithm.plan_archive.baseStructure.ListNode;
 
 /**
  * 🟢 141 环形链表

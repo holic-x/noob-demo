@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day05.p012;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟡 669 修剪二叉搜索树 - https://leetcode.cn/problems/trim-a-binary-search-tree/description/

@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day13;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟢617 合并二叉树

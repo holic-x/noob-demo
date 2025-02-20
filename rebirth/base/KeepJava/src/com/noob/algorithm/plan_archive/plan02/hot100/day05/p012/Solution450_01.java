@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day05.p012;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟡 450 删除二叉搜索树中的节点 - https://leetcode.cn/problems/delete-node-in-a-bst/description/

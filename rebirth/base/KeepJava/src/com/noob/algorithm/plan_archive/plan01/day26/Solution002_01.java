@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day26;
 
-import com.noob.algorithm.daily.base.ListNode;
+import com.noob.algorithm.plan_archive.baseStructure.ListNode;
 
 /**
  * 🟡 002 两数相加 - https://leetcode.cn/problems/add-two-numbers/description/

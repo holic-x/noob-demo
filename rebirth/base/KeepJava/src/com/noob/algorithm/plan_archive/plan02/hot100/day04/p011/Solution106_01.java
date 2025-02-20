@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day04.p011;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟡 106 从中序和后序遍历序列构造二叉树 - https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/

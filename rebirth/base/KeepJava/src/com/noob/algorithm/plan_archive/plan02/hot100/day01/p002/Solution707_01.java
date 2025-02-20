@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day01.p002;
 
-import com.noob.algorithm.daily.base.ListNode;
+import com.noob.algorithm.plan_archive.baseStructure.ListNode;
 
 /**
  * 🟡 707 设计链表 - https://leetcode.cn/problems/design-linked-list/description/

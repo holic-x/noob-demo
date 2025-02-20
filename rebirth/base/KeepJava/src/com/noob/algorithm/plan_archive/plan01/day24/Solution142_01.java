@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day24;
 
-import com.noob.algorithm.daily.base.ListNode;
+import com.noob.algorithm.plan_archive.baseStructure.ListNode;
 
 /**
  * 🟡 142 环形链表II - https://leetcode.cn/problems/linked-list-cycle-ii/

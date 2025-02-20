@@ -5,6 +5,14 @@ import java.util.*;
 public class DataStructureTransfer {
 
 
+    public void copyArr(int[] arr){
+        // 数组复制
+        int n = arr.length;
+        int[] newArr = new int[n];
+        System.arraycopy(arr,0,newArr,0,n);
+    }
+
+
     public static int[] setToArray(){
         Set<Integer> set= new HashSet<>();
         set.add(1);

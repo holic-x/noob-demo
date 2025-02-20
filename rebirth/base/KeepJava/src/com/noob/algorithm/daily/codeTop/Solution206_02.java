@@ -1,6 +1,6 @@
 package com.noob.algorithm.daily.codeTop;
 
-import com.noob.algorithm.daily.base.ListNode;
+import com.noob.algorithm.plan_archive.baseStructure.ListNode;
 
 /**
  * 🟢206 反转链表

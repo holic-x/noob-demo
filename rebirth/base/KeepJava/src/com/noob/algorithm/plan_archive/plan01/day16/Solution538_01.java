@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day16;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟡538 将二叉搜索树转换为累加树

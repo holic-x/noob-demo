@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day23;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟡 236 二叉树的最近公共祖先 - https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/

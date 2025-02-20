@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day12;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

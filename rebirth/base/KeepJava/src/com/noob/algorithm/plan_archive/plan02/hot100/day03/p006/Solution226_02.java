@@ -1,7 +1,7 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day03.p006;
 
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟢 226 翻转二叉树 - https://leetcode.cn/problems/invert-binary-tree/description/

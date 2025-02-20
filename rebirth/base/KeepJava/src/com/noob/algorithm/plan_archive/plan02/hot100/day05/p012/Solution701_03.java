@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day05.p012;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

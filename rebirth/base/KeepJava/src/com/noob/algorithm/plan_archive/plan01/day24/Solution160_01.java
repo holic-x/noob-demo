@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day24;
 
-import com.noob.algorithm.daily.base.ListNode;
+import com.noob.algorithm.plan_archive.baseStructure.ListNode;
 
 /**
  * 🟢 160 相交链表 - https://leetcode.cn/problems/intersection-of-two-linked-lists/description/

@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day04.p011;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟡 105 从前序和中序遍历序列构造二叉树

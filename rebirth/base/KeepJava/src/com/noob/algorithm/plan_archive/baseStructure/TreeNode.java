@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.base;
+package com.noob.algorithm.plan_archive.baseStructure;
 
 /**
  * TreeNode 树节点定义

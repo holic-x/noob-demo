@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day04.p010;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟢 404 左叶子之和 - https://leetcode.cn/problems/sum-of-left-leaves/description/

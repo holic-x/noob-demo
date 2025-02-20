@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day24;
 
-import com.noob.algorithm.daily.base.ListNode;
+import com.noob.algorithm.plan_archive.baseStructure.ListNode;
 
 /**
  * 🟡 143 重排链表 - https://leetcode.cn/problems/reorder-list/description/

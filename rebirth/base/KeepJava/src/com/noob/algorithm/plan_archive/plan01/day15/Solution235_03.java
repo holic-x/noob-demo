@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day15;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟡 235 二叉搜索树的最近公共祖先

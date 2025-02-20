@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day27;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🔴 968 监控二叉树 - https://leetcode.cn/problems/binary-tree-cameras/submissions/592840411/

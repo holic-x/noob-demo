@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day09.p028;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟡 337 打家劫舍III - https://leetcode.cn/problems/house-robber-iii/description/

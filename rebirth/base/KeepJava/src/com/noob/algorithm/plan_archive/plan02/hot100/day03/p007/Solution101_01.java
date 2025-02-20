@@ -1,7 +1,7 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day03.p007;
 
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟢 101 对称二叉树 - https://leetcode.cn/problems/symmetric-tree/description/

@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan01.day15;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟡701 二叉搜索树中的插入操作

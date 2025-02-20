@@ -1,6 +1,6 @@
 package com.noob.algorithm.plan_archive.plan02.hot100.day04.p010;
 
-import com.noob.algorithm.daily.base.TreeNode;
+import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 
 /**
  * 🟢 617 合并二叉树 - https://leetcode.cn/problems/merge-two-binary-trees/description/
