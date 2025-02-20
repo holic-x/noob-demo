@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day09.p029;
+package com.noob.algorithm.daily.archive.plan02.hot100.day09.p029;
 
 /**
  * 🔴 188 买卖股票的最佳时机IV - https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/description/
