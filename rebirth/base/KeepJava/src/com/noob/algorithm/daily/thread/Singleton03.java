@@ -9,7 +9,7 @@ public class Singleton03 {
 
 
     // 1.构建一个静态的私有的自身的对象
-    private static volatile Singleton03 singleton ; // volatile 避免指令重排序问题
+    private static volatile Singleton03 singleton; // volatile 避免指令重排序问题
 
     // 2.构造函数私有化
     public Singleton03() {
@@ -27,18 +27,18 @@ public class Singleton03 {
     }
      */
 
-    public static synchronized Singleton03 getSingleton2(){
-            if(singleton==null){
-                singleton = new Singleton03();
-            }
+    public static synchronized Singleton03 getSingleton2() {
+        if (singleton == null) {
+            singleton = new Singleton03();
+        }
         return singleton;
     }
 
     // 双检锁模式
-    public static Singleton03 getSingleton(){
-        if(singleton==null){
-            synchronized (Singleton03.class){
-                if(singleton==null){
+    public static Singleton03 getSingleton() {
+        if (singleton == null) {
+            synchronized (Singleton03.class) {
+                if (singleton == null) {
                     singleton = new Singleton03();
                 }
             }

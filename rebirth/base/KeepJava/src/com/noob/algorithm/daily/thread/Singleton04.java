@@ -12,13 +12,14 @@ public class Singleton04 {
     }
 
     // 构建枚举
-    enum Single{
+    enum Single {
         SINGLE;
-        private Single(){
+
+        private Single() {
 
         }
 
-        public void print(){
+        public void print() {
             System.out.println("hello world");
         }
     }

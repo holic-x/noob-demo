@@ -14,7 +14,7 @@ public class Singleton02 {
     }
 
     // 3.对外提供一个获取该单例对象的入口
-    public static Singleton02 getSingleton(){
+    public static Singleton02 getSingleton() {
         return singleton;
     }
 }

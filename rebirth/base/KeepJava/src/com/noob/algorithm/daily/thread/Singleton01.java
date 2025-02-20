@@ -16,8 +16,8 @@ public class Singleton01 {
     }
 
     // 3.对外提供一个获取该单例对象的入口
-    public static Singleton01 getSingleton(){
-        if(singleton==null){
+    public static Singleton01 getSingleton() {
+        if (singleton == null) {
             singleton = new Singleton01();
         }
         return singleton;
