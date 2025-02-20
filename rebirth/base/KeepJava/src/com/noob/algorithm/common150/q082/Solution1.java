@@ -1,6 +1,6 @@
 package com.noob.algorithm.common150.q082;
 
-import com.noob.algorithm.hot100.base.ListNode;
+import com.noob.algorithm.leetcode.hot100.base.ListNode;
 
 /**
  * 082 删除链表中的重复元素

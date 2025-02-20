@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q018;
 
-import com.noob.algorithm.hot100.q015.Solution;
+import com.noob.algorithm.leetcode.hot100.q015.Solution;
 
 import java.util.ArrayList;
 import java.util.List;

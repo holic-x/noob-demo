@@ -1,6 +1,6 @@
 package com.noob.algorithm.common150.q160;
 
-import com.noob.algorithm.hot100.base.ListNode;
+import com.noob.algorithm.leetcode.hot100.base.ListNode;
 
 /**
  * 160 相交链表

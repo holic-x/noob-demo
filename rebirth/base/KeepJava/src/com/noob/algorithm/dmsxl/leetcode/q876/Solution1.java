@@ -1,6 +1,6 @@
 package com.noob.algorithm.dmsxl.leetcode.q876;
 
-import com.noob.algorithm.hot100.base.ListNode;
+import com.noob.algorithm.leetcode.hot100.base.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
