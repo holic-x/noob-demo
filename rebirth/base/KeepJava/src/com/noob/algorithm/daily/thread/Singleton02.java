@@ -6,7 +6,6 @@ package com.noob.algorithm.daily.thread;
  */
 public class Singleton02 {
 
-
     // 1.构建一个静态的私有的自身的对象
     private static Singleton02 singleton = new Singleton02();
 

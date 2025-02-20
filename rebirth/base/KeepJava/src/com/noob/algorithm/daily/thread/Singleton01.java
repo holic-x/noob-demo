@@ -8,7 +8,6 @@ import com.noob.scene.redis.Singleton;
  */
 public class Singleton01 {
 
-
     // 1.构建一个静态的私有的自身的对象
     private static Singleton01 singleton;
 

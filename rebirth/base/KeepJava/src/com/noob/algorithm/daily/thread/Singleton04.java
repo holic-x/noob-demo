@@ -2,7 +2,7 @@ package com.noob.algorithm.daily.thread;
 
 /**
  * 12.java 实现单例模式
- * - 懒汉式（只有在使用到的时候才创建对象）
+ * - 枚举
  */
 public class Singleton04 {
 
