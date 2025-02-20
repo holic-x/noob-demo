@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day07.p022;
+package com.noob.algorithm.daily.archive.plan02.hot100.day07.p022;
 
 import java.util.ArrayList;
 import java.util.Arrays;

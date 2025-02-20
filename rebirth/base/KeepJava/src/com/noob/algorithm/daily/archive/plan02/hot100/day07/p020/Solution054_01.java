@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day07.p020;
+package com.noob.algorithm.daily.archive.plan02.hot100.day07.p020;
 
 /**
  * 🟡 053 最大子数组和 - https://leetcode.cn/problems/maximum-subarray/description/

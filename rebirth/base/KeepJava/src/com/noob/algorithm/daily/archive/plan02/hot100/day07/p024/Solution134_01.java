@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day07.p024;
+package com.noob.algorithm.daily.archive.plan02.hot100.day07.p024;
 
 /**
  * 🟡 134 加油站 - https://leetcode.cn/problems/gas-station/submissions/600314289/
