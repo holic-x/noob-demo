@@ -1,5 +1,5 @@
-- algorithm：算法相关
-- common：基础题
+- algorithm：算法相关(leetcode KMW)
+- common：基础题(常见基础)
 - design：设计模式相关
 - rpc：rpc基础
 - scene：场景题
