@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan02.day10.p031;
+package com.noob.algorithm.daily.archive.plan02.day10.p031;
 
 /**
  * 🟡 583 两个字符串的删除操作 - https://leetcode.cn/problems/delete-operation-for-two-strings/description/
