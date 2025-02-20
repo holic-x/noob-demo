@@ -1,9 +1,12 @@
-package com.noob.algorithm.daily.archive.plan02.day02.p003;
+package com.noob.algorithm.daily.archive.plan02.hot100.day02.p003;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 🟢 242 有效的字母异位词 - https://leetcode.cn/problems/valid-anagram/description/
  */
-public class Solution242_03 {
+public class Solution242_02 {
     /**
      * 思路分析：判断t是否为s的字母异位词
      * ① 计数法：每个字母的个数一致匹配
@@ -15,17 +18,21 @@ public class Solution242_03 {
             return false;
         }
         // 定义哈希表存储s的每个字母出现次数（可以用map或者数组（因为字母序列有限可以用数组支持快速访问））
-        int[] nums = new int[26]; // 定义数组存储每个字符出现的次数（索引与字母`a`-`z`相对照）
+        Map<Character, Integer> map = new HashMap<>(); // map 存储s字符串中每个字符的出现次数
         for (char ch : s.toCharArray()) {
-            nums[ch - 'a']++;
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
-
-        // 校验字符串序列t
+        // 遍历字符串t序列，校验是否满足字符序列一一匹配
         for (char ch : t.toCharArray()) {
-            // 预使用字符
-            nums[ch - 'a']--;
-            // 校验使用后字符是否满足限定要求
-            if (nums[ch - 'a'] < 0) {
+            // 判断字符是否在s(map)中存在
+            if (map.containsKey(ch)) {
+                int cnt = map.get(ch);
+                if (cnt <= 0) {
+                    return false; // 存在的字母不足次数
+                } else {
+                    map.put(ch, cnt - 1);
+                }
+            } else {
                 return false;
             }
         }

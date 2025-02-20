@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day02.p003;
+package com.noob.algorithm.daily.archive.plan02.hot100.day02.p003;
 
 /**
  * 🟡 454 四数相加II - https://leetcode.cn/problems/4sum-ii/description/

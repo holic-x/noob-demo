@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day02.p004;
+package com.noob.algorithm.daily.archive.plan02.hot100.day02.p004;
 
 /**
  * 🟢 LCR122 路径加密 - https://leetcode.cn/problems/ti-huan-kong-ge-lcof/description/

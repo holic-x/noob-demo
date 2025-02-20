@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day02.p003;
+package com.noob.algorithm.daily.archive.plan02.hot100.day02.p003;
 
 /**
  * 🟢 001 两数之和 - https://leetcode.cn/problems/happy-number/submissions/598388261/
