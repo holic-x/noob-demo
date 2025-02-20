@@ -26,9 +26,9 @@ public class Solution001_03 {
 
         threads[1] = new Thread(() -> {
             while (counter.get() < 100) {
+                LockSupport.park(); // 阻塞当前线程
                 System.out.println("线程B:" + counter.getAndIncrement());
                 LockSupport.unpark(threads[0]); // 唤醒线程A
-                LockSupport.park(); // 阻塞当前线程
             }
         });
 
