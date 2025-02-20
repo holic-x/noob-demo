@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day03.p005;
+package com.noob.algorithm.daily.archive.plan02.hot100.day03.p005;
 
 import java.util.HashSet;
 import java.util.Set;
