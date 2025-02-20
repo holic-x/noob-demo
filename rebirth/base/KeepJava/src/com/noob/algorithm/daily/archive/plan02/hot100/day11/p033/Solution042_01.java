@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day11.p033;
+package com.noob.algorithm.daily.archive.plan02.hot100.day11.p033;
 
 /**
  * 🔴 042 接雨水 - https://leetcode.cn/problems/trapping-rain-water/description/

@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day11.p033;
+package com.noob.algorithm.daily.archive.plan02.hot100.day11.p033;
 
 /**
  * 🟡 739 每日温度 - https://leetcode.cn/problems/daily-temperatures/description/
