@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day06.p016;
+package com.noob.algorithm.daily.archive.plan02.hot100.day06.p016;
 
 import java.util.*;
 

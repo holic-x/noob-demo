@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.archive.plan02.day06.p014;
+package com.noob.algorithm.daily.archive.plan02.hot100.day06.p014;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 🟡 040 组合总和II - https://leetcode.cn/problems/combination-sum-ii/description/
  */
-public class Solution040_01 {
+public class Solution040_02 {
 
     private List<List<Integer>> res = new ArrayList<>(); // 定义结果集
     private List<Integer> path = new ArrayList<>();// 定义当前路径
@@ -43,8 +43,17 @@ public class Solution040_01 {
             return;
         }
 
+        // 剪枝优化：curPathSum>target 后面构成的组合数会更大，直接剪枝
+        if (curPathSum > target) {
+            return;
+        }
+
         // 回溯处理
         for (int i = idx; i < nums.length; i++) {
+            // 递归处理前剪枝（校验连续重复出现的元素，即同一层剪枝）
+            if (i > idx && nums[i - 1] == nums[i]) {
+                continue; // 出现连续重复，跳过当前分支
+            }
             path.add(nums[i]);
             curPathSum += nums[i];
             backTrack(i + 1, nums, target); // 选择元素不可重复

@@ -1,9 +1,9 @@
-package com.noob.algorithm.daily.archive.plan02.day06.p018;
+package com.noob.algorithm.daily.archive.plan02.hot100.day06.p018;
 
 /**
  * 🔴 037 解数独 - https://leetcode.cn/problems/sudoku-solver/description/
  */
-public class Solution037_01 {
+public class Solution037_02 {
 
     /**
      * 思路分析：解数独
@@ -15,7 +15,7 @@ public class Solution037_01 {
     }
 
     // 定义回溯算法
-    private boolean backTrack(char[][] board) {
+    private void backTrack(char[][] board) {
 
         // 所有元素处理完成可以得到一个结果集
 
@@ -27,22 +27,13 @@ public class Solution037_01 {
                     for (char num = '1'; num <= '9'; num++) {
                         if (isValid(board, num, i, j)) {
                             board[i][j] = num; // 选择当前位置放入num
-                            if (backTrack(board)) {
-                                // 递归处理下一个位置,如果出现满足条件的位置，即刻返回结果
-                                return true;
-                            }
+                            backTrack(board); // 递归处理下一个位置
                             board[i][j] = '.'; // 恢复现场
                         }
                     }
-                    // 9个数字都处理完了，没有一个合适的存放位置
-                    return false;
-                } else {
-                    continue;
                 }
             }
         }
-        // for 循环遍历结束没有返回false，说明找到了合适的棋盘位置
-        return true;
     }
 
     /**
@@ -76,6 +67,4 @@ public class Solution037_01 {
         // 校验通过
         return true;
     }
-
-
 }
