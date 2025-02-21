@@ -16,11 +16,16 @@ public class Solution207_01 {
      * ② 构建队列辅助遍历，每次存队列中取出[入度为0]的节点，然后更新其关联节点的入度信息
      */
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        // ① 根据边关系构建每个节点的入度
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < numCourses; i++) {
+            graph.add(new ArrayList<>());
+        }
+        // ① 根据边关系构建每个节点的入度（并构建邻接表）
         int[] inDegrees = new int[numCourses];
         for (int[] edge : prerequisites) {
             // [u,v] 表示u->v
             int u = edge[0], v = edge[1];
+            graph.get(u).add(v); // 构建邻接表
             inDegrees[v]++; // 下标对应节点
         }
 
@@ -42,7 +47,7 @@ public class Solution207_01 {
             int u = queue.poll();
             res.add(u); // 加载取出的节点到结果集
             // 遍历处理该节点关联的节点，更新入度信息
-            for (int v : prerequisites[u]) {
+            for (int v : graph.get(u)) {
                 inDegrees[v]--; // 取出u节点，则其指向v节点对应入度-1
                 // 每次处理完成，将入度为0的节点v入队
                 if (inDegrees[v] == 0) {
