@@ -49,6 +49,7 @@ public class Solution200_02 {
         // 定义Queue辅助图遍历
         Queue<Pair> queue = new LinkedList<>();
         queue.offer(new Pair(x, y)); // 初始化队列
+        grid[x][y] = '2'; // 只要加入队列就立刻进行标记
 
         // 当队列不为空，遍历节点
         while (!queue.isEmpty()) {
@@ -67,7 +68,7 @@ public class Solution200_02 {
                 }
                 // 如果当前节点为没有被标记（遍历）过的陆地，则将其进行标记并加入队列
                 if (grid[nextX][nextY] == '1') { // '2'表示陆地被遍历过的标记
-                    grid[nextX][nextY] = '2';
+                    grid[nextX][nextY] = '2'; // 只要加入队列就立刻进行标记
                     queue.offer(new Pair(nextX, nextY));
                 }
             }
