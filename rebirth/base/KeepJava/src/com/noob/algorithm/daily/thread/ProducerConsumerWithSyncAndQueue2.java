@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  * 生产者、消费者模式 - 基于 synchronized 实现
  */
-public class ProducerConsumerWithSyncAndQueu2 {
+public class ProducerConsumerWithSyncAndQueue2 {
 
     static int BUFFER_SIZE = 10; // 设置缓冲区大小（上限）
     static Queue<Integer> buffer = new LinkedList<>(); // 定义缓冲区
@@ -60,7 +60,7 @@ public class ProducerConsumerWithSyncAndQueu2 {
 
     public static void main(String[] args) {
         // 测试
-        ProducerConsumerWithSyncAndQueu2 test = new ProducerConsumerWithSyncAndQueu2();
+        ProducerConsumerWithSyncAndQueue2 test = new ProducerConsumerWithSyncAndQueue2();
 
         // 定义生产者线程
         Thread producer = new Thread(() -> {

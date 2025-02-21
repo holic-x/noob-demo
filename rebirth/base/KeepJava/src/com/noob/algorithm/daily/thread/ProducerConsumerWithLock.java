@@ -24,72 +24,70 @@ public class ProducerConsumerWithLock {
     static ReentrantLock lock = new ReentrantLock();
 
     // 多Condition
-    static Condition waitNotFull = lock.newCondition(); // 生产者等待缓冲区不满
-    static Condition waitNotEmpty = lock.newCondition(); // 消费者等待缓冲区不为空
+    static Condition notFull = lock.newCondition(); // 缓冲区未满（表示生产者可以进行生产的条件）
+    static Condition notEmpty = lock.newCondition(); // 缓冲区不为空（表示消费者可以进行消费的条件）
 
     // 定义生产者类（生产者线程）
-    static class Producer extends Thread{
+    static class Producer extends Thread {
         @SneakyThrows
         @Override
         public void run() {
-             // 生产者不断尝试生产数据
-            while(true){
+            // 生产者不断尝试生产数据
+            while (true) {
                 lock.lock();
-
-                    // 如果缓冲区满则阻塞生产
-                    while(count==BUFFER_SIZE){ // 当前缓冲区数据个数达到缓冲区大小（此处不用in判断）
-                        System.out.println("当前缓冲区已满，停止生产...");
-                        waitNotFull.await();
-                    }
-
-                        // 如果缓冲区有空位，则生产数据并唤醒在等待的消费者线程
-                        int num = new Random().nextInt(10000);
-                        buffer[in] = num; // 生产一个随机数据
-                        in = (in+1) % BUFFER_SIZE; // in 指针指向下一个位置
-                        count++; // 元素个数+1
-                        System.out.println("生产者生产了一个数据" + num);
-
-                        // 唤醒其他线程
-                        waitNotEmpty.signal();
-
-
-                    // 模拟生产数据耗时
-                    Thread.sleep(1000);
-
-                    lock.unlock();
+                // 如果缓冲区满则阻塞生产
+                while (count == BUFFER_SIZE) { // 当前缓冲区数据个数达到缓冲区大小（此处不用in判断）
+                    System.out.println("当前缓冲区已满，停止生产...");
+                    notFull.await();
                 }
+
+                // 如果缓冲区有空位，则生产数据并唤醒在等待的消费者线程
+                int num = new Random().nextInt(10000);
+                buffer[in] = num; // 生产一个随机数据
+                in = (in + 1) % BUFFER_SIZE; // in 指针指向下一个位置
+                count++; // 元素个数+1
+                System.out.println("生产者生产了一个数据" + num);
+
+                // 唤醒生产者线程
+                notEmpty.signal();
+
+                // 模拟生产数据耗时
+                Thread.sleep(1000);
+
+                lock.unlock();
+            }
         }
     }
 
     // 定义消费者类（消费者线程）
-    static class Consumer extends Thread{
+    static class Consumer extends Thread {
         @SneakyThrows
         @Override
         public void run() {
             // 消费者不断尝试消费数据
-            while(true){
+            while (true) {
                 lock.lock();
 
-                    // 如果缓冲区空则阻塞消费
-                    while(count==0){
-                        System.out.println("当前缓冲区已空，停止消费....");
-                        waitNotEmpty.await();
-                    }
-                        // 如果缓冲区有数据可用，则消费数据并唤醒在等待的生产者线程
-                        int num = (int)buffer[out]; // 取出数据
-                        out = (out+1) % BUFFER_SIZE; // out 指针指向下一个位置
-                        count--; // 元素个数-1
-                        System.out.println("消费者消费了一个数据" + num);
-                        // 唤醒其他线程
-                        waitNotFull.signal();
+                // 如果缓冲区空则阻塞消费
+                while (count == 0) {
+                    System.out.println("当前缓冲区已空，停止消费....");
+                    notEmpty.await();
+                }
+                // 如果缓冲区有数据可用，则消费数据并唤醒在等待的生产者线程
+                int num = (int) buffer[out]; // 取出数据
+                out = (out + 1) % BUFFER_SIZE; // out 指针指向下一个位置
+                count--; // 元素个数-1
+                System.out.println("消费者消费了一个数据" + num);
 
+                // 唤醒消费者线程
+                notFull.signal();
 
-                    // 模拟消费数据耗时
-                    Thread.sleep(1000);
+                // 模拟消费数据耗时
+                Thread.sleep(1000);
 
-                    lock.unlock();
+                lock.unlock();
 
-                    }
+            }
         }
     }
 
