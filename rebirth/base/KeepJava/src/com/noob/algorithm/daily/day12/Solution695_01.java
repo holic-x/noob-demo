@@ -53,4 +53,26 @@ public class Solution695_01 {
         }
     }
 
+    /*
+    public int largestIsland(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        // int maxArea = 0; // 获取改造后可构成的最大岛屿面积
+        int maxArea = -1; // 如果没有海域可改造，那么原地图中的最大岛屿面积即所得
+        // 遍历每一个海域，将其改造成陆地，获取更新后的地图中的最大岛屿面积
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 0) {
+                    grid[i][j] = 1; // 将海域改造成陆地
+                    maxArea = Math.max(maxArea, maxAreaOfIsland(grid));
+                    grid[i][j] = 0; // 恢复现场
+                }else{
+                    maxArea = Math.max(maxArea, maxAreaOfIsland(grid));
+                }
+            }
+        }
+        // 返回改造后的最大岛屿面积
+       //  return maxArea != -1 ? maxArea : m * n;
+        return maxArea;
+    }
+     */
 }
