@@ -1,6 +1,5 @@
 package com.noob.algorithm.daily.day12;
 
-import com.noob.algorithm.solution_archive.dmsxl.graph.disJointSet.DisJointSet;
 
 import java.util.Arrays;
 import java.util.Comparator;
