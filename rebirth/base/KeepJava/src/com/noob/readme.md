@@ -1,5 +1,13 @@
-- algorithm：算法相关
-- common：基础题
+- algorithm：算法相关(leetcode KMW)
+  - [plan_archive](algorithm%2Fplan_archive) 日常刷题计划归档
+    - [plan01](algorithm%2Fplan_archive%2Fplan01)：hot100 刷题计划(周期:42d) 
+    - [plan02-hot100](algorithm%2Fplan_archive%2Fplan02%2Fhot100) hot100 刷题计划(周期:12d)
+    - [graph](algorithm%2Fplan_archive%2Fplan02%2Fgraph) 图相关题型补充
+  - [solution_archive](algorithm%2Fsolution_archive) 算法题解归档
+    - 代码随想录
+    - leetcode
+    - KMW
+- common：基础题(常见基础)
 - design：设计模式相关
 - rpc：rpc基础
 - scene：场景题
