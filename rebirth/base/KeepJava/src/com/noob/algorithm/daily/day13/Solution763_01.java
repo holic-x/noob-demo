@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 🟡 763 划分字母区间 - https://leetcode.cn/problems/partition-labels/submissions/603151233/
  */
-public class Solution763_02 {
+public class Solution763_01 {
 
     /**
      * 思路分析：
