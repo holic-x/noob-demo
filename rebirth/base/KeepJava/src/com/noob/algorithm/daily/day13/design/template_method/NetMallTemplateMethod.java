@@ -1,7 +1,5 @@
 package com.noob.algorithm.daily.day13.design.template_method;
 
-import sun.misc.BASE64Encoder;
-
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.HashMap;
@@ -67,7 +65,7 @@ public class NetMallTemplateMethod {
         @Override
         public String createBase64(Map<String, Object> map) {
             // 将爬取到的商品信息转成base64
-            BASE64Encoder encoder = new BASE64Encoder();
+            // BASE64Encoder encoder = new BASE64Encoder();
             System.out.println("淘宝商品base64海报生成");
             // return encoder.encode(JSON.toJSONString(map).getBytes(StandardCharsets.UTF_8));
             return null;
