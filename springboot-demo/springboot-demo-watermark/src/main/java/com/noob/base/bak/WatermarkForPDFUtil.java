@@ -1,4 +1,4 @@
-package com.noob.base.utils;
+package com.noob.base.bak;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -9,11 +9,11 @@ import org.apache.pdfbox.util.Matrix;
 import java.io.File;
 import java.io.IOException;
 
-public class WatermarkPDF {
+public class WatermarkForPDFUtil {
 
     public static void main(String[] args) throws IOException {
-        String pdfFile = "D:\\tmp.pdf"; // 输入的PDF文件路径
-        String outputFile = "D:\\output.pdf"; // 输出的PDF文件路径
+        String pdfFile = "D:\\Desktop\\test\\tmp.pdf"; // 输入的PDF文件路径
+        String outputFile = "D:\\Desktop\\test\\output.pdf"; // 输出的PDF文件路径
         String watermarkText = "hello world"; // 水印文字
 
         try (PDDocument document = PDDocument.load(new File(pdfFile))) {
