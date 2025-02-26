@@ -206,6 +206,10 @@
 /springboot-demo/springboot-demo-test/.idea
 /springboot-demo/springboot-demo-test/target
 
+/springboot-demo/springboot-demo-upload/.idea
+/springboot-demo/springboot-demo-upload/target
+/springboot-demo/springboot-demo-upload/springboot-demo-upload.iml
+
 
 rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml
 springboot-demo/springboot-demo-batchHandler/src/main/resources/application-remote.yml
