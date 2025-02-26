@@ -1,7 +1,7 @@
 package com.noob.base.demo.controller;
 
-import com.noob.base.demo.model.User;
-import com.noob.base.demo.service.ExcelService;
+import com.noob.base.demo.model.EasyUser;
+import com.noob.base.demo.service.EasyExcelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,21 +12,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/excel")
-public class ExcelController {
+@RequestMapping("/easyExcel")
+public class EasyExcelController {
 
     @Autowired
-    private ExcelService excelService;
+    private EasyExcelService excelService;
 
     /**
      * 导出用户数据
      */
     @GetMapping("/export")
     public void exportUsers(HttpServletResponse response) throws IOException {
-        List<User> userList = new ArrayList<>();
+        List<EasyUser> userList = new ArrayList<>();
         // 模拟数据
-        userList.add(new User(1L, "张三", 25));
-        userList.add(new User(2L, "李四", 30));
+        userList.add(new EasyUser(1L, "张三", 25));
+        userList.add(new EasyUser(2L, "李四", 30));
         excelService.exportUsers(response, userList);
     }
 

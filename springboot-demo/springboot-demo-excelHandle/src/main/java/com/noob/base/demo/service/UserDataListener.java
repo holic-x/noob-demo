@@ -3,16 +3,19 @@ package com.noob.base.demo.service;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.util.ListUtils;
-import com.noob.base.demo.model.User;
+import com.noob.base.demo.model.EasyUser;
 
 import java.util.List;
 
-public class UserDataListener implements ReadListener<User> {
+/**
+ * 自定义用户数据监听类
+ */
+public class UserDataListener implements ReadListener<EasyUser> {
 
-    private List<User> cachedDataList = ListUtils.newArrayListWithExpectedSize(100);
+    private List<EasyUser> cachedDataList = ListUtils.newArrayListWithExpectedSize(100);
 
     @Override
-    public void invoke(User user, AnalysisContext context) {
+    public void invoke(EasyUser user, AnalysisContext context) {
         cachedDataList.add(user);
         // 每100条数据存储一次
         if (cachedDataList.size() >= 100) {

@@ -1,5 +1,6 @@
 package com.noob.base.demo.model;
 
+
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class EasyUser {
     @ExcelProperty("用户ID")
     private Long id;
 
