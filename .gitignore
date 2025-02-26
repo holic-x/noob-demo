@@ -216,6 +216,11 @@
 /springboot-demo/springboot-demo-upload/springboot-demo-upload.iml
 
 
+/springboot-demo/springboot-demo-excelHandle/.idea
+/springboot-demo/springboot-demo-excelHandle/target
+
+
+
 rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml
 springboot-demo/springboot-demo-batchHandler/src/main/resources/application-remote.yml
 springboot-demo/springboot-demo-redis-base/src/main/resources/application-dev.yml
