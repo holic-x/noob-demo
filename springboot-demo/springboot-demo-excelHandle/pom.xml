@@ -124,8 +124,13 @@
             <artifactId>xmlbeans</artifactId>
             <version>5.1.1</version>
         </dependency>
+
         <!-- Apache POI for Excel handling end -->
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
 
 
     </dependencies>
