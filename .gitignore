@@ -133,6 +133,11 @@
 /springboot-demo/springboot-demo-batchHandler/.idea
 /springboot-demo/springboot-demo-batchHandler/target
 
+
+/springboot-demo/springboot-demo-multithreadBatchHandle/.idea
+/springboot-demo/springboot-demo-multithreadBatchHandle/target
+
+
 /springboot-demo/springboot-demo-sharding01/.idea
 /springboot-demo/springboot-demo-sharding01/target
 
