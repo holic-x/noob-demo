@@ -13,8 +13,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>3.1.0</spring-boot.version>
     </properties>
-    <dependencies>
 
+    <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -63,7 +63,6 @@
         </dependency>
 
     </dependencies>
-
     <dependencyManagement>
         <dependencies>
             <dependency>

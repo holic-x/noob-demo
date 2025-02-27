@@ -1,12 +1,11 @@
 package com.noob.base.dataMasking.interceptor;
 
+import com.noob.base.dataMasking.anno.DataMasking;
+import com.noob.base.dataMasking.util.DataMaskingUtil;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 
-/**
- * 数据脱敏拦截器：在数据返回给前端时自动进行数据脱敏处理
- */
 @Component
 public class DataMaskingInterceptor {
 

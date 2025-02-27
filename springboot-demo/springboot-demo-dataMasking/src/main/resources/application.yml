@@ -4,29 +4,24 @@ server:
   servlet:
     context-path: /api
 
-# spring相关配置
+# Spring Boot 配置
 spring:
-  profiles:
-    active: dev
-  redis:
-    host: localhost
-    port: 6379
-
-  # 数据库配置
+  # H2 内存数据库配置
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db_mysql_base
-    username: root
-    password: 123456
-
+    url: jdbc:h2:mem:db_noob_demo
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
   # JPA 配置
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-    show-sql: true
-
-  # 启用时初始化数据
+  # H2 控制台配置
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # H2控制台访问路径
   sql:
     init:
-      mode: never # always
+      mode: always # 设置为always表示每次启动时都会执行data.sql文件中的sql语句

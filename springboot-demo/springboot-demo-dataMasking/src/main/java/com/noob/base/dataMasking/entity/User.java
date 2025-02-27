@@ -1,10 +1,13 @@
 package com.noob.base.dataMasking.entity;
 
-import com.example.datamasking.annotation.DataMasking;
-import javax.persistence.*;
+import com.noob.base.dataMasking.anno.DataMasking;
+import jakarta.persistence.*;
+import lombok.Data;
 
+
+@Data
 @Entity
-@Table(name = "user")
+@Table(name = "noob_user")
 public class User {
 
     @Id
