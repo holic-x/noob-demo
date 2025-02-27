@@ -16,3 +16,8 @@ spring:
   h2:
     console:
       enabled: true
+      path: /h2-console # H2控制台访问路径
+  sql:
+    init:
+      mode: always # 设置为always表示每次启动时都会执行data.sql文件中的sql语句
+
