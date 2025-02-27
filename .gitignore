@@ -138,6 +138,11 @@
 /springboot-demo/springboot-demo-multithreadBatchHandle/target
 
 
+
+/springboot-demo/springboot-demo-idempotence/.idea
+/springboot-demo/springboot-demo-idempotence/target
+
+
 /springboot-demo/springboot-demo-sharding01/.idea
 /springboot-demo/springboot-demo-sharding01/target
 
