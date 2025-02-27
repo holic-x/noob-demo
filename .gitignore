@@ -138,6 +138,9 @@
 /springboot-demo/springboot-demo-multithreadBatchHandle/target
 
 
+/springboot-demo/springboot-demo-devTemplate/.idea
+/springboot-demo/springboot-demo-devTemplate/target
+
 
 /springboot-demo/springboot-demo-idempotence/.idea
 /springboot-demo/springboot-demo-idempotence/target
