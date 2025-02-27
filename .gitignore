@@ -149,6 +149,10 @@
 /springboot-demo/springboot-demo-treeMenu/.idea
 /springboot-demo/springboot-demo-treeMenu/target
 
+/springboot-demo/springboot-demo-readWriteSplit/.idea
+/springboot-demo/springboot-demo-readWriteSplit/target
+
+
 
 
 /springboot-demo/springboot-demo-idempotence/.idea
