@@ -1,6 +1,6 @@
 package com.noob.base.demo.controller;
 
-import com.noob.base.demo.model.entity.NoobUser;
+import com.noob.base.demo.model.entity.User;
 import com.noob.base.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-// todo : https://blog.csdn.net/wondersfan/article/details/126631804
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -17,12 +16,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/createUser")
-    public NoobUser createUser(@RequestParam String name, @RequestParam String email) {
+    public User createUser(@RequestParam String name, @RequestParam String email) {
         return userService.createUser(name, email);
     }
 
     @GetMapping("/getAllUsers")
-    public List<NoobUser> getAllUsers() {
+    public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 }
