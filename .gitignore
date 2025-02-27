@@ -142,6 +142,11 @@
 /springboot-demo/springboot-demo-devTemplate/target
 
 
+
+/springboot-demo/springboot-demo-systemLog/.idea
+/springboot-demo/springboot-demo-systemLog/target
+
+
 /springboot-demo/springboot-demo-idempotence/.idea
 /springboot-demo/springboot-demo-idempotence/target
 
