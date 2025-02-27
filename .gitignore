@@ -146,6 +146,10 @@
 /springboot-demo/springboot-demo-systemLog/.idea
 /springboot-demo/springboot-demo-systemLog/target
 
+/springboot-demo/springboot-demo-treeMenu/.idea
+/springboot-demo/springboot-demo-treeMenu/target
+
+
 
 /springboot-demo/springboot-demo-idempotence/.idea
 /springboot-demo/springboot-demo-idempotence/target
