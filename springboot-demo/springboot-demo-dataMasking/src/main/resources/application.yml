@@ -19,4 +19,14 @@ spring:
     username: root
     password: 123456
 
-# 数据库相关配置
+  # JPA 配置
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  # 启用时初始化数据
+  sql:
+    init:
+      mode: never # always
