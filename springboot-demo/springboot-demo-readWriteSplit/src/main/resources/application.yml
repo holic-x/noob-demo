@@ -1,18 +1,19 @@
-# 应用服务 WEB 访问端口
-server:
-  port: 8080
-  servlet:
-    context-path: /api
-
-# spring相关配置
 spring:
-  profiles:
-    active: dev
-
-# log 配置
-logging:
-  level:
-    root: info
-    com.noob.base: debug # com.noob.base 目录下为debug级别
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+  datasource:
+    master:
+      url: jdbc:h2:mem:masterdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+    slave:
+      url: jdbc:h2:mem:slavedb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect

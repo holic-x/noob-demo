@@ -1,5 +1,6 @@
 package com.noob.base.config;
 
+
 import com.noob.base.datasource.RoutingDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -30,7 +31,7 @@ public class DataSourceConfig {
     @Primary
     @Bean(name = "routingDataSource")
     public DataSource routingDataSource(@Qualifier("masterDataSource") DataSource masterDataSource,
-                                       @Qualifier("slaveDataSource") DataSource slaveDataSource) {
+                                        @Qualifier("slaveDataSource") DataSource slaveDataSource) {
         RoutingDataSource routingDataSource = new RoutingDataSource();
         Map<Object, Object> targetDataSources = new HashMap<>();
         targetDataSources.put("master", masterDataSource);
