@@ -152,7 +152,8 @@
 /springboot-demo/springboot-demo-readWriteSplit/.idea
 /springboot-demo/springboot-demo-readWriteSplit/target
 
-
+/springboot-demo/springboot-demo-timeScheduler/.idea
+/springboot-demo/springboot-demo-timeScheduler/target
 
 
 /springboot-demo/springboot-demo-idempotence/.idea
