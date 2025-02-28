@@ -1,10 +1,13 @@
 package com.noob.base.user.service;
 
+import com.noob.base.datasource.DataSourceContextHolder;
 import com.noob.base.user.dao.UserRepository;
 import com.noob.base.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -12,13 +15,17 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Transactional(readOnly = true)
-    public User readUser(Long id) {
-        return userRepository.findById(id).orElse(null);
+    public User saveUser(User user) {
+        DataSourceContextHolder.setDataSource("master");
+        User savedUser = userRepository.save(user);
+        DataSourceContextHolder.clearDataSource();
+        return savedUser;
     }
 
-    @Transactional
-    public User writeUser(User user) {
-        return userRepository.save(user);
+    public List<User> getAllUsers() {
+        DataSourceContextHolder.setDataSource("slave");
+        List<User> users = userRepository.findAll();
+        DataSourceContextHolder.clearDataSource();
+        return users;
     }
 }
