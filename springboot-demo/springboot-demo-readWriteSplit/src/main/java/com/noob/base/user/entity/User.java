@@ -1,7 +1,8 @@
-package com.noob.base.demo.model.entity;
+package com.noob.base.user.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
+
+import javax.persistence.*;
 
 @Data
 @Entity(name = "noob_user")
@@ -10,5 +11,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String email;
+
+    // getters and setters
 }

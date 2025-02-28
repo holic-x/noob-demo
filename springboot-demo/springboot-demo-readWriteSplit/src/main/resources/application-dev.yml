@@ -1,26 +1,19 @@
-
-
 spring:
-  # H2 数据库配置
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:db_noob_demo
-    username: sa
-    password:
-  # JPA 配置
+    master:
+      url: jdbc:h2:mem:masterdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password: sa
+      driver-class-name: org.h2.Driver
+    slave:
+      url: jdbc:h2:mem:slavedb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password: sa
+      driver-class-name: org.h2.Driver
   jpa:
-    show-sql: true
     hibernate:
       ddl-auto: update
+    show-sql: true
     properties:
       hibernate:
-        format_sql: true
-  # H2 配置
-  h2:
-    console:
-      enabled: true
-      path: /h2-console # H2控制台访问路径
-  sql:
-    init:
-      mode: always # 设置为always表示每次启动时都会执行data.sql文件中的sql语句
-
+        dialect: org.hibernate.dialect.H2Dialect
