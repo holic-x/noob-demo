@@ -133,6 +133,37 @@
 /springboot-demo/springboot-demo-batchHandler/.idea
 /springboot-demo/springboot-demo-batchHandler/target
 
+
+/springboot-demo/springboot-demo-multithreadBatchHandle/.idea
+/springboot-demo/springboot-demo-multithreadBatchHandle/target
+
+
+/springboot-demo/springboot-demo-devTemplate/.idea
+/springboot-demo/springboot-demo-devTemplate/target
+
+
+
+/springboot-demo/springboot-demo-systemLog/.idea
+/springboot-demo/springboot-demo-systemLog/target
+
+/springboot-demo/springboot-demo-treeMenu/.idea
+/springboot-demo/springboot-demo-treeMenu/target
+
+/springboot-demo/springboot-demo-readWriteSplit/.idea
+/springboot-demo/springboot-demo-readWriteSplit/target
+
+/springboot-demo/springboot-demo-timeScheduler/.idea
+/springboot-demo/springboot-demo-timeScheduler/target
+
+
+/springboot-demo/springboot-demo-idempotence/.idea
+/springboot-demo/springboot-demo-idempotence/target
+
+/springboot-demo/springboot-demo-dataMasking/.idea
+/springboot-demo/springboot-demo-dataMasking/target
+
+
+
 /springboot-demo/springboot-demo-sharding01/.idea
 /springboot-demo/springboot-demo-sharding01/target
 
@@ -205,6 +236,15 @@
 
 /springboot-demo/springboot-demo-test/.idea
 /springboot-demo/springboot-demo-test/target
+
+/springboot-demo/springboot-demo-upload/.idea
+/springboot-demo/springboot-demo-upload/target
+/springboot-demo/springboot-demo-upload/springboot-demo-upload.iml
+
+
+/springboot-demo/springboot-demo-excelHandle/.idea
+/springboot-demo/springboot-demo-excelHandle/target
+
 
 
 rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml

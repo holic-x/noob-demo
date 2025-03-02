@@ -1,0 +1,27 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# Spring Boot 配置
+spring:
+  # H2 内存数据库配置
+  datasource:
+    url: jdbc:h2:mem:db_noob_demo
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  # JPA 配置
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  # H2 控制台配置
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # H2控制台访问路径
+  sql:
+    init:
+      mode: always # 设置为always表示每次启动时都会执行data.sql文件中的sql语句
