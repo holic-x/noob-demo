@@ -176,6 +176,10 @@
 /java-demo/JavaBaseDemo/.idea
 /java-demo/JavaBaseDemo/target
 
+/java-demo/QuartzDemo/.idea
+/java-demo/QuartzDemo/target
+
+
 /redis-demo/springboot-redis-distribute-lock/.idea
 /redis-demo/springboot-redis-distribute-lock/target
 
