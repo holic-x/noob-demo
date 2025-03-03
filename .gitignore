@@ -142,6 +142,10 @@
 /springboot-demo/springboot-demo-mybatisPlus/target
 
 
+/springboot-demo/springboot-demo-gracefulShutdown/.idea
+/springboot-demo/springboot-demo-gracefulShutdown/target
+
+
 
 /springboot-demo/springboot-demo-multithreadBatchHandle/.idea
 /springboot-demo/springboot-demo-multithreadBatchHandle/target
