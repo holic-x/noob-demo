@@ -138,6 +138,9 @@
 /springboot-demo/springboot-demo-jpa/target
 /springboot-demo/springboot-demo-mybatis/.idea
 /springboot-demo/springboot-demo-mybatis/target
+/springboot-demo/springboot-demo-mybatisPlus/.idea
+/springboot-demo/springboot-demo-mybatisPlus/target
+
 
 
 /springboot-demo/springboot-demo-multithreadBatchHandle/.idea
