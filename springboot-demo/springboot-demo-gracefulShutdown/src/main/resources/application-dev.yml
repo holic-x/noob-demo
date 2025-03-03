@@ -1,26 +1,8 @@
-
-
-spring:
-  # H2 数据库配置
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:db_noob_demo
-    username: sa
-    password:
-  # JPA 配置
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        format_sql: true
-  # H2 配置
-  h2:
-    console:
-      enabled: true
-      path: /h2-console # H2控制台访问路径
-  sql:
-    init:
-      mode: always # 设置为always表示每次启动时都会执行data.sql文件中的sql语句
-
+# 启用shutdown端点（配置优雅停机）
+management:
+  endpoint:
+    shutdown:
+      enable: true
+    web:
+      exposure:
+        include: shutdown
