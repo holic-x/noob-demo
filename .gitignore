@@ -134,6 +134,9 @@
 /springboot-demo/springboot-demo-batchHandler/target
 
 
+/springboot-demo/springboot-demo-h2/.idea
+/springboot-demo/springboot-demo-h2/target
+
 /springboot-demo/springboot-demo-multithreadBatchHandle/.idea
 /springboot-demo/springboot-demo-multithreadBatchHandle/target
 
