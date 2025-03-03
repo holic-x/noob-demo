@@ -1,4 +1,4 @@
-package com.noob.base.time;
+package com.noob.base.time.scheduled;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

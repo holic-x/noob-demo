@@ -62,6 +62,12 @@
             <version>1.2.75</version>
         </dependency>
 
+        <!-- Quartz Scheduler -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
