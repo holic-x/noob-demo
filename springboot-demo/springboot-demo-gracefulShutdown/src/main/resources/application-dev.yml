@@ -2,7 +2,8 @@
 management:
   endpoint:
     shutdown:
-      enable: true
+      enabled: true
+  endpoints:
     web:
       exposure:
         include: shutdown
