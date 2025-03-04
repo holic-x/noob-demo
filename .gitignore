@@ -145,6 +145,9 @@
 /springboot-demo/springboot-demo-gracefulShutdown/.idea
 /springboot-demo/springboot-demo-gracefulShutdown/target
 
+/springboot-demo/springboot-demo-multiTenant/.idea
+/springboot-demo/springboot-demo-multiTenant/target
+
 
 
 /springboot-demo/springboot-demo-multithreadBatchHandle/.idea
