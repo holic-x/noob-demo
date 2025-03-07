@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class Solution041_03 {
     /**
      * 给定一个未排序的数组nums，找出其中没有出现的最小正整数（题目限定时间复杂度为O(n),且只能使用常数级别的空间）
+     * 思路③：排序+遍历排序后的数组
      */
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;

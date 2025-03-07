@@ -10,6 +10,7 @@ import java.util.Set;
 public class Solution041_02 {
     /**
      * 给定一个未排序的数组nums，找出其中没有出现的最小正整数（题目限定时间复杂度为O(n),且只能使用常数级别的空间）
+     * 思路②：排序+二分查找
      */
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;
