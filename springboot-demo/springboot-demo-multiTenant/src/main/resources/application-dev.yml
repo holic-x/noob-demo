@@ -1,0 +1,24 @@
+# spring config
+spring:
+  # H2 数据库配置
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db_noob_demo
+    username: sa
+    password: sa
+  # H2 配置
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # H2控制台访问路径
+  # 数据库初始化配置
+  sql:
+    init:
+      mode: always # 设置为always表示每次启动时都会执行data.sql文件中的sql语句
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+# MyBatis-plus 配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.noob.base.user.model.entity

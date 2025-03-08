@@ -1,33 +1,40 @@
-
-
 spring:
-  # H2 数据库配置
   datasource:
+    url: jdbc:h2:mem:quartz-db
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:db_noob_demo
     username: sa
-    password:
-  # JPA 配置
+    password: password
   jpa:
-    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate:
-        format_sql: true
+
+  sql:
+    init:
+      mode: always
+
   # H2 配置
   h2:
     console:
       enabled: true
       path: /h2-console # H2控制台访问路径
-  sql:
-    init:
-      mode: always # 设置为always表示每次启动时都会执行data.sql文件中的sql语句
 
-
-
-  # 定时任务相关配置
-  task:
-    scheduling:
-      pool:
-        size: 10 # 配置定时任务的线程池大小
+  # quartz 配置
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: MyScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.springframework.scheduling.quartz.LocalDataSourceJobStore  # springboot>2.5.6需调整（错误版本：org.quartz.impl.jdbcjobstore.JobStoreTX）
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 5

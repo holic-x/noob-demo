@@ -1,0 +1,16 @@
+# 启用shutdown端点（配置优雅停机）
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: shutdown
+
+# 配置优雅停机
+server:
+  shutdown: graceful
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 30s # springboot 项目在关闭时最多等待30s，确保所有请求都能处理完毕
