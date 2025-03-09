@@ -17,7 +17,7 @@ import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
  *     }
  * }
  */
-class Solution {
+class Solution110_02 {
     /**
      * 平衡二叉树的左右子树的最大高度差不超过1
      */
