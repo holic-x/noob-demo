@@ -44,6 +44,7 @@ class Solution773_01 {
                 if (current.equals(target)) { // 如果当前遍历的序列和目标序列一致，说明可以通过移动得到目标序列，直接返回移动次数
                     return moves;
                 }
+                System.out.println("从队列中获取的字符串" + current);
 
                 // 找到空格的位置
                 int zeroIndex = current.indexOf('0'); // 定位字符串序列中'0'的位置（行、列）
@@ -93,6 +94,14 @@ class Solution773_01 {
         arr[i] = arr[j];
         arr[j] = temp;
         return new String(arr);
+    }
+
+    public static void main(String[] args) {
+        Solution773_01 s = new Solution773_01();
+        int[][] matrix = new int[][]{{4,1,2},{5,0,3}};
+        System.out.println(s.slidingPuzzle(matrix));
+
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
