@@ -183,6 +183,9 @@
 /springboot-demo/springboot-demo-enc_dec/.idea
 /springboot-demo/springboot-demo-enc_dec/target
 
+/springboot-demo/springboot-demo-encryptAndDecrypt/target
+/springboot-demo/springboot-demo-encryptAndDecrypt/.idea
+
 
 
 /springboot-demo/springboot-demo-sharding01/.idea
@@ -285,6 +288,7 @@ springboot-demo/springboot-demo-batchHandler/src/main/resources/application-remo
 springboot-demo/springboot-demo-redis-base/src/main/resources/application-dev.yml
 springboot-demo/springboot-demo-test/src/main/resources/application-dev.yml
 redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local.yml
+
 /springboot-demo/springboot-demo-druid/target
 /springboot-demo/springboot-demo-druid/.idea
 
