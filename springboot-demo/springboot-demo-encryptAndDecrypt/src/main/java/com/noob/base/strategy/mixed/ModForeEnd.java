@@ -63,9 +63,19 @@ public class ModForeEnd {
     public static void main(String[] args) throws Exception {
         // 模拟生成加密请求
         EncryptedDataRequest encryptedDataRequest = buildEncryptedRequest("123456", RSA_PUBLIC_KEY);
+        System.out.println(encryptedDataRequest.getEncryptedKey());
+        System.out.println(encryptedDataRequest.getEncryptedData());
+        System.out.println(encryptedDataRequest.getIv());
+
         // 解密处理
         String data = AESUtil.decryptData(encryptedDataRequest, RSA_PRIVATE_KEY);
         System.out.println(data);
+
+
+        for(int i=0;i<10;i++){
+            System.out.println(AESUtil.generateIV());
+
+        }
     }
 
 
