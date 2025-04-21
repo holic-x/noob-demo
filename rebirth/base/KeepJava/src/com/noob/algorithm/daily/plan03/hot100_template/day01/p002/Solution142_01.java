@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Solution142_01 {
     /**
-     * 思路分析：
+     * 思路分析：给定链表head，如果存在环则返回入环的第1个节点，如果链表无环则返回null
      */
     public ListNode detectCycle(ListNode head) {
         return null;

@@ -7,23 +7,22 @@ import java.util.HashSet;
 /**
  * 🟢 141 环形链表I - https://leetcode.cn/problems/linked-list-cycle/description/
  */
-public class Solution141_01 {
+public class Solution141_02 {
     /**
      * 思路分析：给定一个链表的头节点head，判断链表中是否有环
+     * 快慢指针
      */
     public boolean hasCycle(ListNode head) {
-        ListNode cur = head;
+        // 定义快慢指针初始化起点相同
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
 
-        // 定义哈希表存储已出现元素节点
-        HashSet<ListNode> set = new HashSet<>();
-
-        // 遍历链表
-        while (cur != null) {
-            if (set.contains(cur)) {
+            // 快指针如果先到达终点则说明不存在环，如果快指针和慢指针相遇则说明存在环
+            if (slow == fast) {
                 return true;
             }
-            set.add(cur);
-            cur = cur.next;
         }
 
         // 不存在环
