@@ -6,12 +6,12 @@ import java.util.Stack;
 
 /**
  * 🟡 019 删除链表的倒数第N个节点 - https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/
- * todo
  */
 public class Solution019_01 {
 
     /**
      * 思路分析：
+     * 删除链表的倒数第N个节点，可以基于遍历的思路寻找到倒数第N+1个节点，然后执行删除操作（构建虚拟头节点执行删除操作）
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
         // 定义虚拟头节点

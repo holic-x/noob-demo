@@ -9,6 +9,7 @@ public class Solution024_01 {
 
     /**
      * 思路分析：
+     * 构建虚拟头节点，模拟元素交换（记录交换的节点，然后依次连接）
      */
     public ListNode swapPairs(ListNode head) {
         // 构建虚拟头节点
