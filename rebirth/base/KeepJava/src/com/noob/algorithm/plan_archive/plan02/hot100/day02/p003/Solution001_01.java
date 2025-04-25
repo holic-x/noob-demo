@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 🟢 001 两数之和 - https://leetcode.cn/problems/happy-number/submissions/598388261/
+ * 🟢 001 两数之和 - https://leetcode.cn/problems/two-sum/description/
  */
 public class Solution001_01 {
     /**
