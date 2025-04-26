@@ -1,0 +1,59 @@
+
+
+spring:
+  # H2 数据库配置
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db_noob_demo
+    username: sa
+    password:
+  # JPA 配置
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  # H2 配置
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # H2控制台访问路径
+  sql:
+    init:
+      mode: always # 设置为always表示每次启动时都会执行data.sql文件中的sql语句
+
+# 自定义配置参考(注意换行和缩进格式,以及结构化配置概念)
+rsa:
+  publicKey: |
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnPOVoeDof7NR/+UAtLsS2y2wIIq9Oz2P
+    05c1P/7mu403t0Ej8ouZla9YWxouNtqyDDaBifpKRKnK7qg2uXPmFIOCNnHb/ixCKmmqTx/QVW3b
+    tSzq0YSyF0QUHXRs5bENaxl7CzM7fAbRUXmIMpcRFYf8JOVxFZcM2G9ih9gj0uQNiyjDujuEn8KB
+    PG7vn0B853930268sl1RpJf9U8uowAAW+OH34W4YUoqDLdER67RKguq85cz0NrWGX0fBWmqFhoxc
+    l7o7e3dVFXWrXDGu/W9fc37CMhJcLsIWvVB2XYg6hjLbN99s2KPHFnYLzBpMRvoFntAzMRrZGmgg
+    Ms6huQIDAQAB
+  privateKey: |
+    MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCc85Wh4Oh/s1H/5QC0uxLbLbAg
+    ir07PY/TlzU//ua7jTe3QSPyi5mVr1hbGi422rIMNoGJ+kpEqcruqDa5c+YUg4I2cdv+LEIqaapP
+    H9BVbdu1LOrRhLIXRBQddGzlsQ1rGXsLMzt8BtFReYgylxEVh/wk5XEVlwzYb2KH2CPS5A2LKMO6
+    O4SfwoE8bu+fQHznf3fTbryyXVGkl/1Ty6jAABb44ffhbhhSioMt0RHrtEqC6rzlzPQ2tYZfR8Fa
+    aoWGjFyXujt7d1UVdatcMa79b19zfsIyElwuwha9UHZdiDqGMts332zYo8cWdgvMGkxG+gWe0DMx
+    GtkaaCAyzqG5AgMBAAECggEAF+UHt1Tv4J0y0zQQlvNSLBc5FMM6iv3U20BOhZcvlocp39ble6Qg
+    NkczOu9x8Lz71Vso/pIh43E8KXhnmHVaJm5dER/lf71KN33NxW0RASiQBfW4LDy5BkzBiThz6cY6
+    Rj9jWbGrkTbSgEZx403XdoE09IMP49sSxBK1G/xee9kqYG4yT1uP0tFIEOUfv+Cuij3LafyOV1Vt
+    i8sN/frU0bqVxlTn7D+S4A2npVqpSPAS+v/dDEZBCRvk93TIZy+qBHTS88aIqAF//llZ1cf0h33x
+    4OETEFNbgEKoVV5mKfaC+GkVv1M/uxZT6l4IQCmOK9rMfzNn9KVawYuMVbrGWQKBgQDERkh7CIWd
+    UfUSLuE3gmPN+bs565e8Echr8HdSZXQ+k5SdsCtUhvMDZ2/3XgDQSqK9LR9xqKJie6oOGAe3n04Z
+    TukHKIgH2q3EcTHRWMnXDNa1++hOgMeWM4A2oE3d6gQhJ41Nho8+vtF7HTj3fyyjiqRUF4vXJ51Z
+    ske6W+cBxQKBgQDMtgzsGBNLA1C9fzZjr5mxbrAl2CNZ+Gaw19Ce/9Gj90xGHKD5+FB8mRaGjTyU
+    aUrSfmA1zGFGwyRA1fcBw9U66bTsqJEwNu6xFvjPlH4eidZ5iwMGKYn/mw/7SMAna23oKQH+hll0
+    M7Vn9g7xlKJEpa4C3QfNoqVl4T+3VYkjZQKBgE0yF2/MekDV6z2rkojyj66Dek/diWA+3kUV3thZ
+    bs7t3JXopCIqsYm1NSRlpIxHzpn5FVTurm9tlATXDrH5xg3OK3jVSCtOpumMW7uq4DfkpM4Otd+q
+    ZtV8jADwK7AMSnN/yuOi+NQE2P9DDxTIwBXSga9RU37b5ddRd0SkwMbBAoGBAJCNxVY6MfV4Y91M
+    JVYDO95lMRGoLF5t3+Xkn7aHIrxL9ppTwQCC7iLt31AoD60lJOa6wql6pv5W8hSugnvGk53ERjQP
+    XGbVg3udoxjB3MUnxEGTfhEt5/qMvp5M4xNy8utLedMHf8dkdCbzQ94nfOZIsDXpaoc04OKuSlXl
+    mq9ZAoGAWmAKB9uEhu/uvgUbH/2VuU99Qla4U5KfjBbsAsgqQ6fr5lgVtSP7a1T2P15WubqoXHeE
+    SujBxeydLP3vUlzBdNFFM8O8sDjjbfnIudPIh9ulTtrBvlWRzfF1AtovEZ/sdnNZVysLx28m2Wn8
+    BMt780M78D8wV2VNO4V1zKpY5yI=
+    

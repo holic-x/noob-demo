@@ -1,7 +1,10 @@
 - algorithm：算法相关(leetcode KMW)
+  - daily
+    - [plan03-hot100](algorithm%2Fplan_archive%2Fplan02%2Fhot100) hot100 刷题计划(正常跟着周期走)、日常codeTop
   - [plan_archive](algorithm%2Fplan_archive) 日常刷题计划归档
     - [plan01](algorithm%2Fplan_archive%2Fplan01)：hot100 刷题计划(周期:42d) 
     - [plan02-hot100](algorithm%2Fplan_archive%2Fplan02%2Fhot100) hot100 刷题计划(周期:12d)
+    
     - [graph](algorithm%2Fplan_archive%2Fplan02%2Fgraph) 图相关题型补充
   - [solution_archive](algorithm%2Fsolution_archive) 算法题解归档
     - 代码随想录
