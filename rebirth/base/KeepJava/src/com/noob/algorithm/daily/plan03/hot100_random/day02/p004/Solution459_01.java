@@ -10,7 +10,9 @@ public class Solution459_01 {
      * 思路分析：
      */
     public boolean repeatedSubstringPattern(String s) {
-        return false;
+        StringBuffer buffer = new StringBuffer(s);
+        buffer.append(s);
+        return buffer.indexOf(s, 1) != s.length();
     }
 
     public static void main(String[] args) {
