@@ -2,7 +2,7 @@ package com.noob.algorithm.daily.plan03.hot100_template.day03.p005;
 
 
 /**
- * 🟢 225 用队列实现栈
+ * 🟢 225 用队列实现栈 - https://leetcode.cn/problems/implement-stack-using-queues/description/
  */
 public class Solution225_01 {
     /**
