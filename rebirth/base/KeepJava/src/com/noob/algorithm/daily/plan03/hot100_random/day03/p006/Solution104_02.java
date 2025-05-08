@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan03.hot100_template.day03.p006;
+package com.noob.algorithm.daily.plan03.hot100_random.day03.p006;
 
 import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 

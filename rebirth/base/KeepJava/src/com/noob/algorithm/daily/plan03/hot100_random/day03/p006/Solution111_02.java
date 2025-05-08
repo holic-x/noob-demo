@@ -1,9 +1,6 @@
-package com.noob.algorithm.daily.plan03.hot100_template.day03.p006;
+package com.noob.algorithm.daily.plan03.hot100_random.day03.p006;
 
 import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
-
-import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * 🟢 111 二叉树的最小深度 - https://leetcode.cn/problems/minimum-depth-of-binary-tree/description/

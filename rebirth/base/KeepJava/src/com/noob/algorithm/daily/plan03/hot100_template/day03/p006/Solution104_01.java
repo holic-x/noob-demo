@@ -13,24 +13,8 @@ public class Solution104_01 {
      * 思路分析：
      */
     public int maxDepth(TreeNode root) {
-        int max = dfs(root);
-        return max;
+        return -1;
     }
 
-
-    // 递归处理思路
-    private int dfs(TreeNode node) {
-        if (node == null) {
-            return 0;
-        }
-
-        // 计算左子树的最大深度
-        int leftMaxDepth = dfs(node.left);
-        // 计算右子树的最大深度
-        int rightMaxDepth = dfs(node.right);
-
-        // 返回当前节点的最大深度
-        return Math.max(leftMaxDepth, rightMaxDepth) + 1;
-    }
 
 }

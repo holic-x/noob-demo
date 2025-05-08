@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan03.hot100_template.day03.p005;
+package com.noob.algorithm.daily.plan03.hot100_random.day03.p005;
 
 import java.util.Comparator;
 import java.util.HashMap;
