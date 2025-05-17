@@ -9,6 +9,19 @@ public class Solution182_01 {
      * 思路分析：
      */
     public String dynamicPassword(String password, int target) {
-        return null;
+
+        // 字符串拼接处理
+        StringBuffer buffer = new StringBuffer();
+        for (int i = target; i < password.length(); i++) {
+            buffer.append(password.charAt(i));
+        }
+
+        // 拼接前target个字符
+        for (int i = 0; i < target; i++) {
+            buffer.append(password.charAt(i));
+        }
+
+        // 返回结果
+        return buffer.toString();
     }
 }

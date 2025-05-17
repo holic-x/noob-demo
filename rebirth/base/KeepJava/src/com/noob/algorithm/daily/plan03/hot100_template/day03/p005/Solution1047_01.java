@@ -8,9 +8,11 @@ import java.util.Stack;
 public class Solution1047_01 {
 
     /**
+     * 概要：删除两个相邻且相同的字母
      * 思路分析：
      */
     public String removeDuplicates(String s) {
+
         return null;
     }
 }
