@@ -8,7 +8,8 @@ import java.util.*;
 public class Solution347_01 {
 
     /**
-     * 思路分析：
+     * 概要：给定整数数组nums和整数k，返回出现频率前k高的元素
+     * 思路分析：大顶堆思路
      */
     public int[] topKFrequent(int[] nums, int k) {
         return new int[]{};

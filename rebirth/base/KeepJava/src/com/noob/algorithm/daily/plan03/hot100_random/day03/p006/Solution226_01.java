@@ -12,6 +12,24 @@ public class Solution226_01 {
      * 思路分析：
      */
     public TreeNode invertTree(TreeNode root) {
-        return null;
+        dfs(root);
+        return root;
     }
+
+    // 递归处理
+    private void dfs(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        // 翻转二叉树
+        TreeNode tmp = node.left;
+        node.left = node.right;
+        node.right = tmp;
+
+        // 递归处理
+        dfs(node.left);
+        dfs(node.right);
+    }
+
 }

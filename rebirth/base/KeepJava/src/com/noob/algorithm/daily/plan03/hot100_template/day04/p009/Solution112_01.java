@@ -5,7 +5,7 @@ import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 import java.util.LinkedList;
 
 /**
- * 🟢 112 路径总和
+ * 🟢 112 路径总和 - https://leetcode.cn/problems/path-sum/
  */
 public class Solution112_01 {
 
