@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public class Solution349_01 {
     /**
-     * 思路分析：哈希法
+     * 思路分析：
      */
     public int[] intersection(int[] nums1, int[] nums2) {
         return new int[]{};
