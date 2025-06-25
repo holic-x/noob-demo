@@ -273,6 +273,9 @@
 /springboot-demo/springboot-demo-test/.idea
 /springboot-demo/springboot-demo-test/target
 
+/springboot-demo/springboot-demo-test-optimize/.idea
+/springboot-demo/springboot-demo-test-optimize/target
+
 /springboot-demo/springboot-demo-upload/.idea
 /springboot-demo/springboot-demo-upload/target
 /springboot-demo/springboot-demo-upload/springboot-demo-upload.iml
