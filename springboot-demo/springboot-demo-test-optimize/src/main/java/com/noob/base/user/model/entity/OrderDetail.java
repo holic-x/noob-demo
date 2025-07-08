@@ -1,4 +1,4 @@
-package com.noob.base.order.model.entity;
+package com.noob.base.user.model.entity;
 
 import lombok.Data;
 
