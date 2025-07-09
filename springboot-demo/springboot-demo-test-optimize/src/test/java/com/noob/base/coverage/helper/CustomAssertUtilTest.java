@@ -317,4 +317,24 @@ public class CustomAssertUtilTest {
         constructor.setAccessible(true);
         assertNotNull("反射构造应返回非空实例", constructor.newInstance());
     }
+
+    /**
+     * 测试 断言失败
+     * 场景：测试断言失败场景
+     * 预期：打印失败信息提示
+     */
+    @Test
+    public void test_fail_WhenAssertFailed_LogFormattedError() throws Exception {
+        CustomAssertUtil.fail("处理失败");
+    }
+
+    /**
+     * 测试 断言失败
+     * 场景：测试断言失败场景
+     * 预期：打印失败信息提示 & 异常堆栈信息
+     */
+    @Test
+    public void test_fail_WhenAssertFailed_LogFormattedErrorAndCause() throws Exception {
+        CustomAssertUtil.fail("处理失败",new RuntimeException("处理失败场景测试"));
+    }
 }

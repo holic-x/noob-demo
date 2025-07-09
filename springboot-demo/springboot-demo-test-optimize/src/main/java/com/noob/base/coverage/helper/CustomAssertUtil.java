@@ -123,4 +123,29 @@ public class CustomAssertUtil {
             }
         }
     }
+
+    /**
+     * 失败：抛出 AssertionError 或 打印异常日志
+     *
+     * @param message 失败信息
+     */
+    public static void fail(String message) {
+        // throw new AssertionError(message);
+
+        // 断言失败，打印失败信息提示
+        log.error("[ASSERT_FAIL] {} - 断言失败", message);
+    }
+
+    /**
+     * 失败：抛出 AssertionError 并附带原始异常
+     *
+     * @param message 失败信息
+     * @param cause   原始异常
+     */
+    public static void fail(String message, Throwable cause) {
+        // throw new AssertionError(message, cause);
+
+        // 断言失败，打印失败信息提示 & 异常堆栈信息
+        log.error("[ASSERT_FAIL] {} - 断言失败", message, cause);
+    }
 }

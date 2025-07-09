@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 import static com.noob.base.coverage.helper.CustomAssertUtil.assertEquals;
 import static com.noob.base.coverage.helper.CustomAssertUtil.assertNotEquals;
 
+// todo
 public class EqualsHashCodeFullCoverageUtil<T> {
 
     private final Supplier<T> instanceSupplier;

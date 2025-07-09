@@ -1,6 +1,6 @@
 package com.noob.base.coverage.helper;
 
-import com.noob.base.coverage.mockEntity.ModelCoverageEntity;
+import com.noob.base.coverage.model.entity.ModelCoverageEntity;
 import lombok.SneakyThrows;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -26,15 +26,29 @@ public class ModelCoverageUtilTest {
     // @Mock fix final class ShardingContext mock error（need PowerMock）
     // Method method;
 
+    /**
+     * 构造器覆盖
+     */
     @Test
     public void test_coverage_constructor() {
         ModelCoverageUtil util = new ModelCoverageUtil();
         assertNotNull(util);
     }
 
+    /**
+     * 覆盖普通实体，验证覆盖范围，补充分支覆盖的场景样例
+     */
+    @SneakyThrows
+    @Test
+    public void test_coverage_entity() {
+
+        ModelCoverageUtil.testPojo(ModelCoverageEntity.class);
+
+        Assert.assertTrue(true);
+    }
 
     /**
-     * 实体覆盖测试
+     * 实体覆盖测试：按照包维度进行覆盖
      * Lombok 注解配置实体 覆盖扫描UT 测试 (部分覆盖，待完善：需调整兼容性适配所有相关lombok覆盖)
      * 可适配普通实体和Lombok修饰的实体，但未兼容lombok所有注解方法覆盖（部分覆盖）
      */
@@ -45,24 +59,11 @@ public class ModelCoverageUtilTest {
         try {
             List<Class<?>> classes = ClassUtil.getClasses("com.htsc.ione.duediligence.duediligence.entity.vo");
             classes.forEach(cls -> {
-                try {
-                    ModelCoverageUtil.TestPojo(cls);
-                } catch (IllegalAccessException e) {
-                } catch (InstantiationException e) {
-                }
+                ModelCoverageUtil.testPojo(cls);
             });
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Assert.assertTrue(true);
-    }
-
-    @SneakyThrows
-    @Test
-    public void test_coverage_entity() {
-
-        ModelCoverageUtil.TestPojo(ModelCoverageEntity.class);
-
         Assert.assertTrue(true);
     }
 

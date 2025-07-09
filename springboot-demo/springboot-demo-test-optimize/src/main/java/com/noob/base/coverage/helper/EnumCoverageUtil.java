@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
+ * todo
  * 覆盖率测试工具类 - 枚举类、常量等覆盖
  */
 public class EnumCoverageUtil {
