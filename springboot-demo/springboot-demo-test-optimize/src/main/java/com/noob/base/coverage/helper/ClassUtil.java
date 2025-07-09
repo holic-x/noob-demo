@@ -44,6 +44,7 @@ public class ClassUtil {
     public static List<Class<?>> getClasses(String packageName, boolean loadClasses)
             throws ClassNotFoundException, IOException {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        // ClassLoader classLoader = ClassUtil.class.getClassLoader(); // 或 getClass().getClassLoader()
         String path = packageName.replace(".", "/");
         Enumeration<URL> resources = classLoader.getResources(path);
         List<Class<?>> classes = new ArrayList<>();
@@ -70,7 +71,8 @@ public class ClassUtil {
             throws ClassNotFoundException {
         List<Class<?>> classes = new ArrayList<>();
 
-        if (!directory.exists()) {
+        // 如果目录不存在或者目录无读取权限则退出
+        if (!directory.exists() || !directory.canRead()) {
             return classes;
         }
 
@@ -92,9 +94,9 @@ public class ClassUtil {
                     // 实际加载类
                     classes.add(Class.forName(className));
                 } else {
-                    // 仅记录类名（不实际加载）
+                    // 仅记录类名（不实际加载），但直接存入null可能导致一些测试场景的异常
                     classes.add(null);
-                    // 或者可以改为存储类名字符串：
+                    // 或者可以改为存储类名字符串：返回未初始化的Class对象
                     // classes.add(Class.forName(className, false, Thread.currentThread().getContextClassLoader()));
                 }
             }

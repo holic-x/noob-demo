@@ -33,7 +33,7 @@ public class OrderServiceArgsTest {
 
     @Mock
     private PaymentGateway paymentGateway;
-    
+
     @InjectMocks
     private OrderService orderService;
 
