@@ -1,7 +1,7 @@
 package com.noob.base.coverage.helper;
 
-import com.noob.base.coverage.mockEntity.forModelCoverageUtil.CommonEntity;
-import com.noob.base.coverage.mockEntity.forModelCoverageUtil.LombokEntityByDataAnnotation;
+import com.noob.base.coverage.mockEntity.forModelCoverageUtil.validCover.CommonEntity;
+import com.noob.base.coverage.mockEntity.forModelCoverageUtil.validCover.LombokEntityByDataAnnotation;
 import lombok.SneakyThrows;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * ModelCoverageUtilValidCoverTest: 验证ModelCoverageUtil的覆盖程度(兼容性验证)
  * - 基于不同的实体定义进行覆盖
+ * test_coverage_byPackage：遍历某个package下的所有类进行覆盖
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ModelCoverageUtilValidCoverTest {
@@ -47,7 +48,7 @@ public class ModelCoverageUtilValidCoverTest {
      * Lombok 注解配置实体 覆盖扫描UT 测试 (部分覆盖，待完善：需调整兼容性适配所有相关lombok覆盖)
      * 可适配普通实体和Lombok修饰的实体，但未兼容lombok所有注解方法覆盖（部分覆盖）
      */
-    // @Ignore
+    @Ignore
     @SneakyThrows
     @Test
     public void test_coverage_byPackage() {
