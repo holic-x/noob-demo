@@ -1,4 +1,4 @@
-package com.noob.base.coverage.model.entity;
+package com.noob.base.coverage.mockEntity.forModelCoverageUtil;
 
 import java.time.LocalDate;
 import java.util.Objects;
