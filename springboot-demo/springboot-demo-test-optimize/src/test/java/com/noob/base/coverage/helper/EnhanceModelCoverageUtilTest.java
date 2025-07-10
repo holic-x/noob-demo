@@ -9,7 +9,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * 实体 UT 覆盖 测试
  */
-public class EnhanceEntityCoverageUtilTest {
+public class EnhanceModelCoverageUtilTest {
 
     @Test
     public void test_coverage_constructor() throws Exception {

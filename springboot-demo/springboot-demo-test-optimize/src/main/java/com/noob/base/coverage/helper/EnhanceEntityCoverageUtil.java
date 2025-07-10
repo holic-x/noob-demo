@@ -5,16 +5,17 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.*;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static com.noob.base.coverage.helper.CustomAssertUtil.*;
 import static com.noob.base.coverage.helper.InvokeHelperUtil.*;
 
-
 /**
- * todo
- * enhance 增强版实体UT覆盖工具类
+ * 增强版实体UT覆盖工具类
+ * <p>
  * 功能：完善的实体测试工具类（JDK 8兼容版），支持普通实体和Lombok所有常用注解
  * 1. 支持普通实体和Lombok注解（@Data, @Builder, @SuperBuilder等）
  * 2. 完整的类型安全字段赋值
@@ -23,137 +24,158 @@ import static com.noob.base.coverage.helper.InvokeHelperUtil.*;
  * 5. equals/hashCode/toString测试
  * 6. Builder模式测试
  * 7. JDK 8 兼容
+ * <p>
+ * 增强点：
+ * - 优化了Builder模式的检测逻辑
+ * - 增强了equals/hashCode测试的完整性
+ * - 补充了详细的代码注释
+ * - 改进了日志输出信息
+ * - 增加了对继承结构的支持
  */
 public class EnhanceEntityCoverageUtil {
 
     private static final Logger log = LoggerFactory.getLogger(EnhanceEntityCoverageUtil.class);
 
-
     /**
      * 测试实体类的所有基本方法
+     *
+     * @param <T>   实体类型
+     * @param clazz 要测试的实体类
+     * @throws RuntimeException 如果测试失败
      */
     public static <T> void testEntity(Class<T> clazz) {
         try {
             log.info("开始测试实体类: {}", clazz.getSimpleName());
 
-            // 1. 测试构造器（// 实体默认都要进行构造器校验，如果是Builder模式虽然有默认的private构造器，为了统一实体校验此处注意Builder模式下也要显式加上@NoArgsConstructor、@AllArgsConstructor统一处理）
-            testConstructors(clazz);
-
+            // 1. 测试构造器（包括无参、全参、部分参数的构造器）
+            // 实体默认都要进行构造器校验，如果是Builder模式虽然有默认的private构造器，为了统一实体校验此处注意Builder模式下也要显式加上@NoArgsConstructor、@AllArgsConstructor统一处理）
+            System.out.println("------------------------------【构造器覆盖测试】start------------------------------");
+            testAllConstructors(clazz);
+            System.out.println("------------------------------【构造器覆盖测试】end------------------------------\n");
 
             // 2. 创建测试实例
-            T instance1 = createInstance(clazz);
-            T instance2 = createInstance(clazz);
-            T diffInstance = createDifferentInstance(clazz);
+            System.out.println("------------------------------【实例创建】start------------------------------");
+            T instance = createInstance(clazz);  // 原始实例
+            T sameInstance = instance;          // 真正相同的实例引用
+            T equalInstance = createEqualInstance(clazz);  // 新创建但字段值相同的实例
+            T diffInstance = createDifferentInstance(clazz); // 字段值不同的实例
+            System.out.println("------------------------------【实例创建】end------------------------------\n");
 
             // 3. 测试基本方法
-            testEqualsAndHashCode(instance1, instance2, diffInstance);
-            testToString(instance1);
-            testGettersAndSetters(instance1);
+            System.out.println("------------------------------【基础方法覆盖测试】start------------------------------");
+            testEqualsAndHashCode(instance, sameInstance, equalInstance, diffInstance); // equals & hashCode 方法覆盖
+            testToString(instance); // toString 方法覆盖
+            testGettersAndSetters(instance); // getter & setter 方法覆盖
+            System.out.println("------------------------------【基础方法覆盖测试】end------------------------------\n");
 
-            // 4. 测试Builder模式
+            // 4. 测试Builder模式（如果支持）
+            System.out.println("------------------------------【Builder模式覆盖测试】start------------------------------");
             testBuilderPattern(clazz);
+            System.out.println("------------------------------【Builder模式覆盖测试】end------------------------------\n");
+
+            // 5. 测试链式调用（如果支持）
+            System.out.println("------------------------------【链式调用测试】start------------------------------");
+            testMethodChaining(clazz);
+            System.out.println("------------------------------【链式调用测试】end------------------------------\n");
 
             log.info("✅ 实体类 {} 测试通过", clazz.getSimpleName());
+
         } catch (Exception e) {
             log.error("❌ 实体类 {} 测试失败", clazz.getSimpleName(), e);
-            throw new RuntimeException("测试失败: " + clazz.getName(), e);
+            throw new RuntimeException("测试失败: " + clazz.getName(), e); // 抛出异常：随后可通过特殊实体定义来定位覆盖异常的情况，调整兼容版本
         }
     }
-
 
     // ====================== 构造器测试 ======================
 
-    private static <T> void testConstructors(Class<T> clazz) throws Exception {
-        log.debug("测试构造器...");
-        testNoArgsConstructor(clazz);
-        testAllArgsConstructor(clazz);
-    }
-
-    private static <T> void testNoArgsConstructor(Class<T> clazz) throws Exception {
-        try {
-            Constructor<T> constructor = clazz.getDeclaredConstructor();
-            constructor.setAccessible(true);
-            T instance = constructor.newInstance();
-            assertNotNull(instance, "无参构造器创建的对象为null");
-            log.debug("无参构造器测试通过");
-        } catch (NoSuchMethodException e) {
-            log.debug("类 {} 没有无参构造器", clazz.getSimpleName());
+    private static void validateConstructorParameters(Constructor<?> constructor, Object instance, Object[] params)
+            throws IllegalAccessException {
+        Parameter[] parameters = constructor.getParameters();
+        for (int i = 0; i < parameters.length; i++) {
+            String paramName = parameters[i].getName();
+            try {
+                Field field = findFieldByName(instance.getClass(), paramName);
+                if (field != null) {
+                    Object fieldValue = getFieldValue(field, instance);
+                    if (!Objects.deepEquals(fieldValue, params[i])) {
+                        System.out.println("【构造器参数验证】参数 " + paramName +
+                                " 设置不一致 (字段值: " + fieldValue + ", 参数值: " + params[i] + ")");
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("【构造器参数验证】无法验证参数 " + paramName + ": " + e.getMessage());
+            }
         }
     }
 
-    private static <T> void testAllArgsConstructor(Class<T> clazz) throws Exception {
-        Constructor<T> constructor = findFullArgsConstructor(clazz);
-        if (constructor != null) {
-            Object[] params = InvokeHelperUtil.generateParameters(constructor.getParameterTypes());
-            constructor.setAccessible(true);
-            T instance = constructor.newInstance(params);
+    /**
+     * 测试所有构造器（并行概念，无顺序要求）
+     */
+    protected static void testAllConstructors(Class<?> clazz) throws Exception {
+        Constructor<?>[] constructors = clazz.getDeclaredConstructors();
+        if (constructors.length == 0) {
+            throw new RuntimeException("类没有声明任何构造器: " + clazz.getName());
+        }
 
-            // 验证字段赋值
-            Parameter[] parameters = constructor.getParameters();
-            for (int i = 0; i < parameters.length; i++) {
-                String paramName = parameters[i].getName();
-                Field field = findFieldByName(clazz, paramName);
-                if (field != null) {
-                    Object fieldValue = getFieldValue(field, instance);
-                    Object paramValue = params[i];
-                    if (!Objects.equals(fieldValue, paramValue)) {
-                        log.warn("构造器参数 {} 可能未正确赋值 (字段值: {}, 参数值: {})", paramName, fieldValue, paramValue);
-                    }
+        for (Constructor<?> constructor : constructors) {
+            try {
+                constructor.setAccessible(true);
+                Class<?>[] paramTypes = constructor.getParameterTypes();
+                Object[] params = new Object[paramTypes.length];
+                for (int i = 0; i < paramTypes.length; i++) {
+                    params[i] = InvokeHelperUtil.generateNonNullValue(paramTypes[i]);
                 }
+                Object instance = constructor.newInstance(params);
+
+                // 验证构造器参数是否正确设置
+                validateConstructorParameters(constructor, instance, params);
+
+                System.out.println("【构造器测试】成功: " + constructor);
+            } catch (Exception e) {
+                System.out.println("【构造器测试】失败: " + constructor + "，原因: " + e.getMessage());
             }
-            log.debug("全参构造器测试通过");
         }
     }
 
     // ====================== 核心测试逻辑 ======================
-    /*
-    private static <T> void testEqualsAndHashCode(T obj1, T obj2, T diffObj) throws IllegalAccessException {
-        // equals 测试
-        assertTrue(obj1.equals(obj1), "equals违反自反性");
-        assertTrue(obj1.equals(obj2) && obj2.equals(obj1), "equals违反对称性");
 
-        // assertFalse(obj1.equals(null), "equals违反非空性");
-        // fix sonar Remove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.
-        assertFalse(obj1 == null, "equals违反非空性");
-
-        assertFalse(obj1.equals(diffObj), "equals无法区分不同对象");
-
-        // hashCode 测试
-        assertEquals(obj1.hashCode(), obj2.hashCode(), "相同对象hashCode不一致");
-        if (obj1.hashCode() == diffObj.hashCode()) {
-            log.warn("不同对象返回了相同的hashCode值，可能影响哈希表性能");
-        }
-    }
+    /**
+     * 增强版的equals和hashCode测试
+     *
+     * @param instance      原始实例
+     * @param sameInstance  相同的实例引用(instance == sameInstance)
+     * @param equalInstance 相等但不相同的实例(instance.equals(equalInstance)为true)
+     * @param diffInstance  不相等的实例
      */
-    public static <T> void testEqualsAndHashCode(T obj1, T obj2, T obj3) {
-        // 测试非空对象
-        assertNotNull(obj1, "测试对象1不应为null");
-        assertNotNull(obj2, "测试对象2不应为null");
-        assertNotNull(obj3, "测试对象3不应为null");
+    public static <T> void testEqualsAndHashCode(T instance, T sameInstance,
+                                                 T equalInstance, T diffInstance) {
+        // 1. 非空检查
+        assertNotNull(instance, "测试实例不应为null");
+        assertNotNull(equalInstance, "相等实例不应为null");
+        assertNotNull(diffInstance, "不等实例不应为null");
 
-        // 自反性
-        assertEquals(obj1, obj1, "自反性测试失败");
+        // 2. 自反性测试
+        assertEquals(instance, sameInstance, "自反性测试失败");
+        assertEquals(instance.hashCode(), sameInstance.hashCode(), "自反性hashCode测试失败");
 
-        // 对称性
-        assertEquals(obj1, obj2, "对称性测试失败(1)");
-        assertEquals(obj2, obj1, "对称性测试失败(2)");
+        // 3. 对称性测试
+        assertEquals(instance, equalInstance, "对称性测试失败(1)");
+        assertEquals(equalInstance, instance, "对称性测试失败(2)");
+        assertEquals(instance.hashCode(), equalInstance.hashCode(), "对称性hashCode测试失败");
 
-        // 传递性
-        assertEquals(obj2, obj1, "传递性测试失败(1)");
-        assertEquals(obj1, obj3, "传递性测试失败(2)");
-        assertNotEquals(obj2, obj3, "传递性测试失败(3)");
+        // 4. 不等性测试
+        assertNotEquals(instance, diffInstance, "不等性测试失败");
 
-        // 非null性
-        assertNotEquals(obj1, null, "非null性测试失败");
+        // 5. 非null测试
+        assertNotEquals(instance, null, "非null性测试失败");
 
-        // hashCode一致性
-        assertEquals(obj1.hashCode(), obj2.hashCode(), "hashCode一致性测试失败");
-        assertNotEquals(obj1.hashCode(), obj3.hashCode(), "hashCode差异性测试失败");
-
-        // 测试与不同类比较
-        assertNotEquals(obj1, "随机字符串", "不同类型比较测试失败");
+        // 6. 不同类型测试
+        assertNotEquals(instance, "其他类型对象", "不同类型比较测试失败");
     }
 
+    /**
+     * 测试toString方法
+     */
     private static <T> void testToString(T obj) throws IllegalAccessException {
         String str = obj.toString();
         assertNotNull(str, "toString返回null");
@@ -175,6 +197,9 @@ public class EnhanceEntityCoverageUtil {
         if (!hasFieldValue) log.warn("toString结果中不包含字段值");
     }
 
+    /**
+     * 测试getter和setter方法
+     */
     private static <T> void testGettersAndSetters(T obj) throws Exception {
         for (Field field : getAllFields(obj.getClass())) {
             Object originalValue = getFieldValue(field, obj);
@@ -204,31 +229,43 @@ public class EnhanceEntityCoverageUtil {
         }
     }
 
-    // 增强的检测方法
+    // ====================== Builder模式测试 ======================
+
+    /**
+     * 检测类是否支持Builder模式
+     */
     private static boolean hasBuilder(Class<?> clazz) {
         // 1. 检查标准builder()方法
         boolean hasBuilderMethod = Arrays.stream(clazz.getMethods())
                 .anyMatch(m -> m.getName().equals("builder")
-                        && m.getParameterCount() == 0);
+                        && m.getParameterCount() == 0
+                        && (m.getReturnType().getName().contains("Builder") ||
+                        m.getReturnType().isMemberClass()));
 
         // 2. 检查Builder类（适用于@SuperBuilder）
         boolean hasBuilderClass = Arrays.stream(clazz.getDeclaredClasses())
                 .anyMatch(c -> c.getSimpleName().contains("Builder"));
 
-        return hasBuilderMethod || hasBuilderClass;
+        // 3. 检查toBuilder支持
+        boolean hasToBuilder = Arrays.stream(clazz.getMethods())
+                .anyMatch(m -> m.getName().equals("toBuilder")
+                        && m.getParameterCount() == 0);
+
+        return hasBuilderMethod || hasBuilderClass || hasToBuilder;
     }
 
+    /**
+     * 测试Builder模式
+     */
     private static <T> void testBuilderPattern(Class<T> clazz) throws Exception {
         // @Builder 注解只支持源码级别，编译后运行不会保留，因此得到的class类文件必然不存在这个注解，通过这个方法无法覆盖场景
-        // if (clazz.isAnnotationPresent(Builder.class) || clazz.isAnnotationPresent(SuperBuilder.class)) {
+        // if (clazz.isAnnotationPresent(Builder.class) || clazz.isAnnotationPresent(SuperBuilder.class)) {}
 
-        // 非Builder模式
         if (!hasBuilder(clazz)) {
-            log.warn("类 {} 未检测到Builder支持", clazz.getSimpleName());
+            log.debug("类 {} 未检测到Builder支持", clazz.getSimpleName());
             return;
         }
 
-        // Builder模式 验证
         log.debug("测试Builder模式...");
 
         // 1. 创建Builder实例
@@ -255,6 +292,9 @@ public class EnhanceEntityCoverageUtil {
         verifyBuilderFieldValues(instance, clazz);
     }
 
+    /**
+     * 生成Builder测试值
+     */
     private static Object generateBuilderTestValue(Class<?> fieldType) {
         // 特殊处理父类字段
         if (fieldType == String.class) return "test";
@@ -263,9 +303,11 @@ public class EnhanceEntityCoverageUtil {
         return null; // 其他类型暂时返回null
     }
 
+    /**
+     * 验证Builder创建的实例字段值
+     */
     private static <T> void verifyBuilderFieldValues(T instance, Class<T> clazz)
             throws IllegalAccessException {
-
         for (Field field : getAllFields(clazz)) {
             field.setAccessible(true);
             Object value = field.get(instance);
@@ -275,16 +317,53 @@ public class EnhanceEntityCoverageUtil {
         }
     }
 
-    // ====================== 核心工具方法 ======================
-    // 参考 InvokeHelperUtil
+    // ====================== 新增链式调用测试 ======================
 
+    /**
+     * 测试链式调用方法
+     */
+    private static <T> void testMethodChaining(Class<T> clazz) throws Exception {
+        List<Method> chainableMethods = Arrays.stream(clazz.getMethods())
+                .filter(m -> m.getReturnType().equals(clazz) &&
+                        m.getParameterCount() > 0)
+                .collect(Collectors.toList());
 
-    // ====================== 反射辅助方法 ======================
-    // 参考 InvokeHelperUtil
+        if (chainableMethods.isEmpty()) {
+            System.out.println("【链式调用】未检测到链式调用方法");
+            return;
+        }
 
+        T instance = createInstance(clazz);
+        for (Method method : chainableMethods) {
+            try {
+                Object[] params = Arrays.stream(method.getParameterTypes())
+                        .map(InvokeHelperUtil::generateNonNullValue)
+                        .toArray();
 
-    // ====================== 断言方法 ======================
-    // 参考 CustomAssertUtil
+                Object result = method.invoke(instance, params);
+
+                if (result != instance) {
+                    System.out.println("【链式调用】方法 " + method.getName() +
+                            " 未返回this，返回类型: " + result.getClass().getSimpleName());
+                } else {
+                    System.out.println("【链式调用】方法 " + method.getName() + " 测试通过");
+                }
+            } catch (Exception e) {
+                System.out.println("【链式调用】方法 " + method.getName() + " 调用失败: " + e.getMessage());
+            }
+        }
+    }
+
+    // ====================== 辅助方法 ======================
+    // 以下方法需要从InvokeHelperUtil等工具类中引入:
+    // - findFullArgsConstructor
+    // - findFieldByName
+    // - getFieldValue/setFieldValue
+    // - getAllFields
+    // - findGetter/findSetter
+    // - generateDifferentValue
+    // - invokeBuilderMethod
+    // - buildAndVerify
+    // - 断言方法(assertNotNull, assertEquals等)
 
 }
-

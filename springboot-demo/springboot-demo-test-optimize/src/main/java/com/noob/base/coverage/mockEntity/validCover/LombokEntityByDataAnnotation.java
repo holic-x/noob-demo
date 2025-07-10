@@ -1,4 +1,4 @@
-package com.noob.base.coverage.mockEntity.forModelCoverageUtil.validCover;
+package com.noob.base.coverage.mockEntity.validCover;
 
 import lombok.Data;
 

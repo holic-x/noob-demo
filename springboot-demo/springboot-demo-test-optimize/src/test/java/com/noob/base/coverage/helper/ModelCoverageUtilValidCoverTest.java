@@ -1,7 +1,7 @@
 package com.noob.base.coverage.helper;
 
-import com.noob.base.coverage.mockEntity.forModelCoverageUtil.validCover.CommonEntity;
-import com.noob.base.coverage.mockEntity.forModelCoverageUtil.validCover.LombokEntityByDataAnnotation;
+import com.noob.base.coverage.mockEntity.validCover.CommonEntity;
+import com.noob.base.coverage.mockEntity.validCover.LombokEntityByDataAnnotation;
 import lombok.SneakyThrows;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -24,7 +24,7 @@ public class ModelCoverageUtilValidCoverTest {
      */
     // @SneakyThrows
     @Test
-    public void test_coverage_commonEntity() {
+    public void test_coverage_CommonEntity() {
 
         ModelCoverageUtil.testPojo(CommonEntity.class);
 

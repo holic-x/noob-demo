@@ -135,6 +135,47 @@ public class InvokeHelperUtil {
         }
     }
 
+    /**
+     * 深拷贝值数据
+     * @param value
+     * @return
+     */
+    private static Object deepCopyValue(Object value) {
+        if (value == null) {
+            return null;
+        }
+
+        // 简单类型直接返回
+        if (value.getClass().isPrimitive() ||
+                value instanceof String ||
+                value instanceof Number ||
+                value instanceof Boolean) {
+            return value;
+        }
+
+        // 其他情况返回原值（复杂对象需要特殊处理）
+        return value;
+    }
+
+    /**
+     * 创建一个与标准实例字段值相同的新实例
+     */
+    public static <T> T createEqualInstance(Class<T> clazz) throws Exception {
+        T instance = createInstance(clazz);
+        T equalInstance = clazz.newInstance();
+
+        // 复制所有字段值
+        for (Field field : getAllFields(clazz)) {
+            if (!Modifier.isFinal(field.getModifiers())) {
+                field.setAccessible(true);
+                Object value = field.get(instance);
+                field.set(equalInstance, deepCopyValue(value));
+            }
+        }
+
+        return equalInstance;
+    }
+
 
     /*
     public static <T> T createInstance(Class<T> clazz) throws Exception {
@@ -758,12 +799,13 @@ public class InvokeHelperUtil {
         return null;
     }
 
+    /**
+     * 获取类及其所有父类的字段
+     */
     public static List<Field> getAllFields(Class<?> clazz) {
         List<Field> fields = new ArrayList<>();
-        Class<?> current = clazz;
-        while (current != null && current != Object.class) {
-            fields.addAll(Arrays.asList(current.getDeclaredFields()));
-            current = current.getSuperclass();
+        for (Class<?> c = clazz; c != null; c = c.getSuperclass()) {
+            fields.addAll(Arrays.asList(c.getDeclaredFields()));
         }
         return fields;
     }
@@ -772,6 +814,9 @@ public class InvokeHelperUtil {
         return getAllFields(clazz).stream().filter(f -> f.getName().equals(name)).findFirst().orElse(null);
     }
 
+    /**
+     * 查找字段的getter方法
+     */
     public static Optional<Method> findGetter(Class<?> clazz, Field field) {
         String fieldName = field.getName();
         String getterName = "get" + capitalize(fieldName);
