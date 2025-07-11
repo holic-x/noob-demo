@@ -21,39 +21,8 @@ public class InvokeHelperUtil {
 
     private static final String BUILDER_IMPL_SUFFIX = "$BuilderImpl";
 
-    public static final Map<Class<?>, Object> DEFAULT_VALUES;
-
-    static {
-        Map<Class<?>, Object> map = new HashMap<>();
-        // 基本类型
-        map.put(boolean.class, false);
-        map.put(byte.class, (byte) 1);
-        map.put(short.class, (short) 1);
-        map.put(int.class, 1);
-        map.put(long.class, 1L);
-        map.put(float.class, 1.0f);
-        map.put(double.class, 1.0);
-        map.put(char.class, 'a');
-
-        // 包装类型
-        map.put(Boolean.class, Boolean.FALSE);
-        map.put(Byte.class, (byte) 1);
-        map.put(Short.class, (short) 1);
-        map.put(Integer.class, 1);
-        map.put(Long.class, 1L);
-        map.put(Float.class, 1.0f);
-        map.put(Double.class, 1.0);
-        map.put(Character.class, 'a');
-
-        // 常用引用类型
-        map.put(String.class, "test");
-
-        // fix 常见引用类型数据补充
-        map.put(List.class, new ArrayList<>()); // tofix：可自定补充常见引用类型数据
-
-        DEFAULT_VALUES = Collections.unmodifiableMap(map);
-    }
-
+    // 默认值映射数据集：从数据辅助生成工具类中统一维护
+    public static final Map<Class<?>, Object> DEFAULT_VALUES = DataGenerateHelper.initDefaultValues();
 
     // ====================== 核心工具方法 ======================
     public static Object convertValue(Object value, Class<?> targetType) {
@@ -308,7 +277,12 @@ public class InvokeHelperUtil {
         }
     }
 
-
+    /**
+     * 校验字段是否为 final 关键字修饰
+     *
+     * @param field
+     * @return
+     */
     private static boolean isFinal(Field field) {
         return (field.getModifiers() & Modifier.FINAL) != 0;
     }
