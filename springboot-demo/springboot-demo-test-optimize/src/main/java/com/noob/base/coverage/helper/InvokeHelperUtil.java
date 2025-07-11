@@ -13,7 +13,7 @@ import static com.noob.base.coverage.helper.CustomAssertUtil.assertNotNull;
 
 /**
  * todo
- * 反射辅助方法：用于Coverage覆盖测试
+ * 反射辅助方法：用于Coverage覆盖工具关联使用
  */
 public class InvokeHelperUtil {
 
@@ -137,6 +137,7 @@ public class InvokeHelperUtil {
 
     /**
      * 深拷贝值数据
+     *
      * @param value
      * @return
      */
@@ -592,10 +593,18 @@ public class InvokeHelperUtil {
 
     public static <T> Object invokeBuilderMethod(Class<T> clazz) throws Exception {
         try {
+            // 获取 builder() 方法
             Method builderMethod = clazz.getMethod("builder");
             Object builder = builderMethod.invoke(null);
             assertNotNull(builder, "builder()方法返回null");
+
+            /**
+             * 或者调用build()方法
+             * Method buildMethod = builder.getClass().getMethod("build");
+             * Object instance = buildMethod.invoke(builder);
+             */
             return builder;
+
         } catch (NoSuchMethodException e) {
             throw new AssertionError("类标注了@Builder/@SuperBuilder但没有builder()方法", e);
         }

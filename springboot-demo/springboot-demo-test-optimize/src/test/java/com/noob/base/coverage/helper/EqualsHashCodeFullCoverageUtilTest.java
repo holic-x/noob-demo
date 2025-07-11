@@ -99,7 +99,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     @Test
     public void test_coverage_mock_entity_SpecialFieldData() {
         // base coverage
-        EnhanceEntityCoverageUtil.testEntity(SpecialFieldData.class);
+        EnhanceModelCoverageUtil.testEntity(SpecialFieldData.class);
 
         // enhance coverage (equals、hashCode)
         /*new EqualsHashCodeFullCoverageUtil<>(

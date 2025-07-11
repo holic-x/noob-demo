@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * coverage mock entity （针对测试工具类涉及到的Mock Entity实体进行全覆盖）
- * - EnhanceEntityCoverageUtil（实体覆盖增强工具类）
+ * - EnhanceModelCoverageUtil（实体覆盖增强工具类）
  * - EqualsHashCodeFullCoverageUtil（equals & hashCode 覆盖增强工具类
  * - mock Entity 补充一些特殊场景的实体定义
  */
@@ -35,7 +35,7 @@ public class MockEntityCoverageTest {
     @Test
     public void test_coverage_mock_entity_AllTypesData() {
         // base coverage
-        EnhanceEntityCoverageUtil.testEntity(AllTypesData.class);
+        EnhanceModelCoverageUtil.testEntity(AllTypesData.class);
 
         // enhance coverage (equals、hashCode)
         new EqualsHashCodeFullCoverageUtil<>(
@@ -51,7 +51,7 @@ public class MockEntityCoverageTest {
     @Test
     public void test_coverage_mock_entity_BuilderEntity() {
         // base coverage
-        EnhanceEntityCoverageUtil.testEntity(BuilderEntity.class);
+        EnhanceModelCoverageUtil.testEntity(BuilderEntity.class);
 
         // enhance coverage (equals、hashCode)
         Supplier<BuilderEntity> supplier = () -> BuilderEntity.builder()
@@ -72,7 +72,7 @@ public class MockEntityCoverageTest {
     @Test
     public void test_coverage_mock_entity_DeLombokUser() {
         // base coverage
-        EnhanceEntityCoverageUtil.testEntity(DeLombokUser.class);
+        EnhanceModelCoverageUtil.testEntity(DeLombokUser.class);
 
         // enhance coverage (equals、hashCode)
         new EqualsHashCodeFullCoverageUtil<>(
@@ -146,7 +146,7 @@ public class MockEntityCoverageTest {
     @Test
     public void test_coverage_mock_entity_ModelCoverageEntity() {
         // base coverage
-        EnhanceEntityCoverageUtil.testEntity(ModelCoverageEntity.class);
+        EnhanceModelCoverageUtil.testEntity(ModelCoverageEntity.class);
 
         // other coverage
         ModelCoverageEntity entity = new ModelCoverageEntity();
@@ -159,7 +159,7 @@ public class MockEntityCoverageTest {
     @Test
     public void test_coverage_mock_entity_NonLombokEntity() {
         // base coverage
-        EnhanceEntityCoverageUtil.testEntity(NonLombokEntity.class);
+        EnhanceModelCoverageUtil.testEntity(NonLombokEntity.class);
 
         // other coverage
         NonLombokEntity entity = new NonLombokEntity();
@@ -178,7 +178,7 @@ public class MockEntityCoverageTest {
     @Test
     public void test_coverage_mock_entity_PrivateFieldEntity() {
         // base coverage
-        EnhanceEntityCoverageUtil.testEntity(PrivateFieldEntity.class);
+        EnhanceModelCoverageUtil.testEntity(PrivateFieldEntity.class);
 
         // other coverage
         PrivateFieldEntity entity = new PrivateFieldEntity();
@@ -195,7 +195,7 @@ public class MockEntityCoverageTest {
     @Test
     public void test_coverage_ContainFinalFieldData() {
         // DataAnnotationCoverageUtil.testDataClass(ContainFinalFieldData.class); // lombok 注解覆盖
-        // EnhanceEntityCoverageUtil.testEntity(ContainFinalFieldData.class); // 仅覆盖了部分@Data注解生成的方法，分支覆盖有待提升
+        // EnhanceModelCoverageUtil.testEntity(ContainFinalFieldData.class); // 仅覆盖了部分@Data注解生成的方法，分支覆盖有待提升
         assertTrue(Boolean.TRUE);
     }
 
@@ -203,7 +203,7 @@ public class MockEntityCoverageTest {
     @Test
     public void test_coverage_LombokUser_with_enhance() {
         // line 100%,branch 88%
-        EnhanceEntityCoverageUtil.testEntity(DeLombokUser.class);
+        EnhanceModelCoverageUtil.testEntity(DeLombokUser.class);
 
         // 配置测试器
         /*
