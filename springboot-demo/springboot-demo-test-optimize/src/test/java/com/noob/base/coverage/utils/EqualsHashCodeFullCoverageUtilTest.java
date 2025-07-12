@@ -1,6 +1,6 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
-import com.noob.base.coverage.utils.*;
+import com.noob.base.coverage.helper.InvokeHelper;
 import lombok.Data;
 import lombok.SneakyThrows;
 import org.junit.Assert;

@@ -1,6 +1,5 @@
 package com.noob.base.coverage.utils;
 
-import com.noob.base.coverage.helper.ModelCoverageUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;

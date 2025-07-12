@@ -1,6 +1,7 @@
-package com.noob.base.coverage.helper;
+package com.noob.bak;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Optional;
@@ -19,7 +20,7 @@ import java.util.stream.Stream;
  * <p>
  * 适用环境：JDK8+
  */
-public class InstanceCreatorHelper {
+public class InstanceGenerateHelper {
 
     /**
      * 创建指定类的实例
@@ -102,17 +103,26 @@ public class InstanceCreatorHelper {
     }
 
     /**
-     * 尝试使用Builder模式创建实例
-     *
+     * 尝试使用Builder模式创建实例（兼容Lombok正常生成的Builder模式以及一些可能存在非公共Builder方法的特殊场景）
+     * 直线型流程，没有错误恢复机制，但可满足基本的场景类型，无法兼容一些特例的非标准Builder类的场景
      * @param clazz 目标类
      * @return 包含实例的Optional，如果失败返回empty
      */
     private static <T> Optional<T> tryBuilderPattern(Class<T> clazz) {
         try {
-            // 尝试调用静态builder()方法获取Builder实例
-            Object builder = clazz.getMethod("builder").invoke(null);
-            // 调用build()方法创建目标实例
-            return Optional.of((T) builder.getClass().getMethod("build").invoke(builder));
+            // 1. 获取builder()方法并确保可访问
+            Method builderMethod = clazz.getMethod("builder");
+            builderMethod.setAccessible(true);  // 确保即使是非公共方法也能调用
+
+            // 2. 调用静态builder()方法获取Builder实例
+            Object builder = builderMethod.invoke(null);
+
+            // 3. 获取build()方法并确保可访问
+            Method buildMethod = builder.getClass().getMethod("build");
+            buildMethod.setAccessible(true);  // 确保即使是非公共方法也能调用
+
+            // 4. 调用build()方法创建目标实例
+            return Optional.of((T) buildMethod.invoke(builder));
         } catch (NoSuchMethodException e) {
             // 没有builder()方法是正常情况，返回empty
             return Optional.empty();
@@ -120,6 +130,82 @@ public class InstanceCreatorHelper {
             throw new RuntimeException("Builder模式调用失败", e);
         }
     }
+
+
+    // --------------------------------------------------------------------------------------------
+    // 增强版本 tryBuilderPattern 方法设计：用于兼容一些非标准Builder类的场景，此处是做补充增强
+    // --------------------------------------------------------------------------------------------
+
+    /**
+     * 尝试使用Builder模式创建实例（带双重尝试机制）
+     * 1. 先尝试常规构建路径（标准public方法）
+     * 2. 失败后尝试突破访问限制（处理非public方法场景）
+     * 解耦构建、执行，提供回退机制，兼容非标准Builder场景，覆盖维度更加完善
+     *
+     * @param clazz 目标类
+     * @return 包含实例的Optional，如果失败返回empty
+     */
+    private static <T> Optional<T> tryBuilderPatternEnhance(Class<T> clazz) {
+        try {
+            // 阶段1：获取Builder实例
+            Object builder = getBuilderInstanceWithFallback(clazz);
+
+            // 阶段2：双重尝试构建
+            return Optional.of(buildWithRetry(builder, clazz));
+        } catch (NoSuchMethodException e) {
+            return Optional.empty(); // 没有Builder特征是正常情况
+        } catch (Exception e) {
+            throw new RuntimeException("Builder模式调用失败: " + clazz.getName(), e);
+        }
+    }
+
+    /**
+     * 获取Builder实例（带回退机制）
+     */
+    private static Object getBuilderInstanceWithFallback(Class<?> clazz) throws Exception {
+        try {
+            // 优先尝试getMethod()获取public方法
+            Method builderMethod = clazz.getMethod("builder");
+            return builderMethod.invoke(null);
+        } catch (NoSuchMethodException e) {
+            // 回退到getDeclaredMethod()获取任意可见性方法
+            Method builderMethod = clazz.getDeclaredMethod("builder");
+            builderMethod.setAccessible(true);
+            return builderMethod.invoke(null);
+        }
+    }
+
+    /**
+     * 双重尝试构建机制
+     */
+    private static <T> T buildWithRetry(Object builder, Class<T> clazz) throws Exception {
+        try {
+            // 第一次尝试：常规构建（public方法）
+            return tryNormalBuild(builder);
+        } catch (IllegalAccessException e) {
+            // 第二次尝试：突破访问限制
+            return tryBreakThroughBuild(builder);
+        }
+    }
+
+    /**
+     * 常规构建路径
+     */
+    private static <T> T tryNormalBuild(Object builder) throws Exception {
+        Method buildMethod = builder.getClass().getMethod("build");
+        return (T) buildMethod.invoke(builder);
+    }
+
+    /**
+     * 突破限制构建路径
+     */
+    private static <T> T tryBreakThroughBuild(Object builder) throws Exception {
+        Method buildMethod = builder.getClass().getDeclaredMethod("build");
+        buildMethod.setAccessible(true);
+        return (T) buildMethod.invoke(builder);
+    }
+
+
 
     /**
      * 尝试使用所有可能的构造器创建实例
@@ -178,7 +264,7 @@ public class InstanceCreatorHelper {
      */
     private static Object[] generateParameters(Class<?>[] parameterTypes) {
         return Stream.of(parameterTypes)
-                .map(InstanceCreatorHelper::generateParameter)
+                .map(InstanceGenerateHelper::generateParameter)
                 .toArray();
     }
 

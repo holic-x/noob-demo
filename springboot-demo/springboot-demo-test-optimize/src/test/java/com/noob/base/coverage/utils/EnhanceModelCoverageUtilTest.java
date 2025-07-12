@@ -1,8 +1,6 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
 import com.noob.base.coverage.mockEntity.SpecialEntity;
-import com.noob.base.coverage.utils.BrokenEqualsData;
-import com.noob.base.coverage.utils.EnhanceModelCoverageUtil;
 import lombok.SneakyThrows;
 import org.junit.Test;
 

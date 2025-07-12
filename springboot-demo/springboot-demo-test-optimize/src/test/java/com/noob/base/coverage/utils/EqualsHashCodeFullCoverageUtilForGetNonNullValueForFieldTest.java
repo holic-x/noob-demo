@@ -1,6 +1,5 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
-import com.noob.base.coverage.utils.EqualsHashCodeFullCoverageUtil;
 import org.junit.Before;
 import org.junit.Test;
 import java.lang.reflect.Field;

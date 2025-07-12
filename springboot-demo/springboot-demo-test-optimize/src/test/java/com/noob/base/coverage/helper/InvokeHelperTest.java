@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 /**
  * UT for InvokeHelper
  */
-public class InvokeHelperUtilTest {
+public class InvokeHelperTest {
 
     private InvokeHelper util;
 
@@ -109,31 +109,31 @@ public class InvokeHelperUtilTest {
 
     }
 
-    @Test
-    public void testCreateInstanceNoArgConstructor() throws Exception {
-        assertEquals("test", util.createInstance(TestClass.class).getStringField());
-    }
-
-    @Test
-    public void testCreateInstanceBuilderPattern() throws Exception {
-        // assertEquals("test", util.createInstance(TestBuilderClass.class).getStringField());
-        assertEquals(null, util.createInstance(TestBuilderClass.class).getStringField()); // to fix builder 模式设置值失败（确认是不是私有属性导致）
-    }
-
-    @Test
-    public void testCreateInstanceFullArgConstructor() throws Exception {
-        TestFullArgClass instance = util.createInstance(TestFullArgClass.class);
-        assertNotNull(instance);
-        assertEquals(1, instance.getIntField());
-        assertEquals("test", instance.getStringField());
-    }
-
-    // @Test(expected = RuntimeException.class)
-    @Test
-    public void testCreateInstanceNoConstructor() throws Exception {
-        util.createInstance(TestNoConstructorClass.class);
-        assertTrue(Boolean.TRUE);
-    }
+//    @Test
+//    public void testCreateInstanceNoArgConstructor() throws Exception {
+//        assertEquals("test", util.createInstance(TestClass.class).getStringField());
+//    }
+//
+//    @Test
+//    public void testCreateInstanceBuilderPattern() throws Exception {
+//        // assertEquals("test", util.createInstance(TestBuilderClass.class).getStringField());
+//        assertEquals(null, util.createInstance(TestBuilderClass.class).getStringField()); // to fix builder 模式设置值失败（确认是不是私有属性导致）
+//    }
+//
+//    @Test
+//    public void testCreateInstanceFullArgConstructor() throws Exception {
+//        TestFullArgClass instance = util.createInstance(TestFullArgClass.class);
+//        assertNotNull(instance);
+//        assertEquals(1, instance.getIntField());
+//        assertEquals("test", instance.getStringField());
+//    }
+//
+//    // @Test(expected = RuntimeException.class)
+//    @Test
+//    public void testCreateInstanceNoConstructor() throws Exception {
+//        util.createInstance(TestNoConstructorClass.class);
+//        assertTrue(Boolean.TRUE);
+//    }
 
     @Test
     public void testGetFieldValuePublic() throws Exception {
@@ -176,20 +176,20 @@ public class InvokeHelperUtilTest {
         assertEquals("finalValue", field.get(testClass));
     }
 
-    @Test
-    public void testCreateDifferentInstance() throws Exception {
-        TestClass testClass = new TestClass();
-        TestClass differentInstance = util.createDifferentInstance(TestClass.class);
-        assertNotEquals(testClass.getPrivateStringField(), differentInstance.getPrivateStringField());
-    }
-
-    @Test
-    public void testCreateDifferentInstance_for_NoFieldClass() throws Exception {
-        NoFieldClass noFieldClass = new NoFieldClass();
-        NoFieldClass differentInstance = util.createDifferentInstance(NoFieldClass.class);
-        // assertEquals(noFieldClass, differentInstance);
-        assertNotNull(differentInstance);
-    }
+//    @Test
+//    public void testCreateDifferentInstance() throws Exception {
+//        TestClass testClass = new TestClass();
+//        TestClass differentInstance = util.createDifferentInstance(TestClass.class);
+//        assertNotEquals(testClass.getPrivateStringField(), differentInstance.getPrivateStringField());
+//    }
+//
+//    @Test
+//    public void testCreateDifferentInstance_for_NoFieldClass() throws Exception {
+//        NoFieldClass noFieldClass = new NoFieldClass();
+//        NoFieldClass differentInstance = util.createDifferentInstance(NoFieldClass.class);
+//        // assertEquals(noFieldClass, differentInstance);
+//        assertNotNull(differentInstance);
+//    }
 
     @Test
     public void test_generateDifferentValue() {

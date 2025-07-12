@@ -1,9 +1,7 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
 import com.noob.base.coverage.mockEntity.ExceptionInGetterData;
 import com.noob.base.coverage.mockEntity.model.entity.ModelCoverageEntity;
-import com.noob.base.coverage.utils.EnhanceModelCoverageUtil;
-import com.noob.base.coverage.utils.EqualsHashCodeFullCoverageUtil;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.junit.Assert;

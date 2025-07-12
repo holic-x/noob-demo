@@ -1,6 +1,5 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
-import com.noob.base.coverage.utils.EnumCoverageUtil;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

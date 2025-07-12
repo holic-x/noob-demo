@@ -1,7 +1,5 @@
 package com.noob.base.coverage.utils;
 
-import com.noob.base.coverage.helper.AllTypesData;
-import com.noob.base.coverage.helper.EmptyData;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

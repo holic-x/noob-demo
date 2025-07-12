@@ -1,5 +1,6 @@
 package com.noob.base.coverage.utils;
 
+import com.noob.base.coverage.helper.InstanceGenerateHelper;
 import com.noob.base.coverage.helper.InvokeHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 import static com.noob.base.coverage.utils.CustomAssertUtil.*;
 import static com.noob.base.coverage.helper.InvokeHelper.*;
+import static com.noob.base.coverage.helper.InstanceGenerateHelper.*;
 
 /**
  * 增强版实体UT覆盖工具类
