@@ -1,5 +1,6 @@
 package com.noob.base.coverage.helper;
 
+import com.noob.base.coverage.utils.*;
 import lombok.Data;
 import lombok.SneakyThrows;
 import org.junit.Assert;
@@ -52,7 +53,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     public void test_coverage_mock_entity_AllTypesData() {
         new EqualsHashCodeFullCoverageUtil<>(
                 AllTypesData::new,
-                InvokeHelperUtil.getAllFieldNames(AllTypesData.class), // 覆盖兼容字段
+                InvokeHelper.getAllFieldNames(AllTypesData.class), // 覆盖兼容字段
                 new ArrayList<>()        // 指定排除字段
         ).test();
 
@@ -64,7 +65,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     public void test_coverage_mock_entity_OtherTypesData() {
         new EqualsHashCodeFullCoverageUtil<>(
                 OtherTypesData::new,
-                InvokeHelperUtil.getAllFieldNames(OtherTypesData.class), // 覆盖兼容字段
+                InvokeHelper.getAllFieldNames(OtherTypesData.class), // 覆盖兼容字段
                 new ArrayList<>()        // 指定排除字段
         ).test();
 
@@ -76,7 +77,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     public void test_coverage_mock_entity_EnumData() {
         new EqualsHashCodeFullCoverageUtil<>(
                 EnumData::new,
-                InvokeHelperUtil.getAllFieldNames(EnumData.class), // 覆盖兼容字段
+                InvokeHelper.getAllFieldNames(EnumData.class), // 覆盖兼容字段
                 new ArrayList<>()        // 指定排除字段
         ).test();
 
@@ -88,7 +89,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     public void testNoConstantEnumData() {
         new EqualsHashCodeFullCoverageUtil<>(
                 NoConstantEnumData::new,
-                InvokeHelperUtil.getAllFieldNames(NoConstantEnumData.class), // 覆盖兼容字段
+                InvokeHelper.getAllFieldNames(NoConstantEnumData.class), // 覆盖兼容字段
                 new ArrayList<>()        // 指定排除字段
         ).test();
     }
@@ -177,7 +178,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     public void test_BrokenHashCodeReturnSameData() {
         new EqualsHashCodeFullCoverageUtil<>(
                 BrokenHashCodeReturnSameData::new,
-                InvokeHelperUtil.getAllFieldNames(BrokenHashCodeReturnSameData.class), // 覆盖兼容字段
+                InvokeHelper.getAllFieldNames(BrokenHashCodeReturnSameData.class), // 覆盖兼容字段
                 new ArrayList<>()        // 指定排除字段
         ).test();
     }
@@ -187,7 +188,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     public void test_BrokenHashCodeReturnRandomData() {
         new EqualsHashCodeFullCoverageUtil<>(
                 BrokenHashCodeReturnRandomData::new,
-                InvokeHelperUtil.getAllFieldNames(BrokenHashCodeReturnRandomData.class), // 覆盖兼容字段
+                InvokeHelper.getAllFieldNames(BrokenHashCodeReturnRandomData.class), // 覆盖兼容字段
                 new ArrayList<>()        // 指定排除字段
         ).test();
     }
@@ -197,7 +198,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     public void test_SuperBuilderEntity() {
         new EqualsHashCodeFullCoverageUtil<>(
                 SuperBuilderEntity::new,
-                InvokeHelperUtil.getAllFieldNames(SuperBuilderEntity.class), // 覆盖兼容字段
+                InvokeHelper.getAllFieldNames(SuperBuilderEntity.class), // 覆盖兼容字段
                 new ArrayList<>()        // 指定排除字段
         ).test();
     }
@@ -207,7 +208,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     public void test_SubSuperBuilderEntity() {
         new EqualsHashCodeFullCoverageUtil<>(
                 SubSuperBuilderEntity::new,
-                InvokeHelperUtil.getAllFieldNames(SubSuperBuilderEntity.class), // 覆盖兼容字段
+                InvokeHelper.getAllFieldNames(SubSuperBuilderEntity.class), // 覆盖兼容字段
                 new ArrayList<>()        // 指定排除字段
         ).test();
     }
@@ -218,7 +219,7 @@ public class EqualsHashCodeFullCoverageUtilTest {
     public void test_PrivateDataWrapper() {
         EqualsHashCodeFullCoverageUtil util = new EqualsHashCodeFullCoverageUtil<>(
                 PrivateDataWrapper::new,
-                InvokeHelperUtil.getAllFieldNames(PrivateDataWrapper.class), // 覆盖兼容字段
+                InvokeHelper.getAllFieldNames(PrivateDataWrapper.class), // 覆盖兼容字段
                 new ArrayList<>()        // 指定排除字段
         );
 

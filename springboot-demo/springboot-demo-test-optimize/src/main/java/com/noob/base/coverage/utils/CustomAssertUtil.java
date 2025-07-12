@@ -1,4 +1,4 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
 import lombok.extern.slf4j.Slf4j;
 

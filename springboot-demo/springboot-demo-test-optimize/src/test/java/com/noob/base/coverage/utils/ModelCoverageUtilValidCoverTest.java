@@ -1,5 +1,6 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
+import com.noob.base.coverage.helper.ModelCoverageUtil;
 import com.noob.base.coverage.mockEntity.validCover.CommonEntity;
 import com.noob.base.coverage.mockEntity.validCover.LombokEntityByDataAnnotation;
 import lombok.SneakyThrows;

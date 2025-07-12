@@ -1,5 +1,6 @@
 package com.noob.base.coverage.helper;
 
+import com.noob.base.coverage.utils.EnumCoverageUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.noob.base.coverage.model.entity;
+package com.noob.base.coverage.mockEntity.model.entity;
 
 import java.util.Objects;
 

@@ -1,5 +1,6 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
+import com.noob.base.coverage.helper.PrivateData;
 import org.junit.Assert;
 import org.junit.Test;
 

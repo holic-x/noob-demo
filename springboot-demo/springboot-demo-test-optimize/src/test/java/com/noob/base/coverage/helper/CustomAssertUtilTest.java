@@ -1,5 +1,6 @@
 package com.noob.base.coverage.helper;
 
+import com.noob.base.coverage.utils.CustomAssertUtil;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;

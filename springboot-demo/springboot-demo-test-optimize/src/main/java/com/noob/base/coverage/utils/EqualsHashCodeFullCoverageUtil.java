@@ -1,12 +1,14 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
+
+import com.noob.base.coverage.helper.InvokeHelper;
 
 import java.lang.reflect.*;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Supplier;
 
-import static com.noob.base.coverage.helper.CustomAssertUtil.assertEquals;
-import static com.noob.base.coverage.helper.CustomAssertUtil.assertNotEquals;
+import static com.noob.base.coverage.utils.CustomAssertUtil.assertEquals;
+import static com.noob.base.coverage.utils.CustomAssertUtil.assertNotEquals;
 
 // todo
 public class EqualsHashCodeFullCoverageUtil<T> {
@@ -584,8 +586,8 @@ public class EqualsHashCodeFullCoverageUtil<T> {
                         f.setAccessible(true);
                         // f.set(instance, getNonNullValueForField(f.getName())); 此处不能直接用getNonNullValueForField，否则又会回到当前父类的set导致异常
 
-                        Object newValue = InvokeHelperUtil.generateNonNullValue(f.getType());
-                        InvokeHelperUtil.setFieldValue(f, instance, newValue);
+                        Object newValue = InvokeHelper.generateNonNullValue(f.getType());
+                        InvokeHelper.setFieldValue(f, instance, newValue);
                     }
                 }
                 return instance;

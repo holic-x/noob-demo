@@ -17,20 +17,20 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 /**
- * UT for InvokeHelperUtil
+ * UT for InvokeHelper
  */
 public class InvokeHelperUtilTest {
 
-    private InvokeHelperUtil util;
+    private InvokeHelper util;
 
     @Before
     public void setUp() {
-        util = new InvokeHelperUtil();
+        util = new InvokeHelper();
     }
 
     @Test
     public void test_coverage_constructor() throws Exception {
-        InvokeHelperUtil invokeHelperUtil = new InvokeHelperUtil();
+        InvokeHelper invokeHelperUtil = new InvokeHelper();
         assertNotNull(invokeHelperUtil);
     }
 
@@ -307,7 +307,7 @@ public class InvokeHelperUtilTest {
     不支持mock static 方法
     @Test
     public void test_buildAndVerify_throwIllegalAccessException() throws Exception {
-        InvokeHelperUtil spyUtil = Mockito.spy(util);
+        InvokeHelper spyUtil = Mockito.spy(util);
 
         TestBuilderClass.Builder builder = TestBuilderClass.builder();
         doThrow(new IllegalAccessException("异常")).when(spyUtil).tryNormalBuild(builder);
@@ -534,7 +534,7 @@ public class InvokeHelperUtilTest {
         TestTarget.Builder builder = TestTarget.builder().name("test-instance");
 
         // Act: Call the utility method to build the object using reflection.
-        TestTarget result = InvokeHelperUtil.tryBreakThroughBuild(builder, TestTarget.class);
+        TestTarget result = InvokeHelper.tryBreakThroughBuild(builder, TestTarget.class);
 
         // Assert: Verify that the object was created successfully and has the correct state.
         assertNotNull(result); // "The resulting instance should not be null."

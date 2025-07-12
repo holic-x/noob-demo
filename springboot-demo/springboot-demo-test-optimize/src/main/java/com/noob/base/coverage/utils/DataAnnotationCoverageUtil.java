@@ -1,4 +1,4 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.noob.base.coverage.helper.CustomAssertUtil.*;
+import static com.noob.base.coverage.utils.CustomAssertUtil.*;
 
 /**
  * todo

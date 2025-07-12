@@ -1,5 +1,6 @@
-package com.noob.base.coverage.helper;
+package com.noob.base.coverage.utils;
 
+import com.noob.base.coverage.helper.InvokeHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,8 +11,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.noob.base.coverage.helper.CustomAssertUtil.*;
-import static com.noob.base.coverage.helper.InvokeHelperUtil.*;
+import static com.noob.base.coverage.utils.CustomAssertUtil.*;
+import static com.noob.base.coverage.helper.InvokeHelper.*;
 
 /**
  * 增强版实体UT覆盖工具类
@@ -151,7 +152,7 @@ public class EnhanceModelCoverageUtil {
                 // 传统构造器覆盖
                 Object[] params = new Object[paramTypes.length];
                 for (int i = 0; i < paramTypes.length; i++) {
-                    params[i] = InvokeHelperUtil.generateNonNullValue(paramTypes[i]);
+                    params[i] = InvokeHelper.generateNonNullValue(paramTypes[i]);
                 }
                 Object instance = constructor.newInstance(params);
 
@@ -365,7 +366,7 @@ public class EnhanceModelCoverageUtil {
         for (Method method : chainableMethods) {
             try {
                 Object[] params = Arrays.stream(method.getParameterTypes())
-                        .map(InvokeHelperUtil::generateNonNullValue)
+                        .map(InvokeHelper::generateNonNullValue)
                         .toArray();
 
                 Object result = method.invoke(instance, params);

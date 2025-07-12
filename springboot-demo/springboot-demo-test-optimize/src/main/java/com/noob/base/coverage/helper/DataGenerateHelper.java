@@ -1,8 +1,9 @@
 package com.noob.base.coverage.helper;
 
-import lombok.SneakyThrows;
-
 import java.io.*;
+import java.lang.reflect.Array;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.InetAddress;
@@ -205,6 +206,7 @@ public class DataGenerateHelper {
     }
 
     // ====================== 辅助处理方法 ======================
+
     private static URL createSafeURL() {
         try {
             return new URL("http://example.com");

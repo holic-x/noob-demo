@@ -9,19 +9,19 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
-import static com.noob.base.coverage.helper.CustomAssertUtil.assertNotNull;
+import static com.noob.base.coverage.utils.CustomAssertUtil.assertNotNull;
 
 /**
  * todo
  * 反射辅助方法：用于Coverage覆盖工具关联使用
  */
-public class InvokeHelperUtil {
+public class InvokeHelper {
 
     private static final Random random = new Random();
 
     private static final String BUILDER_IMPL_SUFFIX = "$BuilderImpl";
 
-    // 默认值映射数据集：从数据辅助生成工具类中统一维护
+    // 默认值映射数据集：从数据辅助生成工具类中统一维护处理
     public static final Map<Class<?>, Object> DEFAULT_VALUES = DataGenerateHelper.initDefaultValues();
 
     // ====================== 核心工具方法 ======================
@@ -69,6 +69,10 @@ public class InvokeHelperUtil {
         throw new IllegalArgumentException(String.format("无法将 %s 转换为 %s 类型", value.getClass().getSimpleName(), targetType.getSimpleName()));
     }
 
+    // -------------------------------------------------------------------
+    // 实例生成方法构建
+    // -------------------------------------------------------------------
+
     public static <T> T createInstance(Class<T> clazz) throws Exception {
         // 1. 尝试无参构造器
         try {
@@ -100,6 +104,7 @@ public class InvokeHelperUtil {
                 return constructor.newInstance(generateParameters(constructor.getParameterTypes()));
             }
 
+            // 无可用构造器 todo  其他普通构造器可否支撑?
             throw new RuntimeException("找不到可用的构造器");
         }
     }

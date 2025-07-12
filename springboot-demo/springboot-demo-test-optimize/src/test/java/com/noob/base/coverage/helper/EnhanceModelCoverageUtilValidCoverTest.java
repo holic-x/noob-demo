@@ -4,6 +4,7 @@ import com.noob.base.coverage.mockEntity.validCover.CommonEntity;
 import com.noob.base.coverage.mockEntity.validCover.LombokEntityByBuilderAnnotation;
 import com.noob.base.coverage.mockEntity.validCover.LombokEntityByDataAnnotation;
 import com.noob.base.coverage.mockEntity.validCover.LombokEntityBySuperBuilderAnnotation;
+import com.noob.base.coverage.utils.EnhanceModelCoverageUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
