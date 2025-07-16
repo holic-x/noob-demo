@@ -1,5 +1,7 @@
 package com.noob.base.coverage.helper;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
@@ -21,6 +23,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.regex.Pattern;
 
+@Slf4j
 public class DataGenerateHelper {
 
     // 默认值映射数据集：从数据辅助生成工具类中统一维护
@@ -227,6 +230,8 @@ public class DataGenerateHelper {
 
     /**
      * 获取类型的默认值，支持枚举、数组和自定义对象的动态处理
+     * 此处所谓宽容版的概念指的是采用日志或者允许返回null的方式处理一些无法兼容的类型处理场景（放行处理，通过观察日志以处理一些暂未兼容的场景）
+     * 而严格版的概念则是`generateNonNullValue`概念，如果遇到无法兼容的场景则抛出异常（可能导致业务逻辑覆盖处理的中断）
      */
     public static Object getDefaultValue(Class<?> type) {
         // 1. 检查是否在DEFAULT_VALUES中已定义
@@ -254,14 +259,149 @@ public class DataGenerateHelper {
                 }
                 return constructor.newInstance();
             } catch (Exception e) {
+                log.error("Cannot generate default value for type: {}", type, e);
+                // throw new RuntimeException("【当前类型无法兼容处理，需进一步优化方法逻辑】Cannot generate default value for type: " + type, e);
                 // 构造失败返回null
                 return null;
             }
         }
 
-        // 5. 默认返回null
+        // 5. 其余未兼容的场景默认返回null或者抛出异常以进一步确认兼容度
+        // throw new RuntimeException("【当前类型无法兼容处理，需进一步优化方法逻辑】Cannot generate default value for type: " + type);
         return null;
     }
 
+
+    /**
+     * 生成与原值不同的值（兼容所有 getDefaultValue 支持的类型）
+     * @param original 原始值（可为null）
+     * @param type 目标类型（当original为null时使用）
+     * @return 必定返回与原值不同的非null值（无法生成时抛出异常）
+     */
+    public static <T> T generateDifferentValue(T original, Class<?> type) {
+        Class<?> targetType = original != null ? original.getClass() : type;
+
+        // 1. 处理null原始值
+        if (original == null) {
+            T defaultValue = (T) getDefaultValue(targetType);
+            return generateDifferentValue(defaultValue, targetType); // 递归生成差异值
+        }
+
+        // 2. 基本类型及包装类
+        if (targetType == Integer.class || targetType == int.class) {
+            return (T) (Integer) ((Integer) original + 1);
+        } else if (targetType == Long.class || targetType == long.class) {
+            return (T) (Long) ((Long) original + 1L);
+        } else if (targetType == Double.class || targetType == double.class) {
+            return (T) (Double) ((Double) original + 1.0);
+        } else if (targetType == Float.class || targetType == float.class) {
+            return (T) (Float) ((Float) original + 1.0f);
+        } else if (targetType == Boolean.class || targetType == boolean.class) {
+            return (T) (Boolean) !((Boolean) original);
+        } else if (targetType == Character.class || targetType == char.class) {
+            return (T) (Character) ((char) (((Character) original) + 1));
+        } else if (targetType == Byte.class || targetType == byte.class) {
+            return (T) (Byte) (byte) (((Byte) original) + 1);
+        } else if (targetType == Short.class || targetType == short.class) {
+            return (T) (Short) (short) (((Short) original) + 1);
+        }
+
+        // 3. 字符串类型
+        if (targetType == String.class) {
+            return (T) (original + "_modified");
+        }
+
+        // 4. 枚举类型（切换到下一个枚举值）
+        if (targetType.isEnum()) {
+            Object[] constants = targetType.getEnumConstants();
+            int index = (Arrays.asList(constants).indexOf(original) + 1) % constants.length;
+            return (T) constants[index];
+        }
+
+        // 5. 数组类型（长度±1或修改首个元素）
+        if (targetType.isArray()) {
+            int length = Array.getLength(original);
+            Object newArray = Array.newInstance(targetType.getComponentType(), Math.max(length + 1, 1));
+            System.arraycopy(original, 0, newArray, 0, length);
+            if (length > 0) {
+                Object firstElement = Array.get(original, 0);
+                Array.set(newArray, 0, generateDifferentValue(firstElement, targetType.getComponentType()));
+            }
+            return (T) newArray;
+        }
+
+        // 6. 集合类型（List/Set/Queue）
+        if (Collection.class.isAssignableFrom(targetType)) {
+            Collection<?> originalCollection = (Collection<?>) original;
+            Collection<Object> newCollection = createNewCollection(targetType);
+            newCollection.addAll(originalCollection);
+
+            if (newCollection.isEmpty()) {
+                newCollection.add(generateNonNullValue(getGenericComponentType(targetType)));
+            } else {
+                newCollection.remove(newCollection.iterator().next());
+            }
+            return (T) newCollection;
+        }
+
+        // 7. Map类型（修改或添加条目）
+        if (Map.class.isAssignableFrom(targetType)) {
+            Map<?, ?> originalMap = (Map<?, ?>) original;
+            Map<Object, Object> newMap = createNewMap(targetType);
+            newMap.putAll(originalMap);
+
+            if (newMap.isEmpty()) {
+                newMap.put("key", generateNonNullValue(getGenericComponentType(targetType)));
+            } else {
+                Map.Entry<?, ?> entry = newMap.entrySet().iterator().next();
+                newMap.put(entry.getKey(), generateDifferentValue(entry.getValue(), entry.getValue().getClass()));
+            }
+            return (T) newMap;
+        }
+
+        // 8. 日期时间类型（JSR-310）
+        if (original instanceof Temporal) {
+            if (original instanceof LocalDate) {
+                return (T) ((LocalDate) original).plusDays(1);
+            } else if (original instanceof LocalDateTime) {
+                return (T) ((LocalDateTime) original).plusHours(1);
+            }
+            // 其他时间类型处理...
+        }
+
+        // 9. 自定义POJO（反射生成新实例并修改首个字段）
+        try {
+            Object newInstance = targetType.getDeclaredConstructor().newInstance();
+            Field[] fields = targetType.getDeclaredFields();
+            if (fields.length > 0) {
+                Field firstField = fields[0];
+                firstField.setAccessible(true);
+                Object fieldValue = firstField.get(original);
+                firstField.set(newInstance, generateDifferentValue(fieldValue, firstField.getType()));
+            }
+            return (T) newInstance;
+        } catch (Exception e) {
+            throw new IllegalStateException("Failed to generate different value for type: " + targetType, e);
+        }
+    }
+
+    // --- 辅助方法 ---
+    private static Collection<Object> createNewCollection(Class<?> collectionType) {
+        if (List.class.isAssignableFrom(collectionType)) {
+            return new ArrayList<>();
+        } else if (Set.class.isAssignableFrom(collectionType)) {
+            return new HashSet<>();
+        }
+        return new ArrayList<>(); // 默认List
+    }
+
+    private static Map<Object, Object> createNewMap(Class<?> mapType) {
+        if (HashMap.class.isAssignableFrom(mapType)) {
+            return new HashMap<>();
+        } else if (LinkedHashMap.class.isAssignableFrom(mapType)) {
+            return new LinkedHashMap<>();
+        }
+        return new HashMap<>(); // 默认HashMap
+    }
 
 }
