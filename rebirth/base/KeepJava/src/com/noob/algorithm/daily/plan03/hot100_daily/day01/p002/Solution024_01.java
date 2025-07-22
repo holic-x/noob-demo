@@ -11,7 +11,26 @@ public class Solution024_01 {
      * 思路分析：
      */
     public ListNode swapPairs(ListNode head) {
-       return null;
+        // 构建虚拟头节点
+        ListNode dummy = new ListNode(-1, head);
+
+        // 定义遍历指针
+        ListNode p = dummy;
+        while (p.next != null && p.next.next != null) {
+            ListNode first = p.next;
+            ListNode sec = p.next.next;
+            ListNode third = p.next.next.next;
+            // 两两交换节点(处理节点顺序，从左到右)
+            p.next = sec;
+            sec.next = first;
+            first.next = third;
+
+            // 继续下个节点处理
+            p = first; // 2个节点处理完成，p指针移动
+        }
+
+        // 返回处理好的链表数据
+        return dummy.next;
     }
 
 }
