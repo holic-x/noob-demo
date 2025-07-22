@@ -38,6 +38,7 @@ public class BuilderPatternEnhancerHelper {
 
     /**
      * 三级构建策略（逐步降级）
+     * 增强版构建验证方法：可突破私有Builder限制，采用多级构建策略实现Builder覆盖
      */
     private static <T> T buildWithAllStrategies(Object builder, Class<T> clazz) throws Exception {
         try {

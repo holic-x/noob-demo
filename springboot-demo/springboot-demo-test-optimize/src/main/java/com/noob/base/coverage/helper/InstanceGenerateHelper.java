@@ -249,18 +249,23 @@ public class InstanceGenerateHelper {
         return equalInstance;
     }
 
-
+    /**
+     * 创建一个与标准实例字段值完全不同的新实例
+     */
     public static <T> T createDifferentInstance(Class<T> clazz) throws Exception {
+        // 创建实例
         T instance = createInstance(clazz);
 
-        // todo
+        // 对照设置不同属性
         List<Field> fields = InvokeHelper.getAllFields(clazz);
         if (!fields.isEmpty()) {
             Field fieldToModify = fields.get(0);
             Object originalValue = InvokeHelper.getFieldValue(fieldToModify, instance);
-            Object newValue = InvokeHelper.generateDifferentValue(originalValue, fieldToModify.getType());
+            Object newValue = DataGenerateHelper.generateDifferentValue(originalValue, fieldToModify.getType()); // 为每个属性设置与源属性不同的值
             InvokeHelper.setFieldValue(fieldToModify, instance, newValue);
         }
+
+        // 返回构建的实例
         return instance;
     }
 

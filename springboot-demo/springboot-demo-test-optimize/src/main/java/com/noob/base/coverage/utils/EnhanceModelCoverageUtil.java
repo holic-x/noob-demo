@@ -1,7 +1,6 @@
 package com.noob.base.coverage.utils;
 
-import com.noob.base.coverage.helper.InstanceGenerateHelper;
-import com.noob.base.coverage.helper.InvokeHelper;
+import com.noob.base.coverage.helper.DataGenerateHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,9 +11,9 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.noob.base.coverage.utils.CustomAssertUtil.*;
-import static com.noob.base.coverage.helper.InvokeHelper.*;
 import static com.noob.base.coverage.helper.InstanceGenerateHelper.*;
+import static com.noob.base.coverage.helper.InvokeHelper.*;
+import static com.noob.base.coverage.utils.CustomAssertUtil.*;
 
 /**
  * 增强版实体UT覆盖工具类
@@ -93,6 +92,7 @@ public class EnhanceModelCoverageUtil {
 
     /**
      * 验证构造器参数是否正确设置
+     *
      * @param constructor
      * @param instance
      * @param params
@@ -120,6 +120,7 @@ public class EnhanceModelCoverageUtil {
 
     /**
      * 校验是否存在@SuperBuilder生成的构造器
+     *
      * @param paramTypes
      * @return
      */
@@ -154,7 +155,7 @@ public class EnhanceModelCoverageUtil {
                 // 传统构造器覆盖
                 Object[] params = new Object[paramTypes.length];
                 for (int i = 0; i < paramTypes.length; i++) {
-                    params[i] = InvokeHelper.generateNonNullValue(paramTypes[i]);
+                    params[i] = DataGenerateHelper.getDefaultValue(paramTypes[i]);
                 }
                 Object instance = constructor.newInstance(params);
 
@@ -248,7 +249,7 @@ public class EnhanceModelCoverageUtil {
             if (!Modifier.isFinal(field.getModifiers())) {
                 Optional<Method> setter = findSetter(obj.getClass(), field);
                 if (setter.isPresent()) {
-                    Object newValue = generateDifferentValue(originalValue, field.getType());
+                    Object newValue = DataGenerateHelper.generateDifferentValue(originalValue, field.getType());
                     setter.get().invoke(obj, newValue);
                     assertEquals(newValue, getFieldValue(field, obj), "Setter设置值失败: " + field.getName());
                     // 恢复原始值
@@ -368,7 +369,7 @@ public class EnhanceModelCoverageUtil {
         for (Method method : chainableMethods) {
             try {
                 Object[] params = Arrays.stream(method.getParameterTypes())
-                        .map(InvokeHelper::generateNonNullValue)
+                        .map(DataGenerateHelper::getDefaultValue)
                         .toArray();
 
                 Object result = method.invoke(instance, params);

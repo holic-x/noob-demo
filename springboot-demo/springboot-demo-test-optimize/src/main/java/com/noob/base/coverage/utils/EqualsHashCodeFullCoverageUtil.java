@@ -1,5 +1,6 @@
 package com.noob.base.coverage.utils;
 
+import com.noob.base.coverage.helper.DataGenerateHelper;
 import com.noob.base.coverage.helper.InvokeHelper;
 
 import java.lang.reflect.*;
@@ -586,7 +587,7 @@ public class EqualsHashCodeFullCoverageUtil<T> {
                         f.setAccessible(true);
                         // f.set(instance, getNonNullValueForField(f.getName())); 此处不能直接用getNonNullValueForField，否则又会回到当前父类的set导致异常
 
-                        Object newValue = InvokeHelper.generateNonNullValue(f.getType());
+                        Object newValue = DataGenerateHelper.getDefaultValue(f.getType());
                         InvokeHelper.setFieldValue(f, instance, newValue);
                     }
                 }
