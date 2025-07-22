@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Solution015_01 {
     /**
-     * 思路分析：
+     * 思路分析：排序 + 双指针思路
      */
     public List<List<Integer>> threeSum(int[] nums) {
         return new ArrayList<>();
