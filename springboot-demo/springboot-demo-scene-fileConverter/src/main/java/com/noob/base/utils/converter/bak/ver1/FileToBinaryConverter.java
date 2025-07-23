@@ -1,13 +1,14 @@
-package com.noob.base.utils.converter.ver1;
+package com.noob.base.utils.converter.bak.ver1;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * 文件转二进制流工具：将任意文件转化为二进制流
+ * 文件转二进制流工具 (FileToBinaryConverter.java)
  */
-public class FileToBinaryConverterV1 {
+
+public class FileToBinaryConverter {
 
     /**
      * 将文件转换为二进制流文件
@@ -41,18 +42,16 @@ public class FileToBinaryConverterV1 {
         /*
         if (args.length != 2) {
             System.out.println("文件转二进制流工具");
-            System.out.println("用法: java FileToBinaryConverterV1 <输入文件路径> <输出二进制文件路径>");
-            System.out.println("示例: java FileToBinaryConverterV1 C:\\test.jpg D:\\output.bin");
+            System.out.println("用法: java FileToBinaryConverter <输入文件路径> <输出二进制文件路径>");
+            System.out.println("示例: java FileToBinaryConverter C:\\test.jpg D:\\output.bin");
             return;
         }
          */
 
         // String inputFilePath = args[0];
         // String outputFilePath = args[1];
-
-        // 转换失败则进一步确认source、target目标路径是否存在
-        String inputFilePath = "D:\\Desktop\\test-other\\fileConverter\\source\\test.docx";
-        String outputFilePath = "D:\\Desktop\\test-other\\fileConverter\\target\\V1\\test.bin";
+        String inputFilePath = "D:\\Desktop\\test-other\\投行目标应用架构.pdf";
+        String outputFilePath = "D:\\Desktop\\test-other\\test.bin";
 
         try {
             long startTime = System.currentTimeMillis();
