@@ -5,13 +5,10 @@ import java.lang.reflect.Method;
 import java.util.Optional;
 
 /**
- * 增强版Builder模式实例构建工具
- * 三级构建策略：
- * 第一级：tryNormalBuild() 使用标准public方法
- * 第二级：tryBreakThroughBuild() 突破方法访问限制
- * 第三级：tryBreakThroughImplClass() 处理BuilderImpl特殊类
+ * 增强版Builder模式实例构建工具：基于原InvokeHelper抽离
+ * todo
  */
-public class BuilderPatternEnhancerHelper {
+public class BuilderPatternHelper {
 
     /**
      * 增强版Builder模式实例构建（三级降级策略）
