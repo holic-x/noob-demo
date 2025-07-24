@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * 核查结果
+ */
 @Data
 public class CheckResult {
     private String processId;

@@ -1,5 +1,6 @@
-package com.noob.base.batchDataHandler.docHandle;
+package com.noob.base.batchDataHandler.docHandle.v1;
 
+import com.noob.base.batchDataHandler.docHandle.DocxUtil;
 import com.noob.base.batchDataHandler.docHandle.entity.CheckResult;
 import com.noob.base.batchDataHandler.docHandle.entity.FileInfo;
 import com.noob.base.batchDataHandler.docHandle.entity.KeyInfo;
@@ -14,13 +15,14 @@ import java.util.List;
 
 /**
  * 报告生成器：将核查结果及图片插入Word文档
+ * - 基础版本：顺序同步读取截图数据并处理文稿
  */
-public class ReportGenerator {
+public class ReportGeneratorV1 {
 
     // 模拟文件处理服务
     private MockFileService fileService;
 
-    public ReportGenerator(MockFileService fileService) {
+    public ReportGeneratorV1(MockFileService fileService) {
         this.fileService = fileService;
     }
 
@@ -86,8 +88,8 @@ public class ReportGenerator {
                     if (files != null && !files.isEmpty()) {
                         for (FileInfo file : files) {
                             try (InputStream imageStream = fileService.getFileStreamByFileName(file.getFileName())) {
-                                // 自动识别图片类型，避免只插入一张的bug
-                                DocxUtil.insertPicture(doc, imageStream, file.getFileName(), 600, 400);
+                                // 指定插入图片的最大宽度、最大高度
+                                DocxUtil.insertPicture(doc, imageStream, file.getFileName(), 400, 200); // 600 400
                             } catch (Exception e) {
                                 XWPFParagraph errPara = doc.createParagraph();
                                 XWPFRun errRun = errPara.createRun();
