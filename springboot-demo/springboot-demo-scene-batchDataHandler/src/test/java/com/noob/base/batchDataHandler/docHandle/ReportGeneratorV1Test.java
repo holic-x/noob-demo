@@ -1,19 +1,14 @@
 package com.noob.base.batchDataHandler.docHandle;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.noob.base.batchDataHandler.docHandle.entity.CheckResult;
+import com.noob.base.batchDataHandler.docHandle.mock.MockWebResultHelper;
 import com.noob.base.batchDataHandler.docHandle.v1.MockFileService;
 import com.noob.base.batchDataHandler.docHandle.v1.ReportGeneratorV1;
-import lombok.SneakyThrows;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -22,7 +17,7 @@ public class ReportGeneratorV1Test {
     @Test
     public void test_generateReport_V1() throws Exception {
 
-        List<CheckResult> checkResults = mock_webResult("MockWebResultData_success.json");
+        List<CheckResult> checkResults = MockWebResultHelper.mock_webResult("MockWebResultData_success.json");
 
         // 获取测试目录
         String testDir = getTestDir();
@@ -42,12 +37,66 @@ public class ReportGeneratorV1Test {
 
     }
 
+    @Test
+    public void test_generateReport_V1_batchData_100() throws Exception {
+        test_generateReport_V1_batchData(100);
+    }
 
     @Test
-    public void test_generateReport_V1_batchData() throws Exception {
+    public void test_generateReport_V1_batchData_200() throws Exception {
+        test_generateReport_V1_batchData(200);
+    }
+
+    @Test
+    public void test_generateReport_V1_batchData_400() throws Exception {
+        test_generateReport_V1_batchData(400);
+    }
+
+    @Test
+    public void test_generateReport_V1_batchData_500() throws Exception {
+        test_generateReport_V1_batchData(500);
+    }
+
+    @Test
+    public void test_generateReport_V1_batchData_1000() throws Exception {
+        test_generateReport_V1_batchData(1000);
+    }
+
+    @Test
+    public void test_generateReport_V1_batchData_2000() throws Exception {
+        test_generateReport_V1_batchData(2000);
+    }
+
+    @Test
+    public void test_generateReport_V1_batchData_4000() throws Exception {
+        test_generateReport_V1_batchData(4000);
+    }
+
+    @Test
+    public void test_generateReport_V1_batchData_10000() throws Exception {
+        test_generateReport_V1_batchData(10000);
+    }
+
+    @Test
+    public void test_generateReport_V1_batchData_20000() throws Exception {
+        test_generateReport_V1_batchData(20000);
+    }
+
+    @Test
+    public void test_generateReport_V1_batchData_40000() throws Exception {
+        test_generateReport_V1_batchData(40000);
+    }
+
+    @Test
+    public void test_generateReport_V1_batchData_100000() throws Exception {
+        test_generateReport_V1_batchData(100000);
+    }
+
+    public void test_generateReport_V1_batchData(int num) throws Exception {
+        System.out.println("本次mock num：" + num);
 
         // mock 核查结果
-        List<CheckResult> checkResultList = mock_webResult_byTemplateData("MockWebResultData_success_templateData.json", 65536);
+        List<CheckResult> checkResultList = MockWebResultHelper.mock_webResult_byTemplateData("MockWebResultData_success_templateData.json", num);
 
         // 获取测试目录
         String testDir = getTestDir();
@@ -74,55 +123,6 @@ public class ReportGeneratorV1Test {
         String testDir = projectDir + File.separator + "test-files";
         System.out.println("当前工程目录路径: " + projectDir);
         return testDir;
-    }
-
-    // mock 模拟核查结果数据（json数据，从文件中解析便于调试）
-    @SneakyThrows
-    private List<CheckResult> mock_webResult(String mockDataFileName) {
-
-        // 假设jsonStr为接口返回的核查结果JSON
-        // String jsonStr = "[{...}]"; // 省略，填入实际JSON
-        // List<CheckResult> checkResults = JSON.parseArray(jsonStr, CheckResult.class);
-
-        // src/test/resources/mockData/MockWebResultData_test.json
-        // 1.从文件中读取数据
-        String jsonFilePath = "src/test/resources/mockData/" + mockDataFileName;
-        String jsonContent = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
-
-        // 2. 创建ObjectMapper实例
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        // 3. 将JSON字符串转换为实体对象
-        // FidelityRPAProcessResultDto webResult = objectMapper.readValue(jsonContent, FidelityRPAProcessResultDto.class);
-        List<CheckResult> webResult = objectMapper.readValue(jsonContent, new TypeReference<List<CheckResult>>() {
-        });
-
-        // 返回读取的核查结果
-        return webResult;
-    }
-
-
-    // mock 模拟核查结果数据（json数据，从文件中解析便于调试）
-    @SneakyThrows
-    private List<CheckResult> mock_webResult_byTemplateData(String mockDataFileName, int num) {
-
-        // 1.从文件中读取数据
-        String jsonFilePath = "src/test/resources/mockData/" + mockDataFileName;
-        String jsonContent = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
-
-        // 2. 创建ObjectMapper实例
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        // 3. 将JSON字符串转换为实体对象
-        CheckResult checkResult = objectMapper.readValue(jsonContent, new TypeReference<CheckResult>() {
-        });
-
-        // mock List<CheckResult> 列表数据
-        List<CheckResult> checkResultList = new ArrayList<>();
-        for (int i = 0; i < num; i++) {
-            checkResultList.add(checkResult);
-        }
-        return checkResultList;
     }
 
 }

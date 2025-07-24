@@ -24,26 +24,6 @@
           "transferType": null
         }
       ]
-    },
-    {
-      "key": {
-        "name": "小红书有限公司",
-        "idNo": "91370211MA3DQJT88L",
-        "type": null,
-        "label": null,
-        "location": null,
-        "webKeys": null,
-        "personList": null
-      },
-      "createTime": null,
-      "files": [
-        {
-          "fileName": "mock_image_002.png",
-          "fileKey": "mock_image_001",
-          "fileType": "picture",
-          "transferType": null
-        }
-      ]
     }
   ]
 }
