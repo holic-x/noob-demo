@@ -2,6 +2,7 @@ package com.noob.base.batchDataHandler.docHandle.mock;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.noob.base.batchDataHandler.docHandle.WebGenerator;
 import com.noob.base.batchDataHandler.docHandle.entity.CheckResult;
 import com.noob.base.batchDataHandler.docHandle.entity.FileInfo;
 import com.noob.base.batchDataHandler.docHandle.entity.KeyInfo;
@@ -86,7 +87,6 @@ public class MockWebResultHelper {
     }
 
     public static List<CheckResult> mock_webResult_byCustomTemplateData(int num, boolean isRandomFile) {
-
         // 生成批次数据
         List<CheckResult> checkResultList = new ArrayList<>();
         for (int i = 0; i < num; i++) {
@@ -119,6 +119,48 @@ public class MockWebResultHelper {
 
         // 返回mock生成的数据列表
         return checkResultList;
+
+    }
+
+
+    public static List<CheckResult> mock_webResult_byDifferentTemplateData(int num, boolean isRandomFile) {
+
+        // 生成批次数据
+        List<CheckResult> checkResultList = new ArrayList<>();
+
+        for (int i = 0; i < num; i++) {
+            // 每次都随机生成网站信息
+            String[] webInfo = WebGenerator.getRandomWebMapping();
+            CheckResult checkResult = CheckResult.builder()
+                    .webKey(webInfo[0])
+                    .webName(webInfo[1])
+                    .status("SUCCESS")
+                    .note("执行成功")
+                    .results(
+                            Arrays.asList(
+                                    ResultItem.builder()
+                                            .key(KeyInfo.builder()
+                                                    .name("滴滴有限公司")
+                                                    .idNo("123456789012345678")
+                                                    .build())
+                                            .createTime(null)
+                                            .files(Arrays.asList(
+                                                    FileInfo.builder()
+                                                            .fileKey(UUID.randomUUID().toString().replace("-", ""))
+                                                            .fileName(isRandomFile ? getActiveFileNameByRandom(1, 15) : "mock_image_001.png") // 如果指定了true则从有效列表中随机获取有效的文件名称，否则填充默认的数据
+                                                            .fileType("picture")
+                                                            .build()
+                                            ))
+                                            .build()
+                            )
+                    )
+                    .build();
+            checkResultList.add(checkResult);
+        }
+
+        // 返回mock生成的数据列表
+        return checkResultList;
+
     }
 
 }

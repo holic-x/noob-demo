@@ -13,17 +13,20 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * 报告生成器：将核查结果及图片插入Word文档
- * - 优化版本：批次处理优化
+ * - 优化版本：批量获取 + 分组合并处理文稿
  */
 public class ReportGeneratorV4 {
 
@@ -158,10 +161,35 @@ public class ReportGeneratorV4 {
         }
 
         // 保存文档
+        /*
         try (FileOutputStream out = new FileOutputStream(outputPath)) {
             doc.write(out);
         }
+         */
 
+        // 安全保存文档（校验父目录是否存在，如果不存在则需构建目录）
+        writeWithParentCheck(doc, outputPath);
+    }
+
+    /**
+     * 文档保存
+     * @param doc
+     * @param outputPath
+     * @throws IOException
+     */
+    public static void writeWithParentCheck(XWPFDocument doc, String outputPath) throws IOException {
+        File outputFile = new File(outputPath);
+        File parentDir = outputFile.getParentFile();
+
+        if (parentDir != null && !parentDir.exists()) {
+            if (!parentDir.mkdirs()) {
+                throw new IOException("Failed to create parent directories: " + parentDir.getAbsolutePath());
+            }
+        }
+
+        try (FileOutputStream out = new FileOutputStream(outputFile)) {
+            doc.write(out);
+        }
     }
 
 
@@ -175,24 +203,52 @@ public class ReportGeneratorV4 {
      */
     public void generateReport(List<CheckResult> checkResults, String outPutDir, String fileName) throws Exception {
 
-
         // 1.业务分组（按照核查网站进行业务分组，划分批次）
         Map<String, List<CheckResult>> groupByWeb = checkResults.stream().collect(Collectors.groupingBy(CheckResult::getWebKey));
-
 
         // 2.分组批次处理：例如一次处理5-10个网站的核查数据，或者直接按照核查网站分组作为批次进行处理（1个核查网站关联核查数据生成一个文稿）
         String batchId = UUID.randomUUID().toString().replaceAll("-", "");
         String targetBatchDir = outPutDir + File.separator + batchId;
+        Files.createDirectories(Paths.get(targetBatchDir)); // 确保目录存在
+
+        // 3.1 顺序处理
+        /*
+        int num = 1;
         for (Map.Entry<String, List<CheckResult>> entry : groupByWeb.entrySet()) {
-            int num = 1;
             String webKey = entry.getKey();
             List<CheckResult> checkResultList = entry.getValue();
             System.out.println(String.format("当前处理批次：%d, 处理网站为：%s, 关联核查数据记录：%s", num, webKey, checkResultList.size()));
-            String subFileName = targetBatchDir + File.separator + String.format("%s_%d", batchId, num++);
+            String subFileName = targetBatchDir + File.separator + String.format("%s_%d.docx", batchId, num);
             partitionHandler(checkResultList, subFileName);
-        }
 
-        // 3.合并分组处理数据
+            // 当前批次处理完成
+            num++;
+        }
+         */
+
+        // 3.2 使用并行流处理每个分组
+        AtomicInteger num = new AtomicInteger(1);
+        groupByWeb.entrySet().parallelStream().forEach(entry -> {
+            String webKey = entry.getKey();
+            List<CheckResult> checkResultList = entry.getValue();
+            System.out.println(String.format(
+                    "[线程 %s] 处理批次：%d, 网站：%s, 记录数：%d",
+                    Thread.currentThread().getName(),
+                    num.getAndIncrement(),
+                    webKey,
+                    checkResultList.size()
+            ));
+
+            String subFileName = targetBatchDir + File.separator + String.format("%s_%d.docx", batchId, num.get());
+            try {
+                partitionHandler(checkResultList, subFileName);
+            } catch (Exception e) {
+                System.err.println("处理失败: " + webKey);
+                e.printStackTrace();
+            }
+        });
+
+        // 4.合并分组处理数据（需确保所有线程已完成）
         DocxMerger.mergeHandler(targetBatchDir);
     }
 
@@ -214,8 +270,8 @@ public class ReportGeneratorV4 {
         createDocx(checkResults, fileStreamMap, targetFilePath);
         long endTime2 = System.currentTimeMillis();
 
-        System.out.println("截图数据获取处理耗时：" + (endTime1 - startTime1) + "ms");
-        System.out.println("文稿处理耗时：" + (endTime2 - startTime2) + "ms");
+        System.out.println("本次截图数据获取处理耗时：" + (endTime1 - startTime1) + "ms");
+        System.out.println("本次文稿处理耗时：" + (endTime2 - startTime2) + "ms");
 
     }
 
