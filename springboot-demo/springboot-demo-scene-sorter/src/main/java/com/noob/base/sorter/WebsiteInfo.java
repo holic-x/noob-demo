@@ -8,11 +8,14 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 核查网站数据
+ */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExtTaskRpaWebsiteInfo implements Serializable {
+public class WebsiteInfo implements Serializable {
 
     // id 主键ID
     private Integer id;

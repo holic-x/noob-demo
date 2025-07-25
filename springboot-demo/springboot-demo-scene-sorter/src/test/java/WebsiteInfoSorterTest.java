@@ -1,5 +1,5 @@
-import com.noob.base.sorter.ExtTaskRpaWebsiteInfo;
-import com.noob.base.sorter.ExtTaskRpaWebsiteInfoSorter;
+import com.noob.base.sorter.WebsiteInfo;
+import com.noob.base.sorter.WebsiteInfoSorter;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,15 +9,15 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Test for：ExtTaskRpaWebsiteInfoSorter
+ * Test for：WebsiteInfoSorter
  */
-public class ExtTaskRpaWebsiteInfoSorterTest {
+public class WebsiteInfoSorterTest {
 
     // 简单的测试实现（只需要覆盖webName验证）
-    private static class TestExtTaskRpaWebsiteInfo extends ExtTaskRpaWebsiteInfo {
+    private static class TestWebsiteInfo extends WebsiteInfo {
         private String webName;
 
-        public TestExtTaskRpaWebsiteInfo(String webName) {
+        public TestWebsiteInfo(String webName) {
             this.webName = webName;
         }
 
@@ -41,7 +41,7 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyin_NullList() {
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyin(null);
+        WebsiteInfoSorter.sortWebNameByPinyin(null);
         // 无异常即通过
     }
 
@@ -50,8 +50,8 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyin_EmptyList() {
-        List<ExtTaskRpaWebsiteInfo> list = new ArrayList<>();
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyin(list);
+        List<WebsiteInfo> list = new ArrayList<>();
+        WebsiteInfoSorter.sortWebNameByPinyin(list);
         assertTrue(list.isEmpty());
     }
 
@@ -60,12 +60,12 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyin_WithNullWebName() {
-        List<ExtTaskRpaWebsiteInfo> list = Arrays.asList(
-                new TestExtTaskRpaWebsiteInfo("北京"),
-                new TestExtTaskRpaWebsiteInfo(null),
-                new TestExtTaskRpaWebsiteInfo("上海")
+        List<WebsiteInfo> list = Arrays.asList(
+                new TestWebsiteInfo("北京"),
+                new TestWebsiteInfo(null),
+                new TestWebsiteInfo("上海")
         );
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyin(list);
+        WebsiteInfoSorter.sortWebNameByPinyin(list);
         assertNull(list.get(0).getWebName());
         assertEquals("北京", list.get(1).getWebName());
         assertEquals("上海", list.get(2).getWebName());
@@ -76,13 +76,13 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyin_Mixed() {
-        List<ExtTaskRpaWebsiteInfo> list = Arrays.asList(
-                new TestExtTaskRpaWebsiteInfo("北京"),
-                new TestExtTaskRpaWebsiteInfo("abc"),
-                new TestExtTaskRpaWebsiteInfo("123"),
-                new TestExtTaskRpaWebsiteInfo("上海")
+        List<WebsiteInfo> list = Arrays.asList(
+                new TestWebsiteInfo("北京"),
+                new TestWebsiteInfo("abc"),
+                new TestWebsiteInfo("123"),
+                new TestWebsiteInfo("上海")
         );
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyin(list);
+        WebsiteInfoSorter.sortWebNameByPinyin(list);
         // 按中文拼音和本地Collator排序，数字、英文、中文顺序
         assertEquals("123", list.get(0).getWebName());
         assertEquals("abc", list.get(1).getWebName());
@@ -95,7 +95,7 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyinInitial_NullList() {
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyinInitial(null);
+        WebsiteInfoSorter.sortWebNameByPinyinInitial(null);
         // 无异常即通过
     }
 
@@ -104,8 +104,8 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyinInitial_EmptyList() {
-        List<ExtTaskRpaWebsiteInfo> list = new ArrayList<>();
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyinInitial(list);
+        List<WebsiteInfo> list = new ArrayList<>();
+        WebsiteInfoSorter.sortWebNameByPinyinInitial(list);
         assertTrue(list.isEmpty());
     }
 
@@ -114,12 +114,12 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyinInitial_WithNullWebName() {
-        List<ExtTaskRpaWebsiteInfo> list = Arrays.asList(
-                new TestExtTaskRpaWebsiteInfo("北京"),
-                new TestExtTaskRpaWebsiteInfo(null),
-                new TestExtTaskRpaWebsiteInfo("上海")
+        List<WebsiteInfo> list = Arrays.asList(
+                new TestWebsiteInfo("北京"),
+                new TestWebsiteInfo(null),
+                new TestWebsiteInfo("上海")
         );
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyinInitial(list);
+        WebsiteInfoSorter.sortWebNameByPinyinInitial(list);
         assertNull(list.get(0).getWebName());
         // "北京"->"BJ", "上海"->"SH"，BJ在SH前
         assertEquals("北京", list.get(1).getWebName());
@@ -131,13 +131,13 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyinInitial_Mixed() {
-        List<ExtTaskRpaWebsiteInfo> list = Arrays.asList(
-                new TestExtTaskRpaWebsiteInfo("北京"),
-                new TestExtTaskRpaWebsiteInfo("abc"),
-                new TestExtTaskRpaWebsiteInfo("123"),
-                new TestExtTaskRpaWebsiteInfo("上海")
+        List<WebsiteInfo> list = Arrays.asList(
+                new TestWebsiteInfo("北京"),
+                new TestWebsiteInfo("abc"),
+                new TestWebsiteInfo("123"),
+                new TestWebsiteInfo("上海")
         );
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyinInitial(list);
+        WebsiteInfoSorter.sortWebNameByPinyinInitial(list);
         // "123"->"123", "abc"->"ABC", "北京"->"BJ", "上海"->"SH"
         assertEquals("123", list.get(0).getWebName());
         assertEquals("abc", list.get(1).getWebName());
@@ -153,7 +153,7 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
     /**
      * 随机打乱生成的webName测试数据（全国性网站-非地方核查网站）
      */
-    private static List<ExtTaskRpaWebsiteInfo> getRandomWebsiteInfoListForNonLocal() {
+    private static List<WebsiteInfo> getRandomWebsiteInfoListForNonLocal() {
         List<String> webNames = Arrays.asList(
                 "百度",
                 "发改委",
@@ -191,10 +191,10 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
         );
         List<String> shuffled = new ArrayList<>(webNames);
         java.util.Collections.shuffle(shuffled);
-        List<ExtTaskRpaWebsiteInfo> result = new ArrayList<>();
+        List<WebsiteInfo> result = new ArrayList<>();
         for (String name : shuffled) {
-            // result.add(new TestExtTaskRpaWebsiteInfo(name));
-            result.add(ExtTaskRpaWebsiteInfo.builder().webName(name).build());
+            // result.add(new TestWebsiteInfo(name));
+            result.add(WebsiteInfo.builder().webName(name).build());
         }
         return result;
     }
@@ -202,7 +202,7 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
     /**
      * 随机打乱生成的webName测试数据（地方核查网站）
      */
-    private static List<ExtTaskRpaWebsiteInfo> getRandomWebsiteInfoListForLocal() {
+    private static List<WebsiteInfo> getRandomWebsiteInfoListForLocal() {
         List<String> webNames = Arrays.asList(
                 "北京",
                 "成都",
@@ -229,10 +229,10 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
         );
         List<String> shuffled = new ArrayList<>(webNames);
         java.util.Collections.shuffle(shuffled);
-        List<ExtTaskRpaWebsiteInfo> result = new ArrayList<>();
+        List<WebsiteInfo> result = new ArrayList<>();
         for (String name : shuffled) {
-            // result.add(new TestExtTaskRpaWebsiteInfo(name));
-            result.add(ExtTaskRpaWebsiteInfo.builder().webName(name).build());
+            // result.add(new TestWebsiteInfo(name));
+            result.add(WebsiteInfo.builder().webName(name).build());
         }
         return result;
     }
@@ -244,12 +244,12 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyinInitial_NonLocalWebsite() {
-        List<ExtTaskRpaWebsiteInfo> list = getRandomWebsiteInfoListForNonLocal();
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyinInitial(list);
+        List<WebsiteInfo> list = getRandomWebsiteInfoListForNonLocal();
+        WebsiteInfoSorter.sortWebNameByPinyinInitial(list);
 
         // 预期排序结果
         list.forEach((item) -> {
-            System.out.println(item.getWebName() + ":" + ExtTaskRpaWebsiteInfoSorter.getPinyinInitials(item.getWebName()));
+            System.out.println(item.getWebName() + ":" + WebsiteInfoSorter.getPinyinInitials(item.getWebName()));
         });
 
         // Assert
@@ -299,12 +299,12 @@ public class ExtTaskRpaWebsiteInfoSorterTest {
      */
     @Test
     public void testSortWebNameByPinyinInitial_LocalWebsite() {
-        List<ExtTaskRpaWebsiteInfo> list = getRandomWebsiteInfoListForLocal();
-        ExtTaskRpaWebsiteInfoSorter.sortWebNameByPinyinInitial(list);
+        List<WebsiteInfo> list = getRandomWebsiteInfoListForLocal();
+        WebsiteInfoSorter.sortWebNameByPinyinInitial(list);
 
         // 预期排序结果
         list.forEach((item) -> {
-            System.out.println(item.getWebName() + ":" + ExtTaskRpaWebsiteInfoSorter.getPinyinInitials(item.getWebName()));
+            System.out.println(item.getWebName() + ":" + WebsiteInfoSorter.getPinyinInitials(item.getWebName()));
         });
 
         // Assert

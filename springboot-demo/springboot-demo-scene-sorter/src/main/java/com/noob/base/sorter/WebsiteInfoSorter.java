@@ -1,12 +1,14 @@
 package com.noob.base.sorter;
 
-import java.util.HashMap;
-import java.util.Map;
+import net.sourceforge.pinyin4j.PinyinHelper;
+
+import java.text.Collator;
+import java.util.*;
 
 /**
- * 【违法违规尽调】-自定义排序规则辅助工具类（核查网站排序）
+ * 自定义排序规则辅助工具类（核查网站排序）
  */
-public class ExtTaskRpaWebsiteInfoSorter {
+public class WebsiteInfoSorter {
 
     // 补充：多音字特殊处理映射表（静态初始化）
     private static final Map<Character, String> POLYPHONE_MAPPING = initPolyphoneMap();
@@ -82,7 +84,7 @@ public class ExtTaskRpaWebsiteInfoSorter {
      *
      * @param list
      */
-    public static void sortWebNameByPinyin(List<ExtTaskRpaWebsiteInfo> list) {
+    public static void sortWebNameByPinyin(List<WebsiteInfo> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
@@ -106,14 +108,14 @@ public class ExtTaskRpaWebsiteInfoSorter {
      *
      * @param list
      */
-    public static void sortWebNameByPinyinInitial(List<ExtTaskRpaWebsiteInfo> list) {
+    public static void sortWebNameByPinyinInitial(List<WebsiteInfo> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
 
-        Collections.sort(list, new Comparator<ExtTaskRpaWebsiteInfo>() {
+        Collections.sort(list, new Comparator<WebsiteInfo>() {
             @Override
-            public int compare(ExtTaskRpaWebsiteInfo o1, ExtTaskRpaWebsiteInfo o2) {
+            public int compare(WebsiteInfo o1, WebsiteInfo o2) {
                 String name1 = o1.getWebName();
                 String name2 = o2.getWebName();
 
