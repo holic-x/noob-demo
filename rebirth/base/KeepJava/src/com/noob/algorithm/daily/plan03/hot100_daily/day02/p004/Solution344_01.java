@@ -6,19 +6,20 @@ package com.noob.algorithm.daily.plan03.hot100_daily.day02.p004;
 public class Solution344_01 {
 
     /**
-     * 思路分析：逆序遍历（非原地,需借助辅助数组）
+     * 思路分析：
+     * - 非原地算法：逆序排序
      */
     public void reverseString(char[] s) {
         int n = s.length;
-        char[] res = new char[n];
-        int cur = 0;
+        // 定义结果集合
+        char[] ans = new char[n];
+        int pt = 0;
         for (int i = n - 1; i >= 0; i--) {
-            res[cur++] = s[i];
+            ans[pt++] = s[i];
         }
-        // s = res;
-
-        for(int i=0;i<n;i++){
-            s[i] = res[i];
+        // 返回逆序结果（回填原数组）
+        for (int i = 0; i < n; i++) {
+            s[i] = ans[i];
         }
     }
 

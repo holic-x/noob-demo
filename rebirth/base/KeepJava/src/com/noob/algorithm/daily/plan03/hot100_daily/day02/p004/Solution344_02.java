@@ -6,9 +6,22 @@ package com.noob.algorithm.daily.plan03.hot100_daily.day02.p004;
 public class Solution344_02 {
 
     /**
-     * 思路分析：双指针遍历，两两交换（原地）
+     * 思路分析：
+     * - 原地算法：双指针思路
      */
     public void reverseString(char[] s) {
+        // 分别定义双指针
+        int n = s.length;
+        int left = 0, right = n - 1;
+        while (left <= right) {
+            // 交换位置
+            char tmp = s[left];
+            s[left] = s[right];
+            s[right] = tmp;
+            // 处理完成，指针移动
+            left++;
+            right--;
+        }
     }
 
     public static void main(String[] args) {
