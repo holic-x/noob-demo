@@ -9,10 +9,23 @@ public class Solution222_01 {
 
     /**
      * 思路分析：
-     *
+     * 统计节点个数（回归到遍历的思路）
      */
     public int countNodes(TreeNode root) {
+        dfs(root);
+        return cnt;
+    }
 
-        return 0;
+    private int cnt;
+
+    private void dfs(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        cnt++;
+        dfs(node.left);
+        dfs(node.right);
+
     }
 }
