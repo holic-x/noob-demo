@@ -8,16 +8,15 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * 🟢 144 二叉树的前序遍历 - https://leetcode.cn/problems/binary-tree-preorder-traversal/submissions/598678754/
+ * 🟢 145 后序遍历 - https://leetcode.cn/problems/binary-tree-postorder-traversal/
  */
-public class Solution144_01 {
-
+public class Solution145_02 {
 
     /**
-     * 思路分析：DLR
-     * 构建栈辅助遍历
+     * 思路分析：LRD
+     * 先DRL随后反转（逆序）
      */
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         // 迭代思路
         if (root == null) {
             return Collections.emptyList();
@@ -30,16 +29,19 @@ public class Solution144_01 {
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             ans.add(node.val);
-            // 先右后左
-            if (node.right != null) {
-                stack.push(node.right);
-            }
+            // 先左后右
             if (node.left != null) {
                 stack.push(node.left);
             }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
         }
+        // 返回反转顺序
+        Collections.reverse(ans);
         return ans;
     }
+
 
 
 }
