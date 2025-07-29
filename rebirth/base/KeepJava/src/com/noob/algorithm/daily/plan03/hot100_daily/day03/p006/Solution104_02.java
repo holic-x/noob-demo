@@ -6,15 +6,16 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 🟢 111 二叉树的最小深度 - https://leetcode.cn/problems/minimum-depth-of-binary-tree/description/
+ * 🟢 104 二叉树的最大深度 - https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/
  */
-public class Solution111_01 {
+public class Solution104_02 {
 
     /**
-     * 思路分析：最小深度（根节点到最近的叶子节点的最短路径上的节点数量）
-     * BFS 迭代思路: 基于层序遍历思路，从根节点出发到遇到的第1个叶子节点所在层数即为最小深度
+     * 思路分析：
+     * - 根节点->最远叶子节点的最长路径的节点数
+     * - 广度优先算法:计算层数
      */
-    public int minDepth(TreeNode root) {
+    public int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -24,20 +25,12 @@ public class Solution111_01 {
         queue.offer(root);
 
         int depth = 0;
-
-        // 遍历节点
+        // 遍历队列
         while (!queue.isEmpty()) {
-
             // 分层遍历
             int curSize = queue.size();
-
             for (int i = 0; i < curSize; i++) {
                 TreeNode node = queue.poll();
-
-                // 如果遇到第1个叶子节点则返回其所在层数（即为最小深度）
-                if (node.left == null && node.right == null) {
-                    return depth + 1;
-                }
 
                 if (node.left != null) {
                     queue.offer(node.left);
@@ -45,11 +38,15 @@ public class Solution111_01 {
                 if (node.right != null) {
                     queue.offer(node.right);
                 }
+
             }
+            // 遍历完成，层数+1
             depth++;
         }
 
-        return -1;
+        // 返回层数
+        return depth;
     }
+
 
 }
