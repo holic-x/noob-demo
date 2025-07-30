@@ -9,8 +9,25 @@ public class Solution108_01 {
 
     public TreeNode sortedArrayToBST(int[] nums) {
 
-        return null;
+        return buildHelper(nums, 0, nums.length - 1);
 
+    }
+
+    // 定义构造辅助方法:构建[left,right]范围内的树
+    private TreeNode buildHelper(int[] nums, int left, int right) {
+        if (left > right) {
+            return null; // 越界则返回null表示叶子节点
+        }
+
+        // 取节点中点进行处理
+        int mid = left + (right - left) / 2;
+
+        TreeNode node = new TreeNode(nums[mid]);
+        node.left = buildHelper(nums, left, mid - 1);
+        node.right = buildHelper(nums, mid + 1, right);
+
+        // 返回构建的节点
+        return node;
     }
 
 }
