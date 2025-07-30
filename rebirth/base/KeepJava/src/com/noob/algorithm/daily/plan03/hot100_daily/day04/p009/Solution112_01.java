@@ -14,7 +14,6 @@ public class Solution112_01 {
         return dfs(root, 0, targetSum);
     }
 
-
     // 递归处理校验路径节点值之和
     private boolean dfs(TreeNode node, int currentSum, int targetSum) {
         if (node == null) {
