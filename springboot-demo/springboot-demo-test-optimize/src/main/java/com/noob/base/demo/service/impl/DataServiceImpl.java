@@ -2,12 +2,12 @@ package com.noob.base.demo.service.impl;
 
 
 import com.noob.base.demo.service.DataService;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @Service("dataService")
 public class DataServiceImpl implements DataService {
-
 
     // @Transactional
     @Transactional(rollbackFor=Exception.class)

@@ -161,6 +161,21 @@
 /springboot-demo/springboot-demo-scanQRCode/target
 
 
+/springboot-demo/springboot-demo-scene-batchDataHandler/.idea
+/springboot-demo/springboot-demo-scene-batchDataHandler/target
+
+/springboot-demo/springboot-demo-scene-fileConverter/.idea
+/springboot-demo/springboot-demo-scene-fileConverter/target
+
+/springboot-demo/springboot-demo-scene-sorter/.idea
+/springboot-demo/springboot-demo-scene-sorter/target
+
+
+/springboot-demo/springboot-demo-scene-polymorphismJSON/.idea
+/springboot-demo/springboot-demo-scene-polymorphismJSON/target
+
+
+
 /springboot-demo/springboot-demo-systemLog/.idea
 /springboot-demo/springboot-demo-systemLog/target
 

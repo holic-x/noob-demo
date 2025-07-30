@@ -1,0 +1,71 @@
+[
+  {
+    "processId": null,
+    "webKey": "BAIDU",
+    "webName": "百度",
+    "status": "SUCCESS",
+    "note": null,
+    "results": [
+      {
+        "key": {
+          "name": "青岛滴滴易购跨境电子商务有限公司",
+          "idNo": "91370211MA3DQJT88L",
+          "type": null,
+          "label": null,
+          "location": null,
+          "webKeys": null,
+          "personList": null
+        },
+        "createTime": null,
+        "files": [
+          {
+            "fileName": "青岛滴滴易购跨境电子商务有限公司 处罚搜索页截图20250711120438.png",
+            "fileKey": "1752206681098_000_000_CD593A2A3338632B9536E076EE7B8C3BB25BAD6F34C6DBD2281792EB31192913",
+            "fileType": "picture",
+            "transferType": null
+          }
+        ]
+      },
+      {
+        "key": {
+          "name": "青岛滴滴易购跨境电子商务有限公司",
+          "idNo": "91370211MA3DQJT88L",
+          "type": null,
+          "label": null,
+          "location": null,
+          "webKeys": null,
+          "personList": null
+        },
+        "createTime": null,
+        "files": [
+          {
+            "fileName": "青岛滴滴易购跨境电子商务有限公司 失信 违法搜索页截图20250711120542.png",
+            "fileKey": "1752206745750_000_000_AC5EEA0CE45398EA7D1A018D8381B2F449C99037EFF7E2E67043B20A3528DA62",
+            "fileType": "picture",
+            "transferType": null
+          }
+        ]
+      },
+      {
+        "key": {
+          "name": "青岛滴滴易购跨境电子商务有限公司",
+          "idNo": "91370211MA3DQJT88L",
+          "type": null,
+          "label": null,
+          "location": null,
+          "webKeys": null,
+          "personList": null
+        },
+        "createTime": null,
+        "files": [
+          {
+            "fileName": "青岛滴滴易购跨境电子商务有限公司 行贿搜索页截图20250711120646.png",
+            "fileKey": "1752206809174_000_000_B331629F80AAE6D00A9BB8F8DE61931D98C8392A95517B6A0C7FBE9FCC98DFBC",
+            "fileType": "picture",
+            "transferType": null
+          }
+        ]
+      }
+    ]
+  }
+]
