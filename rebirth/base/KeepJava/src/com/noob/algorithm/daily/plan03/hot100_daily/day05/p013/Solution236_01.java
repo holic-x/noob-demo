@@ -11,8 +11,28 @@ public class Solution236_01 {
      * 思路分析：
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        return dfs(root, p, q);
+    }
 
-        return null;
+    // 递归思路
+    private TreeNode dfs(TreeNode node, TreeNode p, TreeNode q) {
+        if (node == null || node == p || node == q) {
+            return node; // LCA 可能是自身，null情况下作为递归出口
+        }
+
+        // LRD处理顺序
+        TreeNode findLeft = dfs(node.left, p, q);
+        TreeNode findRight = dfs(node.right, p, q);
+
+        // 左、右子树分情况讨论
+        if (findLeft == null && findRight == null) {
+            return null;
+        } else if (findLeft != null && findRight != null) {
+            return node; // 左右子树都找到了LCA 说明当前节点即为LCA
+        } else {
+            return findLeft == null ? findRight : findLeft;
+        }
+
     }
 
 }
