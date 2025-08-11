@@ -7,9 +7,34 @@ public class Solution135_01 {
 
     /**
      * 思路分析：
+     * 分别处理2个条件，选择满足2个条件的max
+     * 从左到右：满足评分高的孩子获得更多的糖果（只与左侧的孩子作比较）所需的最少糖果数
+     * 从右到左：满足评分高的孩子获得更多的糖果（只与右侧的孩子作比较）所需的最少糖果数
      */
     public int candy(int[] ratings) {
 
-        return -1;
+        int n = ratings.length;
+
+        // 左条件控制
+        int[] left = new int[n];
+        left[0] = 1; // 至少需要一个糖果
+        for (int i = 1; i < n; i++) {
+            // 判断当前孩子的评分是否比左侧小孩的高，如果高则多分一个，如果不高则只分1个也满足
+            left[i] = (ratings[i] - ratings[i - 1] > 0) ? left[i - 1] + 1 : 1;
+        }
+
+        // 右条件控制
+        int[] right = new int[n];
+        right[n - 1] = 1; // 至少需要一个糖果
+        int cnt = Math.max(left[n - 1], right[n - 1]); // 所需的最少糖果数
+        for (int i = n - 2; i >= 0; i--) {
+            // 判断其是否比右侧小孩评分高，同理按需分配
+            right[i] = (ratings[i] - ratings[i + 1] > 0) ? right[i + 1] + 1 : 1;
+            // 要同时满足两个条件，则必须选max
+            cnt += Math.max(left[i], right[i]);
+        }
+
+        // 返回结果
+        return cnt;
     }
 }

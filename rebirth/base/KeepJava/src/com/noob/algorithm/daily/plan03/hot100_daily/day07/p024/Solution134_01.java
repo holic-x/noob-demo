@@ -7,9 +7,25 @@ public class Solution134_01 {
 
     /**
      * 思路分析：
+     * 校验每一个可能起点，判断当前位置开始出发可否到达下个位置，最终验证环路油量差是否大于0
      */
     public int canCompleteCircuit(int[] gas, int[] cost) {
-
-        return -1;
+        // 起点索引位置
+        int startIdx = 0; // 当前选择的出发点位置，初始化从第1个油站开始
+        int curGas = 0; // 当前油量，基于当前选择出发点走到当前位置的剩余油量
+        int totalGas = 0; // 总油量差，表示整个环路油量与消耗的总差值
+        for (int i = 0; i < gas.length; i++) {
+            // 到达某个加油站，进行加油，并判断当前油量是否可以支撑它走到下一个加油站
+            totalGas += (gas[i] - cost[i]); // 油量差值统计
+            curGas += (gas[i] - cost[i]); // 当前剩余油量更新
+            // 验证剩余油量是否可以走到下一个加油站位置（中间不断油）
+            if (curGas < 0) {
+                // 重置起点（如果当前剩余油量小于0，说明无法走到下一个加油站，则需从下一个加油站开始重新出发）
+                curGas = 0;
+                startIdx = i + 1; // 从当前节点的下一个位置开始重新出发
+            }
+        }
+        // 遍历完成，判断最终的totalGas是否大于0（环路油量差值是否大于0）
+        return totalGas >= 0 ? startIdx : -1;
     }
 }
