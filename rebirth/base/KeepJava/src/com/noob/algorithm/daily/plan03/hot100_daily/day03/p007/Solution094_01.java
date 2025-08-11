@@ -11,11 +11,23 @@ import java.util.List;
 public class Solution094_01 {
 
     /**
-     * 思路分析：
+     * 思路分析：LDR
      */
     public List<Integer> inorderTraversal(TreeNode root) {
+        dfs(root);
+        return ans;
+    }
 
-        return new ArrayList<>();
+    List<Integer> ans = new ArrayList<>();
+
+    private void dfs(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        dfs(node.left);    // 左子树处理
+        ans.add(node.val); // 记录结果
+        dfs(node.right);   // 右子树处理
     }
 
 }

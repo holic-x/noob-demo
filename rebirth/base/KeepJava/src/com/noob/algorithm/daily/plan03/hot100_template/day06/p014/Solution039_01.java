@@ -1,10 +1,9 @@
 package com.noob.algorithm.daily.plan03.hot100_template.day06.p014;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 039-
+ * 039-组合总和 https://leetcode.cn/problems/combination-sum/
  * 给定无重复元素的整数数组，选出可以使得数字和为target的不同组合(同一个数可以使用多次)
  */
 public class Solution039_01 {

@@ -7,9 +7,44 @@ public class Solution860_01 {
 
     /**
      * 思路分析：
+     * 柠檬水找零: 限制纸币额度为5、10、20，确定找零方案（每个顾客只买一杯）
+     * - 给了5：不需要找零
+     * - 给了10：找5块
+     * - 给了20：找15块，有两种找零方案（5+10、3*5）
+     * - 整个过程中验证纸币数量是否满足找零需求
      */
     public boolean lemonadeChange(int[] bills) {
-        return false;
+        // 分别定义各个纸币的剩余数量(可以用于找零的纸币数量)，初始化为0。然后处理账单记录，如果发现不满足找零需求则退出
+        int fiveCnt = 0, tenCnt = 0;
+        for (int num : bills) {
+            // 根据不同的账单金额确定找零方案并更新数量
+            if (num == 5) {
+                fiveCnt++; // 不需要找零
+            } else if (num == 10) {
+                // 验证是否符合找零条件
+                if (fiveCnt > 0) {
+                    tenCnt++;
+                    fiveCnt--;
+                } else {
+                    return false;
+                }
+            } else if (num == 20) {
+                // 有2种找零方案：基于策略因为5可以支持更多的找零方案，所以此处优先找10+5，避免5纸币消耗过快
+                if (fiveCnt > 0 && tenCnt > 0) {
+                    fiveCnt--;
+                    tenCnt--;
+                    continue;
+                }
+                if (fiveCnt >= 3) {
+                    fiveCnt -= 3;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        // 所有账单金额处理完成
+        return true;
     }
 
 }

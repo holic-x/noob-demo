@@ -8,7 +8,22 @@ import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
 public class Solution700_01 {
 
 
+    // 迭代法搜索
     public TreeNode searchBST(TreeNode root, int val) {
+        TreeNode cur = root;
+        while (cur != null) {
+            int curVal = cur.val;
+            if (val < curVal) {
+                // 目标值在左侧
+                cur = cur.left;
+            } else if (val > curVal) {
+                // 目标值在右侧
+                cur = cur.right;
+            } else {
+                return cur;
+            }
+        }
+
         return null;
     }
 
