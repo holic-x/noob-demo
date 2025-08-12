@@ -1,4 +1,4 @@
-package com.noob.algorithm.daily.plan03.hot100_template.day08.p025;
+package com.noob.algorithm.daily.plan03.hot100_daily.day08.p025;
 
 /**
  * 🟢 509 斐波那契数列 - https://leetcode.cn/problems/fibonacci-number/description/
