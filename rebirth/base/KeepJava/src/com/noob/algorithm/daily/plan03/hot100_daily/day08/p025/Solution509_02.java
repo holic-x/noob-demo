@@ -3,10 +3,10 @@ package com.noob.algorithm.daily.plan03.hot100_daily.day08.p025;
 /**
  * 🟢 509 斐波那契数列 - https://leetcode.cn/problems/fibonacci-number/description/
  */
-public class Solution509_01 {
+public class Solution509_02 {
 
     /**
-     * 思路分析：
+     * 思路分析：动态规划 空间优化版本
      */
     public int fib(int n) {
         // 特例判断
@@ -14,12 +14,13 @@ public class Solution509_01 {
             return n;
         }
 
-        int[] dp = new int[n + 1];
-        dp[0] = 0;
-        dp[1] = 1;
+        int p = 0, q = 1, r = 0;
         for (int i = 2; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
+            r = p + q;
+            // 滚动变量
+            p = q;
+            q = r;
         }
-        return dp[n];
+        return r;
     }
 }
