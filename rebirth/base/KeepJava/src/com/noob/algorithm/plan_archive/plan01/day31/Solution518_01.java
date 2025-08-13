@@ -1,7 +1,7 @@
 package com.noob.algorithm.plan_archive.plan01.day31;
 
 /**
- * 🟡 518 零钱兑换 - https://leetcode.cn/problems/coin-change-ii/
+ * 🟡 518 零钱兑换II - https://leetcode.cn/problems/coin-change-ii/
  */
 public class Solution518_01 {
 
