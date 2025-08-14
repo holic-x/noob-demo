@@ -1,15 +1,14 @@
 package com.noob.algorithm.daily.codeTop;
 
 import com.noob.algorithm.plan_archive.baseStructure.TreeNode;
-import javafx.util.Pair;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * 🟡 662 二叉树的最大宽度 - https://leetcode.cn/problems/maximum-width-of-binary-tree/description/
  */
 public class Solution662_02 {
+    /*
     public int widthOfBinaryTree(TreeNode root) {
         if (root == null) {
             return 0;
@@ -41,4 +40,5 @@ public class Solution662_02 {
 
         return maxWidth;
     }
+     */
 }
