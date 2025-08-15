@@ -3,7 +3,6 @@ package com.noob.base.spi;
 import com.noob.base.spi.impl.MysqlStorage;
 import com.noob.base.spi.impl.OracleStorage;
 import com.noob.base.spi.impl.RedisStorage;
-import sun.misc.Launcher;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;
