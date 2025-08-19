@@ -1,7 +1,7 @@
 package com.noob.algorithm.daily.plan03.hot100_template.day10.p030;
 
 /**
- * 🟡 053 最大子数组和
+ * 🟡 053 最大子数组和 - https://leetcode.cn/problems/maximum-subarray/
  */
 public class Solution053_01 {
 
