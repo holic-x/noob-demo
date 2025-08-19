@@ -7,9 +7,21 @@ public class Solution392_01 {
 
     /**
      * 思路分析：
+     * 判断s是否为t的子序列（双指针思路）
      */
     public boolean isSubsequence(String s, String t) {
+        int sp = 0, tp = 0;
+        int sn = s.length(), tn = t.length();
+        while (sp < sn && tp < tn) {
+            if (s.charAt(sp) == t.charAt(tp)) {
+                sp++;
+                tp++;
+            } else {
+                tp++; // tp 指针前移
+            }
+        }
 
-        return false;
+        // 校验到sp的最后一个位置
+        return sp == sn;
     }
 }
