@@ -3,7 +3,7 @@ package com.noob.algorithm.daily.plan03.hot100_daily.day12;
 /**
  * 🟡 200 岛屿数量 - https://leetcode.cn/problems/number-of-islands/description/
  */
-public class Solution200_01 {
+public class Solution200_02 {
 
     // 定义4个方向
     private int[][] dir = new int[][]{{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
@@ -38,9 +38,6 @@ public class Solution200_01 {
     private void dfs(int x, int y, char[][] grid, boolean[][] visited) {
         // 校验节点是否越界
         int m = grid.length, n = grid[0].length;
-        if (x < 0 || x >= m || y < 0 || y >= n) {
-            return; // 越界，退出
-        }
 
         // 判断当前节点是否已被渲染或者为海洋
         if (visited[x][y] || grid[x][y] == '0') {
@@ -54,6 +51,12 @@ public class Solution200_01 {
         for (int i = 0; i < dir.length; i++) {
             int nextX = x + dir[i][0];
             int nextY = y + dir[i][1];
+
+            // 越界判断
+            if (nextX < 0 || nextX >= m || nextY < 0 || nextY >= n) {
+                continue; // 越界，退出
+            }
+
             // 递归处理
             dfs(nextX, nextY, grid, visited);
         }
