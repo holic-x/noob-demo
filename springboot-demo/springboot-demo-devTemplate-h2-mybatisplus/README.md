@@ -8,3 +8,6 @@
 - 项目环境：Springboot + 3.X + JDK 17
   - 基于Springboot-3.X版本，需要配合JDK17使用，如果项目加载失败需要检查版本依赖
 - 常见问题是引入依赖后maven长时间加载，考虑可能是因为版本兼容性问题导致，需要检查项目版本依赖、JDK版本环境
+
+# 数据库说明（h2）
+- [启动URL]/h2-console 可访问h2操作控制台（配置参考：application-dev.yml）
