@@ -157,6 +157,11 @@
 /springboot-demo/springboot-demo-devTemplate/.idea
 /springboot-demo/springboot-demo-devTemplate/target
 
+/springboot-demo/springboot-demo-devTemplate-h2-jpa/.idea
+/springboot-demo/springboot-demo-devTemplate-h2-jpa/target
+
+
+
 /springboot-demo/springboot-demo-scanQRCode/.idea
 /springboot-demo/springboot-demo-scanQRCode/target
 
