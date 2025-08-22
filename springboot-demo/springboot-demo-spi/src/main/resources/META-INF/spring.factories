@@ -1,0 +1,2 @@
+org.springframework.boot.SpringApplicationRunListener=\
+com.noob.base.spi.CustomSpringApplicationRunListener

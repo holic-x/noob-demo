@@ -160,6 +160,10 @@
 /springboot-demo/springboot-demo-scanQRCode/.idea
 /springboot-demo/springboot-demo-scanQRCode/target
 
+/springboot-demo/springboot-demo-spi/.idea
+/springboot-demo/springboot-demo-spi/target
+
+
 
 /springboot-demo/springboot-demo-scene-batchDataHandler/.idea
 /springboot-demo/springboot-demo-scene-batchDataHandler/target
