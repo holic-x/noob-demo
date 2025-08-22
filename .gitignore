@@ -160,6 +160,9 @@
 /springboot-demo/springboot-demo-devTemplate-h2-jpa/.idea
 /springboot-demo/springboot-demo-devTemplate-h2-jpa/target
 
+/springboot-demo/springboot-demo-devTemplate-h2-mybatisplus/.idea
+/springboot-demo/springboot-demo-devTemplate-h2-mybatisplus/target
+
 
 
 /springboot-demo/springboot-demo-scanQRCode/.idea
