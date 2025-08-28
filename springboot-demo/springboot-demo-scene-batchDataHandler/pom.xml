@@ -87,6 +87,28 @@
             <version>${poi.version}</version>
         </dependency>
 
+        <!-- PDF 处理相关 -->
+        <!-- Apache PDFBox 核心库（处理PDF生成与图片嵌入） -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.29</version> <!-- 稳定版本，兼容Java 8+ -->
+        </dependency>
+
+        <!-- Apache PDFBox 图片处理扩展（优化图片嵌入性能） -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox-tools</artifactId>
+            <version>2.0.29</version>
+        </dependency>
+
+        <!-- Apache Commons Pool2（对象池工具，管理图片对象复用） -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.11.1</version> <!-- 最新稳定版本 -->
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
