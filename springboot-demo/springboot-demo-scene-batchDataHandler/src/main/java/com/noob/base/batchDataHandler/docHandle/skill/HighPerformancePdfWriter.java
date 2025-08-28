@@ -85,7 +85,7 @@ public class HighPerformancePdfWriter {
         try {
             // 3. 生成图片ID列表（实际场景从数据库/文件系统获取）
             List<String> imageIds = IntStream.range(0, TOTAL_IMAGES)
-                    .mapToObj(i -> "mock_image_" + (i%10) + ".png") // 假设图片命名格式
+                    .mapToObj(i -> "mock_image_" + (i % 10) + ".png") // 假设图片命名格式
                     .collect(Collectors.toList());
 
             // 4. 任务分片并提交

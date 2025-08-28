@@ -73,19 +73,34 @@
         </dependency>
 
         <!-- 文稿处理相关（POI系列） -->
-        <!-- POI Core -->
+        <!-- POI Core 核心包 -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>${poi.version}</version>
         </dependency>
 
-        <!-- POI OOXML (for .docx) -->
+        <!-- POI OOXML (for .docx) Word处理包 -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>${poi.version}</version>
         </dependency>
+
+        <!-- 处理OOXML格式的依赖（STJc类所在包） -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>ooxml-schemas</artifactId>
+            <version>1.4</version> <!-- 与POI 4.1.0强制匹配 -->
+        </dependency>
+
+        <!-- 对象池依赖 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.8.0</version> <!-- 与POI 4.1.0兼容 -->
+        </dependency>
+
 
         <!-- PDF 处理相关 -->
         <!-- Apache PDFBox 核心库（处理PDF生成与图片嵌入） -->
@@ -102,12 +117,13 @@
             <version>2.0.29</version>
         </dependency>
 
-        <!-- Apache Commons Pool2（对象池工具，管理图片对象复用） -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-            <version>2.11.1</version> <!-- 最新稳定版本 -->
-        </dependency>
+        <!--pdf 相关-->
+        <!--        &lt;!&ndash; Apache Commons Pool2（对象池工具，管理图片对象复用） &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.commons</groupId>-->
+        <!--            <artifactId>commons-pool2</artifactId>-->
+        <!--            <version>2.11.1</version> &lt;!&ndash; 最新稳定版本 &ndash;&gt;-->
+        <!--        </dependency>-->
 
     </dependencies>
     <dependencyManagement>

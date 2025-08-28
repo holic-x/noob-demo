@@ -1,14 +1,12 @@
 package com.noob.base.batchDataHandler.docHandle.skill;
 
-import org.apache.commons.pool2.ObjectPool;
-import org.apache.commons.pool2.PooledObject;
-import org.apache.commons.pool2.PooledObjectFactory;
-import org.apache.commons.pool2.impl.DefaultPooledObject;
-import org.apache.commons.pool2.impl.GenericObjectPool;
-import org.apache.poi.util.Units;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTJc;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTP;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTPPr;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STJc;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -16,42 +14,49 @@ import java.io.FileOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static org.apache.poi.util.Units.toEMU;
+
 /**
- * 高性能Word图片写入器：5万张截图4分钟内完成写入
- * 核心优化：多线程并行+对象池+流式写入+内存控制
+ * 高性能Word图片写入器：兼容POI 4.1.0版本
+ * 移除XWPFRun对象池以解决激活错误，保证稳定性
  */
 public class HighPerformanceWordWriter {
 
     // 配置参数
-    // private static final int TOTAL_IMAGES = 50000; // 总图片数
-    private static final int TOTAL_IMAGES = 10; // 总图片数
-    private static final int THREAD_COUNT = 12;    // 并行线程数（建议为CPU核心数的1.5倍）
-    private static final int BATCH_SIZE = 100;     // 每线程批次处理量
-    // private static final String IMAGE_DIR = "/test-files/batch_test/batch_images"; // 图片存储目录
-    // private static final String OUTPUT_WORD = "/test-files/batch_test/output.docx"; // 输出Word路径
+    // private static final int TOTAL_IMAGES = 10; // 测试用图片数
+    private static final int TOTAL_IMAGES = 1000; // 测试用图片数
+    private static final int THREAD_COUNT = Runtime.getRuntime().availableProcessors() * 2;
+    private static final int BATCH_SIZE = 100;
 
-
-    // 获取测试目录（例如此处可以基于当前工程目录路径）
+    // 目录配置
     private String getTestDir() {
-        // String baseDir = "E:/workspace/project/noob-demo/springboot-demo/springboot-demo-scene-batchDataHandler";
         String projectDir = System.getProperty("user.dir");
         String testDir = projectDir + File.separator + "test-files";
         System.out.println("当前工程目录路径: " + projectDir);
         return testDir;
     }
 
+    // 测试目录：当前项目路径下
+    /*
     String testDir = getTestDir();
-    private final String IMAGE_DIR = testDir + File.separator + "batch_test" + File.separator + "batch_images" + File.separator; // 图片存储目录
-    private final String OUTPUT_WORD = testDir + File.separator + "batch_test" + File.separator + "output.docx" + File.separator; // 输出Word路径
+    private final String IMAGE_DIR = testDir + File.separator + "batch_test" + File.separator + "batch_images" + File.separator;
+    private final String OUTPUT_WORD = testDir + File.separator + "batch_test" + File.separator + "output_" + UUID.randomUUID().toString().replaceAll("-", "").substring(0, 6) + ".docx";
+    */
 
 
-    // Word文档对象（线程安全处理）
+    // window 下测试目录
+    String testDir = "E:" + File.separator + "test" + File.separator + "test-files";
+    private final String IMAGE_DIR = testDir + File.separator + "batch_test" + File.separator + "batch_images" + File.separator;
+    private final String OUTPUT_WORD = testDir + File.separator + "batch_test" + File.separator + "output_" + UUID.randomUUID().toString().replaceAll("-", "").substring(0, 6) + ".docx";
+
+
+    // Word文档对象和锁
     private final XWPFDocument document = new XWPFDocument();
-    // 线程安全的文档锁（确保内容顺序）
     private final Object documentLock = new Object();
 
     public static void main(String[] args) throws Exception {
@@ -65,142 +70,107 @@ public class HighPerformanceWordWriter {
      * 核心方法：多线程并行写入图片到Word
      */
     public void writeImagesToWord() throws Exception {
-        // 1. 创建线程池（优化线程调度）
+        // 1. 创建线程池
         ThreadPoolExecutor executor = new ThreadPoolExecutor(
                 THREAD_COUNT,
                 THREAD_COUNT,
                 0L, TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<>(1000), // 缓冲队列避免任务堆积
+                new LinkedBlockingQueue<>(1000),
                 new ThreadFactory() {
                     private int count = 0;
 
                     @Override
                     public Thread newThread(Runnable r) {
                         Thread thread = new Thread(r, "image-writer-" + count++);
-                        thread.setPriority(Thread.NORM_PRIORITY); // 平衡CPU资源
+                        thread.setPriority(Thread.NORM_PRIORITY);
                         return thread;
                     }
                 },
-                new ThreadPoolExecutor.CallerRunsPolicy() // 任务满时回退到调用线程
+                new ThreadPoolExecutor.CallerRunsPolicy()
         );
 
-        // 2. 创建图片处理对象池（复用XWPFRun，减少对象创建开销）
-        ObjectPool<XWPFRun> runPool = new GenericObjectPool<>(new XWPFRunFactory(document));
-
         try {
-            // 3. 生成图片ID列表（实际场景从数据库/文件系统获取）
+            // 2. 生成图片ID列表
             List<String> imageIds = IntStream.range(0, TOTAL_IMAGES)
-                    .mapToObj(i -> "mock_image_" + i + ".png") // 假设图片命名格式
+                    .mapToObj(i -> "mock_image_" + i + ".png") // i%10 测试文件（此处如果复用图片文件可能导致多线程处理出错）
                     .collect(Collectors.toList());
+            /**
+             * 复用文件处理可能会出现问题，此处考虑mock多文件
+             * 处理图片失败：mock_image_0.png，错误：A part with the name '/word/media/image1.png' already exists : Packages shall not contain equivalent part names and package implementers shall neither create nor recognize packages with equivalent part names. [M1.12]
+             * org.apache.poi.openxml4j.exceptions.PartAlreadyExistsException: A part with the name '/word/media/image1.png' already exists : Packages shall not contain equivalent part names and package implementers shall neither create nor recognize packages with equivalent part names. [M1.12]
+             * 	at org.apache.poi.openxml4j.opc.OPCPackage.createPart(OPCPackage.java:824)
+             * 	at org.apache.poi.openxml4j.opc.OPCPackage.createPart(OPCPackage.java:787)
+             */
 
-            // 4. 任务分片并提交
+            // 3. 任务分片并提交
             CompletionService<Void> completionService = new ExecutorCompletionService<>(executor);
             for (int i = 0; i < TOTAL_IMAGES; i += BATCH_SIZE) {
                 final int start = i;
                 final int end = Math.min(i + BATCH_SIZE, TOTAL_IMAGES);
                 completionService.submit(() -> {
-                    processImageBatch(imageIds.subList(start, end), runPool);
+                    processImageBatch(imageIds.subList(start, end));
                     return null;
                 });
             }
 
-            // 5. 等待所有任务完成
+            // 4. 等待所有任务完成
             for (int i = 0; i < (TOTAL_IMAGES + BATCH_SIZE - 1) / BATCH_SIZE; i++) {
                 completionService.take().get();
             }
 
-            // 6. 保存Word文档（最后一步统一写入磁盘）
+            // 5. 保存Word文档
             try (FileOutputStream out = new FileOutputStream(OUTPUT_WORD)) {
                 document.write(out);
             }
             System.out.println("Word生成完成，路径：" + OUTPUT_WORD);
 
         } finally {
-            // 7. 资源清理
+            // 6. 资源清理
             document.close();
-            runPool.close();
             executor.shutdown();
         }
     }
 
     /**
-     * 处理单个图片批次
+     * 处理单个图片批次 - 移除对象池，直接创建XWPFRun
      */
-    private void processImageBatch(List<String> imageIds, ObjectPool<XWPFRun> runPool) throws Exception {
+    private void processImageBatch(List<String> imageIds) {
         for (String imageId : imageIds) {
-            XWPFRun run = null;
-            XWPFParagraph paragraph = null;
             try {
-                // 1. 读取图片二进制数据（使用NIO提升读取性能）
-                byte[] imageData = Files.readAllBytes(Paths.get(IMAGE_DIR + imageId));
+                // 1. 读取图片二进制数据
+                String imagePath = IMAGE_DIR + imageId;
+                byte[] imageData = Files.readAllBytes(Paths.get(imagePath));
 
-                // 2. 创建段落（每张图片占一个段落）
+                // 2. 创建段落和Run（在同一个同步块中，确保关联正确）
+                XWPFParagraph paragraph;
+                XWPFRun run;
                 synchronized (documentLock) {
                     paragraph = document.createParagraph();
-                    paragraph.setSpacingAfter(100); // 设置段落间距
+                    paragraph.setSpacingAfter(100);
+
+                    // 设置居中对齐（POI 4.1.0 稳定兼容写法）
+                    CTP ctp = paragraph.getCTP();
+                    CTPPr pPr = ctp.getPPr() == null ? ctp.addNewPPr() : ctp.getPPr();
+                    CTJc jc = pPr.getJc() == null ? pPr.addNewJc() : pPr.getJc();
+                    // jc.setVal("center"); // 直接使用字符串值，避免类型问题
+                    jc.setVal(STJc.CENTER); // 直接使用字符串值，避免类型问题
+
+                    // 直接创建Run，与当前段落绑定（最稳定方式）
+                    run = paragraph.createRun();
                 }
 
-                // 3. 从对象池获取XWPFRun（文本运行对象，用于插入图片）
-                run = runPool.borrowObject();
-                run = paragraph.createRun(); // 绑定到当前段落
-
-                // 4. 插入图片（自动识别格式，设置缩放比例）
+                // 3. 插入图片
                 int pictureType = XWPFDocument.PICTURE_TYPE_PNG;
                 run.addPicture(new ByteArrayInputStream(imageData),
                         pictureType,
                         imageId,
-                        Units.toEMU(500), // 宽度（500像素）
-                        Units.toEMU(300)); // 高度（300像素）
-
-                // 5. 释放图片数据（及时回收内存）
-                imageData = null;
+                        toEMU(500),
+                        toEMU(300));
 
             } catch (Exception e) {
                 System.err.println("处理图片失败：" + imageId + "，错误：" + e.getMessage());
-            } finally {
-                // 6. 归还对象到池（关键：避免内存泄漏）
-                if (run != null) {
-                    runPool.returnObject(run);
-                }
+                e.printStackTrace();
             }
         }
     }
-
-    /**
-     * XWPFRun对象工厂（用于对象池）
-     */
-    static class XWPFRunFactory implements PooledObjectFactory<XWPFRun> {
-        private final XWPFDocument document;
-
-        public XWPFRunFactory(XWPFDocument document) {
-            this.document = document;
-        }
-
-        @Override
-        public PooledObject<XWPFRun> makeObject() {
-            XWPFParagraph tempPara = document.createParagraph();
-            return new DefaultPooledObject<>(tempPara.createRun());
-        }
-
-        @Override
-        public void destroyObject(PooledObject<XWPFRun> p) {
-            // 销毁时清除内容
-            p.getObject().setText("");
-        }
-
-        @Override
-        public boolean validateObject(PooledObject<XWPFRun> p) {
-            return true;
-        }
-
-        @Override
-        public void activateObject(PooledObject<XWPFRun> p) {
-        }
-
-        @Override
-        public void passivateObject(PooledObject<XWPFRun> p) {
-            p.getObject().setText(""); // 清除之前的内容
-        }
-    }
 }
-    
