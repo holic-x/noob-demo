@@ -154,14 +154,14 @@
 /springboot-demo/springboot-demo-multithreadBatchHandle/target
 
 
-/springboot-demo/springboot-demo-devTemplate/.idea
-/springboot-demo/springboot-demo-devTemplate/target
+/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate/.idea
+/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate/target
 
-/springboot-demo/springboot-demo-devTemplate-h2-jpa/.idea
-/springboot-demo/springboot-demo-devTemplate-h2-jpa/target
+/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate-h2-jpa/.idea
+/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate-h2-jpa/target
 
-/springboot-demo/springboot-demo-devTemplate-h2-mybatisplus/.idea
-/springboot-demo/springboot-demo-devTemplate-h2-mybatisplus/target
+/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate-h2-mybatisplus/.idea
+/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate-h2-mybatisplus/target
 
 
 
@@ -175,6 +175,12 @@
 
 /springboot-demo/springboot-demo-scene-batchDataHandler/.idea
 /springboot-demo/springboot-demo-scene-batchDataHandler/target
+
+/springboot-demo/springboot-demo-scene-batchDataHandler-excel/.idea
+/springboot-demo/springboot-demo-scene-batchDataHandler-excel/target
+
+/springboot-demo/springboot-demo-scene-batchDataHandler-easyExcel/.idea
+/springboot-demo/springboot-demo-scene-batchDataHandler-easyExcel/target
 
 /springboot-demo/springboot-demo-scene-fileConverter/.idea
 /springboot-demo/springboot-demo-scene-fileConverter/target

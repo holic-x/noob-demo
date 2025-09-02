@@ -12,7 +12,7 @@ import java.util.Random;
  * 随机图片生成工具：生成指定数量的PNG图片到目标路径
  * 命名格式：mock_image_1.png、mock_image_2.png...
  */
-public class RandomImageGenerator {
+public class RandomImageGeneratorForSimple {
 
     // 默认配置（可根据需求调整）
     private static final int DEFAULT_IMAGE_WIDTH = 500;  // 图片默认宽度（像素）

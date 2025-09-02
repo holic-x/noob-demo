@@ -23,15 +23,22 @@ import java.util.stream.IntStream;
 import static org.apache.poi.util.Units.toEMU;
 
 /**
+ * todo 优化版本测试验证
  * 大规模图片Word生成器：优化版
  * 多线程读取+单线程写入，支持5万+张图片稳定生成
+ * - 5000    5s
+ * - 10000   15s
+ * - 20000   69s
+ * - 30000
+ * - 40000   339s
+ * - 50000   大概6min
  */
 public class OptimizedWordImageWriter {
 
     // 1. 核心配置（根据硬件配置调整）
     // private static final int TOTAL_IMAGES = 50000;       // 目标图片总数
     // private static final int TOTAL_IMAGES = 10000;       // 目标图片总数
-    private static final int TOTAL_IMAGES = 50000;       // 目标图片总数
+    private static final int TOTAL_IMAGES = 30000;       // 目标图片总数
     private static final int READ_THREAD_COUNT = Runtime.getRuntime().availableProcessors(); // 读取线程数=CPU核心数
     private static final int BATCH_SIZE = 100;           // 读取批次大小
     private static final String IMAGE_SUFFIX = ".png";  // 图片格式
