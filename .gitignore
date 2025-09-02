@@ -154,14 +154,21 @@
 /springboot-demo/springboot-demo-multithreadBatchHandle/target
 
 
-/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate/.idea
-/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate/target
+/springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-h2-jpa/.idea
+/springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-h2-jpa/target
 
-/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate-h2-jpa/.idea
-/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate-h2-jpa/target
 
-/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate-h2-mybatisplus/.idea
-/springboot-demo/0.springboot-demo-template_ver/springboot-demo-devTemplate-h2-mybatisplus/target
+
+
+
+/springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate/.idea
+/springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate/target
+
+/springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate-h2-jpa/.idea
+/springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate-h2-jpa/target
+
+/springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate-h2-mybatisplus/.idea
+/springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate-h2-mybatisplus/target
 
 
 
