@@ -38,7 +38,7 @@ public class OptimizedWordImageWriter {
     // 1. 核心配置（根据硬件配置调整）
     // private static final int TOTAL_IMAGES = 50000;       // 目标图片总数
     // private static final int TOTAL_IMAGES = 10000;       // 目标图片总数
-    private static final int TOTAL_IMAGES = 30000;       // 目标图片总数
+    private static final int TOTAL_IMAGES = 1000;       // 目标图片总数
     private static final int READ_THREAD_COUNT = Runtime.getRuntime().availableProcessors(); // 读取线程数=CPU核心数
     private static final int BATCH_SIZE = 100;           // 读取批次大小
     private static final String IMAGE_SUFFIX = ".png";  // 图片格式
@@ -47,7 +47,8 @@ public class OptimizedWordImageWriter {
 
     // 2. 目录配置
     private final String testDir = "E:" + File.separator + "test" + File.separator + "test-files";
-    private final String IMAGE_DIR = testDir + File.separator + "batch_test" + File.separator + "batch_images" + File.separator;
+   // private final String IMAGE_DIR = testDir + File.separator + "batch_test" + File.separator + "batch_images" + File.separator; // 2KB 左右文稿
+    private final String IMAGE_DIR = testDir + File.separator + "batch_test_ver02" + File.separator + "batch_images" + File.separator; // 2KB 左右文稿
     private final String OUTPUT_WORD = testDir + File.separator + "batch_test" + File.separator +
             "output_" + UUID.randomUUID().toString().replace("-", "").substring(0, 6) + ".docx";
 

@@ -1,13 +1,14 @@
 # Springboot-demo 基础项目示例
 - 用于快速开发支持基础数据的CRUD操作
 - 不依赖于外部环境（例如外部数据库、Redis等）
-- 使用内存中的H2数据库 + mybatis-plus 实现数据的持久化操作
+- 使用 mysql + mybatis-plus 实现数据的持久化操作
 - 包括基础开发的一些常用工具（lombok、devtools、test、hutools、json相关等）
 
 # 版本说明
-- 项目环境：Springboot + 3.X + JDK 17
-  - 基于Springboot-3.X版本，需要配合JDK17使用，如果项目加载失败需要检查版本依赖
+- 项目环境：Springboot + 2.X + JDK 8
+  - 基于Springboot-2.X版本，需要配合JDK8使用，如果项目加载失败需要检查版本依赖
 - 常见问题是引入依赖后maven长时间加载，考虑可能是因为版本兼容性问题导致，需要检查项目版本依赖、JDK版本环境
 
-# 数据库说明（h2）
-- [启动URL]/h2-console 可访问h2操作控制台（配置参考：application-dev.yml）
+# 数据库说明（mysql）
+- MySQL 8.0+版本（配置参考：application-dev.yml）
+- MyBatis-Plus

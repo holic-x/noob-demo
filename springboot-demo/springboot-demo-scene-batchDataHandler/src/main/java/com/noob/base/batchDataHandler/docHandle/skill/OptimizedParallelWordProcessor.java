@@ -26,7 +26,7 @@ public class OptimizedParallelWordProcessor {
 
     // 1. 核心配置（根据硬件配置调整）
     // private static final int TOTAL_IMAGES = 50000;       // 目标图片总数
-    private static final int TOTAL_IMAGES = 1000;       // 目标图片总数
+    private static final int TOTAL_IMAGES = 500;       // 目标图片总数
     private static final int READ_THREAD_COUNT = Runtime.getRuntime().availableProcessors(); // 读取线程数=CPU核心数
     private static final int BATCH_SIZE = 100;           // 读取批次大小
     private static final String IMAGE_SUFFIX = ".png";  // 图片格式
