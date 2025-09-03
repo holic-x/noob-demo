@@ -158,7 +158,9 @@
 /springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-h2-jpa/target
 
 
-
+/springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-mysql-mybatisplus/.idea
+/springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-mysql-mybatisplus/target
+/springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-mysql-mybatisplus/src/main/resources/application-dev.yml
 
 
 /springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate/.idea

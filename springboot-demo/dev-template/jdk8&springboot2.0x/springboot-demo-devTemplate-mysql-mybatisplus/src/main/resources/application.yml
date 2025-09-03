@@ -1,0 +1,41 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+
+# spring相关配置
+spring:
+  profiles:
+    active: dev
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_noob_demo?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: db_noob_demo  # 你的数据库用户名
+    password: 123456  # 你的数据库密码
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  # mapper.xml 映射文件存放未知
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.noob.base.entity.model
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      # 逻辑删除配置
+#      logic-delete-field: deleted  # 更通用的字段名
+#      logic-delete-value: 1
+#      logic-not-delete-value: 0
+
+# log 配置
+logging:
+  level:
+    root: info
+    com.noob.base: debug # com.noob.base 目录下为debug级别
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
