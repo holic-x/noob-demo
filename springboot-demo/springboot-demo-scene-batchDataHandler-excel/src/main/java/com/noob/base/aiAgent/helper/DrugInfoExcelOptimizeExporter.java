@@ -1,5 +1,6 @@
 package com.noob.base.aiAgent.helper;
 
+
 import com.noob.base.aiAgent.drugInfoCrawl.entity.dto.DrugInfoDTO;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
@@ -10,14 +11,15 @@ import org.springframework.util.CollectionUtils;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * 将DrugInfo列表导出为Excel的工具类
- * - 使用SXSSFWorkbook处理，适合大数据量导出
- * - 默认导出实体所有字段，根据实体属性定义排序
+ * 按需导出：自定义导出（根据指定列名按需导出）
+ * - 基于DrugInfoExcelExporter优化，可根据自定义字段属性决定导出列（基于字段属性定义顺序控制列的导出顺序和显隐）
  */
-public class DrugInfoExcelExporter {
+public class DrugInfoExcelOptimizeExporter {
 
     private static final Logger logger = LoggerFactory.getLogger(DrugInfoExcelExporter.class);
 
@@ -28,60 +30,80 @@ public class DrugInfoExcelExporter {
     private static final String DEFAULT_SHEET_NAME = "药品信息表";
 
     /**
-     * 将DrugInfo列表转换为SXSSFWorkbook
+     * 将DrugInfo列表转换为SXSSFWorkbook（导出全部字段）
      *
      * @param drugInfoDTOList 药品信息列表
      * @return SXSSFWorkbook对象
      */
-    public static SXSSFWorkbook exportToExcel(List<DrugInfoDTO> drugInfoDTOList) {
-        return exportToExcel(drugInfoDTOList, DEFAULT_SHEET_NAME);
+    public static SXSSFWorkbook exportToExcelWithAllFields(List<DrugInfoDTO> drugInfoDTOList) {
+        return exportToExcelWithAllFieldsAndSheetName(drugInfoDTOList, DEFAULT_SHEET_NAME);
     }
 
     /**
-     * 将DrugInfo列表转换为SXSSFWorkbook（指定工作表名称）
+     * 将DrugInfo列表转换为SXSSFWorkbook（导出全部字段，指定工作表名称）
      *
      * @param drugInfoDTOList 药品信息列表
      * @param sheetName       工作表名称
      * @return SXSSFWorkbook对象
      */
-    public static SXSSFWorkbook exportToExcel(List<DrugInfoDTO> drugInfoDTOList, String sheetName) {
-        // 开始时间
+    public static SXSSFWorkbook exportToExcelWithAllFieldsAndSheetName(List<DrugInfoDTO> drugInfoDTOList, String sheetName) {
+        List<Field> fields = getDrugInfoFields();
+        return exportToExcel(drugInfoDTOList, fields, sheetName);
+    }
+
+    /**
+     * 将DrugInfo列表转换为SXSSFWorkbook（自定义导出字段）
+     *
+     * @param drugInfoDTOList 药品信息列表
+     * @param fieldNames      需要导出的字段名列表
+     * @return SXSSFWorkbook对象
+     */
+    public static SXSSFWorkbook exportToExcelWithFieldNames(List<DrugInfoDTO> drugInfoDTOList, List<String> fieldNames) {
+        return exportToExcelWithFieldNamesAndSheetName(drugInfoDTOList, fieldNames, DEFAULT_SHEET_NAME);
+    }
+
+    /**
+     * 将DrugInfo列表转换为SXSSFWorkbook（自定义导出字段，指定工作表名称）
+     *
+     * @param drugInfoDTOList 药品信息列表
+     * @param fieldNames      需要导出的字段名列表
+     * @param sheetName       工作表名称
+     * @return SXSSFWorkbook对象
+     */
+    public static SXSSFWorkbook exportToExcelWithFieldNamesAndSheetName(List<DrugInfoDTO> drugInfoDTOList, List<String> fieldNames, String sheetName) {
+        List<Field> fields = getDrugInfoFields(fieldNames);
+        return exportToExcel(drugInfoDTOList, fields, sheetName);
+    }
+
+    /**
+     * 核心导出方法（根据字段列表导出）
+     */
+    protected static SXSSFWorkbook exportToExcel(List<DrugInfoDTO> drugInfoDTOList, List<Field> fields, String sheetName) {
         Long startTime = System.currentTimeMillis();
 
-        // 创建SXSSFWorkbook，设置临时行缓存
         SXSSFWorkbook workbook = new SXSSFWorkbook(TEMP_ROW_ACCESS_WINDOW);
-        // 禁用临时文件压缩以提高性能
         workbook.setCompressTempFiles(false);
 
-        // 创建工作表
         SXSSFSheet sheet = workbook.createSheet(sheetName);
 
-        // 关键修复：跟踪所有需要自动调整的列
-        // 先获取所有字段，确定需要跟踪的列数
-        List<Field> fields = getDrugInfoFields();
         for (int i = 0; i < fields.size(); i++) {
             sheet.trackColumnForAutoSizing(i);
         }
 
-        // 创建单元格样式
         CellStyle headerStyle = createHeaderStyle(workbook);
         CellStyle contentStyle = createContentStyle(workbook);
 
-        // 创建表头
         createHeaderRow(sheet, fields, headerStyle);
-
-        // 填充数据行
         fillDataRows(sheet, drugInfoDTOList, fields, contentStyle);
-
-        // 自动调整列宽
         adjustColumnWidths(sheet, fields.size());
 
-        // 结束时间
         Long endTime = System.currentTimeMillis();
 
-        logger.info(String.format("【exportToExcel】执行耗时【%s】毫秒，共处理【%s】条记录", (endTime - startTime), CollectionUtils.isEmpty(drugInfoDTOList) ? 0 : drugInfoDTOList.size()));
+        logger.info(String.format("【exportToExcel】执行耗时【%s】毫秒，共处理【%s】条记录，导出字段【%s】",
+                (endTime - startTime),
+                CollectionUtils.isEmpty(drugInfoDTOList) ? 0 : drugInfoDTOList.size(),
+                fields.size()));
 
-        // 返回结果
         return workbook;
     }
 
@@ -91,11 +113,9 @@ public class DrugInfoExcelExporter {
      * @return 字段列表
      */
     private static List<Field> getDrugInfoFields() {
-        List<Field> fields = new ArrayList<>();
-        // 获取DrugInfo类的所有声明字段
         Field[] declaredFields = DrugInfoDTO.class.getDeclaredFields();
+        List<Field> fields = new ArrayList<>();
         for (Field field : declaredFields) {
-            // 设置可访问私有字段
             field.setAccessible(true);
             fields.add(field);
         }
@@ -103,20 +123,39 @@ public class DrugInfoExcelExporter {
     }
 
     /**
-     * 创建表头行
+     * 根据字段名获取DrugInfo类的部分字段
      *
-     * @param sheet       工作表
-     * @param fields      字段列表
-     * @param headerStyle 表头样式
+     * @param fieldNames 字段名列表
+     * @return 字段列表
+     */
+    private static List<Field> getDrugInfoFields(List<String> fieldNames) {
+        Map<String, Field> allFieldMap = new HashMap<>();
+        for (Field field : DrugInfoDTO.class.getDeclaredFields()) {
+            field.setAccessible(true);
+            allFieldMap.put(field.getName(), field);
+        }
+        List<Field> result = new ArrayList<>();
+        if (fieldNames != null) {
+            for (String name : fieldNames) {
+                Field field = allFieldMap.get(name);
+                if (field != null) {
+                    result.add(field);
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 创建表头行
      */
     private static void createHeaderRow(SXSSFSheet sheet, List<Field> fields, CellStyle headerStyle) {
         Row headerRow = sheet.createRow(0);
-        headerRow.setHeightInPoints(22); // 表头行高
+        headerRow.setHeightInPoints(22);
 
         for (int i = 0; i < fields.size(); i++) {
             Field field = fields.get(i);
             Cell cell = headerRow.createCell(i);
-            // 设置表头名称（使用字段名，可根据需要改为中文名称）
             cell.setCellValue(getFieldDisplayName(field.getName()));
             cell.setCellStyle(headerStyle);
         }
@@ -124,31 +163,25 @@ public class DrugInfoExcelExporter {
 
     /**
      * 填充数据行
-     *
-     * @param sheet           工作表
-     * @param drugInfoDTOList 药品信息列表
-     * @param fields          字段列表
-     * @param contentStyle    内容样式
      */
     protected static void fillDataRows(SXSSFSheet sheet, List<DrugInfoDTO> drugInfoDTOList, List<Field> fields, CellStyle contentStyle) {
         if (drugInfoDTOList == null || drugInfoDTOList.isEmpty()) {
             return;
         }
 
-        int rowIndex = 1; // 从第二行开始（第一行为表头）
+        int rowIndex = 1;
         for (DrugInfoDTO drugInfoDTO : drugInfoDTOList) {
             Row dataRow = sheet.createRow(rowIndex++);
-            dataRow.setHeightInPoints(18); // 数据行高
+            dataRow.setHeightInPoints(18);
 
             for (int i = 0; i < fields.size(); i++) {
                 Field field = fields.get(i);
                 Cell cell = dataRow.createCell(i);
                 try {
-                    // 获取字段值并设置到单元格
                     Object value = field.get(drugInfoDTO);
                     cell.setCellValue(value != null ? value.toString() : "");
                 } catch (Exception e) {
-                    cell.setCellValue(""); // 发生异常时设置为空
+                    cell.setCellValue("");
                 }
                 cell.setCellStyle(contentStyle);
             }
@@ -157,20 +190,14 @@ public class DrugInfoExcelExporter {
 
     /**
      * 自动调整列宽
-     *
-     * @param sheet       工作表
-     * @param columnCount 列数
      */
     protected static void adjustColumnWidths(SXSSFSheet sheet, int columnCount) {
         for (int i = 0; i < columnCount; i++) {
             try {
-                // 自动调整列宽，预留一定空间
                 sheet.autoSizeColumn(i, true);
                 int currentWidth = sheet.getColumnWidth(i);
-                // 限制最大宽度，防止过宽
                 sheet.setColumnWidth(i, Math.min(currentWidth + 2048, 65535));
             } catch (Exception e) {
-                // 记录异常但不中断整个流程
                 System.err.println("调整列宽时发生异常，列索引: " + i + ", 异常信息: " + e.getMessage());
             }
         }
@@ -178,73 +205,44 @@ public class DrugInfoExcelExporter {
 
     /**
      * 创建表头样式
-     *
-     * @param workbook 工作簿
-     * @return 表头单元格样式
      */
-    private static CellStyle createHeaderStyle(Workbook workbook) {
+    protected static CellStyle createHeaderStyle(Workbook workbook) {
         CellStyle style = workbook.createCellStyle();
-
-        // 设置背景色
         style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-
-        // 设置边框
         setCellBorders(style);
-
-        // 设置字体
         Font font = workbook.createFont();
         font.setBold(true);
         font.setFontHeightInPoints((short) 11);
         style.setFont(font);
-
-        // 设置对齐方式
         style.setAlignment(HorizontalAlignment.CENTER);
         style.setVerticalAlignment(VerticalAlignment.CENTER);
-
-        // 自动换行
         style.setWrapText(true);
-
         return style;
     }
 
     /**
      * 创建内容单元格样式
-     *
-     * @param workbook 工作簿
-     * @return 内容单元格样式
      */
-    private static CellStyle createContentStyle(Workbook workbook) {
+    protected static CellStyle createContentStyle(Workbook workbook) {
         CellStyle style = workbook.createCellStyle();
-
-        // 设置边框
         setCellBorders(style);
-
-        // 设置字体
         Font font = workbook.createFont();
         font.setFontHeightInPoints((short) 10);
         style.setFont(font);
-
-        // 设置对齐方式
         style.setVerticalAlignment(VerticalAlignment.CENTER);
-
-        // 自动换行
         style.setWrapText(true);
-
         return style;
     }
 
     /**
      * 为单元格样式设置边框
-     *
-     * @param style 单元格样式
      */
-    private static void setCellBorders(CellStyle style) {
+    protected static void setCellBorders(CellStyle style) {
         style.setBorderTop(BorderStyle.THIN);
         style.setBorderBottom(BorderStyle.THIN);
         style.setBorderLeft(BorderStyle.THIN);
         style.setBorderRight(BorderStyle.THIN);
-
         style.setTopBorderColor(IndexedColors.GREY_50_PERCENT.getIndex());
         style.setBottomBorderColor(IndexedColors.GREY_50_PERCENT.getIndex());
         style.setLeftBorderColor(IndexedColors.GREY_50_PERCENT.getIndex());
@@ -253,13 +251,11 @@ public class DrugInfoExcelExporter {
 
     /**
      * 将字段名转换为中文显示名（构建 字段名 & 中文显示名映射，用作表头列名）
-     *
-     * @param fieldName 字段名
-     * @return 中文显示名
      */
     protected static String getFieldDisplayName(String fieldName) {
-        // 映射字段名到中文显示名
         switch (fieldName) {
+            case "itemStatus":
+                return "条目处理状态";
             case "approveWord":
                 return "批准文号";
             case "prdtName":
@@ -291,54 +287,7 @@ public class DrugInfoExcelExporter {
             case "note":
                 return "药品本位码备注";
             default:
-                return fieldName; // 无限定映射返回字段名
+                return fieldName;
         }
     }
-
-    /**
-     * 示例用法
-     */
-    /*
-    public static void main(String[] args) {
-        // 模拟数据
-        List<DrugInfoVO> drugList = new ArrayList<>();
-
-        DrugInfoVO drug1 = new DrugInfoVO();
-        drug1.setApproveNum("国药准字H20230001");
-        drug1.setPrdtName("测试药品1");
-        drug1.setEnName("Test Drug 1");
-        drug1.setCommodityName("商品名1");
-        drug1.setDosageForm("片剂");
-        drug1.setSize("0.5g");
-        drugList.add(drug1);
-
-        DrugInfoVO drug2 = new DrugInfoVO();
-        drug2.setApproveNum("国药准字H20230002");
-        drug2.setPrdtName("测试药品2");
-        drug2.setEnName("Test Drug 2");
-        drug2.setCommodityName("商品名2");
-        drug2.setDosageForm("注射剂");
-        drug2.setSize("10ml");
-        drugList.add(drug2);
-
-        // 导出为Excel
-        SXSSFWorkbook workbook = DrugInfoExcelExporter.exportToExcel(drugList);
-
-        String fileName = "药品信息表_" + System.currentTimeMillis() + ".xlsx";
-
-        // 保存到文件
-        try (java.io.FileOutputStream fos = new java.io.FileOutputStream(fileName)) {
-            workbook.write(fos);
-            System.out.println(String.format("Excel文件生成成功！文件名称【%s】", fileName));
-        } catch (Exception e) {
-            System.err.println("生成Excel失败：" + e.getMessage());
-            e.printStackTrace();
-        } finally {
-            // 清理临时文件
-            workbook.dispose();
-        }
-    }
-
-     */
 }
-

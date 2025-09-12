@@ -48,6 +48,7 @@ public class DrugInfoGenerator {
         for (int i = 0; i < count; i++) {
             DrugInfoDTO drug = new DrugInfoDTO();
             // 生成模拟数据
+            drug.setItemStatus("SUCCESS");
             drug.setApproveNum("国药准字H2023" + String.format("%04d", i + 1));
             drug.setPrdtName("测试药品" + (i + 1));
             drug.setEnName("Test Drug " + (i + 1));

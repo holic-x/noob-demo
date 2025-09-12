@@ -1,13 +1,12 @@
-package aiAgent.drugInfoCrawl;
+package com.noob.base.aiAgent.helper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.noob.base.aiAgent.drugInfoCrawl.entity.dto.DrugInfoDTO;
-import com.noob.base.aiAgent.helper.DrugInfoExcelExporter;
+import com.noob.base.aiAgent.helper.DrugInfoExcelOptimizeExporter;
 import com.noob.base.aiAgent.helper.DrugInfoGenerator;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.internal.runners.JUnit4ClassRunner;
 import org.junit.runner.RunWith;
@@ -16,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
@@ -23,20 +23,24 @@ import static org.junit.Assert.assertTrue;
 // @Ignore
 @Slf4j
 @RunWith(JUnit4ClassRunner.class)
-public class DrugInfoExcelExporterBigBatchTest {
+public class DrugInfoExcelOptimizeExporterCustomTest {
 
     @Test
     public void test_exportExcel_random() throws IOException {
         // 1.指定测试数据条数并导出
-        int count = 10000;
+        int count = 10;
         String testPath = "D:\\dev-daily\\drugCrawl";
 
         // 2.模拟生成测试数据
         List<DrugInfoDTO> drugInfoDTOList = DrugInfoGenerator.generateDrugList(count);
 
         // 3.excel数据处理
-        SXSSFWorkbook workbook = DrugInfoExcelExporter.exportToExcel(drugInfoDTOList);
-        String fileName = testPath + File.separator + "大数据量测试_药品信息表_" + System.currentTimeMillis() + ".xlsx";
+//        List<String> fieldNames = Arrays.asList("approveWord", "prdtName", "enName", "itemStatus");
+
+        // 根据字段定义顺序决定数据导出
+        List<String> fieldNames = Arrays.asList("enName", "approveWord", "prdtName", "itemStatus");
+        SXSSFWorkbook workbook = DrugInfoExcelOptimizeExporter.exportToExcelWithFieldNames(drugInfoDTOList, fieldNames);
+        String fileName = testPath + File.separator + "自定义导出字段_药品信息表_" + System.currentTimeMillis() + ".xlsx";
 
         // 4.保存到文件
         long saveStartTime = System.currentTimeMillis();

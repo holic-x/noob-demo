@@ -16,6 +16,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class DrugInfoDTO {
 
+    // 条目处理状态
+    private String itemStatus;
+
     // 批准文号
     private String approveWord;
 

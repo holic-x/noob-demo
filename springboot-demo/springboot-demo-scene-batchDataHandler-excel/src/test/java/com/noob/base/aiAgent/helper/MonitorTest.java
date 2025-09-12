@@ -1,4 +1,4 @@
-package aiAgent.drugInfoCrawl;
+package com.noob.base.aiAgent.helper;
 
 import com.noob.base.aiAgent.drugInfoCrawl.entity.dto.DrugInfoDTO;
 import com.noob.base.aiAgent.helper.DrugInfoGenerator;
