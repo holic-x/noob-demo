@@ -1,7 +1,7 @@
 package com.noob.algorithm.daily.plan03.hot100_template.day10.p030;
 
 /**
- * 🟡 718 最长重复子数组（连续）
+ * 🟡 718 最长重复子数组（连续）- https://leetcode.cn/problems/maximum-length-of-repeated-subarray/
  */
 public class Solution718_01 {
     /**

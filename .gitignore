@@ -1,367 +1,407 @@
-/springboot-demo-parent/.idea
-/springboot-demo-aop/mvnw
-/springboot-demo-aop/mvnw.cmd
-/springboot-demo-aop/springboot-demo-aop.iml
-/springboot-demo-aop/.idea
-/springboot-demo-aop/.mvn
-/springboot-demo-aop/target
-/design-demo/design-builder-01/target
-/design-demo/design-builder-01/design-builder-01.iml
-/design-demo/design-builder-01/.idea
-/design-demo/design-factory-01/design-factory-01.iml
-/design-demo/design-factory-01/.idea
-/design-demo/design-factory-01/target
-/design-demo/design-parent/target
-/design-demo/design-parent/.idea
-/design-demo/design-singleton-01/design-singleton-01.iml
-/design-demo/design-singleton-01/.idea
-/design-demo/design-singleton-01/target
-/springboot-demo/springboot-demo-aop/mvnw
-/springboot-demo/springboot-demo-aop/mvnw.cmd
-/springboot-demo/springboot-demo-aop/springboot-demo-aop.iml
-/springboot-demo/springboot-demo-aop/.idea
-/springboot-demo/springboot-demo-aop/.mvn
-/springboot-demo/springboot-demo-aop/target
-/springboot-demo/springboot-demo-parent/.idea
-/gui-demo/ATMSim/out
-/gui-demo/ATMSim/ATMSim.iml
-/gui-demo/ATMSim/.idea
-/gui-demo/VoteManagerSystem/out
-/gui-demo/VoteManagerSystem/VoteManagerSystem.iml
-/gui-demo/VoteManagerSystem/.idea
-/java-demo/SimpleDemo/out
-/java-demo/SimpleDemo/SimpleDemo.iml
-/java-demo/SimpleDemo/.idea
-/springboot-demo/springboot-demo-mail/mvnw
-/springboot-demo/springboot-demo-mail/mvnw.cmd
-/springboot-demo/springboot-demo-mail/springboot-demo-mail.iml
-/springboot-demo/springboot-demo-mail/.idea
-/springboot-demo/springboot-demo-mail/.mvn
-/springboot-demo/springboot-demo-mail/target
-/gui-demo/JFreeChartDemo/out
-/gui-demo/JFreeChartDemo/JFreeChartDemo.iml
-/gui-demo/JFreeChartDemo/.idea
-/gui-demo/SuperMarketManager/.idea
-/gui-demo/SuperMarketManager/bin
-/gui-demo/SuperMarketManager/out
-/gui-demo/SuperMarketManager/SuperMarketManager.iml
-/java-demo/JavaBase/out
-/java-demo/JavaBase/JavaBase.iml
-/java-demo/JavaBase/.idea
-/java-demo/JavaWeb_Extend/out
-/java-demo/JavaWeb/out
-/java-demo/JavaWeb/JavaWeb.iml
-/java-demo/JavaWeb/.idea
-/mybatis-demo/MyBatis_Base/target
-/maven-demo/Hello/Hello.iml
-/maven-demo/Hello/.idea
-/maven-demo/Hello/target
-/maven-demo/HelloFriend/target
-/maven-demo/HelloFriend/HelloFriend.iml
-/maven-demo/HelloFriend/.idea
-/maven-demo/MakeFriend/MakeFriend.iml
-/maven-demo/MakeFriend/.idea
-/maven-demo/MakeFriend/target
-/maven-demo/Parent/Parent.iml
-/maven-demo/Parent/.idea
-/mybatis-demo/MyBatis_Mapper/target
-/mybatis-demo/MyBatis_Mapper/MyBatis_Mapper.iml
-/mybatis-demo/MyBatis_Mapper/.idea
-/mybatis-demo/MyBatis_Base/MyBatis_Base.iml
-/mybatis-demo/MyBatis_Base/.idea
-/mybatis-demo/GeneratorMapConfig/GeneratorMapConfig.iml
-/mybatis-demo/GeneratorMapConfig/.idea
-/workspace/clion-repo/DongmenDB/.idea
-/gui-demo/LibrarySystem/.project
-/gui-demo/LibrarySystem/LibrarySystem.iml
-/gui-demo/LibrarySystem/.idea
-/gui-demo/LibrarySystem/.settings
-/gui-demo/LibrarySystem/bin
-/gui-demo/LibrarySystem/.classpath
-/flowable-demo/sbf-demo/mvnw.cmd
-/flowable-demo/sbf-demo/.mvn
-/flowable-demo/sbf-demo/mvnw
-/java-demo/JavaReflection/.idea
-/java-demo/JavaReflection/JavaReflection.iml
-/java-demo/JavaReflection/target
-/java-demo/JavaArithmetic/.idea
-/java-demo/JavaArithmetic/target
-/java-demo/DailyDemo/.idea
-/java-demo/DailyDemo/target
-/java-demo/HelloWorld/.idea
-/java-demo/HelloWorld/Module01/Module01.iml
-/java-demo/HelloWorld/HelloWorld.iml
-/java-demo/SpringCloudBase/.idea
-/java-demo/SpringCloudBase/target
-/java-demo/JavaVersionBase/.idea
-/java-demo/JavaVersionBase/target
-/maven-demo/maven-nexus-01/.idea
-/maven-demo/maven-nexus-01/target
-/maven-demo/maven-module-A/.idea
-/maven-demo/maven-module-parent/.idea
-/maven-demo/maven-import/.idea
-/spring-demo/SpringIOC/target
-/spring-demo/SpringIOC/SpringIOC.iml
-/spring-demo/SpringIOC/.idea
-/springboot-demo/springboot_helloworld/hello.log
-/springboot-demo/springboot_helloworld/springboot_helloworld.iml
-/springboot-demo/springboot_helloworld/.idea
-/springboot-demo/springboot_helloworld/target
-/springboot-demo/springboot-mybatis-plus/springboot-mybatis-plus.iml
-/design-demo/design-observer-01/.idea
-/design-demo/design-observer-01/target
-/springboot-demo/springboot-demo-redis/.idea
-/springboot-demo/springboot-demo-redis/target
-/springboot-demo/springboot-demo-redis-base/.idea
-/springboot-demo/springboot-demo-redis-base/target
 
 
-/springboot-demo/springboot-demo-template-simple/.idea
-/springboot-demo/springboot-demo-template-simple/target
+/**/.idea
+/**/target
+/**/out
+
+/**/*.iml
+/**/application-dev.yml 
+# application-dev.yml 本地开发配置
+
+
+
+
+# /springboot-demo-parent/.idea
+# /springboot-demo-aop/mvnw
+# /springboot-demo-aop/mvnw.cmd
+# /springboot-demo-aop/springboot-demo-aop.iml
+# /springboot-demo-aop/.idea
+# /springboot-demo-aop/.mvn
+# /springboot-demo-aop/target
+# /design-demo/design-builder-01/target
+# /design-demo/design-builder-01/design-builder-01.iml
+# /design-demo/design-builder-01/.idea
+# /design-demo/design-factory-01/design-factory-01.iml
+# /design-demo/design-factory-01/.idea
+# /design-demo/design-factory-01/target
+# /design-demo/design-parent/target
+# /design-demo/design-parent/.idea
+# /design-demo/design-singleton-01/design-singleton-01.iml
+# /design-demo/design-singleton-01/.idea
+# /design-demo/design-singleton-01/target
+# /springboot-demo/springboot-demo-aop/mvnw
+# /springboot-demo/springboot-demo-aop/mvnw.cmd
+# /springboot-demo/springboot-demo-aop/springboot-demo-aop.iml
+# /springboot-demo/springboot-demo-aop/.idea
+# /springboot-demo/springboot-demo-aop/.mvn
+# /springboot-demo/springboot-demo-aop/target
+# /springboot-demo/springboot-demo-parent/.idea
+# /gui-demo/ATMSim/out
+# /gui-demo/ATMSim/ATMSim.iml
+# /gui-demo/ATMSim/.idea
+# /gui-demo/VoteManagerSystem/out
+# /gui-demo/VoteManagerSystem/VoteManagerSystem.iml
+# /gui-demo/VoteManagerSystem/.idea
+# /java-demo/SimpleDemo/out
+# /java-demo/SimpleDemo/SimpleDemo.iml
+# /java-demo/SimpleDemo/.idea
+# /springboot-demo/springboot-demo-mail/mvnw
+# /springboot-demo/springboot-demo-mail/mvnw.cmd
+# /springboot-demo/springboot-demo-mail/springboot-demo-mail.iml
+# /springboot-demo/springboot-demo-mail/.idea
+# /springboot-demo/springboot-demo-mail/.mvn
+# /springboot-demo/springboot-demo-mail/target
+# /gui-demo/JFreeChartDemo/out
+# /gui-demo/JFreeChartDemo/JFreeChartDemo.iml
+# /gui-demo/JFreeChartDemo/.idea
+# /gui-demo/SuperMarketManager/.idea
+# /gui-demo/SuperMarketManager/bin
+# /gui-demo/SuperMarketManager/out
+# /gui-demo/SuperMarketManager/SuperMarketManager.iml
+# /java-demo/JavaBase/out
+# /java-demo/JavaBase/JavaBase.iml
+# /java-demo/JavaBase/.idea
+# /java-demo/JavaWeb_Extend/out
+# /java-demo/JavaWeb/out
+# /java-demo/JavaWeb/JavaWeb.iml
+# /java-demo/JavaWeb/.idea
+# /mybatis-demo/MyBatis_Base/target
+# /maven-demo/Hello/Hello.iml
+# /maven-demo/Hello/.idea
+# /maven-demo/Hello/target
+# /maven-demo/HelloFriend/target
+# /maven-demo/HelloFriend/HelloFriend.iml
+# /maven-demo/HelloFriend/.idea
+# /maven-demo/MakeFriend/MakeFriend.iml
+# /maven-demo/MakeFriend/.idea
+# /maven-demo/MakeFriend/target
+# /maven-demo/Parent/Parent.iml
+# /maven-demo/Parent/.idea
+# /mybatis-demo/MyBatis_Mapper/target
+# /mybatis-demo/MyBatis_Mapper/MyBatis_Mapper.iml
+# /mybatis-demo/MyBatis_Mapper/.idea
+# /mybatis-demo/MyBatis_Base/MyBatis_Base.iml
+# /mybatis-demo/MyBatis_Base/.idea
+# /mybatis-demo/GeneratorMapConfig/GeneratorMapConfig.iml
+# /mybatis-demo/GeneratorMapConfig/.idea
+# /workspace/clion-repo/DongmenDB/.idea
+# /gui-demo/LibrarySystem/.project
+# /gui-demo/LibrarySystem/LibrarySystem.iml
+# /gui-demo/LibrarySystem/.idea
+# /gui-demo/LibrarySystem/.settings
+# /gui-demo/LibrarySystem/bin
+# /gui-demo/LibrarySystem/.classpath
+# /flowable-demo/sbf-demo/mvnw.cmd
+# /flowable-demo/sbf-demo/.mvn
+# /flowable-demo/sbf-demo/mvnw
+# /java-demo/JavaReflection/.idea
+# /java-demo/JavaReflection/JavaReflection.iml
+# /java-demo/JavaReflection/target
+# /java-demo/JavaArithmetic/.idea
+# /java-demo/JavaArithmetic/target
+# /java-demo/DailyDemo/.idea
+# /java-demo/DailyDemo/target
+# /java-demo/HelloWorld/.idea
+# /java-demo/HelloWorld/Module01/Module01.iml
+# /java-demo/HelloWorld/HelloWorld.iml
+# /java-demo/SpringCloudBase/.idea
+# /java-demo/SpringCloudBase/target
+# /java-demo/JavaVersionBase/.idea
+# /java-demo/JavaVersionBase/target
+# /maven-demo/maven-nexus-01/.idea
+# /maven-demo/maven-nexus-01/target
+# /maven-demo/maven-module-A/.idea
+# /maven-demo/maven-module-parent/.idea
+# /maven-demo/maven-import/.idea
+# /spring-demo/SpringIOC/target
+# /spring-demo/SpringIOC/SpringIOC.iml
+# /spring-demo/SpringIOC/.idea
+# /springboot-demo/springboot_helloworld/hello.log
+# /springboot-demo/springboot_helloworld/springboot_helloworld.iml
+# /springboot-demo/springboot_helloworld/.idea
+# /springboot-demo/springboot_helloworld/target
+# /springboot-demo/springboot-mybatis-plus/springboot-mybatis-plus.iml
+# /design-demo/design-observer-01/.idea
+# /design-demo/design-observer-01/target
+# /springboot-demo/springboot-demo-redis/.idea
+# /springboot-demo/springboot-demo-redis/target
+# /springboot-demo/springboot-demo-redis-base/.idea
+# /springboot-demo/springboot-demo-redis-base/target
 
 
-/springboot-demo/springboot-demo-redisson/.idea
-/springboot-demo/springboot-demo-redisson/target
-/springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml
-/springboot-demo/springboot-demo-alipay/src/main/resources/application-dev.yml
-/springboot-demo/springboot-demo-watermark/.idea
-/springboot-demo/springboot-demo-watermark/target
+# /springboot-demo/springboot-demo-template-simple/.idea
+# /springboot-demo/springboot-demo-template-simple/target
 
-/springboot-demo/springboot-ureport/.idea
-/springboot-demo/springboot-ureport/target
 
-/springboot-demo/springboot-demo-batchHandler/.idea
-/springboot-demo/springboot-demo-batchHandler/target
+# /springboot-demo/springboot-demo-redisson/.idea
+# /springboot-demo/springboot-demo-redisson/target
+# /springboot-demo/springboot-demo-redisson/springboot-demo-redisson.iml
+# /springboot-demo/springboot-demo-alipay/src/main/resources/application-dev.yml
+# /springboot-demo/springboot-demo-watermark/.idea
+# /springboot-demo/springboot-demo-watermark/target
 
+# /springboot-demo/springboot-ureport/.idea
+# /springboot-demo/springboot-ureport/target
 
-/springboot-demo/springboot-demo-jpa/.idea
-/springboot-demo/springboot-demo-jpa/target
-/springboot-demo/springboot-demo-mybatis/.idea
-/springboot-demo/springboot-demo-mybatis/target
-/springboot-demo/springboot-demo-mybatisPlus/.idea
-/springboot-demo/springboot-demo-mybatisPlus/target
+# /springboot-demo/springboot-demo-batchHandler/.idea
+# /springboot-demo/springboot-demo-batchHandler/target
 
 
-/springboot-demo/springboot-demo-gracefulShutdown/.idea
-/springboot-demo/springboot-demo-gracefulShutdown/target
+# /springboot-demo/springboot-demo-jpa/.idea
+# /springboot-demo/springboot-demo-jpa/target
+# /springboot-demo/springboot-demo-mybatis/.idea
+# /springboot-demo/springboot-demo-mybatis/target
+# /springboot-demo/springboot-demo-mybatisPlus/.idea
+# /springboot-demo/springboot-demo-mybatisPlus/target
 
-/springboot-demo/springboot-demo-multiTenant/.idea
-/springboot-demo/springboot-demo-multiTenant/target
 
+# /springboot-demo/springboot-demo-gracefulShutdown/.idea
+# /springboot-demo/springboot-demo-gracefulShutdown/target
 
+# /springboot-demo/springboot-demo-multiTenant/.idea
+# /springboot-demo/springboot-demo-multiTenant/target
 
-/springboot-demo/springboot-demo-multithreadBatchHandle/.idea
-/springboot-demo/springboot-demo-multithreadBatchHandle/target
 
 
-/springboot-demo/springboot-demo-devTemplate/.idea
-/springboot-demo/springboot-demo-devTemplate/target
+# /springboot-demo/springboot-demo-multithreadBatchHandle/.idea
+# /springboot-demo/springboot-demo-multithreadBatchHandle/target
 
-/springboot-demo/springboot-demo-scanQRCode/.idea
-/springboot-demo/springboot-demo-scanQRCode/target
 
+# /springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-h2-jpa/.idea
+# /springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-h2-jpa/target
 
-/springboot-demo/springboot-demo-scene-batchDataHandler/.idea
-/springboot-demo/springboot-demo-scene-batchDataHandler/target
 
-/springboot-demo/springboot-demo-scene-fileConverter/.idea
-/springboot-demo/springboot-demo-scene-fileConverter/target
+# /springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-mysql-mybatisplus/.idea
+# /springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-mysql-mybatisplus/target
+# /springboot-demo/dev-template/jdk8&springboot2.0x/springboot-demo-devTemplate-mysql-mybatisplus/src/main/resources/application-dev.yml
 
-/springboot-demo/springboot-demo-scene-sorter/.idea
-/springboot-demo/springboot-demo-scene-sorter/target
 
+# /springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate/.idea
+# /springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate/target
 
-/springboot-demo/springboot-demo-scene-polymorphismJSON/.idea
-/springboot-demo/springboot-demo-scene-polymorphismJSON/target
+# /springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate-h2-jpa/.idea
+# /springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate-h2-jpa/target
 
+# /springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate-h2-mybatisplus/.idea
+# /springboot-demo/dev-template/jdk17&springboot3.0x/springboot-demo-devTemplate-h2-mybatisplus/target
 
 
-/springboot-demo/springboot-demo-systemLog/.idea
-/springboot-demo/springboot-demo-systemLog/target
 
-/springboot-demo/springboot-demo-treeMenu/.idea
-/springboot-demo/springboot-demo-treeMenu/target
+# /springboot-demo/springboot-demo-scanQRCode/.idea
+# /springboot-demo/springboot-demo-scanQRCode/target
 
-/springboot-demo/springboot-demo-readWriteSplit/.idea
-/springboot-demo/springboot-demo-readWriteSplit/target
+# /springboot-demo/springboot-demo-spi/.idea
+# /springboot-demo/springboot-demo-spi/target
 
-/springboot-demo/springboot-demo-timeScheduler/.idea
-/springboot-demo/springboot-demo-timeScheduler/target
 
 
-/springboot-demo/springboot-demo-idempotence/.idea
-/springboot-demo/springboot-demo-idempotence/target
+# /springboot-demo/springboot-demo-scene-batchDataHandler/.idea
+# /springboot-demo/springboot-demo-scene-batchDataHandler/target
 
-/springboot-demo/springboot-demo-dataMasking/.idea
-/springboot-demo/springboot-demo-dataMasking/target
+# /springboot-demo/springboot-demo-scene-batchDataHandler-excel/.idea
+# /springboot-demo/springboot-demo-scene-batchDataHandler-excel/target
 
-/springboot-demo/springboot-demo-enc_dec/.idea
-/springboot-demo/springboot-demo-enc_dec/target
+# /springboot-demo/springboot-demo-scene-batchDataHandler-easyExcel/.idea
+# /springboot-demo/springboot-demo-scene-batchDataHandler-easyExcel/target
 
-/springboot-demo/springboot-demo-encryptAndDecrypt/target
-/springboot-demo/springboot-demo-encryptAndDecrypt/.idea
+# /springboot-demo/springboot-demo-scene-fileConverter/.idea
+# /springboot-demo/springboot-demo-scene-fileConverter/target
 
+# /springboot-demo/springboot-demo-scene-sorter/.idea
+# /springboot-demo/springboot-demo-scene-sorter/target
 
 
-/springboot-demo/springboot-demo-sharding01/.idea
-/springboot-demo/springboot-demo-sharding01/target
+# /springboot-demo/springboot-demo-scene-polymorphismJSON/.idea
+# /springboot-demo/springboot-demo-scene-polymorphismJSON/target
 
-/springboot-demo/springboot-demo-sharding02/.idea
-/springboot-demo/springboot-demo-sharding02/target
 
-/springboot-demo/springboot-ureport/.idea
-/springboot-demo/springboot-ureport/target
 
-/java-demo/JavaBaseDemo/.idea
-/java-demo/JavaBaseDemo/target
+# /springboot-demo/springboot-demo-systemLog/.idea
+# /springboot-demo/springboot-demo-systemLog/target
 
-/java-demo/QuartzDemo/.idea
-/java-demo/QuartzDemo/target
+# /springboot-demo/springboot-demo-treeMenu/.idea
+# /springboot-demo/springboot-demo-treeMenu/target
 
+# /springboot-demo/springboot-demo-readWriteSplit/.idea
+# /springboot-demo/springboot-demo-readWriteSplit/target
 
-/redis-demo/springboot-redis-distribute-lock/.idea
-/redis-demo/springboot-redis-distribute-lock/target
+# /springboot-demo/springboot-demo-timeScheduler/.idea
+# /springboot-demo/springboot-demo-timeScheduler/target
 
-/rebirth/base/JavaBase/.idea
-/rebirth/base/JavaBase/target
-/rebirth/base/spi-base/.idea
-/rebirth/base/spi-base/target
-/rebirth/base/OomDemo/target
-/rebirth/base/OomDemo/.idea
 
+# /springboot-demo/springboot-demo-idempotence/.idea
+# /springboot-demo/springboot-demo-idempotence/target
 
-/rebirth/base/DeadLockDemo/.idea
-/rebirth/base/DeadLockDemo/target
-/rebirth/base/DeadLockDemo/DeadLockDemo.iml
+# /springboot-demo/springboot-demo-dataMasking/.idea
+# /springboot-demo/springboot-demo-dataMasking/target
 
+# /springboot-demo/springboot-demo-enc_dec/.idea
+# /springboot-demo/springboot-demo-enc_dec/target
 
+# /springboot-demo/springboot-demo-encryptAndDecrypt/target
+# /springboot-demo/springboot-demo-encryptAndDecrypt/.idea
 
-/rebirth/framework/spring-demo/target
-/rebirth/framework/spring-demo/.idea
-/rebirth/framework/springboot-transaction/target
-/rebirth/framework/springboot-transaction/.idea
-/rebirth/framework/springboot-mybatis-multiDatasource/target
-/rebirth/framework/springboot-mybatis-multiDatasource/.idea
 
-/rebirth/framework/springboot-retry-demo/target
-/rebirth/framework/springboot-retry-demo/.idea
 
-/rebirth/framework/springboot-exception-demo/target
-/rebirth/framework/springboot-exception-demo/.idea
+# /springboot-demo/springboot-demo-sharding01/.idea
+# /springboot-demo/springboot-demo-sharding01/target
 
-/rebirth/framework/springboot-validator-demo/target
-/rebirth/framework/springboot-validator-demo/.idea
+# /springboot-demo/springboot-demo-sharding02/.idea
+# /springboot-demo/springboot-demo-sharding02/target
 
-/rebirth/framework/springboot-base-demo/target
-/rebirth/framework/springboot-base-demo/.idea
+# /springboot-demo/springboot-ureport/.idea
+# /springboot-demo/springboot-ureport/target
 
-/rebirth/framework/springboot-starter-demo/springboot-starter-demoModule/target
-/rebirth/framework/springboot-starter-demo/springboot-starter-demoModule/.idea
+# /java-demo/JavaBaseDemo/.idea
+# /java-demo/JavaBaseDemo/target
 
-/rebirth/framework/springboot-starter-demo/springboot-starter-test/target
-/rebirth/framework/springboot-starter-demo/springboot-starter-test/.idea
+# /java-demo/QuartzDemo/.idea
+# /java-demo/QuartzDemo/target
 
 
-/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-autoconfigure/target
-/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-autoconfigure/.idea
+# /redis-demo/springboot-redis-distribute-lock/.idea
+# /redis-demo/springboot-redis-distribute-lock/target
 
-/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-starter/target
-/rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-starter/.idea
+# /rebirth/base/JavaBase/.idea
+# /rebirth/base/JavaBase/target
+# /rebirth/base/spi-base/.idea
+# /rebirth/base/spi-base/target
+# /rebirth/base/OomDemo/target
+# /rebirth/base/OomDemo/.idea
 
-/rebirth/framework/springboot-starter-redis-demo/springboot-starter-test/target
-/rebirth/framework/springboot-starter-redis-demo/springboot-starter-test/.idea
 
+# /rebirth/base/DeadLockDemo/.idea
+# /rebirth/base/DeadLockDemo/target
+# /rebirth/base/DeadLockDemo/DeadLockDemo.iml
 
-/rebirth/framework/springboot-spi-demo/target
-/rebirth/framework/springboot-spi-demo/.idea
 
 
+# /rebirth/framework/spring-demo/target
+# /rebirth/framework/spring-demo/.idea
+# /rebirth/framework/springboot-transaction/target
+# /rebirth/framework/springboot-transaction/.idea
+# /rebirth/framework/springboot-mybatis-multiDatasource/target
+# /rebirth/framework/springboot-mybatis-multiDatasource/.idea
 
-/rebirth/framework/springmvc-demo/target
-/rebirth/framework/springmvc-demo/.idea
+# /rebirth/framework/springboot-retry-demo/target
+# /rebirth/framework/springboot-retry-demo/.idea
 
+# /rebirth/framework/springboot-exception-demo/target
+# /rebirth/framework/springboot-exception-demo/.idea
 
-/rebirth/framework/spring-mybatis-demo/target
-/rebirth/framework/spring-mybatis-demo/.idea
+# /rebirth/framework/springboot-validator-demo/target
+# /rebirth/framework/springboot-validator-demo/.idea
 
+# /rebirth/framework/springboot-base-demo/target
+# /rebirth/framework/springboot-base-demo/.idea
 
-/springboot-demo/springboot-demo-test/.idea
-/springboot-demo/springboot-demo-test/target
+# /rebirth/framework/springboot-starter-demo/springboot-starter-demoModule/target
+# /rebirth/framework/springboot-starter-demo/springboot-starter-demoModule/.idea
 
-/springboot-demo/springboot-demo-test-optimize/.idea
-/springboot-demo/springboot-demo-test-optimize/target
+# /rebirth/framework/springboot-starter-demo/springboot-starter-test/target
+# /rebirth/framework/springboot-starter-demo/springboot-starter-test/.idea
 
-/springboot-demo/springboot-demo-upload/.idea
-/springboot-demo/springboot-demo-upload/target
-/springboot-demo/springboot-demo-upload/springboot-demo-upload.iml
 
+# /rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-autoconfigure/target
+# /rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-autoconfigure/.idea
 
-/springboot-demo/springboot-demo-excelHandle/.idea
-/springboot-demo/springboot-demo-excelHandle/target
+# /rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-starter/target
+# /rebirth/framework/springboot-starter-redis-demo/redis-spring-boot-starter/.idea
 
+# /rebirth/framework/springboot-starter-redis-demo/springboot-starter-test/target
+# /rebirth/framework/springboot-starter-redis-demo/springboot-starter-test/.idea
 
 
-rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml
-springboot-demo/springboot-demo-batchHandler/src/main/resources/application-remote.yml
-springboot-demo/springboot-demo-redis-base/src/main/resources/application-dev.yml
-springboot-demo/springboot-demo-test/src/main/resources/application-dev.yml
-redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local.yml
+# /rebirth/framework/springboot-spi-demo/target
+# /rebirth/framework/springboot-spi-demo/.idea
 
-/springboot-demo/springboot-demo-druid/target
-/springboot-demo/springboot-demo-druid/.idea
 
-/springboot-demo/springboot-demo-dynamicDatasource/target
-/springboot-demo/springboot-demo-dynamicDatasource/.idea
 
+# /rebirth/framework/springmvc-demo/target
+# /rebirth/framework/springmvc-demo/.idea
 
-/data-structure/algorithm-demo/.idea
-/data-structure/algorithm-demo/algorithm-demo.iml
-/data-structure/algorithm-demo/out
 
+# /rebirth/framework/spring-mybatis-demo/target
+# /rebirth/framework/spring-mybatis-demo/.idea
 
 
-/springboot-demo/springboot-demo-scheduleTask/target
-/springboot-demo/springboot-demo-scheduleTask/.idea
+# /springboot-demo/springboot-demo-test/.idea
+# /springboot-demo/springboot-demo-test/target
 
-/rebirth/base/JavaMultiThread/.idea
-/rebirth/base/JavaMultiThread/target
-/design-demo/design-decorator-01/.idea
-/design-demo/design-decorator-01/target
-/design-demo/design-register-01/.idea
-/design-demo/design-register-01/target
-/design-demo/design-adapter-01/.idea
-/design-demo/design-adapter-01/target
-/design-demo/design-bridge-01/.idea
-/design-demo/design-bridge-01/target
-/design-demo/design-proxy-01/.idea
-/design-demo/design-proxy-01/target
-/design-demo/design-strategy-01/.idea
-/design-demo/design-strategy-01/target
-/design-demo/design-template-01/.idea
-/design-demo/design-template-01/target
-/design-demo/design-chain-01/.idea
-/design-demo/design-chain-01/target
-/design-demo/design-status-01/.idea
-/design-demo/design-status-01/target
-/rebirth/base/KeepJava/out
-/rebirth/base/KeepJava/.idea
-/rebirth/base/KeepJava/KeepJava.iml
+# /springboot-demo/springboot-demo-test-optimize/.idea
+# /springboot-demo/springboot-demo-test-optimize/target
 
+# /springboot-demo/springboot-demo-upload/.idea
+# /springboot-demo/springboot-demo-upload/target
+# /springboot-demo/springboot-demo-upload/springboot-demo-upload.iml
 
-/dubbo-demo/zookeeper-curator-demo/.idea
-/dubbo-demo/zookeeper-curator-demo/target
-/dubbo-demo/dubbo-base-demo/.idea
-/dubbo-demo/dubbo-base-demo/target
-/dubbo-demo/rpc-simple-demo/.idea
-/dubbo-demo/rpc-simple-demo/target
 
+# /springboot-demo/springboot-demo-excelHandle/.idea
+# /springboot-demo/springboot-demo-excelHandle/target
 
 
-/system-design-demo/MyLimiter/.idea
-/system-design-demo/MyLimiter/target
 
+# rebirth/framework/springboot-mybatis-multiDatasource/src/main/resources/application-dev.yml
+# springboot-demo/springboot-demo-batchHandler/src/main/resources/application-remote.yml
+# springboot-demo/springboot-demo-redis-base/src/main/resources/application-dev.yml
+# springboot-demo/springboot-demo-test/src/main/resources/application-dev.yml
+# redis-demo/springboot-redis-distribute-lock/src/main/resources/application-local.yml
 
-/system-design-demo/TokenCheck/.idea
-/system-design-demo/TokenCheck/target
-/system-design-demo/TokenCheck/src/main/resources/application-dev.yml
-rebirth/base/KeepJava/KeepJava.iml
+# /springboot-demo/springboot-demo-druid/target
+# /springboot-demo/springboot-demo-druid/.idea
+
+# /springboot-demo/springboot-demo-dynamicDatasource/target
+# /springboot-demo/springboot-demo-dynamicDatasource/.idea
+
+
+# /data-structure/algorithm-demo/.idea
+# /data-structure/algorithm-demo/algorithm-demo.iml
+# /data-structure/algorithm-demo/out
+
+
+
+# /springboot-demo/springboot-demo-scheduleTask/target
+# /springboot-demo/springboot-demo-scheduleTask/.idea
+
+# /rebirth/base/JavaMultiThread/.idea
+# /rebirth/base/JavaMultiThread/target
+# /design-demo/design-decorator-01/.idea
+# /design-demo/design-decorator-01/target
+# /design-demo/design-register-01/.idea
+# /design-demo/design-register-01/target
+# /design-demo/design-adapter-01/.idea
+# /design-demo/design-adapter-01/target
+# /design-demo/design-bridge-01/.idea
+# /design-demo/design-bridge-01/target
+# /design-demo/design-proxy-01/.idea
+# /design-demo/design-proxy-01/target
+# /design-demo/design-strategy-01/.idea
+# /design-demo/design-strategy-01/target
+# /design-demo/design-template-01/.idea
+# /design-demo/design-template-01/target
+# /design-demo/design-chain-01/.idea
+# /design-demo/design-chain-01/target
+# /design-demo/design-status-01/.idea
+# /design-demo/design-status-01/target
+# /rebirth/base/KeepJava/out
+# /rebirth/base/KeepJava/.idea
+# /rebirth/base/KeepJava/KeepJava.iml
+
+
+# /dubbo-demo/zookeeper-curator-demo/.idea
+# /dubbo-demo/zookeeper-curator-demo/target
+# /dubbo-demo/dubbo-base-demo/.idea
+# /dubbo-demo/dubbo-base-demo/target
+# /dubbo-demo/rpc-simple-demo/.idea
+# /dubbo-demo/rpc-simple-demo/target
+
+
+
+# /system-design-demo/MyLimiter/.idea
+# /system-design-demo/MyLimiter/target
+
+
+# /system-design-demo/TokenCheck/.idea
+# /system-design-demo/TokenCheck/target
+# /system-design-demo/TokenCheck/src/main/resources/application-dev.yml
+# rebirth/base/KeepJava/KeepJava.iml

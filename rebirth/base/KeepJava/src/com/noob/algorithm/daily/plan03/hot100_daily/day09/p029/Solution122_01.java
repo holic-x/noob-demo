@@ -7,8 +7,19 @@ public class Solution122_01 {
 
     /**
      * 思路分析：
+     * 贪心思路：收集正利润
      */
     public int maxProfit(int[] prices) {
-        return -1;
+
+        int maxProfit = 0;
+
+        for (int i = 1; i < prices.length; i++) {
+            int curSub = prices[i] - prices[i - 1];
+            if (curSub >= 0) {
+                maxProfit += curSub;
+            }
+        }
+
+        return maxProfit;
     }
 }

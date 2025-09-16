@@ -1,7 +1,7 @@
 package com.noob.algorithm.solution_archive.dmsxl.leetcode.q518;
 
 /**
- * 518 零钱兑换
+ * 518 零钱兑换II
  */
 public class Solution3 {
     // 动态规划（二维数组版本）

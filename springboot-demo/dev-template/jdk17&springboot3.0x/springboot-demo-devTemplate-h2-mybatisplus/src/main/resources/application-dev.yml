@@ -1,0 +1,38 @@
+
+
+spring:
+  # H2 数据库配置
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db_noob_demo
+    username: sa
+    password:
+
+
+  # H2 配置
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # H2控制台访问路径
+  sql:
+    init:
+      mode: always # 设置为always表示每次启动时都会执行data.sql文件中的sql语句
+
+  # MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.noob.base.entity.model
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted  # 更通用的字段名
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# 日志配置
+#logging:
+#  level:
+#    com.example.mapper: debug
