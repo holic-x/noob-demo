@@ -15,4 +15,5 @@ logging:
     root: info
     com.noob.base: debug # com.noob.base 目录下为debug级别
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M:%L - %msg%n"
+#    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
