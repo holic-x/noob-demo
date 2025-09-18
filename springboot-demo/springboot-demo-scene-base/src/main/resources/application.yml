@@ -3,6 +3,16 @@ server:
   port: 8080
   servlet:
     context-path: /api
+  tomcat:
+    threads:
+      # 最少线程数
+      min-spare: 10
+      # 最多线程数
+      max: 20
+    # 最大连接数
+    max-connections: 30
+    # 最大等待数
+    accept-count: 10
 
 # spring相关配置
 spring:

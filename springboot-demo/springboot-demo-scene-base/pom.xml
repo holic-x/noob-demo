@@ -62,6 +62,13 @@
             <version>1.2.75</version>
         </dependency>
 
+        <!-- 用于生成配置元数据文件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional> <!-- 避免传递依赖到其他模块 -->
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
