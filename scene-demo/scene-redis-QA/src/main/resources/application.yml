@@ -1,0 +1,18 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# spring相关配置
+spring:
+  profiles:
+    active: test
+
+# log 配置
+logging:
+  level:
+    root: info
+    com.noob.base: debug # com.noob.base 目录下为debug级别
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
