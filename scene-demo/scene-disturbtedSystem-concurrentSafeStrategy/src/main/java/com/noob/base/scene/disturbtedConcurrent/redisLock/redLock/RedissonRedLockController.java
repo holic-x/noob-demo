@@ -1,6 +1,5 @@
-package com.noob.base.scene.disturbtedConcurrent;
+package com.noob.base.scene.disturbtedConcurrent.redisLock.redLock;
 
-import com.noob.base.scene.disturbtedConcurrent.redisLock.SecSkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,14 +9,14 @@ import java.util.List;
 
 /**
  * 分布式并发场景：【并发安全】处理demo
- * - 引入Redis分布式锁
+ * - 引入Redis分布式锁（基于redisson模式 实现红锁）
  */
 @RestController
-@RequestMapping("/redis")
-public class RedisLockController {
+@RequestMapping("/redissonRedLock")
+public class RedissonRedLockController {
 
     @Autowired
-    private SecSkillService secSkillService;
+    private SecSkillRedLockService secSkillRedLockService;
 
     @RequestMapping("/placeOrder")
     public void placeOrder() throws InterruptedException {
@@ -30,7 +29,7 @@ public class RedisLockController {
             int finalI = i;
             Thread t = new Thread(() -> {
                 try {
-                    secSkillService.placeOrder("飞天茅台-1", "user-" + finalI);
+                    secSkillRedLockService.placeOrder("user-" + finalI);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }

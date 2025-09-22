@@ -1,4 +1,4 @@
-package com.noob.base.scene.disturbtedConcurrent.redisLock;
+package com.noob.base.scene.disturbtedConcurrent.redisLock.redisBase;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SecSkillService {
 
-    private static int stock = 3;
+    private static int stock = 1;
 
     @Autowired
     private RedisDistributedLock redisDistributedLock;

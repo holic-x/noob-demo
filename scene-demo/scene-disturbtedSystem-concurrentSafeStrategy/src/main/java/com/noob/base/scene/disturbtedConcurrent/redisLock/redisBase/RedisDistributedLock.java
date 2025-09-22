@@ -1,4 +1,4 @@
-package com.noob.base.scene.disturbtedConcurrent.redisLock;
+package com.noob.base.scene.disturbtedConcurrent.redisLock.redisBase;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;

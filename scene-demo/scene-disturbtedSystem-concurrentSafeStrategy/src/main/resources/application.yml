@@ -7,7 +7,7 @@ server:
 # spring相关配置
 spring:
   profiles:
-    active: dev
+    active: test
 
 # log 配置
 logging:

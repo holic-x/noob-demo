@@ -68,6 +68,13 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <!-- redisson 组件依赖 -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+            <version>3.22.0</version>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
