@@ -1,4 +1,4 @@
-package com.noob.base.scene.cacheStampede;
+package com.noob.base.scene.cache.cacheStampede;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

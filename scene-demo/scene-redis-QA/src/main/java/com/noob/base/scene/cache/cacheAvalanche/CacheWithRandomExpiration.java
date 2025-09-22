@@ -1,4 +1,4 @@
-package com.noob.base.scene.cacheAvalanche;
+package com.noob.base.scene.cache.cacheAvalanche;
 
 import java.util.Map;
 import java.util.Random;

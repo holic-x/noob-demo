@@ -1,4 +1,4 @@
-package com.noob.base.scene.cachePenetration;
+package com.noob.base.scene.cache.cachePenetration;
 
 import java.util.HashSet;
 import java.util.Map;
