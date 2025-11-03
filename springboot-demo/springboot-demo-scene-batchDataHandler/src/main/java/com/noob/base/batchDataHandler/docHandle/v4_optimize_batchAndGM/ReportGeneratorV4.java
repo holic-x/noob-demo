@@ -212,7 +212,6 @@ public class ReportGeneratorV4 {
         Files.createDirectories(Paths.get(targetBatchDir)); // 确保目录存在
 
         // 3.1 顺序处理
-        /*
         int num = 1;
         for (Map.Entry<String, List<CheckResult>> entry : groupByWeb.entrySet()) {
             String webKey = entry.getKey();
@@ -224,9 +223,9 @@ public class ReportGeneratorV4 {
             // 当前批次处理完成
             num++;
         }
-         */
 
-        // 3.2 使用并行流处理每个分组
+        /*
+        // 3.2 使用并行流处理每个分组 todo 错误，使用并行流不知道为什么只生成了部分文件（例如预期是7个子文件，但实际上只有4个，待排查）
         AtomicInteger num = new AtomicInteger(1);
         groupByWeb.entrySet().parallelStream().forEach(entry -> {
             String webKey = entry.getKey();
@@ -247,6 +246,7 @@ public class ReportGeneratorV4 {
                 e.printStackTrace();
             }
         });
+         */
 
         // 4.合并分组处理数据（需确保所有线程已完成）
         DocxMerger.mergeHandler(targetBatchDir);

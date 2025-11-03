@@ -3,9 +3,17 @@
 /**/.idea
 /**/target
 /**/out
+/**/bin
+
+
+/**/.mvn
+/**/.settings
+
 
 /**/*.iml
-/**/application-dev.yml 
+/**/*.classpath
+/**/*.project
+/**/application-dev.yml
 # application-dev.yml 本地开发配置
 
 
